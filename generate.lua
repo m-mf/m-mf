@@ -231,7 +231,7 @@ local function dowork(systemfor, release)
   os.execute(cmd)
 
   -- send away to output folder
-  file.move(cwd.."/"..systemfor.." m&m.zip", cwd.."/output/"..systemfor..".m&mf.v"..version..".zip")
+  file.move(cwd.."/"..systemfor.." m&m.zip", cwd.."/output/"..systemfor..".m-mf.v"..version..".zip")
   print("All done! How good is that!")
 end
 
