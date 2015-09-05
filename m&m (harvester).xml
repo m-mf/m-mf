@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MudletPackage>
+<MudletPackage version="1.0">
+    <TriggerPackage>
+        <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+            <name>m&amp;m Harvester</name>
+            <script></script>
+            <triggerType>0</triggerType>
+            <conditonLineDelta>99</conditonLineDelta>
+            <mStayOpen>0</mStayOpen>
+            <mCommand></mCommand>
+            <packageName></packageName>
+            <mFgColor>#ff0000</mFgColor>
+            <mBgColor>#ffff00</mBgColor>
+            <mSoundFile></mSoundFile>
+            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+            <regexCodeList/>
+            <regexCodePropertyList/>
+            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                <name>Plants</name>
+                <script>mmhrv.plantsstart()</script>
+                <triggerType>0</triggerType>
+                <conditonLineDelta>0</conditonLineDelta>
+                <mStayOpen>100</mStayOpen>
+                <mCommand></mCommand>
+                <packageName></packageName>
+                <mFgColor>#ff0000</mFgColor>
+                <mBgColor>#ffff00</mBgColor>
+                <mSoundFile></mSoundFile>
+                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                <regexCodeList>
+                    <string>The following plants are growing in this room:</string>
+                </regexCodeList>
+                <regexCodePropertyList>
+                    <integer>3</integer>
+                </regexCodePropertyList>
+                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                    <name>Each plant</name>
+                    <script>mmhrv.plantsline()</script>
+                    <triggerType>0</triggerType>
+                    <conditonLineDelta>0</conditonLineDelta>
+                    <mStayOpen>0</mStayOpen>
+                    <mCommand></mCommand>
+                    <packageName></packageName>
+                    <mFgColor>#ff0000</mFgColor>
+                    <mBgColor>#ffff00</mBgColor>
+                    <mSoundFile></mSoundFile>
+                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                    <regexCodeList>
+                        <string>^.+ \((\w+)\) +(\d+) left\.$</string>
+                    </regexCodeList>
+                    <regexCodePropertyList>
+                        <integer>1</integer>
+                    </regexCodePropertyList>
+                </Trigger>
+                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                    <name>Finish</name>
+                    <script>setTriggerStayOpen(&quot;Plants&quot;, 0)
+mmhrv.plantsdone()</script>
+                    <triggerType>0</triggerType>
+                    <conditonLineDelta>0</conditonLineDelta>
+                    <mStayOpen>0</mStayOpen>
+                    <mCommand></mCommand>
+                    <packageName></packageName>
+                    <mFgColor>#ff0000</mFgColor>
+                    <mBgColor>#ffff00</mBgColor>
+                    <mSoundFile></mSoundFile>
+                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                    <regexCodeList>
+                        <string>return isPrompt()</string>
+                    </regexCodeList>
+                    <regexCodePropertyList>
+                        <integer>4</integer>
+                    </regexCodePropertyList>
+                </Trigger>
+            </Trigger>
+            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                <name>Current month</name>
+                <script>mmhrv.date()</script>
+                <triggerType>0</triggerType>
+                <conditonLineDelta>0</conditonLineDelta>
+                <mStayOpen>0</mStayOpen>
+                <mCommand></mCommand>
+                <packageName></packageName>
+                <mFgColor>#ff0000</mFgColor>
+                <mBgColor>#ffff00</mBgColor>
+                <mSoundFile></mSoundFile>
+                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                <regexCodeList>
+                    <string>^Today is the \w+ of (\w+)</string>
+                    <string>^It is now the \w+ of (\w+), (\d+) years after the Coming of Estarra\.$</string>
+                </regexCodeList>
+                <regexCodePropertyList>
+                    <integer>1</integer>
+                    <integer>1</integer>
+                </regexCodePropertyList>
+            </Trigger>
+            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                <name>Herb skills</name>
+                <script>mmhrv.herbsstart()</script>
+                <triggerType>0</triggerType>
+                <conditonLineDelta>0</conditonLineDelta>
+                <mStayOpen>100</mStayOpen>
+                <mCommand></mCommand>
+                <packageName></packageName>
+                <mFgColor>#ff0000</mFgColor>
+                <mBgColor>#ffff00</mBgColor>
+                <mSoundFile></mSoundFile>
+                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                <regexCodeList>
+                    <string>You have gained the following abilities in Herbs:</string>
+                </regexCodeList>
+                <regexCodePropertyList>
+                    <integer>3</integer>
+                </regexCodePropertyList>
+                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                    <name>Line</name>
+                    <script>mmhrv.skillline()</script>
+                    <triggerType>0</triggerType>
+                    <conditonLineDelta>0</conditonLineDelta>
+                    <mStayOpen>0</mStayOpen>
+                    <mCommand></mCommand>
+                    <packageName></packageName>
+                    <mFgColor>#ff0000</mFgColor>
+                    <mBgColor>#ffff00</mBgColor>
+                    <mSoundFile></mSoundFile>
+                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                    <regexCodeList>
+                        <string>^([A-Za-z]+)</string>
+                    </regexCodeList>
+                    <regexCodePropertyList>
+                        <integer>1</integer>
+                    </regexCodePropertyList>
+                </Trigger>
+                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                    <name>Finish</name>
+                    <script>setTriggerStayOpen(&quot;Herb skills&quot;, 0)
+mmhrv.skillsdone()</script>
+                    <triggerType>0</triggerType>
+                    <conditonLineDelta>0</conditonLineDelta>
+                    <mStayOpen>0</mStayOpen>
+                    <mCommand></mCommand>
+                    <packageName></packageName>
+                    <mFgColor>#ff0000</mFgColor>
+                    <mBgColor>#ffff00</mBgColor>
+                    <mSoundFile></mSoundFile>
+                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                    <regexCodeList>
+                        <string>return isPrompt()</string>
+                    </regexCodeList>
+                    <regexCodePropertyList>
+                        <integer>4</integer>
+                    </regexCodePropertyList>
+                </Trigger>
+            </Trigger>
+            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                <name>Harvested once</name>
+                <script>mmhrv.harvestedonce()
+
+mmhrv.deleteLineP()
+
+if harvest_gag then return end
+
+ harvest_gag = (tempExactMatchTrigger or tempTrigger)(&quot;You have recovered balance on all limbs.&quot;, [[
+	mmhrv.deleteLineP()
+	killTrigger(harvest_gag)
+	harvest_gag = nil
+]])</script>
+                <triggerType>0</triggerType>
+                <conditonLineDelta>0</conditonLineDelta>
+                <mStayOpen>0</mStayOpen>
+                <mCommand></mCommand>
+                <packageName></packageName>
+                <mFgColor>#ff0000</mFgColor>
+                <mBgColor>#ffff00</mBgColor>
+                <mSoundFile></mSoundFile>
+                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                <regexCodeList>
+                    <string>You reach down and carefully harvest</string>
+                    <string>Hmm, that wasn't the herb you thought after all. It was some rare spices!</string>
+                </regexCodeList>
+                <regexCodePropertyList>
+                    <integer>2</integer>
+                    <integer>3</integer>
+                </regexCodePropertyList>
+            </Trigger>
+            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                <name>Nature guarded</name>
+                <script>mmhrv.harvestedguard()
+</script>
+                <triggerType>0</triggerType>
+                <conditonLineDelta>0</conditonLineDelta>
+                <mStayOpen>0</mStayOpen>
+                <mCommand></mCommand>
+                <packageName></packageName>
+                <mFgColor>#ff0000</mFgColor>
+                <mBgColor>#ffff00</mBgColor>
+                <mSoundFile></mSoundFile>
+                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                <regexCodeList>
+                    <string>The plant refuses to release its bounty.</string>
+                </regexCodeList>
+                <regexCodePropertyList>
+                    <integer>3</integer>
+                </regexCodePropertyList>
+            </Trigger>
+            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                <name>Growthed</name>
+                <script>mmhrv.growthedinroom()</script>
+                <triggerType>0</triggerType>
+                <conditonLineDelta>0</conditonLineDelta>
+                <mStayOpen>0</mStayOpen>
+                <mCommand></mCommand>
+                <packageName></packageName>
+                <mFgColor>#ff0000</mFgColor>
+                <mBgColor>#ffff00</mBgColor>
+                <mSoundFile></mSoundFile>
+                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                <regexCodeList>
+                    <string>You point an athame dagger at the ground and the native plants dance and grow before your very eyes.</string>
+                    <string>Plant growth is already extended in this room.</string>
+                </regexCodeList>
+                <regexCodePropertyList>
+                    <integer>3</integer>
+                    <integer>3</integer>
+                </regexCodePropertyList>
+            </Trigger>
+        </TriggerGroup>
+    </TriggerPackage>
+    <TimerPackage/>
+    <AliasPackage>
+        <AliasGroup isActive="yes" isFolder="yes">
+            <name>m&amp;m Harvester</name>
+            <script></script>
+            <command></command>
+            <packageName></packageName>
+            <regex></regex>
+            <Alias isActive="yes" isFolder="no">
+                <name>Harvest a plant (known only)</name>
+                <script>mmhrv.start_harvesting(matches[2])</script>
+                <command></command>
+                <packageName></packageName>
+                <regex>^hrv (.+)</regex>
+            </Alias>
+            <Alias isActive="yes" isFolder="no">
+                <name>Harvest a plant (similar environments)</name>
+                <script>mmhrv.start_harvesting2(matches[2])</script>
+                <command></command>
+                <packageName></packageName>
+                <regex>^hrv2 (.+)</regex>
+            </Alias>
+            <Alias isActive="yes" isFolder="no">
+                <name>Harvest &amp; heal</name>
+                <script>if mmhrv.harvestingrooms then
+	mmhrv.harvestingrooms = false
+	mm.echof(&quot;Stopped harvesting.&quot;)
+	mmhrv.healrooms = false
+	mm.echof(&quot;Stopped healing rooms.&quot;)
+	mmhrv.finishedroom = false
+elseif mmhrv.harvestingarea then
+	mmhrv.stop_harvesting()
+else
+	mmhrv.harvestingrooms = true
+	mm.echof(&quot;Started harvesting.&quot;)
+	send(&quot;plants&quot;)
+end</script>
+                <command></command>
+                <packageName></packageName>
+                <regex>^hrs$</regex>
+            </Alias>
+        </AliasGroup>
+    </AliasPackage>
+    <ActionPackage/>
+    <ScriptPackage>
+        <ScriptGroup isActive="yes" isFolder="yes">
+            <name>m&amp;m Harvester</name>
+            <packageName></packageName>
+            <script>--Harvester
+mmhrv = mmhrv or {}
+
+-- remembers room plant data into the herb db
+mmhrv.capturing = mmhrv.capturing or false
+-- harvests everything in every room we come across
+mmhrv.harvestingrooms = mmhrv.harvestingrooms or false
+-- only harvests upon arrival into a room
+mmhrv.harvestingarea = mmhrv.harvestingarea or false
+mmhrv.healrooms = mmhrv.healrooms or false
+mmhrv.forceplants = mmhrv.forceplants or false
+mmhrv.checkedplants = mmhrv.checkedplants or false
+
+mmhrv.skills = {}
+
+mmhrv.only = {}
+
+-- translate names of plants that aren't really called what they are on 'ab herbs'
+mmhrv.skillmap = {
+	tea = &quot;rawtea&quot;
+}
+
+-- plan: if harvesting room or area, do plants, from there harvest.
+
+function mmhrv.phpTable(...) -- abuse to: http://richard.warburton.it
+  local newTable,keys,values={},{},{}
+  newTable.pairs=function(self) -- pairs iterator
+    local count=0
+    return function()
+      count=count+1
+      return keys[count],values[keys[count]]
+    end
+  end
+  setmetatable(newTable,{
+    __newindex=function(self,key,value)
+      if not self[key] then table.insert(keys,key)
+      elseif value==nil then -- Handle item delete
+        local count=1
+        while keys[count]~=key do count = count + 1 end
+        table.remove(keys,count)
+      end
+      values[key]=value -- replace/create
+    end,
+    __index=function(self,key) return values[key] end
+  })
+  for x=1,table.getn(arg) do
+    for k,v in pairs(arg[x]) do newTable[k]=v end
+  end
+  return newTable
+end
+
+function mmhrv.deepcopy(object)
+    local lookup_table = {}
+    local function _copy(object)
+        if type(object) ~= &quot;table&quot; then
+            return object
+        elseif lookup_table[object] then
+            return lookup_table[object]
+        end
+        local new_table = {}
+        lookup_table[object] = new_table
+        for index, value in pairs(object) do
+            new_table[_copy(index)] = _copy(value)
+        end
+        return setmetatable(new_table, getmetatable(object))
+    end
+    return _copy(object)
+end
+
+function mmhrv.deleteLineP()
+	deleteLine()
+	tempLineTrigger(1,1,[[
+if isPrompt() then
+	deleteLine()
+end
+]])
+end
+
+-- empty values for what are ok
+function mmhrv.splitwords(what)
+	local t = {}
+	for w in string.gmatch(what or &quot;&quot;, &quot;%w+&quot;) do
+		t[#t+1] = w
+	end
+
+	return (#t &gt; 0) and t or nil
+end</script>
+            <eventHandlerList/>
+            <Script isActive="yes" isFolder="no">
+                <name>init</name>
+                <packageName></packageName>
+                <script>function mmhrv.init()
+
+db:create(&quot;HarvestDB&quot;, {
+	rooms = {
+		num = 0,
+		brief = &quot;&quot;,
+		area = &quot;&quot;,
+		environment = &quot;&quot;,
+      arnica = 0,
+      calamus = 0,
+      chervil = 0,
+      colewort = 0,
+      coltsfoot = 0,
+      earwort = 0,
+      faeleaf = 0,
+      flax = 0,
+      galingale = 0,
+      horehound = 0,
+      juniper = 0,
+      kafe = 0,
+      kombu = 0,
+      marjoram = 0,
+      merbloom = 0,
+      mistletoe = 0,
+      myrtle = 0,
+      pennyroyal = 0,
+      rawtea = 0,
+      reishi = 0,
+      rosehips = 0,
+      sage = 0,
+      sargassum = 0,
+      sparkleberry = 0,
+      spices = 0,
+      weed = 0,
+      wormwood = 0,
+      yarrow = 0,
+
+	    _unique = {&quot;num&quot;},
+        _violations = &quot;REPLACE&quot;
+	},
+})
+
+mmhrv.db = db:get_database(&quot;HarvestDB&quot;)
+end
+
+mmhrv.init()</script>
+                <eventHandlerList/>
+            </Script>
+            <Script isActive="yes" isFolder="no">
+                <name>capture, store room data</name>
+                <packageName></packageName>
+                <script>mmhrv.plants_in_room = {}
+mmhrv.growthed = false
+
+local function reset()
+	mmhrv.plants_in_room = {
+      arnica = 0,
+      calamus = 0,
+      chervil = 0,
+      colewort = 0,
+      coltsfoot = 0,
+      earwort = 0,
+      faeleaf = 0,
+      flax = 0,
+      galingale = 0,
+      horehound = 0,
+      juniper = 0,
+      kafe = 0,
+      kombu = 0,
+      marjoram = 0,
+      merbloom = 0,
+      mistletoe = 0,
+      myrtle = 0,
+      pennyroyal = 0,
+      rawtea = 0,
+      reishi = 0,
+      rosehips = 0,
+      sage = 0,
+      sargassum = 0,
+      sparkleberry = 0,
+      spices = 0,
+      weed = 0,
+      wormwood = 0,
+      yarrow = 0}
+	mmhrv.checkedplants = false
+	mmhrv.finishedroom = false
+end
+
+function mmhrv.resetroom()
+	reset()
+	mmhrv.growthed = false
+end
+
+function mmhrv.plantsstart()
+	reset()
+	mmhrv.checkedplants = true
+end
+
+function mmhrv.plantsline()
+	mmhrv.plants_in_room[matches[2]] = tonumber(matches[3])
+end
+
+
+function mmhrv.plantsdone()
+	raiseEvent(&quot;mmhrv got plants&quot;)
+end</script>
+                <eventHandlerList/>
+                <Script isActive="yes" isFolder="no">
+                    <name>store_in_db</name>
+                    <packageName></packageName>
+                    <script>function store_in_db()
+	local s,m = pcall(function () if not mmhrv.capturing then return end
+
+	local t = {}
+	t[1] = {
+		num = mmp.currentroom,
+		brief = atcp.RoomBrief,
+		area = atcp.RoomArea,
+		environment = atcp.RoomEnvironment
+	}
+	for k,v in pairs(mmhrv.plants_in_room) do
+		t[1][k] = v
+	end
+
+
+	db:merge_unique(mmhrv.db.rooms, t) end)
+	if not s then error(m) end
+end</script>
+                    <eventHandlerList>
+                        <string>mmhrv got plants</string>
+                    </eventHandlerList>
+                </Script>
+                <Script isActive="yes" isFolder="no">
+                    <name>mmhrv_resetroom</name>
+                    <packageName></packageName>
+                    <script>local currentroom
+function mmhrv_resetroom()
+	if not gmcp.Room.Info then return end
+
+	if currentroom == gmcp.Room.Info.num then return end
+	currentroom = gmcp.Room.Info.num
+
+	mmhrv.resetroom()
+
+	if mmhrv.harvestingrooms or mmhrv.capturing then
+		send &quot;plants&quot;
+	end
+end</script>
+                    <eventHandlerList>
+                        <string>gmcp.Room</string>
+                    </eventHandlerList>
+                </Script>
+            </Script>
+            <Script isActive="yes" isFolder="no">
+                <name>harvesting</name>
+                <packageName></packageName>
+                <script>mmhrv.minamount = 5
+
+local data = {}
+local current_date
+mmhrv.no_harvest = {} -- kv table of unharvestable plants
+
+local function check_if_empty()
+	local empty = true
+	for k,v in pairs(mmhrv.plants_in_room) do
+		if v &gt; 0 then empty = false; break end
+	end
+
+	return empty
+end
+
+data.Estar = { plants = {&quot;flax&quot;, &quot;merbloom&quot;, &quot;weed&quot;, &quot;myrtle&quot;}}
+data.Urlachmar = { plants = {&quot;kafe&quot;, &quot;rawtea&quot;}}
+data.Kiani = { plants = {&quot;colewort&quot;}}
+data.Dioni = { plants = {&quot;calamus&quot;, &quot;earwort&quot;, &quot;juniper&quot;, &quot;sage&quot;, &quot;kombu&quot;}}
+data.Vestian = { plants = {&quot;horehound&quot;, &quot;wormwood&quot;}}
+data.Avechary = { plants = {&quot;mistletoe&quot;}}
+data.Dvarsh = { plants = {&quot;sparkleberry&quot;}}
+data.Tzarin = { plants = {&quot;reishi&quot;, &quot;sargassum&quot;}}
+data.Klangiary = { plants = {&quot;arnica&quot;, &quot;pennyroyal&quot;}}
+data.Juliary = { plants = {&quot;coltsfoot&quot;, &quot;faeleaf&quot;}}
+data.Shanthin = { plants = {&quot;galingale&quot;, &quot;marjoram&quot;, &quot;rosehips&quot;}}
+data.Roarkian = { plants = {&quot;chervil&quot;, &quot;yarrow&quot;}}
+
+data.Estar.p = data.Urlachmar
+data.Urlachmar.p = data.Kiani
+data.Kiani.p = data.Dioni
+data.Dioni.p = data.Vestian
+data.Vestian.p = data.Avechary
+data.Avechary.p = data.Dvarsh
+data.Dvarsh.p = data.Tzarin
+data.Tzarin.p = data.Klangiary
+data.Klangiary.p = data.Juliary
+data.Juliary.p = data.Shanthin
+data.Shanthin.p = data.Roarkian
+data.Roarkian.p = data.Estar
+
+
+function mmhrv.date()
+	current_date = matches[2]
+	local t = {}
+	for k,v in ipairs(data[current_date].plants) do
+		t[#t+1] = v
+	end
+
+	for k,v in ipairs(data[current_date].p.plants) do
+		t[#t+1] = v
+	end
+
+	echo(&quot;\n&quot;)
+	mm.echof(&quot;Can't harvest today: %s&quot;, table.concat(t, &quot;, &quot;))
+
+	mmhrv.no_harvest = {}
+	for k,v in ipairs(t) do
+		mmhrv.no_harvest[v] = true
+	end
+
+end
+
+function mmhrv.harvest_room()
+-- if we want to go blanks:
+--	tempTimer(0.02, function ()	raiseEvent(&quot;mmhrv harvested this room&quot;) end)
+--	if true then return end
+
+	if not (mmhrv.harvestingrooms or mmhrv.harvestingarea or mmhrv.healrooms) or not mmhrv.checkedplants or mmhrv.finishedroom then return end
+	for plant, amount in pairs(mmhrv.plants_in_room) do
+		--mm.echof(&quot;plant: %s, amount: %d, noharvest: %s, skills: %s&quot;, plant, amount, tostring(mmhrv.no_harvest[plant]), tostring(mmhrv.skills[plant]))
+		if amount &gt; mmhrv.minamount and not mmhrv.no_harvest[plant] and mmhrv.skills[plant] and (not mmhrv.only or not next(mmhrv.only) or table.contains(mmhrv.only, plant)) then
+			send(&quot;harvest &quot; .. plant, false)
+			mmhrv.harvestingplant = plant
+			return true
+		end
+	end
+
+	if not mmhrv.growthed and mmhrv.healrooms and not check_if_empty(mmhrv.plants_in_room) then
+		send(&quot;nature growth&quot;, false)
+		return true
+	end
+
+	tempTimer(0, function () mm.echof(&quot;Done harvesting this room.&quot;)
+	mmhrv.finishedroom = true
+	raiseEvent(&quot;mmhrv harvested this room&quot;) end)
+end
+
+function mmhrv.harvestedonce()
+	if not (mmhrv.harvestingrooms or mmhrv.harvestingarea or mmhrv.harvestingplant) then return end
+
+	mmhrv.plants_in_room[mmhrv.harvestingplant] = (mmhrv.plants_in_room[mmhrv.harvestingplant] or 1) - 1
+end
+
+function mmhrv.harvestedguard()
+	if not (mmhrv.harvestingrooms or mmhrv.harvestingarea or mmhrv.harvestingplant) then return end
+
+	-- simply set to the minamount so we don't try and harvest again
+	mmhrv.plants_in_room[mmhrv.harvestingplant] = minamount
+end
+
+function mmhrv.growthedinroom()
+	mmhrv.growthed = true
+end</script>
+                <eventHandlerList/>
+                <Script isActive="yes" isFolder="no">
+                    <name>harvest_a_room</name>
+                    <packageName></packageName>
+                    <script>function harvest_a_room()
+	if not (mmhrv.harvestingrooms or mmhrv.harvestingarea) then return end
+
+	local t = {}
+	for plant, amount in pairs(mmhrv.plants_in_room) do
+		if amount &gt; mmhrv.minamount and not mmhrv.no_harvest[plant] and mmhrv.skills[plant] and (not mmhrv.only or not next(mmhrv.only) or table.contains(mmhrv.only, plant)) then
+			t[#t+1] = string.format(&quot;%d %s&quot;, amount - mmhrv.minamount, plant)
+		end
+	end
+
+	if next(t) then
+		echo&quot;\n&quot;mm.echof(&quot;Going to harvest: %s in this room&quot;, table.concat(t, &quot;, &quot;))
+		mmhrv.harvest_room()
+	end
+end</script>
+                    <eventHandlerList>
+                        <string>mmhrv got plants</string>
+                    </eventHandlerList>
+                </Script>
+                <Script isActive="yes" isFolder="no">
+                    <name>mmhrv.add_harvest_room</name>
+                    <packageName></packageName>
+                    <script>function mmhrv.add_harvest_room()
+  mm.addbalanceful(&quot;mmhrv.harvest_room&quot;, mmhrv.harvest_room)
+end</script>
+                    <eventHandlerList>
+                        <string>m&amp;m system loaded</string>
+                    </eventHandlerList>
+                </Script>
+            </Script>
+            <Script isActive="yes" isFolder="no">
+                <name>skills</name>
+                <packageName></packageName>
+                <script>function mmhrv.skillline()
+	mmhrv.skills[mmhrv.skillmap[matches[2]:lower()] or matches[2]:lower()] = true
+end
+
+function mmhrv.herbsstart()
+	mmhrv.skills = {}
+end
+
+function mmhrv.skillsdone()
+	table.save(getMudletHomeDir() .. &quot;/m&amp;m_harvester&quot;, mmhrv.skills)
+end
+
+local s,m = pcall(table.load, getMudletHomeDir() .. &quot;/m&amp;m_harvester&quot;, mmhrv.skills)
+if not s then
+	tempTimer(10, function () send &quot;ab herbs&quot; end)
+end</script>
+                <eventHandlerList/>
+            </Script>
+        </ScriptGroup>
+    </ScriptPackage>
+    <KeyPackage/>
+    <HelpPackage>
+        <helpURL></helpURL>
+    </HelpPackage>
+</MudletPackage>

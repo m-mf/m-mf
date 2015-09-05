@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MudletPackage>
+<MudletPackage version="1.0">
+    <TriggerPackage>
+        <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+            <name>m&amp;m Obey</name>
+            <script></script>
+            <triggerType>0</triggerType>
+            <conditonLineDelta>0</conditonLineDelta>
+            <mStayOpen>0</mStayOpen>
+            <mCommand></mCommand>
+            <packageName></packageName>
+            <mFgColor>#ff0000</mFgColor>
+            <mBgColor>#ffff00</mBgColor>
+            <mSoundFile></mSoundFile>
+            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+            <regexCodeList/>
+            <regexCodePropertyList/>
+            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                <name>Mm zombie</name>
+                <script>if not mm.conf.obeylist[multimatches[3][2]] then return end
+
+local cmd = multimatches[3][3]
+
+if cmd:find(&quot;target (%w+)&quot;) then
+  target = cmd:match(&quot;target (%w+)&quot;)
+  raiseEvent(&quot;m&amp;m obey target&quot;, target)
+
+  echo&quot;\n&quot; mm.echof('Auto-targetted %s as per %s.', target, multimatches[3][2])
+end</script>
+                <triggerType>0</triggerType>
+                <conditonLineDelta>0</conditonLineDelta>
+                <mStayOpen>0</mStayOpen>
+                <mCommand></mCommand>
+                <packageName></packageName>
+                <mFgColor>#ff0000</mFgColor>
+                <mBgColor>#ffff00</mBgColor>
+                <mSoundFile></mSoundFile>
+                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                <regexCodeList>
+                    <string>(</string>
+                    <string>says</string>
+                    <string>^\(.+?\): (\w+)(?: \(from .+?\))? says, &quot;Obey - (.+)\.&quot;$</string>
+                </regexCodeList>
+                <regexCodePropertyList>
+                    <integer>2</integer>
+                    <integer>0</integer>
+                    <integer>1</integer>
+                </regexCodePropertyList>
+            </Trigger>
+        </TriggerGroup>
+    </TriggerPackage>
+    <TimerPackage/>
+    <AliasPackage>
+        <AliasGroup isActive="yes" isFolder="yes">
+            <name>m&amp;m Obey</name>
+            <script></script>
+            <command></command>
+            <packageName></packageName>
+            <regex></regex>
+            <Alias isActive="yes" isFolder="no">
+                <name>Show persons (mmshow obey)</name>
+                <script>local conf = mm.conf
+local l = (next(mm.me.lustlist) and mm.oneconcat(mm.me.lustlist) or &quot;(none)&quot;)
+mm.echof(&quot;Persons we're obeying: %s&quot;, ((conf.obeylist and #conf.obeylist &gt; 0) and table.concat(conf.obeylist) or &quot;(nobody)&quot;))</script>
+                <command></command>
+                <packageName></packageName>
+                <regex>^mmshow obey$</regex>
+            </Alias>
+        </AliasGroup>
+    </AliasPackage>
+    <ActionPackage/>
+    <ScriptPackage>
+        <ScriptGroup isActive="yes" isFolder="yes">
+            <name>m&amp;m Obey</name>
+            <packageName></packageName>
+            <script>tempTimer(0, function()
+mm.conf.obeylist = mm.conf.obeylist or {}
+mm.config.setoption(&quot;obey&quot;, {
+  type = &quot;string&quot;,
+  vconfig2string = true,
+  onshow = function (defaultcolour)
+    mm.conf.obeylist = mm.conf.obeylist or {}
+
+    fg(&quot;gold&quot;)
+    echoLink(&quot;obey: &quot;, &quot;&quot;, &quot;m&amp;m Obey&quot;, true)
+    fg(defaultcolour) echo(&quot;Obeying &quot;)
+    if table.size(mm.conf.obeylist) == 0 then
+      fg(&quot;a_cyan&quot;) echo(&quot;nobody - we're rebellious and free!&quot;)
+    else
+      local t, first = {}, true; for k,v in pairs(mm.conf.obeylist) do t[#t+1] = k end
+
+      for _, name in ipairs(t) do
+        if not first then fg(defaultcolour) echo&quot;, &quot; end; first = false
+
+        fg(&quot;a_cyan&quot;) echoLink(name, 'mm.config.set(&quot;obey&quot;, &quot;'..name..'&quot;)', 'Remove '..name..' from the obey list, and cease auto-doing their orders', true)
+      end
+      fg(defaultcolour)
+      echo&quot;.&quot;
+    end
+    echo(&quot;\n&quot;)
+
+  end,
+  onset = function ()
+    local conf = mm.conf
+    conf.obeylist = conf.obeylist or {}
+
+    if conf.obey:find(&quot;^%w+$&quot;) then
+      conf.obeylist[conf.obey:title()] = (not conf.obeylist[conf.obey:title()] and true or nil)
+    else
+      for p in string.gmatch(conf.obey, &quot;%a+&quot;) do
+        conf.obeylist[p:title()] = true
+      end
+    end
+
+    local l = ((conf.obeylist and next(conf.obeylist)) and mm.oneconcat(conf.obeylist) or &quot;(nobody)&quot;)
+    mm.echof(&quot;Okay - will now obey these people: %s.&quot;, l)
+    raiseEvent(&quot;m&amp;m config changed&quot;, &quot;obeylist&quot;)
+  end
+})
+end)</script>
+            <eventHandlerList/>
+            <Script isActive="yes" isFolder="no">
+                <name>README</name>
+                <packageName></packageName>
+                <script>--[[
+Hi! This is the Obey addon - made because admins think autocombat is okay.
+Right now, it allows you to auto-target based on a call from person(s) you'd like to obey,
+but more things are easily added to it in the trigger, and would be based on
+your feedback!
+
+To view the people you'd be obeying, check the bottom of 'mmconfig2'. You can also click on the names to remove them.
+
+To add names you'd like to obey, do mmconfig obey &lt;name&gt;, or mmconfig obey &lt;names&gt;.
+
+To remove a name, do mmconfig obey &lt;name&gt; (it's a toggle).
+
+To tell people who are obeying you to target someone, say &quot;Obey - target &lt;person&gt;&quot; on a clan.
+]]</script>
+                <eventHandlerList/>
+            </Script>
+            <Script isActive="yes" isFolder="no">
+                <name>mm_onshow</name>
+                <packageName></packageName>
+                <script>function mm_onshow()
+  local conf = mm.conf
+  local l = ((conf.obeylist and next(conf.obeylist)) and mm.oneconcat(conf.obeylist) or &quot;(nobody)&quot;)
+  mm.echof(&quot;Persons we're obeying: %s&quot;, l)
+end</script>
+                <eventHandlerList>
+                    <string>m&amp;m onshow</string>
+                </eventHandlerList>
+            </Script>
+        </ScriptGroup>
+    </ScriptPackage>
+    <KeyPackage/>
+    <HelpPackage>
+        <helpURL></helpURL>
+    </HelpPackage>
+</MudletPackage>

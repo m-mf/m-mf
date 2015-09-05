@@ -1,0 +1,97 @@
+medicine bag support
+
+plan so far:
+
+[y] mmconfig medicinebag
+
+[y] show medicinebag on mmconfig
+[y] mmconfig mdbaghealth
+
+[y] fix mm.prio.import to insert items properly
+[y] ensure that medicinebag is above healhealth by default in both sync and async
+[y] add medicinebag onto sip balance, to handle sipping only
+[y] add medicinebag to prio above health on first run
+[y] separate medicine bag levels for health (apply/sip values)
+[y] insert medicine bag to be at a higher priority than health by default
+
+disable medicinebag bag when bag runs out of charges (AI checked) and when there is no more bag when you try to rub
+
+separate medicine bag levels for wounds
+
+[?] involve balance priorities - so if bag is higher than health, and it's sipping % is lower, then it'll take effect at lower while health will be used at higher
+
+
+
+
+
+--(m&m) Configuration-----------------------------------------------------------
+  Automated healing:
+    Sipping:           Sparkle:           Scroll:            Medicinebag:
+    (85%) 4293 health  (80%) 4040 health  (80%) 4040 health  (30%) 2000 health
+    (89%) 6226 mana    (75%) 5247 mana    (60%) 4197 mana
+    (60%) 4397 ego     (70%) 5130 ego     (70%) 5130 ego
+                       o Use sparkle      x Use scroll       x Use medicinebag
+                       o Use coltsfoot
+
+  Curing status:
+
+
+STAG - MEDICINEBAG
+
+Syntax: STAGCALL MEDICINEBAG
+        TOUCH <medicinebag>
+        RUB <medicinebag> ON <LEGS|ARMS|GUT|CHEST|HEAD>
+Power: 8 (Moonhart Tree)
+The medicine bag is a powerful healing gift from White Hart. Touching it
+will heal you and it can be re-used (according to your skill in Stag) up
+to 50 times. Rubbing it against your limbs will cure some wounding
+damage.
+
+Use to heal health:
+5841h, 5400m|100%, 100e%, 10p, 100w%, 100e% ex bkr-  [Go]touch medicinebag
+You touch your medicine bag and feel your wounds close and heal.
+5841h, 5400m|100%, 100e%, 10p, 100w%, 100e% ex bkr-  [Go]
+You may use another health, mana, or bromide potion, or medicine bag.
+
+in use to heal wounds:
+(p) 5232h, 5400m|100%, 100e%, 10p, 100w%, 99e% ex bk-  [Go]rub medicinebag on chest
+You rub a medicine bag against your chest, allowing the healing properties of the
+herbs inside to soak through your flesh.
+The deep damage in your chest completely heals.
+(p) 5841h, 5300m|98%, 100e%, 10p, 99w%, 100e% ex bk-  [Go]
+You may use another health, mana, or bromide potion, or medicine bag.
+
+It healed the following number of wounds on five rubs: 964, 984, 946, 918, 966.
+
+If you spam it, or use it off sip balance (use off bal does take charges):
+touch bag
+You touch your medicine bag and feel your wounds close and heal.
+(p) 5841h, 5400m|100%, 105e%, 10p, 100w%, 9e% ex bk-  [Go]touch bag
+You touch your medicine bag but feel nothing happen.
+(p) 5841h, 5400m|100%, 105e%, 10p, 100w%, 9e% ex bk-  [Go]
+
+Using it rubbing, first line is when you have no wounds on the limb, second is when it's off balance:
+(p) 5841h, 5400m|100%, 105e%, 10p, 100w%, 9e% ex bk-  [Go]rub bag on head
+You rub yourself a bit with a medicine bag, to no effect.
+(p) 5841h, 5400m|100%, 105e%, 10p, 100w%, 11e% ex bk-  [Go]rub bag on head
+You rub yourself with a medicine bag, but the healing herbs cannot absorb into your
+skin.
+(p) 5841h, 5400m|100%, 105e%, 10p, 100w%, 11e% ex bk-  [Go]
+
+This is what the bag looks like, with the number of charges, should you want to use that:
+Made from soft leather, a medicine bag is filled with a fine blend of rare herbs,
+which give off an intoxicating fragrance. The medicine bag is covered with tiny
+coloured beads that form intricate geometric patterns, creating the abstract image of
+a stag.
+It has 4 months of usefulness left.
+Your bag can be touched 18 more times.
+It weighs about 1 pounds and 2 ounce(s).
+It bears the distinctive mark of Unblooded Walraven.
+
+You are holding:
+"bag24029"                a medicine bag
+
+And when the charges are used up:
+(p) 5841h, 5400m|100%, 105e%, 10p, 100w%, 14e% ex bk-  [Go]touch bag
+You touch your medicine bag and feel your wounds close and heal.
+Your medicine bag crumbles into dust.

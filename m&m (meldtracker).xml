@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MudletPackage>
+<MudletPackage version="1.0">
+    <TriggerPackage>
+        <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+            <name>m&amp;m Meld Tracker</name>
+            <script></script>
+            <triggerType>0</triggerType>
+            <conditonLineDelta>0</conditonLineDelta>
+            <mStayOpen>0</mStayOpen>
+            <mCommand></mCommand>
+            <packageName></packageName>
+            <mFgColor>#ff0000</mFgColor>
+            <mBgColor>#ffff00</mBgColor>
+            <mSoundFile></mSoundFile>
+            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+            <regexCodeList/>
+            <regexCodePropertyList/>
+            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                <name>Made meld/added room</name>
+                <script>if not meld.center then
+  meld.rs[gmcp.Room.Info.num] = true
+  meld.center = gmcp.Room.Info.num
+  meld.paint()
+else
+  meld.rs[gmcp.Room.Info.num] = true
+  meld.calculate_spots()
+  meld.paint()
+end</script>
+                <triggerType>0</triggerType>
+                <conditonLineDelta>0</conditonLineDelta>
+                <mStayOpen>0</mStayOpen>
+                <mCommand></mCommand>
+                <packageName></packageName>
+                <mFgColor>#ff0000</mFgColor>
+                <mBgColor>#ffff00</mBgColor>
+                <mSoundFile></mSoundFile>
+                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                <regexCodeList>
+                    <string>You crouch low and release a raucous, terrifying cry that echoes through the air about you, the shadows about you whispering names of power and binding. A terrible mauve light twists across the ground and you become one with the land.</string>
+                    <string>You bend down and trace trails in the water with your fingers. The waters sparkle with flecks of azure light and you feel this location meld into part of your spirit.</string>
+                    <string>You sweep the air with your hand, allowing your spirit to merge with the clouds around you, becoming one with the location.</string>
+                    <string>This room is already melded into your demesne.</string>
+                    <string>You clap your hands and allow yourself to merge with the burning heat around you.</string>
+                </regexCodeList>
+                <regexCodePropertyList>
+                    <integer>3</integer>
+                    <integer>3</integer>
+                    <integer>3</integer>
+                    <integer>3</integer>
+                    <integer>3</integer>
+                </regexCodePropertyList>
+            </Trigger>
+            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                <name>Broke myself</name>
+                <script>if multimatches[2][2] == mm.me.name then
+  meld.rs[gmcp.Room.Info.num] = nil
+  meld.calculate_spots()
+  meld.paint()
+end</script>
+                <triggerType>0</triggerType>
+                <conditonLineDelta>1</conditonLineDelta>
+                <mStayOpen>0</mStayOpen>
+                <mCommand></mCommand>
+                <packageName></packageName>
+                <mFgColor>#ff0000</mFgColor>
+                <mBgColor>#ffff00</mBgColor>
+                <mSoundFile></mSoundFile>
+                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                <regexCodeList>
+                    <string>You feel the magics of</string>
+                    <string>^You feel the magics of (\w+) release their grip upon this location\.$</string>
+                </regexCodeList>
+                <regexCodePropertyList>
+                    <integer>2</integer>
+                    <integer>1</integer>
+                </regexCodePropertyList>
+            </Trigger>
+            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                <name>No meld here</name>
+                <script>  meld.rs[gmcp.Room.Info.num] = nil
+  meld.calculate_spots()
+  meld.paint()</script>
+                <triggerType>0</triggerType>
+                <conditonLineDelta>0</conditonLineDelta>
+                <mStayOpen>0</mStayOpen>
+                <mCommand></mCommand>
+                <packageName></packageName>
+                <mFgColor>#ff0000</mFgColor>
+                <mBgColor>#ffff00</mBgColor>
+                <mSoundFile></mSoundFile>
+                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                <regexCodeList>
+                    <string>You do not sense any magics melded into the local environment.</string>
+                </regexCodeList>
+                <regexCodePropertyList>
+                    <integer>3</integer>
+                </regexCodePropertyList>
+            </Trigger>
+            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                <name>Dissolved meld</name>
+                <script>meld.rs = {}
+meld.center = false
+meld.ub = {}
+meld.rooms_in_circle = {}
+meld.paint()</script>
+                <triggerType>0</triggerType>
+                <conditonLineDelta>0</conditonLineDelta>
+                <mStayOpen>0</mStayOpen>
+                <mCommand></mCommand>
+                <packageName></packageName>
+                <mFgColor>#ff0000</mFgColor>
+                <mBgColor>#ffff00</mBgColor>
+                <mSoundFile></mSoundFile>
+                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                <regexCodeList>
+                    <string>You focus your will upon your demesne and allow for its release.</string>
+                    <string>You have no demesne to dissolve.</string>
+                </regexCodeList>
+                <regexCodePropertyList>
+                    <integer>3</integer>
+                    <integer>3</integer>
+                </regexCodePropertyList>
+            </Trigger>
+        </TriggerGroup>
+    </TriggerPackage>
+    <TimerPackage/>
+    <AliasPackage>
+        <AliasGroup isActive="yes" isFolder="yes">
+            <name>m&amp;m Meld Tracker</name>
+            <script></script>
+            <command></command>
+            <packageName></packageName>
+            <regex></regex>
+            <Alias isActive="yes" isFolder="no">
+                <name>Check meld status (melds)</name>
+                <script>if not next(meld.rs) then
+  mm.echof(&quot;You don't even have a meld up... make one first, silly.&quot;)
+  return
+end
+
+local f = mm.getDefaultColor()
+mm.echof(&quot;My meld:&quot;)
+decho(string.format(&quot;%s  rooms total:           %d\n&quot;, f, table.size(meld.rs)))
+decho(string.format(&quot;%s  unbreakable rooms:     %d\n&quot;, f, table.size(meld.ub)))
+decho(string.format(&quot;%s  breakable endpoints:   %d%s\n&quot;, f, table.size(meld.br),
+(function()
+  if not next(meld.br) then return &quot;&quot; end
+  local t = {}
+  for room in pairs(meld.br) do t[#t+1] = room end
+  return &quot; - &quot;..table.concat(t, &quot;, &quot;)
+end)()))
+
+decho(string.format(&quot;%s  rooms in circles:      %d%s\n&quot;, f, table.size(meld.rooms_in_circle),
+(function()
+  if not next(meld.rooms_in_circle) then return &quot;&quot; end
+  local t = {}
+  for room in pairs(meld.rooms_in_circle) do t[#t+1] = room end
+  return &quot; - &quot;..table.concat(t, &quot;, &quot;)
+end)()
+
+))</script>
+                <command></command>
+                <packageName></packageName>
+                <regex>^meld(?:s| status)$</regex>
+            </Alias>
+        </AliasGroup>
+    </AliasPackage>
+    <ActionPackage/>
+    <ScriptPackage>
+        <ScriptGroup isActive="yes" isFolder="yes">
+            <name>m&amp;m Meld Tracker</name>
+            <packageName></packageName>
+            <script></script>
+            <eventHandlerList/>
+            <Script isActive="yes" isFolder="no">
+                <name>mm_register_meld</name>
+                <packageName></packageName>
+                <script>function mm_register_meld()
+mm.conf.meldtracker = type(mm.conf.meldtracker) ~= 'nil' and mm.conf.meldtracker or true
+mm.config.setoption(&quot;meldtracker&quot;, {
+  type = &quot;boolean&quot;,
+  vconfig2string = true,
+  onshow = function (defaultcolour)
+    fg(&quot;gold&quot;)
+    echoLink(&quot;meldtracker: &quot;, &quot;&quot;, &quot;m&amp;m Meld Tracker&quot;, true)
+    fg(defaultcolour) echo(&quot;Visual plotting &quot;)
+    fg(&quot;a_cyan&quot;) echoLink(mm.conf.meldtracker and &quot;enabled&quot; or &quot;disabled&quot;, &quot;mm.config.set('meldtracker', &quot;..(mm.conf.meldtracker and 'false' or 'true')..&quot;, true)&quot;, 'Click to '..(mm.conf.meldtracker and 'disable' or 'enable')..' displaying the meld', true)
+    fg(defaultcolour) echo(&quot;.\n&quot;)
+  end,
+  onenabled = function()
+    meld.paint()
+    mm.echof(&quot;&lt;0,250,0&gt;Will%s plot your meld on the map visually.&quot;, mm.getDefaultColor())
+  end,
+  ondisabled = function()
+    mm.echof(&quot;&lt;250,0,0&gt;Won't%s plot your meld on the map visually.&quot;, mm.getDefaultColor())
+
+    for i = 1, #meld.rooms_painted do unHighlightRoom(meld.rooms_painted[i]) end
+    meld.rooms_painted = {}
+  end
+})
+
+meld = mm.meld
+end</script>
+                <eventHandlerList>
+                    <string>m&amp;m system loaded</string>
+                </eventHandlerList>
+            </Script>
+        </ScriptGroup>
+    </ScriptPackage>
+    <KeyPackage/>
+    <HelpPackage>
+        <helpURL></helpURL>
+    </HelpPackage>
+</MudletPackage>

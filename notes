@@ -1,0 +1,9 @@
+mm.locks = {}
+event for locks gained/lost
+
+optimization: not lock or (herb necessary & have herb) - for both check and eat
+
+--
+unknown pinleg from symptom:
+add unknownpinleg. when we start writhing, check against all 3, use waitingforunknwnpinleg as a failsafe.
+
