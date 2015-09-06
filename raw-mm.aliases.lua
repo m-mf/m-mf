@@ -12,12 +12,41 @@ function togglesip(what)
   local hp = dict.healhealth.sip.aspriority
   local mp = dict.healmana.sip.aspriority
   local ep = dict.healego.sip.aspriority
-  if what == nil or
-    what == "health" and hp < mp and hp < ep or
-    what == "mana" and mp < hp and mp < ep or
-    what == "ego" and ep < hp and ep < mp then
-      hp, mp, ep = ep, hp, mp
+  if what == nil then
+    -- toggles health --> mana --> ego --> health
+    hp, mp, ep = mp, ep, hp
+  else
+    local max, mid, min = 0,0,0
+    for _,v in ipairs({hp,mp,ep}) do
+      if v > max then
+        max,mid,min = v,max,mid
+      elseif v > mid then
+        mid, min = v, mid
+      else
+        min = v
+      end
+    end
+    if what == "health"  then 
+      if mp > ep then
+        hp, mp, ep = max, mid, min
+      else
+        hp, mp, ep = max, min, mid
+      end
+    elseif what == "mana" then
+      if hp > ep then
+        mp, hp, ep = max, mid, min
+      else
+        mp, hp, ep = max, min, mid
+      end
+    elseif what == "ego" then
+      if hp > mp then
+        ep, hp, mp = max, mid, min
+      else
+        ep, hp, mp = max, min, mid
+      end
+    end
   end
+
   dict.healhealth.sip.aspriority = hp
   dict.healmana.sip.aspriority = mp
   dict.healego.sip.aspriority = ep
