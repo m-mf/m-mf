@@ -14,7 +14,7 @@ function togglesip(what)
   local ep = dict.healego.sip.aspriority
   if what == nil then
     -- toggles health --> mana --> ego --> health
-    hp, mp, ep = mp, ep, hp
+    hp, mp, ep = ep, hp, mp
   else
     local max, mid, min = 0,0,0
     for _,v in ipairs({hp,mp,ep}) do
