@@ -7,17 +7,20 @@
 -- work. If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/>.
 
 function togglesip(what)
-  assert(what == nil or what == "health" or what == "mana", "mm.togglesip wants 'health' or 'mana' as an argument")
+  assert(what == nil or what == "health" or what == "mana" or what == "ego", "mm.togglesip wants 'health', 'mana' or 'ego' as an argument")
 
   local hp = dict.healhealth.sip.aspriority
   local mp = dict.healmana.sip.aspriority
+  local ep = dict.healego.sip.aspriority
   if what == nil or
-    what == "health" and hp < mp or
-    what == "mana" and mp < hp then
-      hp, mp = mp, hp
+    what == "health" and hp < mp and hp < ep or
+    what == "mana" and mp < hp and mp < ep or
+    what == "ego" and ep < hp and ep < mp then
+      hp, mp, ep = ep, hp, mp
   end
   dict.healhealth.sip.aspriority = hp
   dict.healmana.sip.aspriority = mp
+  dict.healego.sip.aspriority = ep
 
   local function getstring(name)
     if name == "healmana_sip" then return "<13,19,180>mana"
@@ -29,7 +32,7 @@ function togglesip(what)
   local prios = {}
   local links = {}
 
-  for _, j in ipairs({dict.healhealth.sip, dict.healmana.sip}) do
+  for _, j in ipairs({dict.healhealth.sip, dict.healmana.sip, dict.healego.sip}) do
     prios[j.name] = j.aspriority
     links[j.name] = j
   end
