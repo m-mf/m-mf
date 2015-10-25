@@ -988,7 +988,7 @@ Alias list
     toggles rebounding upkeep; shortcut for *mmkeep rebounding*.
 
   hh
-    shortcut alias for toggling sipping priority between health and mana. You can also use it as *hh health* or *hh mana* to set the priority.
+    shortcut alias for toggling sipping priority between health, mana and ego. You can also use it as *hh health*, *hh mana* or *hh ego* to set the priority. If you specify a vital to prioritize, it will keep the existing order between the other two vitals.
 
   cc
     announces text on a channel (pt, clt, etc.) as specified by :term:`mmconfig ccto <ccto>`. This can be useful to learn to use instead of *sqt* since then you could change ccto to report on any clan or party and still use one short and quick alias for communicating with a group in a raid.

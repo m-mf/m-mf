@@ -17983,7 +17983,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("apply liniment checkslickness", conf.commandecho)
+        send("apply liniment", conf.commandecho)
       end
     },
     aff = {
