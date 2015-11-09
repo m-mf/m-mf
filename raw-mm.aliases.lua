@@ -461,6 +461,13 @@ function ashow()
   resetFormat()
   echo"\n"
 
+  echofn("Arena mode:       ")
+  setFgColor(unpack(getDefaultColorNums))
+  setUnderline(true)
+  echoLink(conf.arena and "enabled" or "disabled", "$(sys).tntf_set('arena', "..(conf.arena and "false" or "true").. ', false); svo.ashow()', (conf.arena and "Disable" or "Enable")..' arena triggers', true)
+  resetFormat()
+  echo"\n"
+
   if conf.paused then
     echof("System is currently paused.") end
   raiseEvent("m&m onshow")
