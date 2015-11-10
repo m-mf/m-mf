@@ -1676,3 +1676,29 @@ function sk.showstatchanges()
     if conf.singleprompt then moveCursorEnd() end
   end
 end
+
+signals.newroom:connect(function ()
+  -- if not autoarena, then no need for this
+  if not conf.autoarena then return end
+
+  local t = sk.arena_areas
+
+  local area = atcp.RoomArea or gmcp.Room.Info.area
+
+  if t[area] and not conf.arena then
+    conf.arena = true
+    raiseEvent("m&m config changed", "arena")
+    prompttrigger("arena echo", function()
+      local echos = {"Arena mode enabled. Good luck!", "Beat 'em up! Arena mode enabled.", "Arena mode on.", "Arena mode enabled. Kill them all!"}
+      itf(echos[math.random(#echos)]..'\n')
+    end)
+  elseif conf.arena and not t[area] then
+    conf.arena = false
+    raiseEvent("m&m config changed", "arena`")
+    tempTimer(0, function()
+      local echos = {"Arena mode disabled."}
+      echof(echos[math.random(#echos)]..'\n')
+
+    end)
+  end
+end)

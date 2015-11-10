@@ -1094,6 +1094,12 @@ config_dict = pl.OrderedMap {
     installstart = function ()
       conf.warningtype = "all" end,
   }},
+#conf_name = "autoarena"
+  {$(conf_name) = {
+    type = "boolean",
+    onenabled = function () echof("<0,250,0>Will%s automatically enable/disable arena mode as you enter/leave the arena.", getDefaultColor()) end,
+    ondisabled = function () echof("<250,0,0>Won't%s automatically enable/disable arena mode as you enter/leave the arena..", getDefaultColor()) end,
+  }},  
 #if skills.elementalism or skills.healing then
 #conf_name = "cleansetype"
   {$(conf_name) = {
@@ -1233,6 +1239,15 @@ local tntf_tbl = {
           echof"Anti-illusion disabled." end,
     alreadyoff = function () disableTrigger "Pre-parse anti-illusion";
           echof"Anti-illusion is already disabled." end,
+  },
+  arena = {
+    on = function()
+      local echos = {"Arena mode enabled. Good luck!", "Beat 'em up! Arena mode enabled.", "Arena mode on.", "Arena mode enabled. Kill them all!"}
+            echof(echos[math.random(#echos)])
+    end,
+    alreadyon = function() echof("Arena mode is already on.") end,
+    off = function() echof("Arena mode disabled.") end,
+    alreadyoff = function() echof("Arena mode is already off.") end
   },
   keepup = {
     on = function () echof"Auto keepup on." make_gnomes_work() end,

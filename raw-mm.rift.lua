@@ -435,8 +435,11 @@ function riftate()
   local what = matches[2]
 
   if not rift.herbs_singular[what] then return end
-  rift.invcontents[rift.herbs_singular[what]] = rift.invcontents[rift.herbs_singular[what]] - 1
-  if rift.invcontents[rift.herbs_singular[what]] < 0 then rift.invcontents[rift.herbs_singular[what]] = 0 end
+
+  if not conf.arena then
+    rift.invcontents[rift.herbs_singular[what]] = rift.invcontents[rift.herbs_singular[what]] - 1
+    if rift.invcontents[rift.herbs_singular[what]] < 0 then rift.invcontents[rift.herbs_singular[what]] = 0 end
+  end
 
   rift.update_riftlabel()
   rift.checkprecache()

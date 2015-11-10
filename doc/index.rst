@@ -333,6 +333,9 @@ mmconfig options
   assumestats
     sets the % of health, mana, and ego which the system will assume you have when afflicted with blackout or recklessness (and thus your real stats are unknown).
 
+  autoarena
+  	turns on arena mode when entering an arena and turns it off upon exiting the arena 
+
   autorecharge
     specifies whenever the system should automatically recharge healing/protection scrolls after using them (make sure you have an energy cube with enough charges for this to work).
 
