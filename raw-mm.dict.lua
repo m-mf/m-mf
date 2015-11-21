@@ -9807,7 +9807,367 @@ damagedleftleg = {
       onstart = function ()
       end
     }
+  },  
+  damagedorgans = {
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.damagedorgans)
+      end,
+
+      oncompleted = function ()
+        sk.lostbal_ice()
+        removeaff("damagedorgans")
+      end,
+
+      onstart = function ()
+        send("apply ice to gut", conf.commandecho)
+      end,
+
+      noeffect = function()
+        empty.noeffect_ice_gut()
+      end,
+    },
+    aff = {
+      oncompleted = function ()
+        addaff(dict.damagedorgans)
+      end,
+    },
+    gone = {
+      oncompleted = function ()
+        removeaff("damagedorgans")
+      end,
+    },
   },
+
+  curingdamagedorgans = {
+    spriority = 0,
+    waitingfor = {
+      customwait = 6, -- real is 4
+
+      ontimeout = function()
+        removeaff("curingdamagedorgans")
+      end,
+
+      oncompleted = function ()
+        removeaff("curingdamagedorgans")
+      end,
+
+      onstart = function ()
+      end
+    }
+  }, 
+  damagedthroat = {
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.damagedthroat)
+      end,
+
+      oncompleted = function ()
+        sk.lostbal_ice()
+        removeaff("damagedthroat")
+      end,
+
+      onstart = function ()
+        send("apply ice to head", conf.commandecho)
+      end,
+
+      noeffect = function()
+        empty.noeffect_ice_head()
+      end,
+    },
+    aff = {
+      oncompleted = function ()
+        addaff(dict.damagedthroat)
+      end,
+    },
+    gone = {
+      oncompleted = function ()
+        removeaff("damagedthroat")
+      end,
+    },
+  },
+
+  curingdamagedthroat = {
+    spriority = 0,
+    waitingfor = {
+      customwait = 6, -- real is 4
+
+      ontimeout = function()
+        removeaff("curingdamagedthroat")
+      end,
+
+      oncompleted = function ()
+        removeaff("curingdamagedthroat")
+      end,
+
+      onstart = function ()
+      end
+    }
+  }, 
+  internalbleeding = {
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.internalbleeding)
+      end,
+
+      oncompleted = function ()
+        sk.lostbal_ice()
+        removeaff("internalbleeding")
+      end,
+
+      onstart = function ()
+        send("apply ice to gut", conf.commandecho)
+      end,
+
+      noeffect = function()
+        empty.noeffect_ice_gut()
+      end,
+    },
+    aff = {
+      oncompleted = function ()
+        addaff(dict.internalbleeding)
+      end,
+    },
+    gone = {
+      oncompleted = function ()
+        removeaff("internalbleeding")
+      end,
+    },
+  },
+
+  curinginternalbleeding = {
+    spriority = 0,
+    waitingfor = {
+      customwait = 6, -- real is 4
+
+      ontimeout = function()
+        removeaff("curinginternalbleeding")
+      end,
+
+      oncompleted = function ()
+        removeaff("curinginternalbleeding")
+      end,
+
+      onstart = function ()
+      end
+    }
+  }, 
+  mutilatedrightleg = {
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.mutilatedrightleg)
+      end,
+
+      oncompleted = function ()
+        sk.lostbal_ice()
+        removeaff("mutilatedrightleg")
+      end,
+
+      onstart = function ()
+        send("apply ice to rleg", conf.commandecho)
+      end,
+
+      noeffect = function()
+        empty.noeffect_ice_rleg()
+      end,
+    },
+    aff = {
+      oncompleted = function ()
+        addaff(dict.mutilatedrightleg)
+      end,
+    },
+    gone = {
+      oncompleted = function ()
+        removeaff("mutilatedrightleg")
+      end,
+    },
+  },
+
+  curingmutilatedrightleg = {
+    spriority = 0,
+    waitingfor = {
+      customwait = 6, -- real is 4
+
+      ontimeout = function()
+        removeaff("curingmutilatedrightleg")
+      end,
+
+      oncompleted = function ()
+        removeaff("curingmutilatedrightleg")
+      end,
+
+      onstart = function ()
+      end
+    }
+  }, 
+
+  mutilatedleftleg = {
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.mutilatedleftleg)
+      end,
+
+      oncompleted = function ()
+        sk.lostbal_ice()
+        removeaff("mutilatedleftleg")
+      end,
+
+      onstart = function ()
+        send("apply ice to lleg", conf.commandecho)
+      end,
+
+      noeffect = function()
+        empty.noeffect_ice_lleg()
+      end,
+    },
+    aff = {
+      oncompleted = function ()
+        addaff(dict.mutilatedleftleg)
+      end,
+    },
+    gone = {
+      oncompleted = function ()
+        removeaff("mutilatedleftleg")
+      end,
+    },
+  },
+
+  curingmutilatedleftleg = {
+    spriority = 0,
+    waitingfor = {
+      customwait = 6, -- real is 4
+
+      ontimeout = function()
+        removeaff("curingmutilatedleftleg")
+      end,
+
+      oncompleted = function ()
+        removeaff("curingmutilatedleftleg")
+      end,
+
+      onstart = function ()
+      end
+    }
+  }, 
+
+
+  mutilatedrightarm = {
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.mutilatedrightarm)
+      end,
+
+      oncompleted = function ()
+        sk.lostbal_ice()
+        removeaff("mutilatedrightarm")
+      end,
+
+      onstart = function ()
+        send("apply ice to rarm", conf.commandecho)
+      end,
+
+      noeffect = function()
+        empty.noeffect_ice_rarm()
+      end,
+    },
+    aff = {
+      oncompleted = function ()
+        addaff(dict.mutilatedrightarm)
+      end,
+    },
+    gone = {
+      oncompleted = function ()
+        removeaff("mutilatedrightarm")
+      end,
+    },
+  },
+
+  curingmutilatedrightarm = {
+    spriority = 0,
+    waitingfor = {
+      customwait = 6, -- real is 4
+
+      ontimeout = function()
+        removeaff("curingmutilatedrightarm")
+      end,
+
+      oncompleted = function ()
+        removeaff("curingmutilatedrightarm")
+      end,
+
+      onstart = function ()
+      end
+    }
+  }, 
+  mutilatedleftarm = {
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.mutilatedleftarm)
+      end,
+
+      oncompleted = function ()
+        sk.lostbal_ice()
+        removeaff("mutilatedleftarm")
+      end,
+
+      onstart = function ()
+        send("apply ice to larm", conf.commandecho)
+      end,
+
+      noeffect = function()
+        empty.noeffect_ice_larm()
+      end,
+    },
+    aff = {
+      oncompleted = function ()
+        addaff(dict.mutilatedleftarm)
+      end,
+    },
+    gone = {
+      oncompleted = function ()
+        removeaff("mutilatedleftarm")
+      end,
+    },
+  },
+
+  curingmutilatedleftarm = {
+    spriority = 0,
+    waitingfor = {
+      customwait = 6, -- real is 4
+
+      ontimeout = function()
+        removeaff("curingmutilatedleftarm")
+      end,
+
+      oncompleted = function ()
+        removeaff("curingmutilatedleftarm")
+      end,
+
+      onstart = function ()
+      end
+    }
+  }, 
   slitthroat = {
     salve = {
       aspriority = 40,
