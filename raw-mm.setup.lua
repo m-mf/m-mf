@@ -419,7 +419,7 @@ local affsp = {}
 
 local rift, pipes = {}, {}
 
-local check_focus, check_salve, check_sip, check_purgative, check_herb, check_scroll, check_sparkle, check_misc, check_balanceless_acts, check_allheale, check_balanceful_acts, check_lucidity, check_steam, check_wafer, check_ice,
+local check_focus, check_salve, check_sip, check_purgative, check_herb, check_scroll, check_sparkle, check_misc, check_balanceless_acts, check_allheale, check_balanceful_acts, check_lucidity, check_steam, check_wafer, check_ice
 
 local generics_enabled, generics_enabled_for_blackout, generics_enabled_for_passive, enable_generic_trigs, disable_generic_trigs, check_generics
 
