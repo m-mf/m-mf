@@ -243,6 +243,41 @@ codepaste.regen_head = function()
     not doingaction("curingconcussion"))
 end
 
+codepaste.ice_head = function()
+  return (not doingaction("curingdamagedskull") and
+    not doingaction("curingdamagedthroat"))
+end
+
+codepaste.ice_chest = function()
+  return (not doingaction("curingcollapsedlungs") and
+    not doingaction("curingcrushedchest"))
+end
+
+codepaste.ice_gut = function()
+  return (not doingaction("curingdamagedorgans") and
+    not doingaction("curinginternalbleeding"))
+end
+
+codepaste.ice_rightarm = function()
+  return (not doingaction("curingdamagedrightarm") and
+    not doingaction("curingmutilatedrightarm"))
+end
+
+codepaste.ice_leftarm = function()
+  return (not doingaction("curingdamagedleftarm") and
+    not doingaction("curingmutilatedleftarm"))
+end
+
+codepaste.ice_rightleg = function()
+  return (not doingaction("curingdamagedrightleg") and
+    not doingaction("curingmutilatedrightleg"))
+end
+
+codepaste.ice_leftleg = function()
+  return (not doingaction("curingdamagedleftleg") and
+    not doingaction("curingmutilatedleftleg"))
+end
+
 codepaste.can_refill = function()
   return not ((affs.hemiplegyright and affs.hemiplegyleft) or affs.paralysis)
 end
@@ -4382,6 +4417,230 @@ dict = {
       end,
     }
   },
+  damagedleftarm = {
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function()
+        return (conf.arena and affs.damagedleftarm and not affs.mutilatedleftarm)
+      end,
+
+
+      oncompleted = function ()
+        sk.lostbal_ice()
+        removeaff("damagedleftarm")
+      end,
+
+      onstart = function ()
+        send("apply ice to larm", conf.commandecho)
+      end,
+
+      -- mangled arms
+      empty = function ()
+        sk.lostbal_ice()
+      end,
+
+      noeffect = function ()
+        empty.noeffect_ice_larm()
+      end,
+    },
+    aff = {
+      oncompleted = function ()
+        addaff(dict.damagedleftarm)
+      end,
+    },
+    gone = {
+      oncompleted = function ()
+        removeaff("damagedleftarm")
+      end,
+    },
+  },
+  curingdamagedleftarm = {
+    spriority = 0,
+    waitingfor = {
+      customwait = 6, -- real is 4
+
+      ontimeout = function()
+        removeaff("damagedleftarm")
+      end,
+
+      oncompleted = function ()
+        removeaff("damagedleftarm")
+      end,
+
+      onstart = function ()
+      end
+    }
+  },
+  damagedrightarm = {
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function()
+        return (conf.arena and affs.damagedrightarm and not affs.mutilatedrightarm)
+      end,
+
+
+      oncompleted = function ()
+        sk.lostbal_ice()
+        removeaff("damagedrightarm")
+      end,
+
+      onstart = function ()
+        send("apply ice to rarm", conf.commandecho)
+      end,
+
+      -- mangled arms
+      empty = function ()
+        sk.lostbal_ice()
+      end,
+
+      noeffect = function ()
+        empty.noeffect_ice_rarm()
+      end,
+    },
+    aff = {
+      oncompleted = function ()
+        addaff(dict.damagedrightarm)
+      end,
+    },
+    gone = {
+      oncompleted = function ()
+        removeaff("damagedrightarm")
+      end,
+    },
+  },
+  curingdamagedrightarm = {
+    spriority = 0,
+    waitingfor = {
+      customwait = 6, -- real is 4
+
+      ontimeout = function()
+        removeaff("damagedrightarm")
+      end,
+
+      oncompleted = function ()
+        removeaff("damagedrightarm")
+      end,
+
+      onstart = function ()
+      end
+    }
+  },
+damagedleftleg = {
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function()
+        return (conf.arena and affs.damagedleftleg and not affs.mutilatedleftleg)
+      end,
+
+
+      oncompleted = function ()
+        sk.lostbal_ice()
+        removeaff("damagedleftleg")
+      end,
+
+      onstart = function ()
+        send("apply ice to lleg", conf.commandecho)
+      end,
+
+      -- mangled arms
+      empty = function ()
+        sk.lostbal_ice()
+      end,
+
+      noeffect = function ()
+        empty.noeffect_ice_lleg()
+      end,
+    },
+    aff = {
+      oncompleted = function ()
+        addaff(dict.damagedleftleg)
+      end,
+    },
+    gone = {
+      oncompleted = function ()
+        removeaff("damagedleftleg")
+      end,
+    },
+  },
+  curingdamagedleftleg = {
+    spriority = 0,
+    waitingfor = {
+      customwait = 6, -- real is 4
+
+      ontimeout = function()
+        removeaff("damagedleftleg")
+      end,
+
+      oncompleted = function ()
+        removeaff("damagedleftleg")
+      end,
+
+      onstart = function ()
+      end
+    }
+  },
+  damagedrightleg = {
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function()
+        return (conf.arena and affs.damagedrightleg and not affs.mutilatedrightleg)
+      end,
+
+
+      oncompleted = function ()
+        sk.lostbal_ice()
+        removeaff("damagedrightleg")
+      end,
+
+      onstart = function ()
+        send("apply ice to rleg", conf.commandecho)
+      end,
+
+      -- mangled arms
+      empty = function ()
+        sk.lostbal_ice()
+      end,
+
+      noeffect = function ()
+        empty.noeffect_ice_rleg()
+      end,
+    }
+    aff = {
+      oncompleted = function ()
+        addaff(dict.damagedrightleg)
+      end,
+    },
+    gone = {
+      oncompleted = function ()
+        removeaff("damagedrightleg")
+      end,
+    },
+  },
+  curingdamagedrightleg = {
+    spriority = 0,
+    waitingfor = {
+      customwait = 6, -- real is 4
+
+      ontimeout = function()
+        removeaff("damagedrightleg")
+      end,
+
+      oncompleted = function ()
+        removeaff("damagedrightleg")
+      end,
+
+      onstart = function ()
+      end
+    }
+  },
   brokenrightwrist = {
     salve = {
       aspriority = 57,
@@ -6125,7 +6384,7 @@ dict = {
       spriority = 128,
 
       isadvisable = function ()
-        return (affs.crushedchest and codepaste.regen_chest()
+        return (not conf.arena and affs.crushedchest and codepaste.regen_chest()
 #if skills.healing then
         and not (actions.usehealing_misc and dict.usehealing.curingaff == "crushedchest")
 #end
@@ -6147,6 +6406,29 @@ dict = {
         dict.crushedchest.salve.oncompleted()
       end
     },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.crushedchest and codepaste.ice_chest()) or false
+      end,
+
+      oncompleted = function ()
+        sk.lostbal_ice()
+
+        doaction(dict.curingcrushedchest.waitingfor)
+      end,
+
+      onstart = function ()
+        send("apply ice to chest", conf.commandecho)
+      end,
+
+      -- we get no msg from an application of this
+      empty = function ()
+        dict.crushedchest.ice.oncompleted()
+      end
+    }
     aff = {
       oncompleted = function ()
         addaff(dict.crushedchest)
@@ -6166,15 +6448,21 @@ dict = {
 
       oncompleted = function ()
         removeaff("crushedchest")
-        removeaff("paregenchest")
+        if not conf.arena then
+          removeaff("paregenchest")
+        end
         --~ addaff(dict.puncturedlung)
       end,
 
       onstart = function ()
         if not conf.aillusion then return end
-        tempTimer(3, function ()
+        if not conf.arena then
+          tempTimer(3, function ()
+            enableTrigger("m&m cure crushedchest")
+          end)
+        else
           enableTrigger("m&m cure crushedchest")
-        end)
+        end
       end
     }
   },
@@ -6239,7 +6527,7 @@ dict = {
       spriority = 108,
 
       isadvisable = function ()
-        return (affs.collapsedlungs and codepaste.regen_chest()
+        return (affs.collapsedlungs and codepaste.regen_chest() and not conf.arena
 #if skills.healing then
         and not (actions.usehealing_misc and dict.usehealing.curingaff == "collapsedlungs")
 #end
@@ -6273,6 +6561,28 @@ dict = {
         removeaff("paregenchest")
       end,
     }
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+      isadvisable = function ()
+        return (conf.arena and affs.collapsedlungs and codepaste.ice_chest()) or false
+      end,
+
+      oncompleted = function ()
+        sk.lostbal_ice()
+
+        doaction(dict.curingcollapsedlungs.waitingfor)
+      end,
+
+      onstart = function ()
+        send("apply ice to chest", conf.commandecho)
+      end,
+
+      -- we get no msg from an application of this
+      empty = function ()
+        dict.collapsedlungs.ice.oncompleted()
+      end
+    }
   },
   curingcollapsedlungs = {
     spriority = 0,
@@ -6286,15 +6596,21 @@ dict = {
 
       oncompleted = function ()
         removeaff("collapsedlungs")
-        removeaff("paregenchest")
-        addaff(dict.puncturedlung)
+        if not conf.arena then
+          removeaff("paregenchest")
+          addaff(dict.puncturedlung)
+        end
       end,
 
       onstart = function ()
         if not conf.aillusion then return end
-        tempTimer(3, function ()
+        if not conf.arena then
+          tempTimer(3, function ()
+            enableTrigger("m&m cure collapsedlungs")
+          end)
+        else
           enableTrigger("m&m cure collapsedlungs")
-        end)
+        end
       end
     }
   },
@@ -9441,6 +9757,56 @@ dict = {
       oncompleted = function ()
         removeaff("fracturedskull")
       end,
+    }
+  },
+  damagedskull = {
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.damagedskull)
+      end
+
+      oncompleted = function ()
+        sk.lostbal_ice()
+        removeaff("damagedskull")
+      end
+
+      onstart = function ()
+        send("apply ice to head", conf.commandecho)
+      end
+
+      noeffect = function()
+        empty.noeffect_ice_head()
+      end
+    },
+    aff = {
+      oncompleted = function ()
+        addaff(dict.damagedskull)
+      end
+    },
+    gone = {
+      oncompleted = function ()
+        removeaff("damagedskull")
+      end
+    }
+  },
+  curingdamagedskull = {
+    spriority = 0,
+    waitingfor = {
+      customwait = 6, -- real is 4
+
+      ontimeout = function()
+        removeaff("damagedskull")
+      end,
+
+      oncompleted = function ()
+        removeaff("damagedskull")
+      end,
+
+      onstart = function ()
+      end
     }
   },
   slitthroat = {
