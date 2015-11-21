@@ -4583,7 +4583,7 @@ damagedleftleg = {
 
       onstart = function ()
       end
-    }
+    },
   },
   damagedrightleg = {
     ice = {
@@ -4593,7 +4593,6 @@ damagedleftleg = {
       isadvisable = function()
         return (conf.arena and affs.damagedrightleg and not affs.mutilatedrightleg)
       end,
-
 
       oncompleted = function ()
         sk.lostbal_ice()
@@ -4612,7 +4611,7 @@ damagedleftleg = {
       noeffect = function ()
         empty.noeffect_ice_rleg()
       end,
-    }
+    },
     aff = {
       oncompleted = function ()
         addaff(dict.damagedrightleg)
