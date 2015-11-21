@@ -6559,7 +6559,7 @@ damagedleftleg = {
         removeaff("collapsedlungs")
         removeaff("paregenchest")
       end,
-    }
+    },
     ice = {
       aspriority = 0,
       spriority = 0,
