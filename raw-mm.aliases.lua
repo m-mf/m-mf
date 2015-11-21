@@ -458,6 +458,8 @@ function ashow()
   echoLink("steam", 'mm.printorder("steam")', 'View steam priorities', true)
   setUnderline(false) echo", " setUnderline(true)
   echoLink("wafer", 'mm.printorder("wafer")', 'View wafer priorities', true)
+  setUnderline(false) echo", " setUnderline(true)
+  echoLink("ice", 'mm.printorder("ice")', 'View ice priorities', true)
   resetFormat()
   echo"\n"
 

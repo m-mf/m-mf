@@ -180,6 +180,34 @@ empty.noeffect_mending_head = function()
   removeaff({"slitthroat", "brokenjaw", "fracturedskull"})
 end
 
+empty.noeffect_ice_head = function()
+  removeaff({"damagedhead","damagedthroat"})
+end
+
+empty.noeffect_ice_chest = function()
+  removeaff({"collapsedlungs","crushedchest"})
+end
+
+empty.noeffect_ice_gut = function()
+  removeaff({"damagedorgans","internalbleeding"})
+end
+
+empty.noeffect_ice_larm = function()
+  removeaff({"damagedleftarm","mutilatedleftarm"})
+end
+
+empty.noeffect_ice_rarm = function()
+  removeaff({"damagedrightarm","mutilatedrightarm"})
+end
+
+empty.noeffect_ice_lleg = function()
+  removeaff({"damagedleftleg","mutilatedleftleg"})
+end
+
+empty.noeffect_ice_rleg = function()
+  removeaff({"damagedrightarm","mutilatedrightleg"})
+end
+
 empty.cleanse = function()
   removeaff({"ectoplasm", "mud", "sap", "slickness", "deathmarkone", "deathmarktwo", "deathmarkthree", "deathmarkfour", "deathmarkfive", "gunk", "mucous"})
 end
