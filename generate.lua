@@ -245,5 +245,4 @@ else
   local s,m = pcall(dowork, name, release)
   if not s then print(m) end
 end
-os.execute 'pause'
 
