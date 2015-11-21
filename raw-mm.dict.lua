@@ -6427,7 +6427,7 @@ damagedleftleg = {
       empty = function ()
         dict.crushedchest.ice.oncompleted()
       end
-    }
+    },
     aff = {
       oncompleted = function ()
         addaff(dict.crushedchest)
@@ -6581,7 +6581,7 @@ damagedleftleg = {
       empty = function ()
         dict.collapsedlungs.ice.oncompleted()
       end
-    }
+    },
   },
   curingcollapsedlungs = {
     spriority = 0,
