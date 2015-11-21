@@ -9765,7 +9765,7 @@ damagedleftleg = {
 
       isadvisable = function ()
         return (conf.arena and affs.damagedskull)
-      end
+      end,
 
       oncompleted = function ()
         sk.lostbal_ice()
@@ -9783,12 +9783,12 @@ damagedleftleg = {
     aff = {
       oncompleted = function ()
         addaff(dict.damagedskull)
-      end
+      end,
     },
     gone = {
       oncompleted = function ()
         removeaff("damagedskull")
-      end
+      end,
     },
   },
   curingdamagedskull = {
