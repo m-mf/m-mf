@@ -42,7 +42,7 @@ function prio.export (name, options, echoback)
     },
     ice = {
       prewrite = "Ice cures: ",
-    }
+    },
     physical = {
       prewrite = "Balance or equilibrium actions: ",
     },
