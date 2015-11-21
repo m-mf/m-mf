@@ -9770,15 +9770,15 @@ damagedleftleg = {
       oncompleted = function ()
         sk.lostbal_ice()
         removeaff("damagedskull")
-      end
+      end,
 
       onstart = function ()
         send("apply ice to head", conf.commandecho)
-      end
+      end,
 
       noeffect = function()
         empty.noeffect_ice_head()
-      end
+      end,
     },
     aff = {
       oncompleted = function ()
@@ -9789,7 +9789,7 @@ damagedleftleg = {
       oncompleted = function ()
         removeaff("damagedskull")
       end
-    }
+    },
   },
   curingdamagedskull = {
     spriority = 0,
