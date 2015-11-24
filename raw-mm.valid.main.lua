@@ -1845,6 +1845,18 @@ function valid.salve_had_no_effect()
   lifevision.add(actions[r.name].p, "noeffect")
 end
 
+function valid.ice_had_no_effect()
+  if actions.checkslickness_misc then
+    lifevision.add(actions.checkslickness_misc.p, "onclear")
+  end
+
+  local r = findbybal("ice")
+  if not r then return end
+
+  apply_ice = true
+  lifevision.add(actions.checkslickness_misc.p, "onclear")
+end
+
 function valid.no_allheale_bal()
   local sipping = findbybal("allheale")
   if not sipping then return end
