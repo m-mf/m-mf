@@ -392,7 +392,7 @@ local wlevel = phpTable(
 local icewlevel = phpTable(
     {light = 1},
     {heavy = 7},
-    {critical = 15},
+    {critical = 15}
 )
 
 function sk.get_wound_level(amount)
