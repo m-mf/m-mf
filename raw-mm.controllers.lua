@@ -667,7 +667,18 @@ function addwounds(class, attack, where, ...)
   assert(type(where) ~= "string" or (type(where) == "string" and sk.limbnames[where]), tostring(where) .. " isn't a valid limb name.")
 
   local dmg
-  if not (wounds_data[class] and wounds_data[class][attack]) then
+  if class == "knight" and conf.arena then
+    if attack == "single_normal" then
+      dmg = 1
+    elseif attack == "single_power" then
+      dmg = 2
+    elseif attack == "double_normal" then
+      dmg = 2
+    elseif attack == "double_power" then
+      dmg = 4
+    end
+
+  elseif not (wounds_data[class] and wounds_data[class][attack]) then
     dmg = math.random(100, 300)
   elseif type(wounds_data[class][attack]) == "function" then
     dmg = wounds_data[class][attack](...)
