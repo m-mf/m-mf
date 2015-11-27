@@ -39,6 +39,11 @@
 #  return "dict." .. what .. ".wafer"
 #end
 
+
+#local function encodeice (what)
+#  return "dict." .. what .. ".ice"
+#end
+
 #local function encodem (what)
 #  return "dict." .. what .. ".misc"
 #end
@@ -1209,7 +1214,7 @@ function valid.sippedbromide()
   end
 end
 
-#for _, balance in ipairs{"herb", "scroll", "sparkle", "focus", "allheale", "tea", "sip", "salve", "purgative", "lucidity", "steam", "wafer"} do
+#for _, balance in ipairs{"herb", "scroll", "sparkle", "focus", "allheale", "tea", "sip", "salve", "purgative", "lucidity", "steam", "wafer", "ice"} do
   function valid.got$(balance)()
     checkaction(dict.gotbalance.happened, true)
     dict.gotbalance.tempmap[#dict.gotbalance.tempmap+1] = "$(balance)" -- hack to allow multiple balances at once
@@ -1722,6 +1727,23 @@ function valid.apply2()
   apply_cure = false
 end
 
+apply_ice = false
+
+function valid.applyice1()
+  apply_ice = false
+end
+
+function valid.applyice2()
+  if not apply_ice then
+    local r = findbybal("ice")
+    if not r then return end
+
+    lifevision.add(actions[r.name].p,"empty")
+  end
+
+  apply_ice = false
+end
+
 smoke_cure = false
 
 function valid.smoke1()
@@ -1821,6 +1843,18 @@ function valid.salve_had_no_effect()
 
   apply_cure = true
   lifevision.add(actions[r.name].p, "noeffect")
+end
+
+function valid.ice_had_no_effect()
+  if actions.checkslickness_misc then
+    lifevision.add(actions.checkslickness_misc.p, "onclear")
+  end
+
+  local r = findbybal("ice")
+  if not r then return end
+
+  apply_ice = true
+  lifevision.add(actions.checkslickness_misc.p, "onclear")
 end
 
 function valid.no_allheale_bal()
@@ -3576,6 +3610,36 @@ function valid.salve_cured_$(aff)()
     killaction(dict[result.action_name].salve)
     checkaction(dict.$(aff).salve, true)
     lifevision.add(dict.$(aff).salve)
+  end
+end
+
+#end
+#end
+
+-- normal salves
+#for _, ice in pairs({
+#ice  = {"collapsedlung", "crushedchest", "damagedleftarm", "damagedrightarm", "damagedleftleg", "damagedrightleg", "damagedorgans", "damagedskull","damagedthroat","internalbleeding","mutilatedleftarm"."mutilatedrightarm","mutilatedleftleg","mutilatedrightleg"},
+#local checkany_string = ""
+#local temp = {}
+
+#for _, aff in pairs(ice) do
+#temp[#temp+1] = encodeice(aff)
+#end
+#checkany_string = table.concat(temp, ", ")
+
+#for _, aff in pairs(ice) do
+function valid.ice_cured_$(aff)()
+  local result = checkany(dict.$(aff).ice, $(checkany_string))
+
+  if not result then return end
+
+  apply_ice = true
+  if result.name == "$(aff)_ice" then
+    lifevision.add(actions.$(aff)_ice.p)
+  else
+    killaction(dict[result.action_name].ice)
+    checkaction(dict.$(aff).ice, true)
+    lifevision.add(dict.$(aff).ice)
   end
 end
 

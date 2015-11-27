@@ -246,3 +246,5 @@ else
   if not s then print(m) end
 end
 
+os.execute 'pause'
+
