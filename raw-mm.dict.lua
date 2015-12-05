@@ -243,6 +243,34 @@ codepaste.regen_head = function()
     not doingaction("curingconcussion"))
 end
 
+codepaste.ice_head = function()
+  return (not doingaction(curingdamagedskull) and not doingaction(curingdamagedthroat))
+end
+
+codepaste.ice_chest = function()
+  return (not doingaction(curingcollapsedlungs) and not doingaction(curingcrushedchest))
+end
+
+codepaste.ice_gut = function()
+  return (not doingaction(curingdamagedorgans) and not doingaction(curinginternalbleeding))
+end
+
+codepaste.ice_leftarm = function()
+  return (not doingaction(curingdamagedleftarm) and not doingaction(curingmutilatedleftarm))
+end
+
+codepaste.ice_rightarm = function()
+  return (not doingaction(curingdamagedrightarm) and not doingaction(curingmutilatedrightarm))
+end
+
+codepaste.ice_leftleg = function()
+  return (not doingaction(curingdamagedleftleg) and not doingaction(curingmutilatedleftleg))
+end
+
+codepaste.ice_rightleg = function()
+  return (not doingaction(curingdamagedrightleg) and not doingaction(curingmutilatedrightleg))
+end
+
 codepaste.can_refill = function()
   return not ((affs.hemiplegyright and affs.hemiplegyleft) or affs.paralysis)
 end
@@ -12207,7 +12235,7 @@ dict = {
       spriority = 374,
 
       isadvisable = function ()
-        return (affs.criticalchest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
+        return (not conf.arena and affs.criticalchest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -12242,6 +12270,49 @@ dict = {
 
       onstart = function ()
         send("apply health to chest", conf.commandecho)
+      end
+    },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.criticalchest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("criticalchest")
+        sk.lostbal_ice()
+      end,
+
+      noeffect = function()
+        completely_healed.chest()
+        sk.lostbal_ice()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
+      end,
+
+      ninshi = function ()
+        sk.lostbal_ice()
+        if not affs.grapple then addaff(dict.grapple) end
+        if dict.grapple.ninshilimb ~= "chest" then
+          dict.grapple.ninshi = "chest" end
+      end,
+
+      completely = function ()
+        sk.lostbal_ice()
+        completely_healed.chest()
+      end,
+
+      partially = function ()
+        sk.lostbal_ice()
+        partially_healed.chest()
+      end,
+
+      onstart = function ()
+        send("apply ice to chest", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -12267,7 +12338,7 @@ dict = {
       spriority = 367,
 
       isadvisable = function ()
-        return (affs.heavychest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
+        return (not conf.arena and affs.heavychest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -12304,6 +12375,49 @@ dict = {
         send("apply health to chest", conf.commandecho)
       end
     },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.heavychest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("heavychest")
+        sk.lostbal_ice()
+      end,
+
+      noeffect = function()
+        completely_healed.chest()
+        sk.lostbal_ice()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
+      end,
+
+      ninshi = function ()
+        sk.lostbal_ice()
+        if not affs.grapple then addaff(dict.grapple) end
+        if dict.grapple.ninshilimb ~= "chest" then
+          dict.grapple.ninshi = "chest" end
+      end,
+
+      completely = function ()
+        sk.lostbal_ice()
+        completely_healed.chest()
+      end,
+
+      partially = function ()
+        sk.lostbal_ice()
+        partially_healed.chest()
+      end,
+
+      onstart = function ()
+        send("apply ice to chest", conf.commandecho)
+      end
+    },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
     aff = {
       oncompleted = function (amount)
@@ -12327,7 +12441,7 @@ dict = {
       spriority = 360,
 
       isadvisable = function ()
-        return (affs.mediumchest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
+        return (not conf.arena and affs.mediumchest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -12387,7 +12501,7 @@ dict = {
       spriority = 353,
 
       isadvisable = function ()
-        return (affs.lightchest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
+        return (not conf.arena and affs.lightchest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -12424,6 +12538,49 @@ dict = {
         send("apply health to chest", conf.commandecho)
       end
     },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.lightchest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("lightchest")
+        sk.lostbal_ice()
+      end,
+
+      noeffect = function()
+        completely_healed.chest()
+        sk.lostbal_ice()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
+      end,
+
+      ninshi = function ()
+        sk.lostbal_ice()
+        if not affs.grapple then addaff(dict.grapple) end
+        if dict.grapple.ninshilimb ~= "chest" then
+          dict.grapple.ninshi = "chest" end
+      end,
+
+      completely = function ()
+        sk.lostbal_ice()
+        completely_healed.chest()
+      end,
+
+      partially = function ()
+        sk.lostbal_ice()
+        partially_healed.chest()
+      end,
+
+      onstart = function ()
+        send("apply ice to chest", conf.commandecho)
+      end
+    },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
     aff = {
       oncompleted = function (amount)
@@ -12447,7 +12604,7 @@ dict = {
       spriority = 375,
 
       isadvisable = function ()
-        return (affs.criticalgut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
+        return (not conf.arena and affs.criticalgut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -12482,6 +12639,49 @@ dict = {
 
       onstart = function ()
         send("apply health to gut", conf.commandecho)
+      end
+    },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.criticalgut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("criticalgut")
+        sk.lostbal_ice()
+      end,
+
+      noeffect = function()
+        completely_healed.gut()
+        sk.lostbal_ice()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
+      end,
+
+      ninshi = function ()
+        sk.lostbal_ice()
+        if not affs.grapple then addaff(dict.grapple) end
+        if dict.grapple.ninshilimb ~= "gut" then
+          dict.grapple.ninshi = "gut" end
+      end,
+
+      completely = function ()
+        sk.lostbal_ice()
+        completely_healed.gut()
+      end,
+
+      partially = function ()
+        sk.lostbal_ice()
+        partially_healed.gut()
+      end,
+
+      onstart = function ()
+        send("apply ice to gut", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -12507,7 +12707,7 @@ dict = {
       spriority = 368,
 
       isadvisable = function ()
-        return (affs.heavygut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
+        return (not conf.arena and affs.heavygut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -12544,6 +12744,49 @@ dict = {
         send("apply health to gut", conf.commandecho)
       end
     },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.heavygut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("heavygut")
+        sk.lostbal_ice()
+      end,
+
+      noeffect = function()
+        completely_healed.gut()
+        sk.lostbal_ice()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
+      end,
+
+      ninshi = function ()
+        sk.lostbal_ice()
+        if not affs.grapple then addaff(dict.grapple) end
+        if dict.grapple.ninshilimb ~= "gut" then
+          dict.grapple.ninshi = "gut" end
+      end,
+
+      completely = function ()
+        sk.lostbal_ice()
+        completely_healed.gut()
+      end,
+
+      partially = function ()
+        sk.lostbal_ice()
+        partially_healed.gut()
+      end,
+
+      onstart = function ()
+        send("apply ice to gut", conf.commandecho)
+      end
+    },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
     aff = {
       oncompleted = function (amount)
@@ -12567,7 +12810,7 @@ dict = {
       spriority = 361,
 
       isadvisable = function ()
-        return (affs.mediumgut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
+        return (not conf.arena and affs.mediumgut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -12627,7 +12870,7 @@ dict = {
       spriority = 354,
 
       isadvisable = function ()
-        return (affs.lightgut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
+        return (not conf.arena and affs.lightgut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -12664,6 +12907,49 @@ dict = {
         send("apply health to gut", conf.commandecho)
       end
     },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.lightgut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("lightgut")
+        sk.lostbal_ice()
+      end,
+
+      noeffect = function()
+        completely_healed.gut()
+        sk.lostbal_ice()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
+      end,
+
+      ninshi = function ()
+        sk.lostbal_ice()
+        if not affs.grapple then addaff(dict.grapple) end
+        if dict.grapple.ninshilimb ~= "gut" then
+          dict.grapple.ninshi = "gut" end
+      end,
+
+      completely = function ()
+        sk.lostbal_ice()
+        completely_healed.gut()
+      end,
+
+      partially = function ()
+        sk.lostbal_ice()
+        partially_healed.gut()
+      end,
+
+      onstart = function ()
+        send("apply ice to gut", conf.commandecho)
+      end
+    },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
     aff = {
       oncompleted = function (amount)
@@ -12687,7 +12973,7 @@ dict = {
       spriority = 376,
 
       isadvisable = function ()
-        return (affs.criticalrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
+        return (not conf.arena and affs.criticalrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -12722,6 +13008,49 @@ dict = {
 
       onstart = function ()
         send("apply health to arms", conf.commandecho)
+      end
+    },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.criticalrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("criticalrightarm")
+        sk.lostbal_ice()
+      end,
+
+      noeffect = function()
+        completely_healed.rightarm()
+        sk.lostbal_ice()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
+      end,
+
+      ninshi = function ()
+        sk.lostbal_ice()
+        if not affs.grapple then addaff(dict.grapple) end
+        if dict.grapple.ninshilimb ~= "rightarm" then
+          dict.grapple.ninshi = "rightarm" end
+      end,
+
+      completely = function ()
+        sk.lostbal_ice()
+        completely_healed.rightarm()
+      end,
+
+      partially = function ()
+        sk.lostbal_ice()
+        partially_healed.rightarm()
+      end,
+
+      onstart = function ()
+        send("apply ice to rarm", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -12747,7 +13076,7 @@ dict = {
       spriority = 369,
 
       isadvisable = function ()
-        return (affs.heavyrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
+        return (not conf.arena and affs.heavyrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -12784,6 +13113,49 @@ dict = {
         send("apply health to arms", conf.commandecho)
       end
     },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.heavyrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("heavyrightarm")
+        sk.lostbal_ice()
+      end,
+
+      noeffect = function()
+        completely_healed.rightarm()
+        sk.lostbal_ice()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
+      end,
+
+      ninshi = function ()
+        sk.lostbal_ice()
+        if not affs.grapple then addaff(dict.grapple) end
+        if dict.grapple.ninshilimb ~= "rightarm" then
+          dict.grapple.ninshi = "rightarm" end
+      end,
+
+      completely = function ()
+        sk.lostbal_ice()
+        completely_healed.rightarm()
+      end,
+
+      partially = function ()
+        sk.lostbal_ice()
+        partially_healed.rightarm()
+      end,
+
+      onstart = function ()
+        send("apply ice to rarm", conf.commandecho)
+      end
+    },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
     aff = {
       oncompleted = function (amount)
@@ -12807,7 +13179,7 @@ dict = {
       spriority = 362,
 
       isadvisable = function ()
-        return (affs.mediumrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
+        return (not conf.arena and affs.mediumrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -12867,7 +13239,7 @@ dict = {
       spriority = 355,
 
       isadvisable = function ()
-        return (affs.lightrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
+        return (not conf.arena and affs.lightrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -12903,6 +13275,48 @@ dict = {
       onstart = function ()
         send("apply health to arms", conf.commandecho)
       end
+    },ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.lightrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("lightrightarm")
+        sk.lostbal_ice()
+      end,
+
+      noeffect = function()
+        completely_healed.rightarm()
+        sk.lostbal_ice()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
+      end,
+
+      ninshi = function ()
+        sk.lostbal_ice()
+        if not affs.grapple then addaff(dict.grapple) end
+        if dict.grapple.ninshilimb ~= "rightarm" then
+          dict.grapple.ninshi = "rightarm" end
+      end,
+
+      completely = function ()
+        sk.lostbal_ice()
+        completely_healed.rightarm()
+      end,
+
+      partially = function ()
+        sk.lostbal_ice()
+        partially_healed.rightarm()
+      end,
+
+      onstart = function ()
+        send("apply ice to rarm", conf.commandecho)
+      end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
     aff = {
@@ -12927,7 +13341,7 @@ dict = {
       spriority = 377,
 
       isadvisable = function ()
-        return (affs.criticalleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
+        return (not conf.arena and affs.criticalleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -12962,6 +13376,49 @@ dict = {
 
       onstart = function ()
         send("apply health to arms", conf.commandecho)
+      end
+    },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.criticalleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("criticalleftarm")
+        sk.lostbal_ice()
+      end,
+
+      noeffect = function()
+        completely_healed.leftarm()
+        sk.lostbal_ice()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
+      end,
+
+      ninshi = function ()
+        sk.lostbal_ice()
+        if not affs.grapple then addaff(dict.grapple) end
+        if dict.grapple.ninshilimb ~= "leftarm" then
+          dict.grapple.ninshi = "leftarm" end
+      end,
+
+      completely = function ()
+        sk.lostbal_ice()
+        completely_healed.leftarm()
+      end,
+
+      partially = function ()
+        sk.lostbal_ice()
+        partially_healed.leftarm()
+      end,
+
+      onstart = function ()
+        send("apply ice to larm", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -12987,7 +13444,7 @@ dict = {
       spriority = 370,
 
       isadvisable = function ()
-        return (affs.heavyleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
+        return (not conf.arena and affs.heavyleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13024,6 +13481,49 @@ dict = {
         send("apply health to arms", conf.commandecho)
       end
     },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.heavyleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("heavyleftarm")
+        sk.lostbal_ice()
+      end,
+
+      noeffect = function()
+        completely_healed.leftarm()
+        sk.lostbal_ice()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
+      end,
+
+      ninshi = function ()
+        sk.lostbal_ice()
+        if not affs.grapple then addaff(dict.grapple) end
+        if dict.grapple.ninshilimb ~= "leftarm" then
+          dict.grapple.ninshi = "leftarm" end
+      end,
+
+      completely = function ()
+        sk.lostbal_ice()
+        completely_healed.leftarm()
+      end,
+
+      partially = function ()
+        sk.lostbal_ice()
+        partially_healed.leftarm()
+      end,
+
+      onstart = function ()
+        send("apply ice to larm", conf.commandecho)
+      end
+    },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
     aff = {
       oncompleted = function (amount)
@@ -13047,7 +13547,7 @@ dict = {
       spriority = 363,
 
       isadvisable = function ()
-        return (affs.mediumleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
+        return (not conf.arena and affs.mediumleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13107,7 +13607,7 @@ dict = {
       spriority = 356,
 
       isadvisable = function ()
-        return (affs.lightleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
+        return (not conf.arena and affs.lightleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13143,6 +13643,48 @@ dict = {
       onstart = function ()
         send("apply health to arms", conf.commandecho)
       end
+    },ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.lightleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("lightleftarm")
+        sk.lostbal_ice()
+      end,
+
+      noeffect = function()
+        completely_healed.leftarm()
+        sk.lostbal_ice()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
+      end,
+
+      ninshi = function ()
+        sk.lostbal_ice()
+        if not affs.grapple then addaff(dict.grapple) end
+        if dict.grapple.ninshilimb ~= "leftarm" then
+          dict.grapple.ninshi = "leftarm" end
+      end,
+
+      completely = function ()
+        sk.lostbal_ice()
+        completely_healed.leftarm()
+      end,
+
+      partially = function ()
+        sk.lostbal_ice()
+        partially_healed.leftarm()
+      end,
+
+      onstart = function ()
+        send("apply ice to larm", conf.commandecho)
+      end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
     aff = {
@@ -13167,7 +13709,7 @@ dict = {
       spriority = 378,
 
       isadvisable = function ()
-        return (affs.criticalleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
+        return (not conf.arena and affs.criticalleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13202,6 +13744,49 @@ dict = {
 
       onstart = function ()
         send("apply health to legs", conf.commandecho)
+      end
+    },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.criticalleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("criticalleftleg")
+        sk.lostbal_ice()
+      end,
+
+      noeffect = function()
+        completely_healed.leftleg()
+        sk.lostbal_ice()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
+      end,
+
+      ninshi = function ()
+        sk.lostbal_ice()
+        if not affs.grapple then addaff(dict.grapple) end
+        if dict.grapple.ninshilimb ~= "leftleg" then
+          dict.grapple.ninshi = "leftleg" end
+      end,
+
+      completely = function ()
+        sk.lostbal_ice()
+        completely_healed.leftleg()
+      end,
+
+      partially = function ()
+        sk.lostbal_ice()
+        partially_healed.leftleg()
+      end,
+
+      onstart = function ()
+        send("apply ice to lleg", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -13227,7 +13812,7 @@ dict = {
       spriority = 371,
 
       isadvisable = function ()
-        return (affs.heavyleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
+        return (not conf.arena and affs.heavyleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13264,6 +13849,49 @@ dict = {
         send("apply health to legs", conf.commandecho)
       end
     },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.heavyleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("heavyleftleg")
+        sk.lostbal_ice()
+      end,
+
+      noeffect = function()
+        completely_healed.leftleg()
+        sk.lostbal_ice()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
+      end,
+
+      ninshi = function ()
+        sk.lostbal_ice()
+        if not affs.grapple then addaff(dict.grapple) end
+        if dict.grapple.ninshilimb ~= "leftleg" then
+          dict.grapple.ninshi = "leftleg" end
+      end,
+
+      completely = function ()
+        sk.lostbal_ice()
+        completely_healed.leftleg()
+      end,
+
+      partially = function ()
+        sk.lostbal_ice()
+        partially_healed.leftleg()
+      end,
+
+      onstart = function ()
+        send("apply ice to lleg", conf.commandecho)
+      end
+    },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
     aff = {
       oncompleted = function (amount)
@@ -13287,7 +13915,7 @@ dict = {
       spriority = 364,
 
       isadvisable = function ()
-        return (affs.mediumleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
+        return (not conf.arena and affs.mediumleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13347,7 +13975,7 @@ dict = {
       spriority = 357,
 
       isadvisable = function ()
-        return (affs.lightleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
+        return (not conf.arena and affs.lightleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13384,6 +14012,49 @@ dict = {
         send("apply health to legs", conf.commandecho)
       end
     },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.lightleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("lightleftleg")
+        sk.lostbal_ice()
+      end,
+
+      noeffect = function()
+        completely_healed.leftleg()
+        sk.lostbal_ice()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
+      end,
+
+      ninshi = function ()
+        sk.lostbal_ice()
+        if not affs.grapple then addaff(dict.grapple) end
+        if dict.grapple.ninshilimb ~= "leftleg" then
+          dict.grapple.ninshi = "leftleg" end
+      end,
+
+      completely = function ()
+        sk.lostbal_ice()
+        completely_healed.leftleg()
+      end,
+
+      partially = function ()
+        sk.lostbal_ice()
+        partially_healed.leftleg()
+      end,
+
+      onstart = function ()
+        send("apply ice to lleg", conf.commandecho)
+      end
+    },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
     aff = {
       oncompleted = function (amount)
@@ -13407,7 +14078,7 @@ dict = {
       spriority = 379,
 
       isadvisable = function ()
-        return (affs.criticalrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
+        return (not conf.arena and affs.criticalrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13442,6 +14113,49 @@ dict = {
 
       onstart = function ()
         send("apply health to legs", conf.commandecho)
+      end
+    },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.criticalrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("criticalrightleg")
+        sk.lostbal_ice()
+      end,
+
+      noeffect = function()
+        completely_healed.rightleg()
+        sk.lostbal_ice()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
+      end,
+
+      ninshi = function ()
+        sk.lostbal_ice()
+        if not affs.grapple then addaff(dict.grapple) end
+        if dict.grapple.ninshilimb ~= "rightleg" then
+          dict.grapple.ninshi = "rightleg" end
+      end,
+
+      completely = function ()
+        sk.lostbal_ice()
+        completely_healed.rightleg()
+      end,
+
+      partially = function ()
+        sk.lostbal_ice()
+        partially_healed.rightleg()
+      end,
+
+      onstart = function ()
+        send("apply ice to rleg", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -13467,7 +14181,7 @@ dict = {
       spriority = 372,
 
       isadvisable = function ()
-        return (affs.heavyrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
+        return (not conf.arena and affs.heavyrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13504,6 +14218,49 @@ dict = {
         send("apply health to legs", conf.commandecho)
       end
     },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.heavyrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("heavyrightleg")
+        sk.lostbal_ice()
+      end,
+
+      noeffect = function()
+        completely_healed.rightleg()
+        sk.lostbal_ice()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
+      end,
+
+      ninshi = function ()
+        sk.lostbal_ice()
+        if not affs.grapple then addaff(dict.grapple) end
+        if dict.grapple.ninshilimb ~= "rightleg" then
+          dict.grapple.ninshi = "rightleg" end
+      end,
+
+      completely = function ()
+        sk.lostbal_ice()
+        completely_healed.rightleg()
+      end,
+
+      partially = function ()
+        sk.lostbal_ice()
+        partially_healed.rightleg()
+      end,
+
+      onstart = function ()
+        send("apply ice to rleg", conf.commandecho)
+      end
+    },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
     aff = {
       oncompleted = function (amount)
@@ -13527,7 +14284,7 @@ dict = {
       spriority = 365,
 
       isadvisable = function ()
-        return (affs.mediumrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
+        return (not conf.arena and affs.mediumrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13587,7 +14344,7 @@ dict = {
       spriority = 358,
 
       isadvisable = function ()
-        return (affs.lightrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
+        return (not conf.arena and affs.lightrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13624,6 +14381,49 @@ dict = {
         send("apply health to legs", conf.commandecho)
       end
     },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.lightrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("lightrightleg")
+        sk.lostbal_ice()
+      end,
+
+      noeffect = function()
+        completely_healed.rightleg()
+        sk.lostbal_ice()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
+      end,
+
+      ninshi = function ()
+        sk.lostbal_ice()
+        if not affs.grapple then addaff(dict.grapple) end
+        if dict.grapple.ninshilimb ~= "rightleg" then
+          dict.grapple.ninshi = "rightleg" end
+      end,
+
+      completely = function ()
+        sk.lostbal_ice()
+        completely_healed.rightleg()
+      end,
+
+      partially = function ()
+        sk.lostbal_ice()
+        partially_healed.rightleg()
+      end,
+
+      onstart = function ()
+        send("apply ice to rleg", conf.commandecho)
+      end
+    },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
     aff = {
       oncompleted = function (amount)
@@ -13647,7 +14447,7 @@ dict = {
       spriority = 330,
 
       isadvisable = function ()
-        return (affs.criticalhead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
+        return (not conf.arena and affs.criticalhead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13684,6 +14484,49 @@ dict = {
 
       onstart = function ()
         send("apply health to head", conf.commandecho)
+      end
+    },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.criticalhead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("criticalhead")
+        sk.lostbal_ice()
+      end,
+
+      noeffect = function()
+        completely_healed.head()
+        sk.lostbal_ice()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
+      end,
+
+      ninshi = function ()
+        sk.lostbal_ice()
+        if not affs.grapple then addaff(dict.grapple) end
+        if dict.grapple.ninshilimb ~= "head" then
+          dict.grapple.ninshi = "head" end
+      end,
+
+      completely = function ()
+        sk.lostbal_ice()
+        completely_healed.head()
+      end,
+
+      partially = function ()
+        sk.lostbal_ice()
+        partially_healed.head()
+      end,
+
+      onstart = function ()
+        send("apply ice to head", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -13711,7 +14554,7 @@ dict = {
       spriority = 373,
 
       isadvisable = function ()
-        return (affs.heavyhead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
+        return (not conf.arena and affs.heavyhead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13748,6 +14591,49 @@ dict = {
         send("apply health to head", conf.commandecho)
       end
     },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.heavyhead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("heavyhead")
+        sk.lostbal_ice()
+      end,
+
+      noeffect = function()
+        completely_healed.head()
+        sk.lostbal_ice()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
+      end,
+
+      ninshi = function ()
+        sk.lostbal_ice()
+        if not affs.grapple then addaff(dict.grapple) end
+        if dict.grapple.ninshilimb ~= "head" then
+          dict.grapple.ninshi = "head" end
+      end,
+
+      completely = function ()
+        sk.lostbal_ice()
+        completely_healed.head()
+      end,
+
+      partially = function ()
+        sk.lostbal_ice()
+        partially_healed.head()
+      end,
+
+      onstart = function ()
+        send("apply ice to head", conf.commandecho)
+      end
+    },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
     aff = {
       oncompleted = function (amount)
@@ -13771,7 +14657,7 @@ dict = {
       spriority = 366,
 
       isadvisable = function ()
-        return (affs.mediumhead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
+        return (not conf.arena and affs.mediumhead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13831,7 +14717,7 @@ dict = {
       spriority = 359,
 
       isadvisable = function ()
-        return (affs.lighthead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
+        return (not conf.arena and affs.lighthead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13866,6 +14752,49 @@ dict = {
 
       onstart = function ()
         send("apply health to head", conf.commandecho)
+      end
+    },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.lighthead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("lighthead")
+        sk.lostbal_ice()
+      end,
+
+      noeffect = function()
+        completely_healed.head()
+        sk.lostbal_ice()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
+      end,
+
+      ninshi = function ()
+        sk.lostbal_ice()
+        if not affs.grapple then addaff(dict.grapple) end
+        if dict.grapple.ninshilimb ~= "head" then
+          dict.grapple.ninshi = "head" end
+      end,
+
+      completely = function ()
+        sk.lostbal_ice()
+        completely_healed.head()
+      end,
+
+      partially = function ()
+        sk.lostbal_ice()
+        partially_healed.head()
+      end,
+
+      onstart = function ()
+        send("apply ice to head", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
