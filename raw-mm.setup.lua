@@ -247,6 +247,7 @@ conf.assumestats = 0
 
 
 conf.paused = false
+conf.autoarena = true
 conf.lag = 0
 sys.wait = 0.7 -- for lag
 conf.aillusion = false
@@ -696,3 +697,20 @@ signals.systemstart:connect(function ()
     echof("Enabled Overhaul mode for %s affliction%s.", concatand(enabledaffs), #enabledaffs == 1 and '' or 's')
   end
 end)
+
+sk.arena_areas = {
+  --Gaudiguch
+  ["Pyrodome of the Kaleidoscopic Trials"] = true,
+  --Hallifax
+  ["the Skylark Commemorative Demiplane"] = true,
+  --Glomdoring
+  ["the Shadowvale Arena"] = true,
+  --Serenwilde
+  ["the Glade of Champions"] = true,
+  --New Celest
+  ["the Pearl of the Amberle"] = true,
+  --Magnagora
+  ["the Midnight Coliseum"] = true,
+  --Avenger
+  ["the Klangratch Tourny Fields"] = true,
+}

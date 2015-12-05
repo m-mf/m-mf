@@ -1586,6 +1586,17 @@ function valid.ate1()
   if paragraph_length == 1 then
     herb_cure = false
   end
+
+  -- see if we need to enable arena mode for some reason
+  local t = sk.arena_areas
+  local area = atcp.RoomArea or (gmcp.Room and gmcp.Room.Info and gmcp.Room.Info.area)
+  if area and t[area] and not conf.arena then
+    conf.arena = true
+    raiseEvent("m&m config changed", "arena")
+    prompttrigger("arena echo", function()
+      echo'\n'echof("Looks like you're actually in the arena - enabled arena mode.\n") showprompt()
+    end)
+  end
 end
 
 function valid.ate2()
@@ -1670,6 +1681,17 @@ arnica_cure = false
 
 function valid.arnica1()
   arnica_cure = false
+
+  -- see if we need to enable arena mode for some reason
+  local t = sk.arena_areas
+  local area = atcp.RoomArea or (gmcp.Room and gmcp.Room.Info and gmcp.Room.Info.area)
+  if area and t[area] and not conf.arena then
+    conf.arena = true
+    raiseEvent("svo config changed", "arena")
+    prompttrigger("arena echo", function()
+      echo'\n'echof("Looks like you're actually in the arena - enabled arena mode.\n") showprompt()
+    end)
+  end
 end
 
 function valid.arnica2()
@@ -1704,6 +1726,17 @@ smoke_cure = false
 
 function valid.smoke1()
   smoke_cure = false
+
+  -- see if we need to enable arena mode for some reason
+  local t = sk.arena_areas
+  local area = atcp.RoomArea or (gmcp.Room and gmcp.Room.Info and gmcp.Room.Info.area)
+  if area and t[area] and not conf.arena then
+    conf.arena = true
+    raiseEvent("svo config changed", "arena")
+    prompttrigger("arena echo", function()
+      echo'\n'echof("Looks like you're actually in the arena - enabled arena mode.\n") showprompt()
+    end)
+  end
 end
 
 function valid.smoke2()
