@@ -40,6 +40,9 @@ function prio.export (name, options, echoback)
     wafer = {
       prewrite = "Wafer cures: ",
     },
+    ice = {
+      prewrite = "Ice cures: ",
+    },
     physical = {
       prewrite = "Balance or equilibrium actions: ",
     },
@@ -335,6 +338,7 @@ function prio.import(name, echoback, report_errors, use_default)
     "lucidity",
     "steam",
     "wafer",
+    "ice",
     "physical",
     "focus",
     "sparkle",
