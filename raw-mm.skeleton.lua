@@ -94,7 +94,7 @@ end
 
 -- balances
 bals = bals or {
-  lucidity = true, steam = true, wafer = true,
+  lucidity = true, steam = true, wafer = true, ice = true,
   herb = true, sip = true, sparkle = true,
   purgative = true,  salve = true, scroll = true,
   balance = true, equilibrium = true, focus = true, steam = true,
@@ -395,6 +395,32 @@ check_salve = function(sync_mode)
   if not sync_mode then
     doaction(dict[getHighestKey(prios)].salve) else
     return dict[getHighestKey(prios)].salve end
+end
+
+-- ice check
+check_ice = function(sync_mode)
+  -- can we even use salves?
+  if not bals.ice or usingbal("ice") or not next(affs) or
+    affs.sleep or affs.stun or affs.inquisition or
+    affs.slickness or affs.crucified or (affs.missingleftarm and affs.missingrightarm) then
+      return
+  end
+
+  -- get all prios in the list
+  local prios = {}
+  for i, j in pairs(affs) do
+    if j.p.ice and j.p.ice.isadvisable() and not ignored(i, "ice") and not overhaul[i] then
+      prios[i] = (not sync_mode) and j.p.ice.aspriority or j.p.ice.spriority
+    end
+  end
+
+  -- have nada?
+  if not next(prios) then return false end
+
+  -- otherwise, do the highest!
+  if not sync_mode then
+    doaction(dict[getHighestKey(prios)].ice) else
+    return dict[getHighestKey(prios)].ice end
 end
 
 -- herb check
@@ -827,7 +853,7 @@ local function find_highest_action(tbl)
 end
 
 local workload = {check_focus, check_salve, check_sip, check_purgative, check_lucidity,
-            check_steam, check_herb, check_wafer, check_scroll, check_sparkle, check_misc,
+            check_steam, check_herb, check_wafer, check_ice, check_scroll, check_sparkle, check_misc,
             check_balanceless_acts, check_balanceful_acts, check_allheale}
 
 -- real functions
@@ -842,6 +868,7 @@ local function work_slaves_work()
   check_steam()
   check_herb()
   check_wafer()
+  check_ice()
 
   check_scroll()
   check_sparkle()
@@ -1487,6 +1514,19 @@ sk.lostbal_wafer = function()
   tempTimer(5, function ()
     if not bals.wafer and sk.wafertick == oldwafertick then
       bals.wafer = true
+      make_gnomes_work()
+    end
+  end)
+end
+
+sk.lostbal_ice = function()
+  bals.ice = false
+  sk.icetick = sk.icetick + 1
+  local oldicetick = sk.icetick
+
+  tempTimer(5, function ()
+    if not bals.ice and sk.icetick == oldicetick then
+      bals.ice = true
       make_gnomes_work()
     end
   end)
