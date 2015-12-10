@@ -2851,6 +2851,18 @@ function valid.healed_completely()
   end
 end
 
+function valid.ice_healed_completely()
+  apply_ice = true
+  local result = checkany(
+    dict.lighthead.ice, dict.heavyhead.ice, dict.criticalhead.ice, dict.lightrightarm.ice, dict.heavyrightarm.ice, dict.criticalrightarm.ice, dict.lightleftarm.ice, dict.heavyleftarm.ice, dict.criticalleftarm.ice, dict.lightleftleg.ice, dict.heavyleftleg.ice, dict.criticalleftleg.ice,
+    dict.lightrightleg.ice, dict.heavyrightleg.ice, dict.criticalrightleg.ice, dict.lightchest.ice, dict.heavychest.ice, dict.criticalchest.ice, dict.lightgut.ice, dict.heavygut.ice, dict.criticalgut.ice)
+
+  if result and actions[result.name] then
+    apply_ice = true
+    lifevision.add(actions[result.name].p, "completely")
+  end
+end
+
 function valid.cured_numb(limb)
   local result = checkany(dict.numbedhead.sip, dict.numbedchest.sip, dict.numbedgut.sip, dict.numbedleftarm.sip, dict.numbedleftleg.sip, dict.numbedrightarm.sip, dict.numbedrightleg.sip)
   if result and actions[result.name] then
@@ -2906,6 +2918,16 @@ function valid.healed_partially()
     if not limb then limb = {name = "light"..name} end
     checkaction (dict[limb.name].sip, true)
     lifevision.add(actions[limb.name.."_sip"].p, "partially")
+  end
+end
+
+function valid.ice_healed_partially()
+ local result = checkany(
+    dict.lighthead.ice, dict.heavyhead.ice, dict.criticalhead.ice, dict.lightrightarm.ice, dict.heavyrightarm.ice, dict.criticalrightarm.ice, dict.lightleftarm.ice, dict.heavyleftarm.ice, dict.criticalleftarm.ice, dict.lightleftleg.ice, dict.heavyleftleg.ice, dict.criticalleftleg.ice, dict.lightrightleg.ice, dict.heavyrightleg.ice, dict.criticalrightleg.ice, dict.lightchest.ice, dict.heavychest.ice, dict.criticalchest.ice, dict.lightgut.ice, dict.heavygut.ice, dict.criticalgut.ice)
+
+  if result and actions[result.name] then
+    apply_ice = true
+    lifevision.add(actions[result.name].p, "partially")
   end
 end
 

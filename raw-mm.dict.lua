@@ -382,11 +382,24 @@ local wlevel = phpTable(
   {critical = 3600}
 )
 
+local ice_wlevel = phpTable(
+  {light = 1},
+  {heavy = 7},
+  {critical = 15}
+)
+
 function sk.get_wound_level(amount)
   local name
-  for j,k in wlevel:pairs() do
-    if amount < k then break end
-    name = j
+  if conf.arena then
+    for j, k in ice_wlevel:pairs() do
+      if amount < k then break end
+      name = j
+    end
+  else
+    for j,k in wlevel:pairs() do
+      if amount < k then break end
+      name = j
+    end
   end
 
   return name or "light"
@@ -401,8 +414,13 @@ for _,k in ipairs({"rightarm", "leftarm", "leftleg", "rightleg", "chest", "gut",
 end
 
 local function update_wound_count(k, amount)
-  dict["light" .. k].count, dict["medium" .. k].count, dict["heavy" .. k].count, dict["critical" .. k].count = amount, amount, amount, amount
-  removeaff{"light"..k, "medium"..k, "heavy"..k, "critical"..k}
+  if conf.arena then
+    dict["light" .. k].count, dict["heavy" .. k].count, dict["critical" .. k].count = amount, amount, amount
+    removeaff{"light"..k, "heavy"..k, "critical"..k}
+  else
+    dict["light" .. k].count, dict["medium" .. k].count, dict["heavy" .. k].count, dict["critical" .. k].count = amount, amount, amount, amount
+    removeaff{"light"..k, "medium"..k, "heavy"..k, "critical"..k}
+  end
 end
 
 local partially_healed = {}
@@ -410,15 +428,22 @@ for _,k in ipairs({"rightarm", "leftarm", "leftleg", "rightleg", "chest", "gut",
   partially_healed[k] = function (type)
     local amount
 
-    if type == 'deepheal' then amount = math.random(1600, 2000)
+    if conf.arena then
+      amount = 1
+    elseif type == 'deepheal' then amount = math.random(1600, 2000)
     elseif type == 'puer' then amount = math.random(800, 1000)
     elseif type == 'healspring' then amount = math.random(200, 300)
     else amount = math.random(800, 900) end
 
     if (dict["light"..k].count - amount) < 0 then amount = 0 else amount = dict["light"..k].count - amount end
 
-    dict["light" .. k].count, dict["medium" .. k].count, dict["heavy" .. k].count, dict["critical" .. k].count = amount, amount, amount, amount
-    removeaff{"light"..k, "medium"..k, "heavy"..k, "critical"..k}
+    if conf.arena then
+      dict["light" .. k].count, dict["heavy" .. k].count, dict["critical" .. k].count = amount, amount, amount
+      removeaff{"light"..k, "heavy"..k, "critical"..k}
+    else
+      dict["light" .. k].count, dict["medium" .. k].count, dict["heavy" .. k].count, dict["critical" .. k].count = amount, amount, amount, amount
+      removeaff{"light"..k, "medium"..k, "heavy"..k, "critical"..k}
+    end
 
     addaff(dict[sk.get_wound_level(amount)..k])
   end
