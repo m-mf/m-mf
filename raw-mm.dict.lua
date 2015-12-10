@@ -244,31 +244,31 @@ codepaste.regen_head = function()
 end
 
 codepaste.ice_head = function()
-  return (not doingaction(curingdamagedskull) and not doingaction(curingdamagedthroat))
+  return (not doingaction("curingdamagedskull") and not doingaction("curingdamagedthroat"))
 end
 
 codepaste.ice_chest = function()
-  return (not doingaction(curingcollapsedlungs) and not doingaction(curingcrushedchest))
+  return (not doingaction("curingcollapsedlungs") and not doingaction("curingcrushedchest"))
 end
 
 codepaste.ice_gut = function()
-  return (not doingaction(curingdamagedorgans) and not doingaction(curinginternalbleeding))
+  return (not doingaction("curingdamagedorgans") and not doingaction("curinginternalbleeding"))
 end
 
 codepaste.ice_leftarm = function()
-  return (not doingaction(curingdamagedleftarm) and not doingaction(curingmutilatedleftarm))
+  return (not doingaction("curingdamagedleftarm") and not doingaction("curingmutilatedleftarm"))
 end
 
 codepaste.ice_rightarm = function()
-  return (not doingaction(curingdamagedrightarm) and not doingaction(curingmutilatedrightarm))
+  return (not doingaction("curingdamagedrightarm") and not doingaction("curingmutilatedrightarm"))
 end
 
 codepaste.ice_leftleg = function()
-  return (not doingaction(curingdamagedleftleg) and not doingaction(curingmutilatedleftleg))
+  return (not doingaction("curingdamagedleftleg") and not doingaction("curingmutilatedleftleg"))
 end
 
 codepaste.ice_rightleg = function()
-  return (not doingaction(curingdamagedrightleg) and not doingaction(curingmutilatedrightleg))
+  return (not doingaction("curingdamagedrightleg") and not doingaction("curingmutilatedrightleg"))
 end
 
 codepaste.can_refill = function()
@@ -6199,7 +6199,12 @@ dict = {
       end,
 
       noeffect = function() 
+        sk.lostbal_ice()
         empty.noeffect_ice_chest()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
       end
     },
     aff = {
@@ -6264,7 +6269,12 @@ dict = {
       end,
 
       noeffect = function() 
+        sk.lostbal_ice()
         empty.noeffect_ice_head()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
       end
     },
     aff = {
@@ -6316,7 +6326,12 @@ dict = {
       end,
 
       noeffect = function() 
+        sk.lostbal_ice()
         empty.noeffect_ice_head()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
       end
     },
     aff = {
@@ -6368,7 +6383,12 @@ dict = {
       end,
 
       noeffect = function() 
+        sk.lostbal_ice()
         empty.noeffect_ice_gut()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
       end
     },
     aff = {
@@ -6420,7 +6440,12 @@ dict = {
       end,
 
       noeffect = function() 
+        sk.lostbal_ice()
         empty.noeffect_ice_gut()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
       end
     },
     aff = {
@@ -6472,7 +6497,12 @@ dict = {
       end,
 
       noeffect = function() 
+        sk.lostbal_ice()
         empty.noeffect_ice_leftarm()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
       end
     },
     aff = {
@@ -6524,7 +6554,12 @@ dict = {
       end,
 
       noeffect = function() 
+        sk.lostbal_ice()
         empty.noeffect_ice_leftarm()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
       end
     },
     aff = {
@@ -6577,7 +6612,12 @@ dict = {
       end,
 
       noeffect = function() 
+        sk.lostbal_ice()
         empty.noeffect_ice_rightarm()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
       end
     },
     aff = {
@@ -6629,7 +6669,12 @@ dict = {
       end,
 
       noeffect = function() 
+        sk.lostbal_ice()
         empty.noeffect_ice_rightarm()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
       end
     },
     aff = {
@@ -6682,7 +6727,12 @@ dict = {
       end,
 
       noeffect = function() 
+        sk.lostbal_ice()
         empty.noeffect_ice_leftleg()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
       end
     },
     aff = {
@@ -6734,7 +6784,12 @@ dict = {
       end,
 
       noeffect = function() 
+        sk.lostbal_ice()
         empty.noeffect_ice_leftleg()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
       end
     },
     aff = {
@@ -6786,7 +6841,12 @@ dict = {
       end,
 
       noeffect = function() 
+        sk.lostbal_ice()
         empty.noeffect_ice_rightleg()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
       end
     },
     aff = {
@@ -6838,7 +6898,12 @@ dict = {
       end,
 
       noeffect = function() 
+        sk.lostbal_ice()
         empty.noeffect_ice_rightleg()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
       end
     },
     aff = {
@@ -6973,6 +7038,10 @@ dict = {
 
       noeffect = function() 
         empty.noeffect_ice_chest()
+      end,
+
+      nouse = function ()
+        sk.lostbal_ice()
       end
     },
     aff = {
@@ -14337,7 +14406,8 @@ dict = {
       onstart = function ()
         send("apply health to arms", conf.commandecho)
       end
-    },ice = {
+    },
+    ice = {
       aspriority = 0,
       spriority = 0,
 

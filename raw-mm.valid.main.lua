@@ -2880,6 +2880,16 @@ function valid.appliedhealth_nouse()
   end
 end
 
+function valid.ice_nouse()
+  local result = checkany(
+    dict.lighthead.ice, dict.heavyhead.ice, dict.criticalhead.ice, dict.lightrightarm.ice, dict.heavyrightarm.ice, dict.criticalrightarm.ice, dict.lightleftarm.ice, dict.heavyleftarm.ice, dict.criticalleftarm.ice, dict.lightleftleg.ice, dict.heavyleftleg.ice, dict.criticalleftleg.ice, dict.lightrightleg.ice, dict.heavyrightleg.ice, dict.criticalrightleg.ice, dict.lightchest.ice, dict.heavychest.ice, dict.criticalchest.ice, dict.lightgut.ice, dict.heavygut.ice, dict.criticalgut.ice, dict.damagedskull.ice, dict.damagedthroat.ice, dict.collapsedlungs.ice, dict.crushedchest.ice, dict.damagedorgans.ice, dict.internalbleeding.ice, dict.damagedleftarm.ice, dict.mutilatedleftarm.ice, dict.damagedrightarm.ice, dict.mutilatedrightarm.ice, dict.damagedleftleg.ice, dict.mutilatedleftleg.ice, dict.damagedrightleg.ice, dict.mutilatedrightleg.ice)
+  if not result then return end
+
+  if actions[result.name] then
+    lifevision.add(actions[result.name].p, "nouse")
+  end
+end
+
 function valid.healed_partially()
  local result = checkany(
     dict.lighthead.sip, dict.mediumhead.sip, dict.heavyhead.sip, dict.criticalhead.sip,
@@ -2908,6 +2918,18 @@ function valid.healed_noeffect()
   if not result then return end
 
   if actions[result.name] then
+    lifevision.add(actions[result.name].p, "noeffect")
+  end
+end
+
+--no effect should add both affs...
+function valid.ice_noeffect()
+  local result = checkany(
+    dict.lighthead.ice, dict.heavyhead.ice, dict.criticalhead.ice, dict.lightrightarm.ice, dict.heavyrightarm.ice, dict.criticalrightarm.ice, dict.lightleftarm.ice, dict.heavyleftarm.ice, dict.criticalleftarm.ice, dict.lightleftleg.ice, dict.heavyleftleg.ice, dict.criticalleftleg.ice, dict.lightrightleg.ice, dict.heavyrightleg.ice, dict.criticalrightleg.ice, dict.lightchest.ice, dict.heavychest.ice, dict.criticalchest.ice, dict.lightgut.ice, dict.heavygut.ice, dict.criticalgut.ice, dict.damagedskull.ice, dict.damagedthroat.ice, dict.collapsedlungs.ice, dict.crushedchest.ice, dict.damagedorgans.ice, dict.internalbleeding.ice, dict.damagedleftarm.ice, dict.mutilatedleftarm.ice, dict.damagedrightarm.ice, dict.mutilatedrightarm.ice, dict.damagedleftleg.ice, dict.mutilatedleftleg.ice, dict.damagedrightleg.ice, dict.mutilatedrightleg.ice)
+  if not result then return end
+
+  if actions[result.name] then
+    apply_ice = true
     lifevision.add(actions[result.name].p, "noeffect")
   end
 end
@@ -3604,9 +3626,8 @@ end
 #end
 
 -- normal ice
-#for _, ice in pairs(
-  #ice = {"damagedskull","damagedthroat","collapsedlungs","crushedchest","damagedorgans","internalbleeding","damagedleftarm","mutilatedleftarm","damagedrightarm","mutilatedrightarm","damagedleftleg","mutilatedleftleg","damagedrightleg","mutilatedrightleg"}
-  ) do
+#for _, ice in pairs({
+#ice = {"damagedskull","damagedthroat","collapsedlungs","crushedchest","damagedorgans","internalbleeding","damagedleftarm","mutilatedleftarm","damagedrightarm","mutilatedrightarm","damagedleftleg","mutilatedleftleg","damagedrightleg","mutilatedrightleg"}}) do
 #local checkany_string = ""
 #local temp = {}
 
