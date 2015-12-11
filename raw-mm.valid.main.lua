@@ -1886,6 +1886,15 @@ function valid.potion_slickness()
   end
 end
 
+function valid.ice_slickness()
+  local r = findbybal("ice")
+  if r then
+    apply_ice = true
+    valid.simpleslickness()
+    killaction(dict[r.action_name].ice)
+  end
+end
+
 function valid.arnica_slickness()
   if actions.checkslickness_misc then
     lifevision.add(actions.checkslickness_misc.p, "slicky")
@@ -3678,7 +3687,7 @@ end
 #end
 
 -- normal waitingfors
-#for _, aff in ipairs({"collapsedlungs", "disembowel", "crushedchest", "rupturedstomach", "collapsedleftnerve", "collapsedrightnerve", "severedspine", "concussion", "damagedhead", "shatteredjaw", "chestpain", "burstorgans"}) do
+#for _, aff in ipairs({"collapsedlungs", "disembowel", "crushedchest", "rupturedstomach", "collapsedleftnerve", "collapsedrightnerve", "severedspine", "concussion", "damagedhead", "shatteredjaw", "chestpain", "burstorgans", "damagedskull","damagedthroat","damagedorgans","internalbleeding","damagedleftarm","damagedrightarm","damagedleftleg","damagedrightleg","mutilatedleftarm","mutilatedrightarm","mutilatedleftleg","mutilatedrightleg"}) do
 function valid.cured$(aff)()
   checkaction(dict.curing$(aff).waitingfor)
   if actions.curing$(aff)_waitingfor then
