@@ -2907,6 +2907,7 @@ function valid.ice_nouse()
   if not result then return end
 
   if actions[result.name] then
+    apply_ice = true
     lifevision.add(actions[result.name].p, "nouse")
   end
 end

@@ -13100,7 +13100,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("apply ice to chest", conf.commandecho)
+        send("apply ice to chest wounds", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -13203,7 +13203,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("apply ice to chest", conf.commandecho)
+        send("apply ice to chest wounds", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -13366,7 +13366,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("apply ice to chest", conf.commandecho)
+        send("apply ice to chest wounds", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -13469,7 +13469,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("apply ice to gut", conf.commandecho)
+        send("apply ice to gut wounds", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -13572,7 +13572,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("apply ice to gut", conf.commandecho)
+        send("apply ice to gut wounds", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -13735,7 +13735,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("apply ice to gut", conf.commandecho)
+        send("apply ice to gut wounds", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -13838,7 +13838,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("apply ice to rarm", conf.commandecho)
+        send("apply ice to rarm wounds", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -13941,7 +13941,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("apply ice to rarm", conf.commandecho)
+        send("apply ice to rarm wounds", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -14103,7 +14103,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("apply ice to rarm", conf.commandecho)
+        send("apply ice to rarm wounds", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -14206,7 +14206,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("apply ice to larm", conf.commandecho)
+        send("apply ice to larm wounds", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -14309,7 +14309,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("apply ice to larm", conf.commandecho)
+        send("apply ice to larm wounds", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -14472,7 +14472,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("apply ice to larm", conf.commandecho)
+        send("apply ice to larm wounds", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -14575,7 +14575,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("apply ice to lleg", conf.commandecho)
+        send("apply ice to lleg wounds", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -14678,7 +14678,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("apply ice to lleg", conf.commandecho)
+        send("apply ice to lleg wounds", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -14841,7 +14841,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("apply ice to lleg", conf.commandecho)
+        send("apply ice to lleg wounds", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -14944,7 +14944,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("apply ice to rleg", conf.commandecho)
+        send("apply ice to rleg wounds", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -15047,7 +15047,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("apply ice to rleg", conf.commandecho)
+        send("apply ice to rleg wounds", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -15210,7 +15210,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("apply ice to rleg", conf.commandecho)
+        send("apply ice to rleg wounds", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -15315,7 +15315,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("apply ice to head", conf.commandecho)
+        send("apply ice to head wounds", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -15420,7 +15420,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("apply ice to head", conf.commandecho)
+        send("apply ice to head wounds", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
@@ -15583,7 +15583,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("apply ice to head", conf.commandecho)
+        send("apply ice to head wounds", conf.commandecho)
       end
     },
     onremoved = function () signals.after_lifevision_processing:unblock(sp_checksp) end,
