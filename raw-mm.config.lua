@@ -125,7 +125,7 @@ config_dict = pl.OrderedMap {
   {$(conf_name) = {
     type = "string",
     check = function (what)
-      if contains(rift.curativeherbs, what) then return true end
+      if contains(rift.sparkleherbs, what) then return true end
     end,
     onset = function ()
       dict.healhealth.herb.eatcure = conf.sparkleherb

@@ -26,6 +26,7 @@ rift.doprecache = false
 rift.allherbs = {"arnica", "calamus", "chervil", "colewort", "coltsfoot", "earwort", "faeleaf", "flax", "galingale", "horehound", "juniper", "kafe", "kombu", "marjoram", "merbloom", "mistletoe", "myrtle", "pennyroyal", "rawtea", "reishi", "rosehips", "sage", "sargassum", "sparkleberry", "spices", "weed", "wormwood", "yarrow", "steam", "dust",}
 rift.curativeherbs = {"arnica", "calamus", "chervil", "coltsfoot", "earwort", "faeleaf", "galingale", "horehound", "kafe", "kombu", "marjoram", "myrtle", "pennyroyal", "reishi", "sparkleberry",  "wormwood", "yarrow", "merbloom", "steam", "dust"}
 rift.functionalherbs = {"colewort", "flax", "juniper", "merbloom", "mistletoe", "rawtea", "rosehips", "sage", "sargassum", "spices", "weed"}
+rift.sparkleherbs = {"arnica", "calamus", "chervil", "colewort", "coltsfoot", "earwort", "faeleaf", "flax", "galingale", "horehound", "kafe", "kombu", "marjoram", "merbloom", "myrtle", "pennyroyal","rawtea","reishi","weed","wormwood","yarrow"}
 
 rift.resetriftcontents = function()
   for _, herb in ipairs(rift.allherbs) do
