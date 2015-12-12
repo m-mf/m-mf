@@ -311,7 +311,7 @@ defs_data = phpTable({
   waterbreathing = {
     type = "enchantment",
     on = "You briefly hold your hand over your mouth until your lips and tongue tingle.",
-    def = "You are filtering air from water for breathing.",
+    def = "Water Breathing (waterbreathe).",
     tooltip = "Allows breathing underwater."
   },
   perfection = {
@@ -2672,7 +2672,7 @@ defences.complete_def({name = "VitalityAura", def = "You are radiating a healing
 
 defences.complete_def({name = "Warrior", def = "You are assisted by the Warrior.", tooltip = "Aggressive tarot flings will be accompanied by damage."})
 
-defences.complete_def({name = "Waterbreathe", def = "You are filtering air from water for breathing.", tooltip = "Allows breathing underwater."})
+defences.complete_def({name = "Waterbreathe", def = "Water Breathing (waterbreathe).", tooltip = "Allows breathing underwater."})
 
 defences.complete_def({name = "WaterShield", def = "You are protected by the power of the water spiritshield.", tooltip = "Resistance to electric damage."})
 
