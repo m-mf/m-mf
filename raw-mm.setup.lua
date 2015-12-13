@@ -247,7 +247,8 @@ conf.assumestats = 0
 
 
 conf.paused = false
-conf.autoarena = true
+conf.autoarena = false
+conf.arena = false
 conf.lag = 0
 sys.wait = 0.7 -- for lag
 conf.aillusion = false
@@ -712,5 +713,5 @@ sk.arena_areas = {
   --Magnagora
   ["the Midnight Coliseum"] = true,
   --Avenger
-  ["the Klangratch Tourny Fields"] = true,
+  ["the Klangratch Tourny Fields"] = true
 }

@@ -6796,7 +6796,7 @@ dict = {
       oncompleted = function ()
         sk.lostbal_ice()
 
-        doaction(dict.mutilatedleftleg.waitingfor)
+        doaction(dict.curingmutilatedleftleg.waitingfor)
       end,
 
       onstart = function ()

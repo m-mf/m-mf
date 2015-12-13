@@ -1691,7 +1691,7 @@ function valid.arnica1()
   local area = atcp.RoomArea or (gmcp.Room and gmcp.Room.Info and gmcp.Room.Info.area)
   if area and t[area] and not conf.arena then
     conf.arena = true
-    raiseEvent("svo config changed", "arena")
+    raiseEvent("m&m config changed", "arena")
     prompttrigger("arena echo", function()
       echo'\n'echof("Looks like you're actually in the arena - enabled arena mode.\n") showprompt()
     end)
@@ -1753,7 +1753,7 @@ function valid.smoke1()
   local area = atcp.RoomArea or (gmcp.Room and gmcp.Room.Info and gmcp.Room.Info.area)
   if area and t[area] and not conf.arena then
     conf.arena = true
-    raiseEvent("svo config changed", "arena")
+    raiseEvent("m&m config changed", "arena")
     prompttrigger("arena echo", function()
       echo'\n'echof("Looks like you're actually in the arena - enabled arena mode.\n") showprompt()
     end)

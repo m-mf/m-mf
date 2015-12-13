@@ -20483,8 +20483,12 @@ echo(&quot; (no eating/focusing)&quot;)</script>
                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                     <regexCodeList>
                         <string>You do not bleed, my friend.</string>
+                        <string>You are neither bleeding nor bruised.</string>
+                        <string>You are not bruised, my friend.</string>
                     </regexCodeList>
                     <regexCodePropertyList>
+                        <integer>3</integer>
+                        <integer>3</integer>
                         <integer>3</integer>
                     </regexCodePropertyList>
                 </Trigger>
@@ -21180,10 +21184,10 @@ echo(&quot; (no eating/focusing)&quot;)</script>
                 </Trigger>
                 <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Ice cures</name>
-                    <script></script>
+                    <script>echo(&quot;\ncure start&quot;)</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
-                    <mStayOpen>0</mStayOpen>
+                    <mStayOpen>1</mStayOpen>
                     <mCommand></mCommand>
                     <packageName></packageName>
                     <mFgColor>#ff0000</mFgColor>
@@ -21250,8 +21254,10 @@ echo(&quot; (no eating/focusing)&quot;)</script>
                         </regexCodePropertyList>
                     </Trigger>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                        <name>mutilatedrightleg</name>
-                        <script>mm.valid.curedmutilatedrightleg()</script>
+                        <name>mutilatedrightleg cure</name>
+                        <script>echo(&quot;     mutilated right leg cure&quot;)
+mm.valid.curedmutilatedrightleg()
+echo(&quot;     function went through&quot;)</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>0</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -51853,7 +51859,11 @@ wound_loc = &quot;head&quot;</script>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>nonpower</name>
                             <script>mm.addwounds(&quot;ice&quot;, weapon_type..&quot;_nonpower&quot;, wound_loc)
-mm.valid.simplebleeding(250)</script>
+if weapon_type == &quot;twohand&quot; then
+	mm.valid.simplebleeding(250)
+else
+	mm.valid.simplebleeding(75)
+end</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>0</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -51866,8 +51876,10 @@ mm.valid.simplebleeding(250)</script>
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
                                 <string>^The blade of \w+'s sword slices deeply into your (?:head|chest|gut|left arm|right arm|left leg|right leg), leaving it (light|heavy|critical) wounded\.$</string>
+                                <string>^\w+'s blade bites into your (head|chest|gut|left arm|right arm|left leg|right leg), leaving it (light|heavy|critical) wounded\.$</string>
                             </regexCodeList>
                             <regexCodePropertyList>
+                                <integer>1</integer>
                                 <integer>1</integer>
                             </regexCodePropertyList>
                         </Trigger>
@@ -52121,10 +52133,13 @@ end
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>pinleg</name>
                             <script>if mm.affl[&quot;light&quot;..wound_loc] then
+	echo(&quot;\nbleeding 375&quot;)
 	mm.valid.simplebleeding(375)
 elseif mm.affl[&quot;heavy&quot;..wound_loc] then
+	echo(&quot;\nbleeding 500&quot;)
 	mm.valid.simplebleeding(500)
 elseif mm.affl[&quot;critical&quot;..wound_loc] then
+	echo(&quot;\nbleeding 625&quot;)
 	mm.valid.simplebleeding(625)
 end
 </script>
