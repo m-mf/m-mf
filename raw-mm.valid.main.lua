@@ -1372,7 +1372,7 @@ function valid.missing_herb()
 end
 
 function valid.symp_anorexia()
-  local doingthings = findbybals({"sip", "purgative", "allheale", "herb", "sparkle"})
+  local doingthings = findbybals({"sip", "purgative", "allheale", "herb", "sparkle", "lucidity"})
 
   if conf.aillusion and not (doingthings or actions.quicksilver_misc) then return end
 
