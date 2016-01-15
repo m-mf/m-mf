@@ -1080,7 +1080,7 @@ end
 
 sk.stupidity_count = 0
 function sk.stupidity_symptom()
-  if not paragraph_length == 0 or affs.stupidity then return end
+  if not paragraph_length == 0 or affs.stupidity or affs.damagedskull then return end
 
   sk.stupidity_count = sk.stupidity_count + 1
 

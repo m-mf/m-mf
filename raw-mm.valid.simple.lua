@@ -27,6 +27,19 @@ valid.simplebleeding = function (amount)
   end
 end
 
+valid.simplebruising = function (amount)
+#if skills.psychometabolism then
+  if defc.bloodboil and conf.bloodboil and (stats.currentmana > sys.egouse) then return end
+#end
+
+  if not conf.preclot then return end
+
+  checkaction(dict.bruising.aff, true)
+  if actions.bruising_aff then
+    lifevision.add(actions.bruising_aff.p, nil, dict.bruising.count + (amount or 200))
+  end
+end
+
 valid.simplelovers = function (name)
   assert(name)
 

@@ -92,6 +92,11 @@ function valid.diag_bleeding()
   diag_list.bleeding = tonumber(multimatches[2][2])
 end
 
+
+function valid.diag_bruising()
+  diag_list.bruising = tonumber(multimatches[2][2])
+end
+
 function valid.diag_rubycrystal()
   diag_list.rubycrystal = tonumber(multimatches[2][2])
 end

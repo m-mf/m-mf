@@ -3830,6 +3830,47 @@ dict = {
       end,
     }
   },
+  bruising = {
+    count = 0,
+    misc = {
+      aspriority = 10,
+      spriority = 10,
+
+      isadvisable = function ()
+        return (affs.bruising and not doingaction("bruising") and not affs.haemophilia and not affs.sleep and not affs.pinlegright and not affs.pinlegleft and not affs.pinlegunknown and not affs.pinlegunknown and can_usemana() and conf.clot and dict.bruising.count >= conf.bleedamount and not affs.manabarbs) or false
+      end,
+
+      -- by default, oncompleted means a clot went through okay
+      oncompleted = function ()
+      end,
+
+      -- oncured in this case means that we actually cured it; don't have any more bleeding
+      oncured = function ()
+        removeaff("bruising")
+        dict.bruising.count = 0
+      end,
+
+      onstart = function ()
+        if conf.gagclot and not sys.sync then
+          send("clot", false)
+        else
+          send("clot", conf.commandecho) end
+      end
+    },
+    aff = {
+      oncompleted = function (amount)
+        addaff(dict.bruising)
+        affs.bruising.p.count = amount or (affs.bruising.p.count + 200)
+        updateaffcount(dict.bruising)
+      end
+    },
+    gone = {
+      oncompleted = function ()
+        removeaff("bruising")
+        dict.bruising.count = 0
+      end,
+    }
+  },
   scabies = {
     salve = {
       aspriority = 36,
@@ -6247,7 +6288,7 @@ dict = {
   curingcrushedchest = {
     spriority = 0,
     waitingfor = {
-      customwait = 6,
+      customwait = 3,
 
       oncompleted = function ()
         removeaff("crushedchest")
@@ -6316,7 +6357,7 @@ dict = {
   curingdamagedskull = {
     spriority = 0,
     waitingfor = {
-      customwait = 6,
+      customwait = 3,
 
       oncompleted = function ()
         removeaff("damagedskull")
@@ -6373,7 +6414,7 @@ dict = {
   curingdamagedthroat = {
     spriority = 0,
     waitingfor = {
-      customwait = 6,
+      customwait = 3,
 
       oncompleted = function ()
         removeaff("damagedthroat")
@@ -6430,7 +6471,7 @@ dict = {
   curingdamagedorgans = {
     spriority = 0,
     waitingfor = {
-      customwait = 6,
+      customwait = 3,
 
       oncompleted = function ()
         removeaff("damagedorgans")
@@ -6487,7 +6528,7 @@ dict = {
   curinginternalbleeding = {
     spriority = 0,
     waitingfor = {
-      customwait = 6,
+      customwait = 3,
 
       oncompleted = function ()
         removeaff("internalbleeding")
@@ -6544,7 +6585,7 @@ dict = {
   curingdamagedleftarm = {
     spriority = 0,
     waitingfor = {
-      customwait = 6,
+      customwait = 3,
 
       oncompleted = function ()
         removeaff("damagedleftarm")
@@ -6601,7 +6642,7 @@ dict = {
   curingmutilatedleftarm = {
     spriority = 0,
     waitingfor = {
-      customwait = 6,
+      customwait = 3,
 
       oncompleted = function ()
         removeaff("mutilatedleftarm")
@@ -6659,7 +6700,7 @@ dict = {
   curingdamagedrightarm = {
     spriority = 0,
     waitingfor = {
-      customwait = 6,
+      customwait = 3,
 
       oncompleted = function ()
         removeaff("damagedrightarm")
@@ -6716,7 +6757,7 @@ dict = {
   curingmutilatedrightarm = {
     spriority = 0,
     waitingfor = {
-      customwait = 6,
+      customwait = 3,
 
       oncompleted = function ()
         removeaff("mutilatedrightarm")
@@ -6774,7 +6815,7 @@ dict = {
   curingdamagedleftleg = {
     spriority = 0,
     waitingfor = {
-      customwait = 6,
+      customwait = 3,
 
       oncompleted = function ()
         removeaff("damagedleftleg")
@@ -6831,7 +6872,7 @@ dict = {
   curingmutilatedleftleg = {
     spriority = 0,
     waitingfor = {
-      customwait = 6,
+      customwait = 3,
 
       oncompleted = function ()
         removeaff("mutilatedleftleg")
@@ -6888,7 +6929,7 @@ dict = {
   curingdamagedrightleg = {
     spriority = 0,
     waitingfor = {
-      customwait = 6,
+      customwait = 3,
 
       oncompleted = function ()
         removeaff("damagedrightleg")
@@ -6945,7 +6986,7 @@ dict = {
   curingmutilatedrightleg = {
     spriority = 0,
     waitingfor = {
-      customwait = 6,
+      customwait = 3,
 
       oncompleted = function ()
         removeaff("mutilatedrightleg")
@@ -7085,7 +7126,7 @@ dict = {
   curingcollapsedlungs = {
     spriority = 0,
     waitingfor = {
-      customwait = 6, -- real is 4
+      customwait = 3, -- real is 4
 
       ontimeout = function()
         removeaff("collapsedlungs")
@@ -22204,6 +22245,11 @@ dict = {
 #basicdef("concentrated", "combatstyle concentrated", true)
 #basicdef("defensive", "combatstyle defensive", true)
 #basicdef("lightning", "combatstyle lightning", true)
+#basicdef("bleeder", "combatstyle bleeder", true)
+#basicdef("bludgeoner", "combatstyle bludgeoner", true)
+#basicdef("berserker", "combatstyle berserker", true)
+#basicdef("pulverizer", "combatstyle pulverizer", true)
+#basicdef("mutilator", "combatstyle mutilator", true)
 #end
 
 #if skills.cavalier then
@@ -23078,7 +23124,9 @@ end)
       end,
 
       onstart = function ()
-        if not conf.enchantments then
+        if conf.deathsight then
+          send("deathsight", conf.commandecho)
+        elseif not conf.enchantments then
           send("abjure deathsight", conf.commandecho)
         else
           send("rub deathsight", conf.commandecho)

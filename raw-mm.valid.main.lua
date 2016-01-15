@@ -1248,6 +1248,12 @@ function valid.clot1()
     lifevision.add(actions.bleeding_misc.p)
   end
 
+
+  checkaction(dict.bruising.misc)
+  if actions.bruising_misc then
+    lifevision.add(actions.bruising_misc.p)
+  end
+
   if conf.gagclot and not sys.sync then deleteLineP() end
 end
 
@@ -1404,6 +1410,12 @@ function valid.clot2()
   checkaction(dict.bleeding.misc)
   if actions.bleeding_misc then
     lifevision.add(actions.bleeding_misc.p, "oncured")
+  end
+
+
+  checkaction(dict.bruising.misc)
+  if actions.bruising_misc then
+    lifevision.add(actions.bruising_misc.p, "oncured")
   end
 
   if conf.gagclot and not sys.sync then deleteLine() end
