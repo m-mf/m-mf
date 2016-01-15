@@ -6243,7 +6243,7 @@ dict = {
     },
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 17,
 
       isadvisable = function ()
         return (conf.arena and affs.crushedchest and codepaste.ice_chest()) or false
@@ -6313,7 +6313,7 @@ dict = {
   damagedskull = {
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 27,
 
       isadvisable = function ()
         return (conf.arena and affs.damagedskull and codepaste.ice_head()) or false
@@ -6370,7 +6370,7 @@ dict = {
   damagedthroat = {
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 35,
 
       isadvisable = function ()
         return (conf.arena and affs.damagedthroat and codepaste.ice_head()) or false
@@ -6427,7 +6427,7 @@ dict = {
   damagedorgans = {
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 16,
 
       isadvisable = function ()
         return (conf.arena and affs.damagedorgans and codepaste.ice_gut()) or false
@@ -6484,7 +6484,7 @@ dict = {
   internalbleeding = {
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 15,
 
       isadvisable = function ()
         return (conf.arena and affs.internalbleeding and codepaste.ice_gut()) or false
@@ -6541,7 +6541,7 @@ dict = {
   damagedleftarm = {
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 20,
 
       isadvisable = function ()
         return (conf.arena and affs.damagedleftarm and codepaste.ice_leftarm()) or false
@@ -6598,7 +6598,7 @@ dict = {
   mutilatedleftarm = {
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 24,
 
       isadvisable = function ()
         return (conf.arena and affs.mutilatedleftarm and codepaste.ice_leftarm()) or false
@@ -6656,7 +6656,7 @@ dict = {
   damagedrightarm = {
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 19,
 
       isadvisable = function ()
         return (conf.arena and affs.damagedrightarm and codepaste.ice_rightarm()) or false
@@ -6713,7 +6713,7 @@ dict = {
   mutilatedrightarm = {
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 23,
 
       isadvisable = function ()
         return (conf.arena and affs.mutilatedrightarm and codepaste.ice_rightarm()) or false
@@ -6771,7 +6771,7 @@ dict = {
   damagedleftleg = {
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 22,
 
       isadvisable = function ()
         return (conf.arena and affs.damagedleftleg and codepaste.ice_leftleg()) or false
@@ -6828,7 +6828,7 @@ dict = {
   mutilatedleftleg = {
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 26,
 
       isadvisable = function ()
         return (conf.arena and affs.mutilatedleftleg and codepaste.ice_leftleg()) or false
@@ -6885,7 +6885,7 @@ dict = {
   damagedrightleg = {
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 21,
 
       isadvisable = function ()
         return (conf.arena and affs.damagedrightleg and codepaste.ice_rightleg()) or false
@@ -6942,7 +6942,7 @@ dict = {
   mutilatedrightleg = {
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 25,
 
       isadvisable = function ()
         return (conf.arena and affs.mutilatedrightleg and codepaste.ice_rightleg()) or false
@@ -7081,7 +7081,7 @@ dict = {
     },
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 18,
 
       isadvisable = function ()
         return (conf.arena and affs.collapsedlungs and codepaste.ice_chest()) or false
@@ -13103,7 +13103,7 @@ dict = {
     },
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 31,
 
       isadvisable = function ()
         return (conf.arena and affs.criticalchest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
@@ -13206,7 +13206,7 @@ dict = {
     },
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 11,
 
       isadvisable = function ()
         return (conf.arena and affs.heavychest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
@@ -13369,7 +13369,7 @@ dict = {
     },
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 4,
 
       isadvisable = function ()
         return (conf.arena and affs.lightchest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
@@ -13472,7 +13472,7 @@ dict = {
     },
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 30,
 
       isadvisable = function ()
         return (conf.arena and affs.criticalgut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
@@ -13575,7 +13575,7 @@ dict = {
     },
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 10,
 
       isadvisable = function ()
         return (conf.arena and affs.heavygut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
@@ -13738,7 +13738,7 @@ dict = {
     },
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 3,
 
       isadvisable = function ()
         return (conf.arena and affs.lightgut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
@@ -13841,7 +13841,7 @@ dict = {
     },
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 28,
 
       isadvisable = function ()
         return (conf.arena and affs.criticalrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
@@ -13944,7 +13944,7 @@ dict = {
     },
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 8,
 
       isadvisable = function ()
         return (conf.arena and affs.heavyrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
@@ -14106,7 +14106,7 @@ dict = {
       end
     },ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 1,
 
       isadvisable = function ()
         return (conf.arena and affs.lightrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
@@ -14209,7 +14209,7 @@ dict = {
     },
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 29,
 
       isadvisable = function ()
         return (conf.arena and affs.criticalleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
@@ -14312,7 +14312,7 @@ dict = {
     },
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 9,
 
       isadvisable = function ()
         return (conf.arena and affs.heavyleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
@@ -14475,7 +14475,7 @@ dict = {
     },
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 2,
 
       isadvisable = function ()
         return (conf.arena and affs.lightleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
@@ -14578,7 +14578,7 @@ dict = {
     },
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 33,
 
       isadvisable = function ()
         return (conf.arena and affs.criticalleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
@@ -14681,7 +14681,7 @@ dict = {
     },
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 13,
 
       isadvisable = function ()
         return (conf.arena and affs.heavyleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
@@ -14844,7 +14844,7 @@ dict = {
     },
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 6,
 
       isadvisable = function ()
         return (conf.arena and affs.lightleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
@@ -14947,7 +14947,7 @@ dict = {
     },
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 32,
 
       isadvisable = function ()
         return (conf.arena and affs.criticalrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
@@ -15050,7 +15050,7 @@ dict = {
     },
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 12,
 
       isadvisable = function ()
         return (conf.arena and affs.heavyrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
@@ -15213,7 +15213,7 @@ dict = {
     },
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 5,
 
       isadvisable = function ()
         return (conf.arena and affs.lightrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
@@ -15318,7 +15318,7 @@ dict = {
     },
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 34,
 
       isadvisable = function ()
         return (conf.arena and affs.criticalhead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
@@ -15423,7 +15423,7 @@ dict = {
     },
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 14,
 
       isadvisable = function ()
         return (conf.arena and affs.heavyhead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
@@ -15586,7 +15586,7 @@ dict = {
     },
     ice = {
       aspriority = 0,
-      spriority = 0,
+      spriority = 7,
 
       isadvisable = function ()
         return (conf.arena and affs.lighthead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
