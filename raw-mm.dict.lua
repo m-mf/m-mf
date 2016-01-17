@@ -19828,6 +19828,13 @@ dict = {
       end
     }
   },
+  stolebalance = {
+    happened = {
+      oncompleted = function (balance)
+        $(sys)["lostbal_"..balance]()
+      end
+    }
+  },
   gotbalance = {
     tempmap = {},
     happened = {

@@ -4698,3 +4698,8 @@ function valid.flare_negated()
     killaction(dict.transfixed.aff)
   end
 end
+
+function valid.lostwaferbalance()
+  checkaction(dict.stolebalance.happened, true)
+  lifevision.add(actions.stolebalance_happened.p, nil, "wafer")
+end

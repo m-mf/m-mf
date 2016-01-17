@@ -220,7 +220,7 @@ check_lucidity = function(sync_mode)
   if not bals.lucidity or usingbal("lucidity") or affs.stun
     or affs.sleep or affs.anorexia or affs.scarab or affs.slitthroat
     or affs.throatlock or affs.inquisition
-    or affs.crucified or affs.crushedwindpipe then
+    or affs.crucified or affs.crushedwindpipe or affs.damagedthroat then
       return
   end
 
@@ -1080,7 +1080,8 @@ end
 
 sk.stupidity_count = 0
 function sk.stupidity_symptom()
-  if not paragraph_length == 0 or affs.stupidity or affs.damagedskull then return end
+  if not paragraph_length == 0 or affs.stupidity or affs.damagedskull
+   then return end
 
   sk.stupidity_count = sk.stupidity_count + 1
 
