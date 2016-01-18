@@ -4265,7 +4265,7 @@ mm.show_vessels(1)</script>
                 </Trigger>
                 <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Applied Ice</name>
-                    <script>echo(&quot;\n applied ice general working&quot;)</script>
+                    <script></script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>1</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -4439,7 +4439,7 @@ mm.show_vessels(1)</script>
                 </TriggerGroup>
                 <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>applied ice cure</name>
-                    <script>echo(&quot;\napplied cure firing&quot;)</script>
+                    <script></script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>2</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
