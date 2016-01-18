@@ -36,12 +36,12 @@ end
 
 empty.sip_lucidity = function()
   sk.lostbal_lucidity()
-  removeaff({"epilepsy", "paranoia", "sensitivity", "confusion", "recklessness", "hallucinating", "clumsiness", "stupidity", "addiction"})
+  removeaff({"epilepsy", "paranoia", "sensitivity", "confusion", "recklessness", "hallucinating", "clumsiness", "stupidity", "addiction", "anorexia"})
 end
 
 empty.eat_wafer = function()
   sk.lostbal_wafer()
-  removeaff({"paralysis", "haemophilia", "powersap", "scabies", "dysentery", "pox", "vomiting", "rigormortis", "taintsick"})
+  removeaff({"paralysis", "haemophilia", "powersap", "scabies", "dysentery", "pox", "vomiting", "rigormortis", "taintsick", "asthma"})
 end
 
 empty.eat_earwort = function()
@@ -104,7 +104,7 @@ empty.smoke_myrtle = function()
 end
 
 empty.smoke_steam = function()
-  removeaff({"egovice", "manabarbs", "achromaticaura", "powerspikes", "disloyalty", "pacifism", "illuminated", "healthleech", "aeon"})
+  removeaff({"egovice", "manabarbs", "achromaticaura", "powerspikes", "disloyalty", "pacifism", "illuminated", "healthleech", "aeon", "slickness"})
 end
 
 empty.applyarnica_head = function()

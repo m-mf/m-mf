@@ -4357,6 +4357,28 @@ dict = {
         empty.noeffect_melancholic_chest()
       end
     },
+    wafer = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.asthma and not doingaction "asthma") or false
+      end,
+
+      oncompleted = function ()
+        removeaff("asthma")
+        sk.lostbal_wafer()
+      end,
+
+      eatcure = "dust",
+      onstart = function ()
+        eat("dust")
+      end,
+
+      empty = function()
+        empty.eat_wafer()
+      end
+    },
     aff = {
       oncompleted = function ()
         addaff(dict.asthma)
@@ -6252,7 +6274,7 @@ dict = {
       oncompleted = function ()
         sk.lostbal_ice()
 
-        doaction(dict.curingcrushedchest.waitingfor)
+        removeaff("crushedchest")
       end,
 
       onstart = function ()
@@ -6261,7 +6283,9 @@ dict = {
 
       -- we get no msg from an application of this
       empty = function ()
-        dict.crushedchest.ice.oncompleted()
+        sk.lostbal_ice()
+
+        doaction(dict.curingcrushedchest.waitingfor)
       end,
 
       noeffect = function() 
@@ -6321,8 +6345,7 @@ dict = {
 
       oncompleted = function ()
         sk.lostbal_ice()
-
-        doaction(dict.curingdamagedskull.waitingfor)
+        removeaff("damagedskull")
       end,
 
       onstart = function ()
@@ -6331,7 +6354,9 @@ dict = {
 
       -- we get no msg from an application of this
       empty = function ()
-        dict.damagedskull.ice.oncompleted()
+        sk.lostbal_ice()
+
+        doaction(dict.curingdamagedskull.waitingfor)
       end,
 
       noeffect = function() 
@@ -6378,8 +6403,7 @@ dict = {
 
       oncompleted = function ()
         sk.lostbal_ice()
-
-        doaction(dict.curingdamagedthroat.waitingfor)
+        removeaff("damagedthroat")
       end,
 
       onstart = function ()
@@ -6388,7 +6412,8 @@ dict = {
 
       -- we get no msg from an application of this
       empty = function ()
-        dict.damagedthroat.ice.oncompleted()
+        sk.lostbal_ice()
+        doaction(dict.curingdamagedthroat.waitingfor)
       end,
 
       noeffect = function() 
@@ -6436,7 +6461,7 @@ dict = {
       oncompleted = function ()
         sk.lostbal_ice()
 
-        doaction(dict.curingdamagedorgans.waitingfor)
+        removeaff("damagedorgans")
       end,
 
       onstart = function ()
@@ -6445,7 +6470,9 @@ dict = {
 
       -- we get no msg from an application of this
       empty = function ()
-        dict.damagedorgans.ice.oncompleted()
+        sk.lostbal_ice()
+
+        doaction(dict.curingdamagedorgans.waitingfor)
       end,
 
       noeffect = function() 
@@ -6493,7 +6520,7 @@ dict = {
       oncompleted = function ()
         sk.lostbal_ice()
 
-        doaction(dict.curinginternalbleeding.waitingfor)
+        addaff(dict.internalbleeding)
       end,
 
       onstart = function ()
@@ -6502,7 +6529,9 @@ dict = {
 
       -- we get no msg from an application of this
       empty = function ()
-        dict.internalbleeding.ice.oncompleted()
+        sk.lostbal_ice()
+
+        doaction(dict.curinginternalbleeding.waitingfor)
       end,
 
       noeffect = function() 
@@ -6550,7 +6579,7 @@ dict = {
       oncompleted = function ()
         sk.lostbal_ice()
 
-        doaction(dict.curingdamagedleftarm.waitingfor)
+        removeaff("damagedleftarm")
       end,
 
       onstart = function ()
@@ -6559,7 +6588,9 @@ dict = {
 
       -- we get no msg from an application of this
       empty = function ()
-        dict.damagedleftarm.ice.oncompleted()
+        sk.lostbal_ice()
+
+        doaction(dict.curingdamagedleftarm.waitingfor)
       end,
 
       noeffect = function() 
@@ -6607,7 +6638,7 @@ dict = {
       oncompleted = function ()
         sk.lostbal_ice()
 
-        doaction(dict.curingmutilatedleftarm.waitingfor)
+        removeaff("mutilatedleftarm")
       end,
 
       onstart = function ()
@@ -6616,7 +6647,9 @@ dict = {
 
       -- we get no msg from an application of this
       empty = function ()
-        dict.mutilatedleftarm.ice.oncompleted()
+        sk.lostbal_ice()
+
+        doaction(dict.curingmutilatedleftarm.waitingfor)
       end,
 
       noeffect = function() 
@@ -6646,7 +6679,6 @@ dict = {
 
       oncompleted = function ()
         removeaff("mutilatedleftarm")
-        addaff("damagedleftarm")
       end,
 
       onstart = function ()
@@ -6665,7 +6697,7 @@ dict = {
       oncompleted = function ()
         sk.lostbal_ice()
 
-        doaction(dict.curingdamagedrightarm.waitingfor)
+        removeaff("damagedrightarm")
       end,
 
       onstart = function ()
@@ -6674,7 +6706,9 @@ dict = {
 
       -- we get no msg from an application of this
       empty = function ()
-        dict.damagedrightarm.ice.oncompleted()
+        sk.lostbal_ice()
+
+        doaction(dict.curingdamagedrightarm.waitingfor)
       end,
 
       noeffect = function() 
@@ -6722,7 +6756,7 @@ dict = {
       oncompleted = function ()
         sk.lostbal_ice()
 
-        doaction(dict.curingmutilatedrightarm.waitingfor)
+        removeaff("mutilatedrightarm")
       end,
 
       onstart = function ()
@@ -6731,7 +6765,9 @@ dict = {
 
       -- we get no msg from an application of this
       empty = function ()
-        dict.mutilatedrightarm.ice.oncompleted()
+        sk.lostbal_ice()
+
+        doaction(dict.curingmutilatedrightarm.waitingfor)
       end,
 
       noeffect = function() 
@@ -6761,7 +6797,6 @@ dict = {
 
       oncompleted = function ()
         removeaff("mutilatedrightarm")
-        addaff("damagedrightarm")
       end,
 
       onstart = function ()
@@ -6780,7 +6815,7 @@ dict = {
       oncompleted = function ()
         sk.lostbal_ice()
 
-        doaction(dict.curingdamagedleftleg.waitingfor)
+        removeaff("damagedleftleg")
       end,
 
       onstart = function ()
@@ -6789,7 +6824,9 @@ dict = {
 
       -- we get no msg from an application of this
       empty = function ()
-        dict.damagedleftleg.ice.oncompleted()
+        sk.lostbal_ice()
+
+        doaction(dict.curingdamagedleftleg.waitingfor)
       end,
 
       noeffect = function() 
@@ -6837,7 +6874,7 @@ dict = {
       oncompleted = function ()
         sk.lostbal_ice()
 
-        doaction(dict.curingmutilatedleftleg.waitingfor)
+        removeaff("mutilatedleftleg")
       end,
 
       onstart = function ()
@@ -6846,7 +6883,9 @@ dict = {
 
       -- we get no msg from an application of this
       empty = function ()
-        dict.mutilatedleftleg.ice.oncompleted()
+        sk.lostbal_ice()
+
+        doaction(dict.curingmutilatedleftleg.waitingfor)
       end,
 
       noeffect = function() 
@@ -6893,8 +6932,7 @@ dict = {
 
       oncompleted = function ()
         sk.lostbal_ice()
-
-        doaction(dict.curingdamagedrightleg.waitingfor)
+        removeaff("damagedrightleg")
       end,
 
       onstart = function ()
@@ -6903,7 +6941,8 @@ dict = {
 
       -- we get no msg from an application of this
       empty = function ()
-        dict.damagedrightleg.ice.oncompleted()
+        sk.lostbal_ice()
+        doaction(dict.curingdamagedrightleg.waitingfor)
       end,
 
       noeffect = function() 
@@ -6951,7 +6990,7 @@ dict = {
       oncompleted = function ()
         sk.lostbal_ice()
 
-        doaction(dict.curingmutilatedrightleg.waitingfor)
+        removeaff("mutilatedrightleg")
       end,
 
       onstart = function ()
@@ -6960,7 +6999,9 @@ dict = {
 
       -- we get no msg from an application of this
       empty = function ()
-        dict.mutilatedrightleg.ice.oncompleted()
+        sk.lostbal_ice()
+
+        doaction(dict.curingmutilatedrightleg.waitingfor)
       end,
 
       noeffect = function() 
@@ -7090,7 +7131,7 @@ dict = {
       oncompleted = function ()
         sk.lostbal_ice()
 
-        doaction(dict.curingcollapsedlungs.waitingfor)
+        removeaff("collapsedlungs")
       end,
 
       onstart = function ()
@@ -7099,7 +7140,9 @@ dict = {
 
       -- we get no msg from an application of this
       empty = function ()
-        dict.collapsedlungs.ice.oncompleted()
+        sk.lostbal_ice()
+
+        doaction(dict.curingcollapsedlungs.waitingfor)
       end,
 
       noeffect = function() 
@@ -9231,6 +9274,29 @@ dict = {
       cleanse = true,
       onstart = function ()
         rub_cleanse()
+      end
+    },
+    steam = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.slickness and not doingaction("slickness")) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("slickness")
+        sk.lostbal_steam()
+      end,
+
+      smokecure = "steam",
+      onstart = function ()
+        send("smoke " .. pipes.steam.id, conf.commandecho)
+      end,
+
+      empty = function ()
+        sk.lostbal_steam()
+        empty.smoke_steam()
       end
     },
     aff = {
@@ -12782,6 +12848,27 @@ dict = {
         sk.lostbal_focus()
 
         empty.focus_mind()
+      end
+    },
+    lucidity = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.anorexia and not doingaction("anorexia")) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("anorexia")
+        sk.lostbal_lucidity()
+      end,
+
+      onstart = function ()
+        send("sip lucidity", conf.commandecho)
+      end,
+
+      empty = function()
+        empty.sip_lucidity()
       end
     },
     aff = {

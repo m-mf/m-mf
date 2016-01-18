@@ -218,7 +218,7 @@ end
 check_lucidity = function(sync_mode)
   -- can we even sip?
   if not bals.lucidity or usingbal("lucidity") or affs.stun
-    or affs.sleep or affs.anorexia or affs.scarab or affs.slitthroat
+    or affs.sleep or affs.scarab or affs.slitthroat
     or affs.throatlock or affs.inquisition
     or affs.crucified or affs.crushedwindpipe or affs.damagedthroat then
       return

@@ -3683,7 +3683,6 @@ end
 #for _, aff in pairs(ice) do
 function valid.ice_cured_$(aff)()
   local result = checkany(dict.$(aff).ice, $(checkany_string))
-
   if not result then return end
 
   apply_ice = true
