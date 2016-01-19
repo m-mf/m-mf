@@ -390,14 +390,17 @@ local ice_wlevel = phpTable(
 
 function sk.get_wound_level(amount)
   local name
-    for j, k in ice_wlevel:pairs() do
-      if amount < k then break end
-      name = j
+    if not valid.oldwarrior then
+      for j, k in ice_wlevel:pairs() do
+        if amount < k then break end
+        name = j
+      end
+    else
+      for j,k in wlevel:pairs() do
+        if amount < k then break end
+        name = j
+      end
     end
-   --[[ for j,k in wlevel:pairs() do
-      if amount < k then break end
-      name = j
-    end]]--
 
   return name or "light"
 end
@@ -411,10 +414,13 @@ for _,k in ipairs({"rightarm", "leftarm", "leftleg", "rightleg", "chest", "gut",
 end
 
 local function update_wound_count(k, amount)
-    dict["light" .. k].count, dict["heavy" .. k].count, dict["critical" .. k].count = amount, amount, amount
-    removeaff{"light"..k, "heavy"..k, "critical"..k}
-    --[[dict["light" .. k].count, dict["medium" .. k].count, dict["heavy" .. k].count, dict["critical" .. k].count = amount, amount, amount, amount
-    removeaff{"light"..k, "medium"..k, "heavy"..k, "critical"..k}]]--
+    if not valid.oldwarrior then
+      dict["light" .. k].count, dict["heavy" .. k].count, dict["critical" .. k].count = amount, amount, amount
+      removeaff{"light"..k, "heavy"..k, "critical"..k}
+    else
+      dict["light" .. k].count, dict["medium" .. k].count, dict["heavy" .. k].count, dict["critical" .. k].count = amount, amount, amount, amount
+      removeaff{"light"..k, "medium"..k, "heavy"..k, "critical"..k}
+    end
 end
 
 local partially_healed = {}
@@ -422,18 +428,22 @@ for _,k in ipairs({"rightarm", "leftarm", "leftleg", "rightleg", "chest", "gut",
   partially_healed[k] = function (type)
     local amount
 
+    if not valid.oldwarrior then
       amount = 1
-    --[[elseif type == 'deepheal' then amount = math.random(1600, 2000)
+    elseif type == 'deepheal' then amount = math.random(1600, 2000)
     elseif type == 'puer' then amount = math.random(800, 1000)
     elseif type == 'healspring' then amount = math.random(200, 300)
-    else amount = math.random(800, 900) end]]--
+    else amount = math.random(800, 900) end
 
     if (dict["light"..k].count - amount) < 0 then amount = 0 else amount = dict["light"..k].count - amount end
 
+    if not valid.oldwarrior then
       dict["light" .. k].count, dict["heavy" .. k].count, dict["critical" .. k].count = amount, amount, amount
       removeaff{"light"..k, "heavy"..k, "critical"..k}
-     --[[ dict["light" .. k].count, dict["medium" .. k].count, dict["heavy" .. k].count, dict["critical" .. k].count = amount, amount, amount, amount
-      removeaff{"light"..k, "medium"..k, "heavy"..k, "critical"..k}]]--
+    else
+      dict["light" .. k].count, dict["medium" .. k].count, dict["heavy" .. k].count, dict["critical" .. k].count = amount, amount, amount, amount
+      removeaff{"light"..k, "medium"..k, "heavy"..k, "critical"..k}
+    end
 
     addaff(dict[sk.get_wound_level(amount)..k])
   end
@@ -13123,7 +13133,7 @@ dict = {
       spriority = 374,
 
       isadvisable = function ()
-        return (affs.criticalchest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.criticalchest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13165,7 +13175,7 @@ dict = {
       spriority = 31,
 
       isadvisable = function ()
-        return (affs.criticalchest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
+        return (not valid.oldwarrior and affs.criticalchest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13226,7 +13236,7 @@ dict = {
       spriority = 367,
 
       isadvisable = function ()
-        return (affs.heavychest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.heavychest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13268,7 +13278,7 @@ dict = {
       spriority = 11,
 
       isadvisable = function ()
-        return (affs.heavychest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
+        return (not valid.oldwarrior and affs.heavychest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13329,7 +13339,7 @@ dict = {
       spriority = 360,
 
       isadvisable = function ()
-        return (affs.mediumchest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.mediumchest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13389,7 +13399,7 @@ dict = {
       spriority = 353,
 
       isadvisable = function ()
-        return (affs.lightchest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.lightchest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13431,7 +13441,7 @@ dict = {
       spriority = 4,
 
       isadvisable = function ()
-        return (affs.lightchest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
+        return (not valid.oldwarrior and affs.lightchest and dict.grapple.ninshilimb ~= "chest" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13492,7 +13502,7 @@ dict = {
       spriority = 375,
 
       isadvisable = function ()
-        return (affs.criticalgut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.criticalgut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13534,7 +13544,7 @@ dict = {
       spriority = 30,
 
       isadvisable = function ()
-        return (affs.criticalgut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
+        return (not valid.oldwarrior and affs.criticalgut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13595,7 +13605,7 @@ dict = {
       spriority = 368,
 
       isadvisable = function ()
-        return (affs.heavygut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.heavygut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13637,7 +13647,7 @@ dict = {
       spriority = 10,
 
       isadvisable = function ()
-        return (affs.heavygut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
+        return (not valid.oldwarrior and affs.heavygut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13698,7 +13708,7 @@ dict = {
       spriority = 361,
 
       isadvisable = function ()
-        return (affs.mediumgut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.mediumgut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13758,7 +13768,7 @@ dict = {
       spriority = 354,
 
       isadvisable = function ()
-        return (affs.lightgut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.lightgut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13800,7 +13810,7 @@ dict = {
       spriority = 3,
 
       isadvisable = function ()
-        return (affs.lightgut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
+        return (not valid.oldwarrior and affs.lightgut and dict.grapple.ninshilimb ~= "gut" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13861,7 +13871,7 @@ dict = {
       spriority = 376,
 
       isadvisable = function ()
-        return (affs.criticalrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.criticalrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13903,7 +13913,7 @@ dict = {
       spriority = 28,
 
       isadvisable = function ()
-        return (affs.criticalrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
+        return (not valid.oldwarrior and affs.criticalrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -13964,7 +13974,7 @@ dict = {
       spriority = 369,
 
       isadvisable = function ()
-        return (affs.heavyrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.heavyrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -14006,7 +14016,7 @@ dict = {
       spriority = 8,
 
       isadvisable = function ()
-        return (affs.heavyrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
+        return (not valid.oldwarrior and affs.heavyrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -14067,7 +14077,7 @@ dict = {
       spriority = 362,
 
       isadvisable = function ()
-        return (affs.mediumrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.mediumrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -14127,7 +14137,7 @@ dict = {
       spriority = 355,
 
       isadvisable = function ()
-        return (affs.lightrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.lightrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -14163,12 +14173,13 @@ dict = {
       onstart = function ()
         send("apply health to arms", conf.commandecho)
       end
-    },ice = {
+    },
+    ice = {
       aspriority = 0,
       spriority = 1,
 
       isadvisable = function ()
-        return (affs.lightrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
+        return (not valid.oldwarrior and affs.lightrightarm and dict.grapple.ninshilimb ~= "rightarm" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -14229,7 +14240,7 @@ dict = {
       spriority = 377,
 
       isadvisable = function ()
-        return (affs.criticalleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.criticalleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -14271,7 +14282,7 @@ dict = {
       spriority = 29,
 
       isadvisable = function ()
-        return (affs.criticalleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
+        return (not valid.oldwarrior and affs.criticalleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -14332,7 +14343,7 @@ dict = {
       spriority = 370,
 
       isadvisable = function ()
-        return (affs.heavyleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.heavyleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -14374,7 +14385,7 @@ dict = {
       spriority = 9,
 
       isadvisable = function ()
-        return (affs.heavyleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
+        return (not valid.oldwarrior and affs.heavyleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -14435,7 +14446,7 @@ dict = {
       spriority = 363,
 
       isadvisable = function ()
-        return (affs.mediumleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.mediumleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -14495,7 +14506,7 @@ dict = {
       spriority = 356,
 
       isadvisable = function ()
-        return (affs.lightleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.lightleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -14537,7 +14548,7 @@ dict = {
       spriority = 2,
 
       isadvisable = function ()
-        return (affs.lightleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
+        return (not valid.oldwarrior and affs.lightleftarm and dict.grapple.ninshilimb ~= "leftarm" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -14598,7 +14609,7 @@ dict = {
       spriority = 378,
 
       isadvisable = function ()
-        return (affs.criticalleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.criticalleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -14640,7 +14651,7 @@ dict = {
       spriority = 33,
 
       isadvisable = function ()
-        return (affs.criticalleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
+        return (not valid.oldwarrior and affs.criticalleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -14701,7 +14712,7 @@ dict = {
       spriority = 371,
 
       isadvisable = function ()
-        return (affs.heavyleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.heavyleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -14743,7 +14754,7 @@ dict = {
       spriority = 13,
 
       isadvisable = function ()
-        return (affs.heavyleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.heavyleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -14804,7 +14815,7 @@ dict = {
       spriority = 364,
 
       isadvisable = function ()
-        return (affs.mediumleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.mediumleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -14864,7 +14875,7 @@ dict = {
       spriority = 357,
 
       isadvisable = function ()
-        return (affs.lightleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.lightleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -14906,7 +14917,7 @@ dict = {
       spriority = 6,
 
       isadvisable = function ()
-        return (affs.lightleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
+        return (not valid.oldwarrior and affs.lightleftleg and dict.grapple.ninshilimb ~= "leftleg" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -14967,7 +14978,7 @@ dict = {
       spriority = 379,
 
       isadvisable = function ()
-        return (affs.criticalrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.criticalrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -15009,7 +15020,7 @@ dict = {
       spriority = 32,
 
       isadvisable = function ()
-        return (affs.criticalrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
+        return (not valid.oldwarrior and affs.criticalrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -15070,7 +15081,7 @@ dict = {
       spriority = 372,
 
       isadvisable = function ()
-        return (affs.heavyrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.heavyrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -15112,7 +15123,7 @@ dict = {
       spriority = 12,
 
       isadvisable = function ()
-        return (affs.heavyrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
+        return (not valid.oldwarrior and affs.heavyrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -15173,7 +15184,7 @@ dict = {
       spriority = 365,
 
       isadvisable = function ()
-        return (affs.mediumrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.mediumrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -15233,7 +15244,7 @@ dict = {
       spriority = 358,
 
       isadvisable = function ()
-        return (affs.lightrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.lightrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -15275,7 +15286,7 @@ dict = {
       spriority = 5,
 
       isadvisable = function ()
-        return (affs.lightrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
+        return (not valid.oldwarrior and affs.lightrightleg and dict.grapple.ninshilimb ~= "rightleg" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -15336,7 +15347,7 @@ dict = {
       spriority = 330,
 
       isadvisable = function ()
-        return (affs.criticalhead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.criticalhead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -15380,7 +15391,7 @@ dict = {
       spriority = 34,
 
       isadvisable = function ()
-        return (affs.criticalhead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
+        return (not valid.oldwarrior and affs.criticalhead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -15443,7 +15454,7 @@ dict = {
       spriority = 373,
 
       isadvisable = function ()
-        return (affs.heavyhead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.heavyhead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -15485,7 +15496,7 @@ dict = {
       spriority = 14,
 
       isadvisable = function ()
-        return (affs.heavyhead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
+        return (not valid.oldwarrior and affs.heavyhead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -15546,7 +15557,7 @@ dict = {
       spriority = 366,
 
       isadvisable = function ()
-        return (affs.mediumhead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.mediumhead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -15606,7 +15617,7 @@ dict = {
       spriority = 359,
 
       isadvisable = function ()
-        return (affs.lighthead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
+        return (valid.oldwarrior and affs.lighthead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
       end,
 
       oncompleted = function ()
@@ -15648,7 +15659,7 @@ dict = {
       spriority = 7,
 
       isadvisable = function ()
-        return (affs.lighthead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
+        return (not valid.oldwarrior and affs.lighthead and dict.grapple.ninshilimb ~= "head" and not affs.slickness) or false
       end,
 
       oncompleted = function ()

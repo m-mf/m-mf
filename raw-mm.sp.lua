@@ -274,6 +274,8 @@ function sp.setup()
   sps.installnext()
 end
 
+valid.oldwarrior = false
+
 function sp.revert_overhaul()
   if not next(sp_config.old_stance_actionlevel) then
     sk.update_actionlevels()
@@ -291,8 +293,34 @@ function sp.revert_overhaul()
   end
 
   if sp_config.stance_actionlevel.head > 100 then
+    valid.oldwarrior = true
+    disableoverhaul("damagedleftarm", true)
+    disableoverhaul("damagedrightarm", true)
+    disableoverhaul("damagedleftleg", true)
+    disableoverhaul("damagedrightleg", true)
+    disableoverhaul("mutilatedleftarm", true)
+    disableoverhaul("mutilatedleftleg", true)
+    disableoverhaul("mutilatedrightarm", true)
+    disableoverhaul("mutilatedrightleg", true)
+    disableoverhaul("damagedskull", true)
+    disableoverhaul("asthma", true)
+    disableoverhaul("anorexia", true)
+    disableoverhaul("slickness", true)
     echof("reverted stance/parry actionlevels to pre-overhaul")
   else
+    valid.oldwarrior = false
+    enableoverhaul("damagedleftarm", true)
+    enableoverhaul("damagedrightarm", true)
+    enableoverhaul("damagedleftleg", true)
+    enableoverhaul("damagedrightleg", true)
+    enableoverhaul("mutilatedleftarm", true)
+    enableoverhaul("mutilatedleftleg", true)
+    enableoverhaul("mutilatedrightarm", true)
+    enableoverhaul("mutilatedrightleg", true)
+    enableoverhaul("damagedskull", true)
+    enableoverhaul("asthma", true)
+    enableoverhaul("anorexia", true)
+    enableoverhaul("slickness", true)
     echof("stance/parry actionlevels set for overhaul")
   end
 
