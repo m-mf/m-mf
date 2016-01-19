@@ -458,13 +458,8 @@ function ashow()
   echoLink("steam", 'mm.printorder("steam")', 'View steam priorities', true)
   setUnderline(false) echo", " setUnderline(true)
   echoLink("wafer", 'mm.printorder("wafer")', 'View wafer priorities', true)
-  resetFormat()
-  echo"\n"
-
-  echofn("Arena mode:       ")
-  setFgColor(unpack(getDefaultColorNums))
-  setUnderline(true)
-  echoLink(conf.arena and "enabled" or "disabled", "$(sys).tntf_set('arena', "..(conf.arena and "false" or "true").. ', false); svo.ashow()', (conf.arena and "Disable" or "Enable")..' arena triggers', true)
+  setUnderline(false) echo", " setUnderline(true)
+  echoLink("ice", 'mm.printorder("ice")', 'View ice priorities', true)
   resetFormat()
   echo"\n"
 
@@ -759,3 +754,4 @@ function show_ignore()
   end
   showprompt()
 end
+
