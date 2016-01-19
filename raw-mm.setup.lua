@@ -247,7 +247,8 @@ conf.assumestats = 0
 
 
 conf.paused = false
-conf.autoarena = true
+conf.autoarena = false
+conf.arena = false
 conf.lag = 0
 sys.wait = 0.7 -- for lag
 conf.aillusion = false
@@ -386,7 +387,7 @@ local index_map = pl.tablex.index_map
 
 local addaff, removeaff, checkanyaffs, updateaffcount
 
-sk.salvetick, sk.herbtick, sk.focustick, sk.teatick, sk.purgativetick, sk.siptick, sk.luciditytick, sk.steamtick, sk.wafertick = 0, 0, 0, 0, 0, 0, 0, 0, 0
+sk.salvetick, sk.herbtick, sk.focustick, sk.teatick, sk.purgativetick, sk.siptick, sk.luciditytick, sk.steamtick, sk.wafertick, sk.icetick = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 sk.overhaul = sk.overhaul or {}
 
 
@@ -419,7 +420,7 @@ local affsp = {}
 
 local rift, pipes = {}, {}
 
-local check_focus, check_salve, check_sip, check_purgative, check_herb, check_scroll, check_sparkle, check_misc, check_balanceless_acts, check_allheale, check_balanceful_acts, check_lucidity, check_steam, check_wafer
+local check_focus, check_salve, check_sip, check_purgative, check_herb, check_scroll, check_sparkle, check_misc, check_balanceless_acts, check_allheale, check_balanceful_acts, check_lucidity, check_steam, check_wafer, check_ice
 
 local generics_enabled, generics_enabled_for_blackout, generics_enabled_for_passive, enable_generic_trigs, disable_generic_trigs, check_generics
 
@@ -466,6 +467,19 @@ sk.overhauldata = {
   vomiting       = { newbalances = {"wafer"}, oldbalances = {"purgative"}, replaces = {"vomitblood"}},
   rigormortis    = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   taintsick      = { newbalances = {"wafer"}, oldbalances = {"focus"}, replaces = {"crotamine"}},
+  anorexia       = { newbalances = {"lucidity"}, oldbalances = {"herb"}},
+  asthma         = { newbalances = {"wafer"}, oldbalances = {"salve"}},
+  slickness      = { newbalances = {"steam"}, oldbalances = {"herb"}},
+  damagedleftarm = { newbalances = {"ice"}, oldbalances = {}, replaces = {"crippledleftarm"}},
+  damagedrightarm = { newbalances = {"ice"}, oldbalances = {}, replaces = {"crippledrightarm"}},
+  damagedleftleg = { newbalances = {"ice"}, oldbalances = {}, replaces = {"crippledleftleg"}},
+  damagedrightleg = { newbalances = {"ice"}, oldbalances = {}, replaces = {"crippledrightleg"}},
+  mutilatedleftarm = { newbalances = {"ice"}, oldbalances = {}, replaces = {"mangledleftarm","missingleftarm"}},
+  mutilatedrightarm = { newbalances = {"ice"}, oldbalances = {}, replaces = {"mangledrightarm","missingrightarm"}},
+  mutilatedrightleg = { newbalances = {"ice"}, oldbalances = {}, replaces = {"mangledrightleg","missingrightleg"}},
+  mutilatedleftleg = { newbalances = {"ice"}, oldbalances = {}, replaces = {"mangledleftleg","missingleftleg"}},
+  damagedskull = { newbalances = {"ice"}, oldbalances = {}, replaces = {"fracturedskull"}},
+
 }
 sk.overhaulredirects = {}
 
@@ -712,5 +726,5 @@ sk.arena_areas = {
   --Magnagora
   ["the Midnight Coliseum"] = true,
   --Avenger
-  ["the Klangratch Tourny Fields"] = true,
+  ["the Klangratch Tourny Fields"] = true
 }
