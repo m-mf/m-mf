@@ -249,6 +249,7 @@ conf.assumestats = 0
 conf.paused = false
 conf.autoarena = false
 conf.arena = false
+conf.oldwarrior = false
 conf.lag = 0
 sys.wait = 0.7 -- for lag
 conf.aillusion = false

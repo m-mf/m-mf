@@ -4370,7 +4370,7 @@ mm.show_vessels(1)</script>
                         <colorTriggerFgColor>#000000</colorTriggerFgColor>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
-                            <string>^The salve mends your (head|chest|gut|left arm|left leg|right arm|right leg), leaving it with (light|heavy|critical) wounds.$</string>
+                            <string>^The salve mends your (head|chest|gut|left arm|left leg|right arm|right leg), leaving it with (light|heavy|critical) wounds\.$</string>
                         </regexCodeList>
                         <regexCodePropertyList>
                             <integer>1</integer>
@@ -4390,7 +4390,7 @@ mm.show_vessels(1)</script>
                         <colorTriggerFgColor>#000000</colorTriggerFgColor>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
-                            <string>^The salve mends your (head|chest|gut|left arm|left leg|right arm|right leg), leaving it with no wounds.$</string>
+                            <string>^The salve mends your (?:head|chest|gut|left arm|left leg|right arm|right leg), leaving it with no wounds\.$</string>
                         </regexCodeList>
                         <regexCodePropertyList>
                             <integer>1</integer>
@@ -4565,8 +4565,7 @@ mm.show_vessels(1)</script>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>damagedrightleg</name>
                         <script>mm.valid.ice_cured_damagedrightleg()
-
-echo(&quot;\n second test worked&quot;)</script>
+</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>0</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -35777,7 +35776,7 @@ end</script>
                         <name>Haemophilia + bleed</name>
                         <script>mm.valid.kata_spronghai()
 mm.valid.simplebleeding()
-mm.addwounds(&quot;monk&quot;, &quot;nekai_spronghai&quot;, matches[2]:gsub(&quot; &quot;, &quot;&quot;))</script>
+--mm.addwounds(&quot;monk&quot;, &quot;nekai_spronghai&quot;, matches[2]:gsub(&quot; &quot;, &quot;&quot;))</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>99</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -35798,7 +35797,7 @@ mm.addwounds(&quot;monk&quot;, &quot;nekai_spronghai&quot;, matches[2]:gsub(&quo
                 </Trigger>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>To the chest/head/gut</name>
-                    <script>mm.addwounds(&quot;monk&quot;, &quot;kata_punch&quot;, matches[2])</script>
+                    <script>--mm.addwounds(&quot;monk&quot;, &quot;kata_punch&quot;, matches[2])</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>2</mStayOpen>
@@ -35974,7 +35973,7 @@ mm.addwounds(&quot;monk&quot;, &quot;nekai_spronghai&quot;, matches[2]:gsub(&quo
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Ka throw</name>
                     <script>mm.valid.kathrow()
-mm.addwounds(&quot;monk&quot;, &quot;kata_throw&quot;, {&quot;head&quot;, &quot;chest&quot;, &quot;gut&quot;, &quot;rightarm&quot;, &quot;leftarm&quot;, &quot;rightleg&quot;, &quot;leftleg&quot;})</script>
+--mm.addwounds(&quot;monk&quot;, &quot;kata_throw&quot;, {&quot;head&quot;, &quot;chest&quot;, &quot;gut&quot;, &quot;rightarm&quot;, &quot;leftarm&quot;, &quot;rightleg&quot;, &quot;leftleg&quot;})</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>1</mStayOpen>
@@ -36214,7 +36213,7 @@ mm.valid.proper_prone()</script>
                     <regexCodePropertyList/>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Kata Kick</name>
-                        <script>mm.addwounds(&quot;monk&quot;, &quot;kata_kick&quot;, multimatches[2][2]:gsub(&quot; &quot;, &quot;&quot;))</script>
+                        <script>--mm.addwounds(&quot;monk&quot;, &quot;kata_kick&quot;, multimatches[2][2]:gsub(&quot; &quot;, &quot;&quot;))</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>0</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -36236,8 +36235,8 @@ mm.valid.proper_prone()</script>
                     </Trigger>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Logami</name>
-                        <script>mm.addwounds(&quot;monk&quot;, &quot;twisted_arms&quot;, &quot;rightarm&quot;)
-mm.addwounds(&quot;monk&quot;, &quot;twisted_arms&quot;, &quot;leftarm&quot;)
+                        <script>--mm.addwounds(&quot;monk&quot;, &quot;twisted_arms&quot;, &quot;rightarm&quot;)
+--mm.addwounds(&quot;monk&quot;, &quot;twisted_arms&quot;, &quot;leftarm&quot;)
 mm.valid.simplegrapple()
 </script>
                         <triggerType>0</triggerType>
@@ -36545,7 +36544,7 @@ mm.valid.simplegrapple()
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Kumaki</name>
                     <script>mm.valid.proper_paralysis()
-mm.addwounds(&quot;monk&quot;, &quot;shofangi_kumaki&quot;, multimatches[1][2]:gsub(&quot; &quot;, &quot;&quot;))</script>
+--mm.addwounds(&quot;monk&quot;, &quot;shofangi_kumaki&quot;, multimatches[1][2]:gsub(&quot; &quot;, &quot;&quot;))</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>1</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -36587,7 +36586,7 @@ mm.addwounds(&quot;monk&quot;, &quot;shofangi_kumaki&quot;, multimatches[1][2]:g
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Head</name>
                         <script>-- blackout
-mm.addwounds(&quot;monk&quot;, &quot;shofangi_buck&quot;, &quot;head&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;shofangi_buck&quot;, &quot;head&quot;)</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>0</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -36608,7 +36607,7 @@ mm.addwounds(&quot;monk&quot;, &quot;shofangi_buck&quot;, &quot;head&quot;)</scr
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Chest</name>
                         <script>mm.valid.simplecrushedchest()
-mm.addwounds(&quot;monk&quot;, &quot;shofangi_buck&quot;, &quot;chest&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;shofangi_buck&quot;, &quot;chest&quot;)</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>0</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -36629,7 +36628,7 @@ mm.addwounds(&quot;monk&quot;, &quot;shofangi_buck&quot;, &quot;chest&quot;)</sc
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Gut</name>
                         <script>mm.valid.simplerupturedstomach()
-mm.addwounds(&quot;monk&quot;, &quot;shofangi_buck&quot;, &quot;gut&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;shofangi_buck&quot;, &quot;gut&quot;)</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>99</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -36650,7 +36649,7 @@ mm.addwounds(&quot;monk&quot;, &quot;shofangi_buck&quot;, &quot;gut&quot;)</scri
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>right arm</name>
                         <script>mm.valid.simplemangledrightarm()
-mm.addwounds(&quot;monk&quot;, &quot;shofangi_buck&quot;, &quot;rightarm&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;shofangi_buck&quot;, &quot;rightarm&quot;)</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>99</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -36671,7 +36670,7 @@ mm.addwounds(&quot;monk&quot;, &quot;shofangi_buck&quot;, &quot;rightarm&quot;)<
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>left arm</name>
                         <script>mm.valid.simplemangledleftarm()
-mm.addwounds(&quot;monk&quot;, &quot;shofangi_buck&quot;, &quot;leftarm&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;shofangi_buck&quot;, &quot;leftarm&quot;)</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>0</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -36692,7 +36691,7 @@ mm.addwounds(&quot;monk&quot;, &quot;shofangi_buck&quot;, &quot;leftarm&quot;)</
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>left leg</name>
                         <script>mm.valid.simplemangledleftleg()
-mm.addwounds(&quot;monk&quot;, &quot;shofangi_buck&quot;, &quot;leftleg&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;shofangi_buck&quot;, &quot;leftleg&quot;)</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>99</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -36713,7 +36712,7 @@ mm.addwounds(&quot;monk&quot;, &quot;shofangi_buck&quot;, &quot;leftleg&quot;)</
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>right leg</name>
                         <script>mm.valid.simplemangledrightleg()
-mm.addwounds(&quot;monk&quot;, &quot;shofangi_buck&quot;, &quot;rightleg&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;shofangi_buck&quot;, &quot;rightleg&quot;)</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>0</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -36735,7 +36734,7 @@ mm.addwounds(&quot;monk&quot;, &quot;shofangi_buck&quot;, &quot;rightleg&quot;)<
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Sliced tongue</name>
                     <script>mm.valid.simpleslicedtongue()
-mm.addwounds(&quot;monk&quot;, &quot;shofangi_slicedtongue&quot;, &quot;head&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;shofangi_slicedtongue&quot;, &quot;head&quot;)</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -36775,7 +36774,7 @@ mm.addwounds(&quot;monk&quot;, &quot;shofangi_slicedtongue&quot;, &quot;head&quo
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Right arm</name>
                         <script>mm.valid.simplecrippledrightarm()
-mm.addwounds(&quot;monk&quot;, &quot;shofangi_stomp&quot;, &quot;rightarm&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;shofangi_stomp&quot;, &quot;rightarm&quot;)</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>0</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -36796,7 +36795,7 @@ mm.addwounds(&quot;monk&quot;, &quot;shofangi_stomp&quot;, &quot;rightarm&quot;)
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Left arm</name>
                         <script>mm.valid.simplecrippledleftarm()
-mm.addwounds(&quot;monk&quot;, &quot;shofangi_stomp&quot;, &quot;leftarm&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;shofangi_stomp&quot;, &quot;leftarm&quot;)</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>99</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -36818,7 +36817,7 @@ mm.addwounds(&quot;monk&quot;, &quot;shofangi_stomp&quot;, &quot;leftarm&quot;)<
                         <name>Left leg</name>
                         <script>mm.valid.shofangi_stomp(&quot;leftfoot&quot;)
 
-mm.addwounds(&quot;monk&quot;, &quot;shofangi_stomp&quot;, &quot;leftleg&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;shofangi_stomp&quot;, &quot;leftleg&quot;)</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>0</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -36840,7 +36839,7 @@ mm.addwounds(&quot;monk&quot;, &quot;shofangi_stomp&quot;, &quot;leftleg&quot;)<
                         <name>Right leg</name>
                         <script>mm.valid.shofangi_stomp(&quot;rightfoot&quot;)
 
-mm.addwounds(&quot;monk&quot;, &quot;shofangi_stomp&quot;, &quot;rightleg&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;shofangi_stomp&quot;, &quot;rightleg&quot;)</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>0</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -36861,7 +36860,7 @@ mm.addwounds(&quot;monk&quot;, &quot;shofangi_stomp&quot;, &quot;rightleg&quot;)
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Head</name>
                         <script>mm.valid.simplebrokenjaw()
-mm.addwounds(&quot;monk&quot;, &quot;shofangi_stomp&quot;, &quot;head&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;shofangi_stomp&quot;, &quot;head&quot;)</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>87</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -36882,7 +36881,7 @@ mm.addwounds(&quot;monk&quot;, &quot;shofangi_stomp&quot;, &quot;head&quot;)</sc
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Chest</name>
                         <script>mm.valid.simplesnappedrib()
-mm.addwounds(&quot;monk&quot;, &quot;shofangi_stomp&quot;, &quot;chest&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;shofangi_stomp&quot;, &quot;chest&quot;)</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>0</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -36904,7 +36903,7 @@ mm.addwounds(&quot;monk&quot;, &quot;shofangi_stomp&quot;, &quot;chest&quot;)</s
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Rake</name>
                     <script>mm.valid.shofangi_rake()
-mm.addwounds(&quot;monk&quot;, &quot;shofangi_rake&quot;, (multimatches[2][2]..multimatches[2][3]))</script>
+--mm.addwounds(&quot;monk&quot;, &quot;shofangi_rake&quot;, (multimatches[2][2]..multimatches[2][3]))</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -36926,7 +36925,7 @@ mm.addwounds(&quot;monk&quot;, &quot;shofangi_rake&quot;, (multimatches[2][2]..m
                 </Trigger>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Rake chest</name>
-                    <script>mm.addwounds(&quot;monk&quot;, &quot;shofangi_rake&quot;, &quot;chest&quot;)</script>
+                    <script>--mm.addwounds(&quot;monk&quot;, &quot;shofangi_rake&quot;, &quot;chest&quot;)</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>99</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -36985,7 +36984,7 @@ mm.addwounds(&quot;monk&quot;, &quot;shofangi_rake&quot;, (multimatches[2][2]..m
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>Skull</name>
                             <script>mm.valid.simplefracturedskull()
-mm.addwounds(&quot;monk&quot;, &quot;shofangi_heelslam&quot;, &quot;head&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;shofangi_heelslam&quot;, &quot;head&quot;)</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>99</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -37007,7 +37006,7 @@ mm.addwounds(&quot;monk&quot;, &quot;shofangi_heelslam&quot;, &quot;head&quot;)<
                             <name>Chest</name>
                             <script>mm.valid.simplebrokenchest()
 mm.valid.simplestun() -- 1s
-mm.addwounds(&quot;monk&quot;, &quot;shofangi_heelslam&quot;, &quot;chest&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;shofangi_heelslam&quot;, &quot;chest&quot;)</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>0</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -37028,7 +37027,7 @@ mm.addwounds(&quot;monk&quot;, &quot;shofangi_heelslam&quot;, &quot;chest&quot;)
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>Right arm</name>
                             <script>mm.valid.simpledislocatedrightarm()
-mm.addwounds(&quot;monk&quot;, &quot;shofangi_heelslam&quot;, &quot;rightarm&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;shofangi_heelslam&quot;, &quot;rightarm&quot;)</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>0</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -37049,7 +37048,7 @@ mm.addwounds(&quot;monk&quot;, &quot;shofangi_heelslam&quot;, &quot;rightarm&quo
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>Left arm</name>
                             <script>mm.valid.simpledislocatedleftarm()
-mm.addwounds(&quot;monk&quot;, &quot;shofangi_heelslam&quot;, &quot;leftarm&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;shofangi_heelslam&quot;, &quot;leftarm&quot;)</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>99</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -37070,7 +37069,7 @@ mm.addwounds(&quot;monk&quot;, &quot;shofangi_heelslam&quot;, &quot;leftarm&quot
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>Right leg</name>
                             <script>mm.valid.simpledislocatedrightleg()
-mm.addwounds(&quot;monk&quot;, &quot;shofangi_heelslam&quot;, &quot;rightleg&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;shofangi_heelslam&quot;, &quot;rightleg&quot;)</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>99</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -37091,7 +37090,7 @@ mm.addwounds(&quot;monk&quot;, &quot;shofangi_heelslam&quot;, &quot;rightleg&quo
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>Left leg</name>
                             <script>mm.valid.simpledislocatedleftleg()
-mm.addwounds(&quot;monk&quot;, &quot;shofangi_heelslam&quot;, &quot;leftleg&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;shofangi_heelslam&quot;, &quot;leftleg&quot;)</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>0</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -40243,7 +40242,7 @@ if math.random(1,3) == 1 then mm.adf() end</script>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Sliced </name>
                     <script>mm.valid.nekotai_angknek()
-mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, matches[2]..matches[3])</script>
+--mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, matches[2]..matches[3])</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -40265,7 +40264,7 @@ mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, matches[2]..matches[3])<
                     <name>Gashed cheek</name>
                     <script>mm.valid.simplegashedcheek()
 mm.valid.simplebleeding(100)
-mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;head&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;head&quot;)</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -40288,7 +40287,7 @@ mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;head&quot;)</scrip
                     <script>mm.valid.proper_slitthroat()
 mm.valid.simplerelapsing()
 
-mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;head&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;head&quot;)</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -40309,7 +40308,7 @@ mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;head&quot;)</scrip
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Open Gut</name>
                     <script>mm.valid.simpleopengut()
-mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;gut&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;gut&quot;)</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -40331,7 +40330,7 @@ mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;gut&quot;)</script
                     <name>Tendon</name>
                     <script>mm.valid.nekotai_tendon()
 mm.valid.proper_prone()
-mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, matches[2]..&quot;leg&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, matches[2]..&quot;leg&quot;)</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>18</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -40397,7 +40396,7 @@ mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, matches[2]..&quot;leg&qu
                 </Trigger>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Nekai</name>
-                    <script>mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, multimatches[2][2]:gsub(&quot; &quot;, &quot;&quot;))</script>
+                    <script>--mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, multimatches[2][2]:gsub(&quot; &quot;, &quot;&quot;))</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -40420,7 +40419,7 @@ mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, matches[2]..&quot;leg&qu
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Angknek</name>
                     <script>mm.valid.simplepuncturedlung()
-mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;chest&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;chest&quot;)</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -40463,7 +40462,7 @@ mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;chest&quot;)</scri
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Amihai</name>
                     <script>mm.valid.nekotai_amihai()
-mm.addwounds(&quot;monk&quot;, &quot;nekotai_amihai&quot;, &quot;head&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;nekotai_amihai&quot;, &quot;head&quot;)</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -40485,7 +40484,7 @@ mm.addwounds(&quot;monk&quot;, &quot;nekotai_amihai&quot;, &quot;head&quot;)</sc
                 </Trigger>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Kaife</name>
-                    <script>mm.addwounds(&quot;monk&quot;, &quot;nekai_kaife&quot;, matches[2]:gsub(&quot; &quot;, &quot;&quot;))</script>
+                    <script>--mm.addwounds(&quot;monk&quot;, &quot;nekai_kaife&quot;, matches[2]:gsub(&quot; &quot;, &quot;&quot;))</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>99</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -40506,7 +40505,7 @@ mm.addwounds(&quot;monk&quot;, &quot;nekotai_amihai&quot;, &quot;head&quot;)</sc
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Gouged eye</name>
                     <script>mm.valid.nekotai_gougedeye()
-mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;head&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;head&quot;)</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -40529,7 +40528,7 @@ mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;head&quot;)</scrip
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Severed phrenic</name>
                     <script>mm.valid.simpleseveredphrenic()
-mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;chest&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;chest&quot;)</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>99</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -40550,7 +40549,7 @@ mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;chest&quot;)</scri
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Relapsing</name>
                     <script>mm.valid.simplerelapsing()
-mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;gut&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;gut&quot;)</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -40571,7 +40570,7 @@ mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;gut&quot;)</script
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Pierced limb</name>
                     <script>mm.valid.nekotai_pierced()
-mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, multimatches[2][2]..multimatches[2][3])</script>
+--mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, multimatches[2][2]..multimatches[2][3])</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -40593,7 +40592,7 @@ mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, multimatches[2][2]..mult
                 </Trigger>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="yes" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Sprongk</name>
-                    <script>mm.addwounds(&quot;monk&quot;, &quot;nekai_sprongk&quot;, multimatches[2][2]:gsub(&quot; &quot;, &quot;&quot;))</script>
+                    <script>--mm.addwounds(&quot;monk&quot;, &quot;nekai_sprongk&quot;, multimatches[2][2]:gsub(&quot; &quot;, &quot;&quot;))</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -40756,7 +40755,7 @@ mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, multimatches[2][2]..mult
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Collapsed lungs</name>
                     <script>mm.valid.simplecollapsedlungs()
-mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;chest&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;chest&quot;)</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -40778,7 +40777,7 @@ mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;chest&quot;)</scri
                 </Trigger>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>FinalSting</name>
-                    <script>mm.addwounds(&quot;monk&quot;, &quot;nekai_sprongk&quot;, multimatches[2][2]:gsub(&quot; &quot;, &quot;&quot;))
+                    <script>--mm.addwounds(&quot;monk&quot;, &quot;nekai_sprongk&quot;, multimatches[2][2]:gsub(&quot; &quot;, &quot;&quot;))
 
 </script>
                     <triggerType>0</triggerType>
@@ -40803,7 +40802,7 @@ mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;chest&quot;)</scri
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Sprongma (severedspine)</name>
                     <script>mm.valid.proper_severedspine()
-mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;gut&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;gut&quot;)</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -45981,7 +45980,7 @@ mm.valid.simpleunknownmental()</script>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Bomir'rak</name>
                     <script>mm.valid.tahtetso_bomolsho()
-mm.addwounds(&quot;monk&quot;, &quot;tahtetso_bomolsho&quot;, matches[2]..matches[3])</script>
+--mm.addwounds(&quot;monk&quot;, &quot;tahtetso_bomolsho&quot;, matches[2]..matches[3])</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>99</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -46001,7 +46000,7 @@ mm.addwounds(&quot;monk&quot;, &quot;tahtetso_bomolsho&quot;, matches[2]..matche
                 </Trigger>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Starkick</name>
-                    <script>mm.addwounds(&quot;monk&quot;, &quot;tahtetso_starkick&quot;, &quot;head&quot;)</script>
+                    <script>--mm.addwounds(&quot;monk&quot;, &quot;tahtetso_starkick&quot;, &quot;head&quot;)</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -46022,7 +46021,7 @@ mm.addwounds(&quot;monk&quot;, &quot;tahtetso_bomolsho&quot;, matches[2]..matche
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Starkick proned</name>
                     <script>mm.valid.proper_prone()
-mm.addwounds(&quot;monk&quot;, &quot;tahtetso_starkick&quot;, &quot;head&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;tahtetso_starkick&quot;, &quot;head&quot;)</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>72</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -46331,7 +46330,7 @@ mm.valid.proper_prone()</script>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Right</name>
                         <script>mm.valid.simplecrushedrightfoot()
-mm.addwounds(&quot;monk&quot;, &quot;tahtetso_crushedfoot'sho&quot;, &quot;rightleg&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;tahtetso_crushedfoot'sho&quot;, &quot;rightleg&quot;)</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>99</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -46352,7 +46351,7 @@ mm.addwounds(&quot;monk&quot;, &quot;tahtetso_crushedfoot'sho&quot;, &quot;right
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Left</name>
                         <script>mm.valid.simplecrushedleftfoot()
-mm.addwounds(&quot;monk&quot;, &quot;tahtetso_crushedfoot'sho&quot;, &quot;leftleg&quot;)</script>
+--mm.addwounds(&quot;monk&quot;, &quot;tahtetso_crushedfoot'sho&quot;, &quot;leftleg&quot;)</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>99</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -46373,7 +46372,7 @@ mm.addwounds(&quot;monk&quot;, &quot;tahtetso_crushedfoot'sho&quot;, &quot;leftl
                 </Trigger>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Tahto'sho</name>
-                    <script>mm.addwounds(&quot;monk&quot;, &quot;tahtetso_tahto'sho&quot;, matches[2]:gsub(&quot; &quot;, &quot;&quot;))</script>
+                    <script>--mm.addwounds(&quot;monk&quot;, &quot;tahtetso_tahto'sho&quot;, matches[2]:gsub(&quot; &quot;, &quot;&quot;))</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -46394,7 +46393,7 @@ mm.addwounds(&quot;monk&quot;, &quot;tahtetso_crushedfoot'sho&quot;, &quot;leftl
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Tidesweep</name>
                     <script>mm.valid.proper_prone()
-mm.addwounds(&quot;monk&quot;, &quot;tahtetso_tidesweep&quot;, {&quot;head&quot;, &quot;chest&quot;, &quot;gut&quot;, &quot;rightarm&quot;, &quot;leftarm&quot;, &quot;rightleg&quot;, &quot;leftleg&quot;})
+--mm.addwounds(&quot;monk&quot;, &quot;tahtetso_tidesweep&quot;, {&quot;head&quot;, &quot;chest&quot;, &quot;gut&quot;, &quot;rightarm&quot;, &quot;leftarm&quot;, &quot;rightleg&quot;, &quot;leftleg&quot;})
 mm.valid.proper_chill()</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>99</conditonLineDelta>
@@ -52411,7 +52410,7 @@ end</script>
                             <regexCodeList>
                                 <string>^\w+ hits you with assault, (head|chest|gut|left arm|right arm|left leg|right leg) now (light|heavy|cirtical) wounded\.$</string>
                                 <string>^\w+ hits you with sweep, (head|chest|gut|left arm|right arm|left leg|right leg) now (light|heavy|critical) wounded\.$</string>
-                                <string>^\w+ hits you with (?:cutting|blunt) sunder, (head|chest|gut|left arm|right arm|left leg|right leg) now (light|heavy|critical) wounded.$</string>
+                                <string>^\w+ hits you with (?:cutting|blunt) sunder, (head|chest|gut|left arm|right arm|left leg|right leg) now (light|heavy|critical) wounded\.$</string>
                             </regexCodeList>
                             <regexCodePropertyList>
                                 <integer>1</integer>
@@ -53331,7 +53330,7 @@ mm.valid.simplebleeding(250)</script>
                             <colorTriggerFgColor>#000000</colorTriggerFgColor>
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
-                                <string>^\w+ hits your left arm with (crusharm|amputatearm)\.$</string>
+                                <string>^\w+ hits your left arm with (?:crusharm|amputatearm)\.$</string>
                                 <string>Your left arm has been beaten into uselessness.</string>
                             </regexCodeList>
                             <regexCodePropertyList>
@@ -53355,7 +53354,7 @@ mm.valid.simplebleeding(250)</script>
                             <colorTriggerFgColor>#000000</colorTriggerFgColor>
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
-                                <string>^\w+ hits your right arm with(crusharm|amputatearm)\.$</string>
+                                <string>^\w+ hits your right arm with(?:crusharm|amputatearm)\.$</string>
                                 <string>Your left arm has been beaten into uselessness.</string>
                             </regexCodeList>
                             <regexCodePropertyList>
@@ -54365,10 +54364,10 @@ send(&quot;domoth status&quot;)</script>
             </Alias>
             <Alias isActive="yes" isFolder="no">
                 <name>toggle stance/parry to overhaul</name>
-                <script>mm.sp.revert_overhaul()</script>
+                <script>mm.sp.revert_overhaul(matches[2], true)</script>
                 <command></command>
                 <packageName></packageName>
-                <regex>^mmsp convert$</regex>
+                <regex>^mmsp convert(?: (on|off))?$</regex>
             </Alias>
         </AliasGroup>
     </AliasPackage>
