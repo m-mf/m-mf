@@ -4438,7 +4438,11 @@ dict = {
     },
     aff = {
       oncompleted = function ()
-        addaff(dict.crippledrightarm)
+        if conf.oldwarrior then
+          addaff(dict.crippledrightarm)
+        else
+          addaff(dict.damagedrightarm)
+        end
       end,
     },
     gone = {
@@ -4489,7 +4493,11 @@ dict = {
     },
     aff = {
       oncompleted = function ()
-        addaff(dict.crippledleftarm)
+        if conf.oldwarrior then
+          addaff(dict.crippledleftarm)
+        else
+          addaff(dict.damagedleftarm)
+        end
       end,
     },
     gone = {
@@ -4750,7 +4758,11 @@ dict = {
     },
     aff = {
       oncompleted = function ()
-        addaff(dict.crippledrightleg)
+        if conf.oldwarrior then
+          addaff(dict.crippledrightleg)
+        else
+          addaff(dict.damagedrightleg)
+        end
       end,
     },
     gone = {
@@ -4799,7 +4811,11 @@ dict = {
     },
     aff = {
       oncompleted = function ()
-        addaff(dict.crippledleftleg)
+        if conf.oldwarrior then
+          addaff(dict.crippledleftleg)
+        else
+          addaff(dict.damagedleftleg)
+        end
       end,
     },
     gone = {
@@ -4839,8 +4855,12 @@ dict = {
     },
     aff = {
       oncompleted = function ()
-        addaff(dict.missingleftarm)
-        signals.after_lifevision_processing:unblock(cnrl.checkwarning)
+        if conf.oldwarrior then
+          addaff(dict.missingleftarm)
+          signals.after_lifevision_processing:unblock(cnrl.checkwarning)
+        else
+          addaff(dict.mutilatedleftarm)
+        end
       end,
     },
     gone = {
@@ -4879,8 +4899,12 @@ dict = {
     },
     aff = {
       oncompleted = function ()
-        addaff(dict.missingrightarm)
-        signals.after_lifevision_processing:unblock(cnrl.checkwarning)
+        if conf.oldwarrior then
+          addaff(dict.missingrightarm)
+          signals.after_lifevision_processing:unblock(cnrl.checkwarning)
+        else
+          addaff(dict.mutilatedrightarm)
+        end
       end,
     },
     gone = {
@@ -4919,7 +4943,11 @@ dict = {
     },
     aff = {
       oncompleted = function ()
-        addaff(dict.mangledleftarm)
+        if conf.oldwarrior then
+          addaff(dict.mangledleftarm)
+        else
+          addaff(dict.mutilatedleftarm)
+        end
       end,
     },
     gone = {
@@ -4958,7 +4986,11 @@ dict = {
     },
     aff = {
       oncompleted = function ()
-        addaff(dict.mangledrightarm)
+        if conf.oldwarrior then
+          addaff(dict.mangledrightarm)
+        else
+          addaff(dict.mutilatedrightarm)
+        end
       end,
     },
     gone = {
@@ -5090,8 +5122,12 @@ dict = {
     },
     aff = {
       oncompleted = function ()
-        addaff(dict.missingleftleg)
-        removeaff("tendonleft")
+        if conf.oldwarrior then
+          addaff(dict.missingleftleg)
+          removeaff("tendonleft")
+        else
+          addaff(dict.mutilatedleftleg)
+        end
       end,
     },
     gone = {
@@ -5158,8 +5194,12 @@ dict = {
     },
     aff = {
       oncompleted = function ()
-        addaff(dict.missingrightleg)
-        removeaff("tendonright")
+        if conf.oldwarrior then
+          addaff(dict.missingrightleg)
+          removeaff("tendonright")
+        else
+          addaff(dict.mutilatedrightleg)
+        end
       end,
     },
     gone = {
@@ -5226,7 +5266,11 @@ dict = {
     },
     aff = {
       oncompleted = function ()
-        addaff(dict.mangledrightleg)
+        if conf.oldwarrior then
+          addaff(dict.mangledrightleg)
+        else
+          addaff(dict.mutilatedrightleg)
+        end
       end,
     },
     gone = {
@@ -5294,7 +5338,11 @@ dict = {
     },
     aff = {
       oncompleted = function ()
-        addaff(dict.mangledleftleg)
+        if conf.oldwarrior then
+          addaff(dict.mangledleftleg)
+        else
+          addaff(dict.mutilatedleftleg)
+        end
       end,
     },
     gone = {
@@ -6336,7 +6384,7 @@ dict = {
       spriority = 27,
 
       isadvisable = function ()
-        return (affs.damagedskull and codepaste.ice_head()) or false
+        return (not conf.oldwarrior and affs.damagedskull and codepaste.ice_head()) or false
       end,
 
       oncompleted = function ()
@@ -6569,7 +6617,7 @@ dict = {
       spriority = 20,
 
       isadvisable = function ()
-        return (affs.damagedleftarm and codepaste.ice_leftarm()) or false
+        return (not conf.oldwarrior and affs.damagedleftarm and codepaste.ice_leftarm()) or false
       end,
 
       oncompleted = function ()
@@ -6628,7 +6676,7 @@ dict = {
       spriority = 24,
 
       isadvisable = function ()
-        return (affs.mutilatedleftarm and codepaste.ice_leftarm()) or false
+        return (not conf.oldwarrior and affs.mutilatedleftarm and codepaste.ice_leftarm()) or false
       end,
 
       oncompleted = function ()
@@ -6687,7 +6735,7 @@ dict = {
       spriority = 19,
 
       isadvisable = function ()
-        return (affs.damagedrightarm and codepaste.ice_rightarm()) or false
+        return (not conf.oldwarrior and affs.damagedrightarm and codepaste.ice_rightarm()) or false
       end,
 
       oncompleted = function ()
@@ -6746,7 +6794,7 @@ dict = {
       spriority = 23,
 
       isadvisable = function ()
-        return (affs.mutilatedrightarm and codepaste.ice_rightarm()) or false
+        return (not conf.oldwarrior and affs.mutilatedrightarm and codepaste.ice_rightarm()) or false
       end,
 
       oncompleted = function ()
@@ -6805,7 +6853,7 @@ dict = {
       spriority = 22,
 
       isadvisable = function ()
-        return (affs.damagedleftleg and codepaste.ice_leftleg()) or false
+        return (not conf.oldwarrior and affs.damagedleftleg and codepaste.ice_leftleg()) or false
       end,
 
       oncompleted = function ()
@@ -6864,7 +6912,7 @@ dict = {
       spriority = 26,
 
       isadvisable = function ()
-        return (affs.mutilatedleftleg and codepaste.ice_leftleg()) or false
+        return (not conf.oldwarrior and affs.mutilatedleftleg and codepaste.ice_leftleg()) or false
       end,
 
       oncompleted = function ()
@@ -6923,7 +6971,7 @@ dict = {
       spriority = 21,
 
       isadvisable = function ()
-        return (affs.damagedrightleg and codepaste.ice_rightleg()) or false
+        return (not conf.oldwarrior and affs.damagedrightleg and codepaste.ice_rightleg()) or false
       end,
 
       oncompleted = function ()
@@ -6980,7 +7028,7 @@ dict = {
       spriority = 25,
 
       isadvisable = function ()
-        return (affs.mutilatedrightleg and codepaste.ice_rightleg()) or false
+        return (not conf.oldwarrior and affs.mutilatedrightleg and codepaste.ice_rightleg()) or false
       end,
 
       oncompleted = function ()
@@ -10348,7 +10396,11 @@ dict = {
     },
     aff = {
       oncompleted = function ()
-        addaff(dict.fracturedskull)
+        if conf.oldwarrior then
+          addaff(dict.fracturedskull)
+        else
+          addaff(dict.damagedskull)
+        end
       end,
     },
     gone = {
@@ -10460,8 +10512,10 @@ dict = {
     },
     aff = {
       oncompleted = function ()
-        dict.unknowncrippledarm.count = dict.unknowncrippledarm.count + 1
-        addaff(dict.unknowncrippledarm)
+        if conf.oldwarrior then
+          dict.unknowncrippledarm.count = dict.unknowncrippledarm.count + 1
+          addaff(dict.unknowncrippledarm)
+        end
       end,
     },
     gone = {
@@ -10507,8 +10561,10 @@ dict = {
     },
     aff = {
       oncompleted = function ()
-        dict.unknowncrippledleg.count = dict.unknowncrippledleg.count + 1
-        addaff(dict.unknowncrippledleg)
+        if conf.oldwarrior then
+          dict.unknowncrippledleg.count = dict.unknowncrippledleg.count + 1
+          addaff(dict.unknowncrippledleg)
+        end
       end,
     },
     gone = {

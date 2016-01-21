@@ -471,15 +471,6 @@ sk.overhauldata = {
   anorexia       = { newbalances = {"lucidity"}, oldbalances = {"herb"}},
   asthma         = { newbalances = {"wafer"}, oldbalances = {"salve"}},
   slickness      = { newbalances = {"steam"}, oldbalances = {"herb"}},
-  damagedleftarm = { newbalances = {"ice"}, oldbalances = {}, replaces = {"crippledleftarm"}},
-  damagedrightarm = { newbalances = {"ice"}, oldbalances = {}, replaces = {"crippledrightarm"}},
-  damagedleftleg = { newbalances = {"ice"}, oldbalances = {}, replaces = {"crippledleftleg"}},
-  damagedrightleg = { newbalances = {"ice"}, oldbalances = {}, replaces = {"crippledrightleg"}},
-  mutilatedleftarm = { newbalances = {"ice"}, oldbalances = {}, replaces = {"mangledleftarm","missingleftarm"}},
-  mutilatedrightarm = { newbalances = {"ice"}, oldbalances = {}, replaces = {"mangledrightarm","missingrightarm"}},
-  mutilatedrightleg = { newbalances = {"ice"}, oldbalances = {}, replaces = {"mangledrightleg","missingrightleg"}},
-  mutilatedleftleg = { newbalances = {"ice"}, oldbalances = {}, replaces = {"mangledleftleg","missingleftleg"}},
-  damagedskull = { newbalances = {"ice"}, oldbalances = {}, replaces = {"fracturedskull"}},
 
 }
 sk.overhaulredirects = {}
