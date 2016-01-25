@@ -307,7 +307,7 @@ defs_data = phpTable({
   rebounding = { type = "general", def = "You are protected from hand-held weapons with an aura of rebounding." },
   waterwalk = {
     type = "enchantment",
-    def = "You can walk upon water.",
+    def = "Waterwalking (waterwalk) (indefinite).",
     on = {"You are already water walking.", "You pull a cosmic web down around your feet, and you sense that gravity will be your ally when entering water."}
   },
   waterbreathing = {
@@ -364,16 +364,18 @@ defs_data = phpTable({
 #if not skills.cosmic then
   nimbus = {
     type = "enchantment",
-    def = "Cosmic Nimbus (cosmicnimbus).", -- system calls it nimbus, hence why brackets not recognised
-    on = {"A nimbus of glittering motes blossoms around you.", "You are already surrounded with a cosmic nimbus."}
+    def = "Cosmic Nimbus (cosmicnimbus) (indefinite).", -- system calls it nimbus, hence why brackets not recognised
+    on = {"A nimbus of glittering motes blossoms around you.", "You are already surrounded with a cosmic nimbus.","You are now protected by the cosmicnimbus defence."}
   },
 #end
 #if not skills.elementalism then
   levitation = { type = "enchantment",
-    on = {"You begin to rise on a cushion of air.", "You are already walking on a small cushion of air."},
+    on = {"You are now protected by the levitate defence.","You begin to rise on a cushion of air.", "You are already walking on a small cushion of air."},
     def = "Levitation (levitate) (indefinite)."},
 #end
-  mercy = { type = "enchantment", on = "A ray of purple light suddenly spotlights you." },
+  mercy = { type = "enchantment", on = "A ray of purple light suddenly spotlights you.",
+    defr = [[^Mercy Enchantment \(mercy\) \(?:(indefinite|\d+)\)\.$]],
+   },
   rebounding = {
     type = "general",
     off = "Your aura of weapons rebounding disappears."
@@ -1086,9 +1088,10 @@ end)
   timeslip = { type = "cosmic",
     on = {"Touching upon cosmic probabilities, you weave a net of safety around yourself.","You already have cast a web of safety around yourself."}},
   nimbus = { type = "cosmic",
-    def = "Cosmic Nimbus (cosmicnimbus).", -- system calls it nimbus, hence why brackets not recognised
+    def = "Cosmic Nimbus (cosmicnimbus) (indefinite).", -- system calls it nimbus, hence why brackets not recognised
     on = {"You are already surrounded with a cosmic nimbus.", "Drawing cosmic dust into a sphere, you slowly let it expand into a nimbus of glittering motes."}},
   waterwalk = { type = "cosmic",
+    def = "Waterwalking (waterwalk) (indefinite).",
     on = {"You pull a cosmic web down around your feet, and you sense that gravity will be your ally when entering water.", "You are already water walking."}},
 #end
 
@@ -1495,11 +1498,14 @@ understanding\.$]],
   energycontainment = { type = "psychometabolism",
     on = "You reconfigure your nervous system to contain and disperse elemental energies."},
   enhancementstrength = { type = "psychometabolism",
-    on = "You psionically enhance the strength of your body."},
+    on = "You psionically enhance the strength of your body.",
+    def = "Your strength is psionically enhanced."},
   enhancementdexterity = { type = "psychometabolism",
-    on = "You psionically enhance the dexterity of your body."},
+    on = "You psionically enhance the speed of your body.",
+    def = "Your dexterity is psionically enhanced."},
   enhancementspread = { type = "psychometabolism",
-    on = "You psionically enhance your body, spread through your strength and dexterity."},
+    on = "You psionically enhance your body, spread through your offensive abilities and speed.",
+    def = "Your strength and dexterity are psionically enhanced."},
   gliding = { type = "psychometabolism",
     on = "You focus your mind on the soles of your feet, adjusting their density to glide upon any surface."},
   ironskin = { type = "psychometabolism",
@@ -2701,7 +2707,7 @@ defences.complete_def({name = "Waterbreathe", def = "Water Breathing (waterbreat
 
 defences.complete_def({name = "WaterShield", def = "You are protected by the power of the water spiritshield.", tooltip = "Resistance to electric damage."})
 
-defences.complete_def({name = "Waterwalk", def = "You can walk upon water.", tooltip = "Allows walking on water."})
+defences.complete_def({name = "Waterwalk", def = "Waterwalking (waterwalk) (indefinite).", tooltip = "Allows walking on water."})
 
 defences.complete_def({name = "Waylay", defr = [[^You are setup to waylay \w+\.$]], tooltip = "Will attack and possibly trap the target on entry to the same room."})
 
@@ -2725,7 +2731,7 @@ defences.complete_def({name = "Yoyo", def = "You are carrying a quickly spinning
 
 defences.complete_def({name = "Zealotry", def = "You are carrying yourself with the demeanor of a zealot.", tooltip = "Boosts passion."})
 
-defences.complete_def({name = "nimbus", tooltip = "+10DMP for Cosmic resistance"})
+defences.complete_def({name = "nimbus", def = "Cosmic Nimbus (cosmicnimbus) (indefinite).", tooltip = "+10DMP for Cosmic resistance"})
 
 -- for def, deft in defs_data:pairs() do
 --   echof("skillset: %s, buff name: %s, def line: %s", (tostring(deft.type) or "(not available)"), (tostring(def) or "(none)"), (type(deft.def == "string") and tostring(deft.def) or "(not availabe)"))
