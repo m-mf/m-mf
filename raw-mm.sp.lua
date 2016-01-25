@@ -75,7 +75,6 @@ signals.systemstart:connect(sk.update_sk_data)
 
 
 sk.update_actionlevels = function ()
-  --if $(sys)["version"] <= "3" then return end
   for part, al in pairs(sp_config.stance_actionlevel) do
     if al > 100 then
       sp_config.old_stance_actionlevel[part] = al
@@ -145,7 +144,7 @@ sps.install = {
       local function makecodestrings(name)
         local t = {}
         t[#t+1] = 'mm.sp.setstancelevel("'..name..'", false, true)'
-        if $(sys)["version"] >= 4 then
+        if not conf.oldwarrior then
           for amount = 2, 20, 2 do
             t[#t+1] = 'mm.sp.setstancelevel("'..name..'", '..amount..', true)'
           end
@@ -159,7 +158,7 @@ sps.install = {
       local function maketooltipstrings(name)
         local t = {}
         t[#t+1] = 'Set ' .. name .. ' to ' .. 'none'
-        if $(sys)["version"] >= 4 then
+        if not conf.oldwarrior then
           for amount = 2, 20, 2 do
             t[#t+1] = 'mm.sp.setstancelevel("'..name..'", '..amount..', true)'
           end
@@ -191,7 +190,7 @@ sps.install = {
       local function makecodestrings(name)
         local t = {}
         t[#t+1] = 'mm.sp.setparrylevel("'..name..'", false, true)'
-        if $(sys)["version"] >= 4 then
+        if not conf.oldwarrior then
           for amount = 2, 20, 2 do
             t[#t+1] = 'mm.sp.setstancelevel("'..name..'", '..amount..', true)'
           end
@@ -205,7 +204,7 @@ sps.install = {
       local function maketooltipstrings(name)
         local t = {}
         t[#t+1] = 'Set ' .. name .. ' to ' .. 'none'
-        if $(sys)["version"] >= 4 then
+        if not conf.oldwarrior then
           for amount = 2, 20, 2 do
             t[#t+1] = 'mm.sp.setstancelevel("'..name..'", '..amount..', true)'
           end
@@ -274,54 +273,40 @@ function sp.setup()
   sps.installnext()
 end
 
-valid.oldwarrior = false
 
-function sp.revert_overhaul()
+function sp.revert_overhaul(what, echoback)
+  assert(what == "on" or what == "off" or what == nil, "what needs to be 'on', 'off' or nil")
+
+  local sendf
+  if echoback then sendf = echof else sendf = errorf end
+
   if not next(sp_config.old_stance_actionlevel) then
     sk.update_actionlevels()
   end
 
-  for part, al in pairs(sp_config.stance_actionlevel) do
-    sp_config.stance_actionlevel[part] = sp_config.old_stance_actionlevel[part]
-    sp_config.old_stance_actionlevel[part] = al
+  if not what or (what == "on" and sp_config.stance_actionlevel.head < 100) or (what == "off" and sp_config.stance_actionlevel.head > 100) then
+
+    for part, al in pairs(sp_config.stance_actionlevel) do
+      sp_config.stance_actionlevel[part] = sp_config.old_stance_actionlevel[part]
+      sp_config.old_stance_actionlevel[part] = al
+    end
+
+    for part, al in pairs(sp_config.parry_actionlevel) do
+      sp_config.parry_actionlevel[part] = sp_config.old_parry_actionlevel[part]
+      sp_config.old_parry_actionlevel[part] = al
+    end
   end
 
-
-  for part, al in pairs(sp_config.parry_actionlevel) do
-    sp_config.parry_actionlevel[part] = sp_config.old_parry_actionlevel[part]
-    sp_config.old_parry_actionlevel[part] = al
-  end
-
-  if sp_config.stance_actionlevel.head > 100 then
-    valid.oldwarrior = true
-    disableoverhaul("damagedleftarm", true)
-    disableoverhaul("damagedrightarm", true)
-    disableoverhaul("damagedleftleg", true)
-    disableoverhaul("damagedrightleg", true)
-    disableoverhaul("mutilatedleftarm", true)
-    disableoverhaul("mutilatedleftleg", true)
-    disableoverhaul("mutilatedrightarm", true)
-    disableoverhaul("mutilatedrightleg", true)
-    disableoverhaul("damagedskull", true)
-    disableoverhaul("asthma", true)
-    disableoverhaul("anorexia", true)
-    disableoverhaul("slickness", true)
-    echof("reverted stance/parry actionlevels to pre-overhaul")
-  else
-    valid.oldwarrior = false
-    enableoverhaul("damagedleftarm", true)
-    enableoverhaul("damagedrightarm", true)
-    enableoverhaul("damagedleftleg", true)
-    enableoverhaul("damagedrightleg", true)
-    enableoverhaul("mutilatedleftarm", true)
-    enableoverhaul("mutilatedleftleg", true)
-    enableoverhaul("mutilatedrightarm", true)
-    enableoverhaul("mutilatedrightleg", true)
-    enableoverhaul("damagedskull", true)
-    enableoverhaul("asthma", true)
-    enableoverhaul("anorexia", true)
-    enableoverhaul("slickness", true)
-    echof("stance/parry actionlevels set for overhaul")
+  if sp_config.stance_actionlevel.head < 100 then
+    enableoverhaul("asthma", echoback)
+    enableoverhaul("anorexia", echoback)
+    enableoverhaul("slickness", echoback)
+    sendf("stance/parry actionlevels set for overhaul")
+  elseif sp_config.stance_actionlevel.head > 100 then
+    disableoverhaul("asthma", echoback)
+    disableoverhaul("anorexia", echoback)
+    disableoverhaul("slickness", echoback)
+    sendf("reverted stance/parry actionlevels to pre-overhaul")
   end
 
 end
