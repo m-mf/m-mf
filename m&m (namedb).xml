@@ -835,7 +835,7 @@ raiseEvent(&quot;NameDB got new data&quot;)</script>
                             </regexCodePropertyList>
                         </Trigger>
                     </Trigger>
-                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                    <Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Allies/enemies list (namedb)</name>
                         <script>temp_name_list = {}</script>
                         <triggerType>0</triggerType>
@@ -1401,8 +1401,16 @@ if tonumber(matches[2]) &lt; 200 then temp_name_list[1].demigod = 1 end</script>
                             <regexCodeList>
                                 <string>He is unranked in Lusternia.</string>
                                 <string>She is unranked in Lusternia.</string>
+                                <string>He has cut his thread from the Tapestry of the Fates.</string>
+                                <string>She has cut his thread from the Tapestry of the Fates.</string>
+                                <string>He is frozen in time and space.</string>
+                                <string>She is frozen in time and space.</string>
                             </regexCodeList>
                             <regexCodePropertyList>
+                                <integer>3</integer>
+                                <integer>3</integer>
+                                <integer>3</integer>
+                                <integer>3</integer>
                                 <integer>3</integer>
                                 <integer>3</integer>
                             </regexCodePropertyList>

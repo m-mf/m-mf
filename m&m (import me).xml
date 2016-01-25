@@ -32556,8 +32556,6 @@ mm.parseplistend()</script>
 
 if mm.defs[&quot;def_&quot;..def] then
   mm.defs[&quot;def_&quot;..def]()
-else
-  mm.echof(&quot;(m&amp;m): --&gt; unknown defence!&quot;)
 end</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>0</conditonLineDelta>
@@ -52759,17 +52757,9 @@ end
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>twist</name>
-                            <script>--375 @ light
---500 @ heavy
---625 @ crit
-
-if mm.affl[&quot;light&quot;..wound_loc] then
-	mm.valid.simplebleeding(375)
-elseif mm.affl[&quot;heavy&quot;..wound_loc] then
-	mm.valid.simplebleeding(500)
-elseif mm.affl[&quot;critical&quot;..wound_loc] then
-	mm.valid.simplebleeding(625)
-end</script>
+                            <script>--mm.valid.simplebleeding(375)
+--mm.valid.simplebleeding(500)
+mm.valid.simplebleeding(625)</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>0</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -52782,8 +52772,10 @@ end</script>
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
                                 <string>^\w+ hits you with twist\.$</string>
+                                <string>^\w+ drives (?:his|her) blade into you and twists it about, ripping your flesh\.$</string>
                             </regexCodeList>
                             <regexCodePropertyList>
+                                <integer>1</integer>
                                 <integer>1</integer>
                             </regexCodePropertyList>
                         </Trigger>
