@@ -38,7 +38,7 @@ local args = lapp [[
 
 local name    = args.name
 local release = not args.debug
-local version = "4"
+local version = "5"
 local doall   = args.release
 local own     = args.own
 local defaultaddons = {
