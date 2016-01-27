@@ -2151,8 +2151,10 @@ mm.show_vessels(2)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>You feel a faint stirring in your paralysed muscles.</string>
+                            <string>You have cured paralysis.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -2171,8 +2173,10 @@ mm.show_vessels(2)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>Your blood regains its ability to clot.</string>
+                            <string>You have cured haemophilia.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -2191,8 +2195,10 @@ mm.show_vessels(2)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>The sapping of your power subsides.</string>
+                            <string>You have cured powersap.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -2211,8 +2217,10 @@ mm.show_vessels(2)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>Oh, thank the gods! The infernal itching has subsided at long last.</string>
+                            <string>You have cured scabies.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -2231,8 +2239,10 @@ mm.show_vessels(2)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>Your bowels calm themselves.</string>
+                            <string>You have cured dysentery.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -2251,8 +2261,10 @@ mm.show_vessels(2)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>The sores on your skin dry up and disappear.</string>
+                            <string>You have cured pox.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -2271,8 +2283,10 @@ mm.show_vessels(2)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>Your stomach becalms itself.</string>
+                            <string>You have cured vomiting.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -2291,8 +2305,10 @@ mm.show_vessels(2)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>Your muscles relax as the rigormortis subsides.</string>
+                            <string>You have cured rigormortis.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -2311,8 +2327,32 @@ mm.show_vessels(2)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>A feeling of health washes over you.</string>
+                            <string>You have cured sickening.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
+                            <integer>3</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>m&amp;m cured asthma wafer</name>
+                        <script>mm.valid.wafer_cured_asthma()</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>Your bronchial tubes open up and your asthma is cured.</string>
+                            <string>You have cured asthma.</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -3183,8 +3223,10 @@ mm.show_vessels(1)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>Your nerves suddenly calm down.</string>
+                            <string>You have cured epilepsy.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -3203,8 +3245,10 @@ mm.show_vessels(1)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>Aaaahhh. No one is out to get you after all.</string>
+                            <string>You have cured paranoia.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -3223,8 +3267,10 @@ mm.show_vessels(1)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>The stinging feeling fades.</string>
+                            <string>You have cured sensitivity.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -3243,8 +3289,10 @@ mm.show_vessels(1)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>The confusion lifts from your mind and it is clear once again.</string>
+                            <string>You have cured confusion.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -3263,8 +3311,10 @@ mm.show_vessels(1)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>Prudence rules your psyche once again.</string>
+                            <string>You have cured recklessness.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -3283,8 +3333,10 @@ mm.show_vessels(1)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>Your hallucinations cease to plague you.</string>
+                            <string>You have cured hallucinations.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -3303,8 +3355,10 @@ mm.show_vessels(1)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>Thank Estarra! Your clumsiness has been cured.</string>
+                            <string>You have cured clumsiness.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -3323,8 +3377,10 @@ mm.show_vessels(1)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>You aren't such a complete idiot anymore.</string>
+                            <string>You have cured stupidity.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -3343,8 +3399,32 @@ mm.show_vessels(1)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>Your terrible addiction to lovely potions seems to wane.</string>
+                            <string>You have cured addiction.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
+                            <integer>3</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>m&amp;m cure anorexia lucidity</name>
+                        <script>mm.valid.sip_cured_anorexia()</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>Food is no longer repulsive to you.</string>
+                            <string>You have cured anorexia.</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -5486,8 +5566,10 @@ mm.show_vessels(1)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>An ominous noise lifts from within your mind.</string>
+                            <string>You have cured manabarbs.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -5506,8 +5588,10 @@ mm.show_vessels(1)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>The oppressive whispering in your mind dies out.</string>
+                            <string>You have cured egovice.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -5526,8 +5610,10 @@ mm.show_vessels(1)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>The screeching fades away from your inner hearing.</string>
+                            <string>You have cured achromaticaura.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -5546,8 +5632,10 @@ mm.show_vessels(1)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>The dark thrumming presence around you dissipates.</string>
+                            <string>You have cured powerspikes.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -5566,8 +5654,10 @@ mm.show_vessels(1)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>You no longer will inspire disloyalty among friends.</string>
+                            <string>You have cured disloyalty.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -5586,9 +5676,11 @@ mm.show_vessels(1)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>You are capable of offensive acts once more.</string>
+                            <string>You have cured pacifism.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
                             <integer>3</integer>
+                            <integer>0</integer>
                         </regexCodePropertyList>
                     </Trigger>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
@@ -5606,8 +5698,10 @@ mm.show_vessels(1)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>You notice the glow illuminating you fades away.</string>
+                            <string>You have cured luminosity.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -5626,8 +5720,10 @@ mm.show_vessels(1)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>Your aching, pain-wracked body is soothed and calmed.</string>
+                            <string>You have cured healthleech.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -5646,8 +5742,32 @@ mm.show_vessels(1)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>You return to the normal timestream.</string>
+                            <string>You have cured aeon.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
+                            <integer>3</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>m&amp;m cure slickness steam</name>
+                        <script>mm.valid.steam_cured_slickness()</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>Your glands cease their oily secretion.</string>
+                            <string>You have cured slickness.</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -5888,8 +6008,10 @@ mm.show_vessels(1)</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>You aren't such a complete idiot anymore.</string>
+                            <string>You have cured stupidity.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -22498,8 +22620,10 @@ resetFormat()</script>
                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                     <regexCodeList>
                         <string>Your muscles unlock; you are no longer paralysed.</string>
+                        <string>You have cured paralysis. </string>
                     </regexCodeList>
                     <regexCodePropertyList>
+                        <integer>3</integer>
                         <integer>3</integer>
                     </regexCodePropertyList>
                 </Trigger>
@@ -52461,8 +52585,10 @@ end</script>
                                 <string>^\w+ hits you with assault, (head|chest|gut|left arm|right arm|left leg|right leg) now (light|heavy|cirtical) wounded\.$</string>
                                 <string>^\w+ hits you with sweep, (head|chest|gut|left arm|right arm|left leg|right leg) now (light|heavy|critical) wounded\.$</string>
                                 <string>^\w+ hits you with (?:cutting|blunt) sunder, (head|chest|gut|left arm|right arm|left leg|right leg) now (light|heavy|critical) wounded\.$</string>
+                                <string>^\w+ carves into you with a vicious assault, leaving your (head|chest|gut|left arm|right arm|left leg|right leg) (light|heavy|critical) wounded\.$</string>
                             </regexCodeList>
                             <regexCodePropertyList>
+                                <integer>1</integer>
                                 <integer>1</integer>
                                 <integer>1</integer>
                                 <integer>1</integer>
@@ -55111,6 +55237,8 @@ end</script>
 	[&quot;temporaryinsanity&quot;]  = &quot;insanity&quot;,  
 	[&quot;transfix&quot;]           = &quot;transfixed&quot;,
     [&quot;an unknown affliction&quot;] = &quot;unknownany&quot;,
+	[&quot;sickening&quot;]  				= &quot;taintsick&quot;,
+	[&quot;luminosity&quot;]					= &quot;illuminated&quot;,
 }</script>
                     <eventHandlerList/>
                 </Script>
