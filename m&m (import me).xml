@@ -52586,8 +52586,12 @@ end</script>
                                 <string>^\w+ hits you with sweep, (head|chest|gut|left arm|right arm|left leg|right leg) now (light|heavy|critical) wounded\.$</string>
                                 <string>^\w+ hits you with (?:cutting|blunt) sunder, (head|chest|gut|left arm|right arm|left leg|right leg) now (light|heavy|critical) wounded\.$</string>
                                 <string>^\w+ carves into you with a vicious assault, leaving your (head|chest|gut|left arm|right arm|left leg|right leg) (light|heavy|critical) wounded\.$</string>
+                                <string>^Attempting to sunder bone, \w+ batters your (head|chest|gut|left arm|right arm|left leg|right leg) with the haft of (?:his|her) weapon, leaving it (light|heavy|critical) wounded\.$</string>
+                                <string>^\w+ sinks the blade of (?:his|her) axe into your (head|chest|gut|left arm|right arm|left leg|right leg) with a wide, sweeping arc\.$</string>
                             </regexCodeList>
                             <regexCodePropertyList>
+                                <integer>1</integer>
+                                <integer>1</integer>
                                 <integer>1</integer>
                                 <integer>1</integer>
                                 <integer>1</integer>
@@ -52645,8 +52649,12 @@ end</script>
                             <regexCodeList>
                                 <string>^\w+ lunges forcefully into (?:his|her) strike, leaving your (head|chest|gut|left arm|right arm|left leg|right leg) (light|heavy|cirtical) wounded\.$</string>
                                 <string>^\w+ hits you with crush, (head|chest|gut|left arm|right arm|left leg|right leg) now (light|heavy|critical) wounded\.$</string>
+                                <string>^The sound of shattering bone sounds as \w+ crushes your (head|chest|gut|left arm|right arm|left leg|right leg), leaving it (light|heavy|critical) wounded\.$</string>
+                                <string>^\w+ lunges forcefully into (?:his|her) strike, leaving your (head|chest|gut|left arm|right arm|left leg|right leg) (light|heavy|critical) wounded\.$</string>
                             </regexCodeList>
                             <regexCodePropertyList>
+                                <integer>1</integer>
+                                <integer>1</integer>
                                 <integer>1</integer>
                                 <integer>1</integer>
                             </regexCodePropertyList>
@@ -53367,8 +53375,10 @@ mm.valid.simplebruising(50)</script>
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
                                 <string>^\w+ hits you with smashchest\.$</string>
+                                <string>^The force of \w+'s strike leaves you stunned\.$</string>
                             </regexCodeList>
                             <regexCodePropertyList>
+                                <integer>1</integer>
                                 <integer>1</integer>
                             </regexCodePropertyList>
                         </Trigger>
