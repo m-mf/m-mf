@@ -3103,6 +3103,14 @@ dict = {
         removeaff("prone")
       end,
 
+      webbed = function ()
+        addaff(dict.tangle)
+      end,
+
+      roped = function ()
+        addaff(dict.roped)
+      end,
+
       onstart = function ()
 #if skills.acrobatics then
         if conf.springup then

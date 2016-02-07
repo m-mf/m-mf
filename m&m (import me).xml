@@ -26530,28 +26530,6 @@ mm.valid.simpleopengut()</script>
                         </regexCodePropertyList>
                     </Trigger>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                        <name>Tangled</name>
-                        <script>mm.valid.symp_tangled()</script>
-                        <triggerType>0</triggerType>
-                        <conditonLineDelta>99</conditonLineDelta>
-                        <mStayOpen>0</mStayOpen>
-                        <mCommand></mCommand>
-                        <packageName></packageName>
-                        <mFgColor>#ff0000</mFgColor>
-                        <mBgColor>#ffff00</mBgColor>
-                        <mSoundFile></mSoundFile>
-                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                        <regexCodeList>
-                            <string>You are too tangled up to do that.</string>
-                            <string>Tight bindings cling to you, making that impossible.</string>
-                        </regexCodeList>
-                        <regexCodePropertyList>
-                            <integer>3</integer>
-                            <integer>3</integer>
-                        </regexCodePropertyList>
-                    </Trigger>
-                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Inquisition</name>
                         <script></script>
                         <triggerType>0</triggerType>
@@ -27331,6 +27309,26 @@ mm.valid.simplestun()</script>
                         </regexCodeList>
                         <regexCodePropertyList>
                             <integer>3</integer>
+                            <integer>3</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>Roped</name>
+                        <script>mm.valid.symp_roped()</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>You are too tangled up to do that.</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
