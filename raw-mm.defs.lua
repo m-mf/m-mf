@@ -421,7 +421,7 @@ defs_data = phpTable({
     command = "invoke psi shield",
     def = "You are protected by a psionic barrier."
   },
-  mindfield = { type = "general",
+  mindfield_arti = { nodef = true,
     def = "You will discharge a psychic lash from a powerful artifact on those who scry.",
     },
   crotamine = { nodef = true, def = "Your veins burn with immunity to deadly venoms."},
@@ -2528,6 +2528,8 @@ defences.complete_def({name = "Mercy", def = "Mercy Enchantment (mercy) (indefin
 defences.complete_def({name = "Metawake", def = "You are concentrating on maintaining distance from the dreamworld.", tooltip = "Completely prevents sleep at the cost of a mana drain."})
 
 defences.complete_def({name = "MindBar", def = "You have raised a mental bar to shield your mind from assault.", tooltip = "Reduces damage from psychic attacks."})
+
+defences.complete_def({name = "MindField_arti", def = "You will discharge a psychic lash from a powerful artifact on those who scry.", tooltip = "Causes damage on scrying."})
 
 defences.complete_def({name = "MindField", def = "You will discharge a psychic lash on those who scry.", tooltip = "Causes damage on scrying."})
 
