@@ -22400,6 +22400,7 @@ dict = {
 #basicdef("berserker", "combatstyle berserker", true)
 #basicdef("pulverizer", "combatstyle pulverizer", true)
 #basicdef("mutilator", "combatstyle mutilator", true)
+#basicdef("poisonist", "combatstyle poisonist", true)
 #end
 
 #if skills.cavalier then

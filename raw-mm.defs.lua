@@ -606,6 +606,10 @@ defs_data = phpTable({
     def = "You are fighting with a mutilator's cunning.",
     on = "You focus your attention on the mutilator fighting style.",
     off = "You focus your attention on using no specific fighting style."},
+  poisonist = { type = "knighthood",
+    def = "You are fighting with a poisonist's eye.",
+    on = "You focus your attention on the poisonist fighting style.",
+    off = "You focus your attention on using no specific fighting style."},
 #end
 
 #if skills.cavalier then
