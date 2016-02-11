@@ -421,9 +421,6 @@ defs_data = phpTable({
     command = "invoke psi shield",
     def = "You are protected by a psionic barrier."
   },
-  mindfield_arti = { nodef = true,
-    def = "You will discharge a psychic lash from a powerful artifact on those who scry.",
-    },
   crotamine = { nodef = true, def = "Your veins burn with immunity to deadly venoms."},
   dionamus = { nodef = true, def = "You are blessed by the Spire of Dionamus."},
   divinefire = { nodef = true, def = "You have wreathed yourself in divine fire."},
@@ -526,6 +523,9 @@ defs_data = phpTable({
   benignprophesy = { nodef = true },
   terror = { nodef = true },
   ["shadow shroud"] = { nodef = true },
+  ["mindfield arti"] = { nodef = true,
+    def = "You will discharge a psychic lash from a powerful artifact on those who scry.",
+    },
   ["prismatic barrier"] = { nodef = true },
   ["nightsweats"] = { nodef = true }, -- ?? if skills.night, etc, enable this
   ["garb"] = { nodef = true }, -- ?? if skills.night, etc, enable this
@@ -2533,8 +2533,6 @@ defences.complete_def({name = "Metawake", def = "You are concentrating on mainta
 
 defences.complete_def({name = "MindBar", def = "You have raised a mental bar to shield your mind from assault.", tooltip = "Reduces damage from psychic attacks."})
 
-defences.complete_def({name = "MindField_arti", def = "You will discharge a psychic lash from a powerful artifact on those who scry.", tooltip = "Causes damage on scrying."})
-
 defences.complete_def({name = "MindField", def = "You will discharge a psychic lash on those who scry.", tooltip = "Causes damage on scrying."})
 
 defences.complete_def({name = "Mislead", defr = [[^You are preparing to mislead to the \w+\.$]], tooltip = "Next movement will appear to go in the wrong direction."})
@@ -2660,6 +2658,8 @@ defences.complete_def({name = "Selfishness", def = "You are feeling quite selfis
 defences.complete_def({name = "garb", def = "You are wearing a garb of shadows.", tooltip = "Reduces damage from magical attacks and poisons."})
 
 defences.complete_def({name = "Shadow Shroud", def = "You are wearing a magic shroud.", tooltip = "Conceals most actions."})
+
+defences.complete_def({name = "Mindfield Arti", def = "You will discharge a psychic lash from a powerful artifact on those who scry.", tooltop = "damages those who scry you"})
 
 defences.complete_def({name = "Shield", def = "You are surrounded by a nearly invisible magical shield.", tooltip = "Protection against most attacks."})
 
