@@ -4355,7 +4355,7 @@ mm.show_vessels(1)</script>
                     <colorTriggerFgColor>#000000</colorTriggerFgColor>
                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                     <regexCodeList>
-                        <string>You take out some restorativeice salve and quickly rub it on your</string>
+                        <string>You take out some restorative ice and quickly rub it on your</string>
                         <string>1</string>
                     </regexCodeList>
                     <regexCodePropertyList>
@@ -4529,7 +4529,7 @@ mm.show_vessels(1)</script>
                     <colorTriggerFgColor>#000000</colorTriggerFgColor>
                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                     <regexCodeList>
-                        <string>You take out some restorativeice salve and quickly rub it on your</string>
+                        <string>You take out some restorative ice and quickly rub it on your</string>
                         <string>The salve mends your</string>
                         <string>curing your afflictions.</string>
                         <string>1</string>
