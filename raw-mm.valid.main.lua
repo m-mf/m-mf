@@ -139,7 +139,7 @@ function valid.symp_tangle()
   if not sys.sync then
     checkaction(dict.prone.misc)
     if actions.prone_misc then
-      lifevision.add(actions.prone_misc.p, "roped")
+      lifevision.add(actions.prone_misc.p, "webbed")
     else
       sk.tangle_symptom()
     end
@@ -168,7 +168,7 @@ end
 function valid.symp_shackled()
     checkaction(dict.prone.misc)
     if actions.prone_misc then
-      lifevision.add(actions.prone_misc.p, "roped")
+      lifevision.add(actions.prone_misc.p, "shackled")
     else
       sk.shackled_symptom()
     end

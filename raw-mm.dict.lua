@@ -3111,6 +3111,10 @@ dict = {
         addaff(dict.roped)
       end,
 
+      shackled = function ()
+        addaff(dict.shackled)
+      end,
+
       onstart = function ()
 #if skills.acrobatics then
         if conf.springup then
