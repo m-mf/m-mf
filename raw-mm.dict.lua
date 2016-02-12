@@ -3103,6 +3103,18 @@ dict = {
         removeaff("prone")
       end,
 
+      webbed = function ()
+        addaff(dict.tangle)
+      end,
+
+      roped = function ()
+        addaff(dict.roped)
+      end,
+
+      shackled = function ()
+        addaff(dict.shackled)
+      end,
+
       onstart = function ()
 #if skills.acrobatics then
         if conf.springup then
@@ -22392,6 +22404,7 @@ dict = {
 #basicdef("berserker", "combatstyle berserker", true)
 #basicdef("pulverizer", "combatstyle pulverizer", true)
 #basicdef("mutilator", "combatstyle mutilator", true)
+#basicdef("poisonist", "combatstyle poisonist", true)
 #end
 
 #if skills.cavalier then

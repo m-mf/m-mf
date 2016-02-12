@@ -421,9 +421,6 @@ defs_data = phpTable({
     command = "invoke psi shield",
     def = "You are protected by a psionic barrier."
   },
-  mindfield = { type = "general",
-    def = "You will discharge a psychic lash from a powerful artifact on those who scry.",
-    },
   crotamine = { nodef = true, def = "Your veins burn with immunity to deadly venoms."},
   dionamus = { nodef = true, def = "You are blessed by the Spire of Dionamus."},
   divinefire = { nodef = true, def = "You have wreathed yourself in divine fire."},
@@ -526,6 +523,9 @@ defs_data = phpTable({
   benignprophesy = { nodef = true },
   terror = { nodef = true },
   ["shadow shroud"] = { nodef = true },
+  ["mindfield arti"] = { nodef = true,
+    def = "You will discharge a psychic lash from a powerful artifact on those who scry.",
+    },
   ["prismatic barrier"] = { nodef = true },
   ["nightsweats"] = { nodef = true }, -- ?? if skills.night, etc, enable this
   ["garb"] = { nodef = true }, -- ?? if skills.night, etc, enable this
@@ -605,6 +605,10 @@ defs_data = phpTable({
   mutilator = { type = "knighthood",
     def = "You are fighting with a mutilator's cunning.",
     on = "You focus your attention on the mutilator fighting style.",
+    off = "You focus your attention on using no specific fighting style."},
+  poisonist = { type = "knighthood",
+    def = "You are fighting with a poisonist's eye.",
+    on = "You focus your attention on the poisonist fighting style.",
     off = "You focus your attention on using no specific fighting style."},
 #end
 
@@ -2654,6 +2658,8 @@ defences.complete_def({name = "Selfishness", def = "You are feeling quite selfis
 defences.complete_def({name = "garb", def = "You are wearing a garb of shadows.", tooltip = "Reduces damage from magical attacks and poisons."})
 
 defences.complete_def({name = "Shadow Shroud", def = "You are wearing a magic shroud.", tooltip = "Conceals most actions."})
+
+defences.complete_def({name = "Mindfield Arti", def = "You will discharge a psychic lash from a powerful artifact on those who scry.", tooltip = "damages those who scry you"})
 
 defences.complete_def({name = "Shield", def = "You are surrounded by a nearly invisible magical shield.", tooltip = "Protection against most attacks."})
 

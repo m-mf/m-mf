@@ -137,9 +137,27 @@ end
 
 function valid.symp_tangle()
   if not sys.sync then
-    sk.tangle_symptom()
+    checkaction(dict.prone.misc)
+    if actions.prone_misc then
+      lifevision.add(actions.prone_misc.p, "webbed")
+    else
+      sk.tangle_symptom()
+    end
   else
     valid.simpletangle()
+  end
+end
+
+function valid.symp_roped()
+  if not sys.sync then
+    checkaction(dict.prone.misc)
+    if actions.prone_misc then
+      lifevision.add(actions.prone_misc.p, "roped")
+    else
+      sk.roped_symptom()
+    end
+  else
+    valid.simpleroped()
   end
 end
 
@@ -148,7 +166,12 @@ function valid.symp_crucified()
 end
 
 function valid.symp_shackled()
-  sk.shackled_symptom()
+    checkaction(dict.prone.misc)
+    if actions.prone_misc then
+      lifevision.add(actions.prone_misc.p, "shackled")
+    else
+      sk.shackled_symptom()
+    end
 end
 
 function valid.symp_stupidity()
@@ -1265,11 +1288,6 @@ function valid.symp_haemophilia()
   end
 end
 
-function valid.symp_tangled()
-  if conf.aillusion or affs.tangle or affs.roped or affs.shackled then return end
-
-  valid.simpletangle()
-end
 
 function valid.symp_slicedforehead()
   if not conf.aillusion then

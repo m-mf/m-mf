@@ -1292,6 +1292,25 @@ function sk.tangle_symptom()
   end)
 end
 
+sk.roped_count = 0
+function sk.roped_symptom()
+  if not paragraph_length == 0 or affs.roped then return end
+
+  sk.roped_count = sk.roped_count + 1
+
+  if sk.roped_count >= 2 then
+    valid.simpleroped()
+    echo"\n" echof("auto-detected roped.")
+    sk.roped_count = 0
+    return
+  end
+
+  tempTimer(sys.wait * 2, function ()
+    sk.roped_count = sk.roped_count - 1
+    if sk.roped_count < 0 then sk.roped_count = 0 end
+  end)
+end
+
 local function update_eventaffs()
   if conf.eventaffs then
     -- addaff
