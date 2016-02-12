@@ -2659,7 +2659,7 @@ defences.complete_def({name = "garb", def = "You are wearing a garb of shadows."
 
 defences.complete_def({name = "Shadow Shroud", def = "You are wearing a magic shroud.", tooltip = "Conceals most actions."})
 
-defences.complete_def({name = "Mindfield Arti", def = "You will discharge a psychic lash from a powerful artifact on those who scry.", tooltop = "damages those who scry you"})
+defences.complete_def({name = "Mindfield Arti", def = "You will discharge a psychic lash from a powerful artifact on those who scry.", tooltip = "damages those who scry you"})
 
 defences.complete_def({name = "Shield", def = "You are surrounded by a nearly invisible magical shield.", tooltip = "Protection against most attacks."})
 
