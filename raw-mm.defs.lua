@@ -1767,12 +1767,11 @@ understanding\.$]],
     on = {"A brief shiver runs through your body.", "You are already attuned to the flows of weather."}},
   regeneration = { type = "athletics",
     on = {"You begin to concentrate on regeneration of your wounds.", "You are already regenerating."},
-    def = "Your regeneration is boosted.",
+    def = "You are regenerating lost health.",
     off = {"You call a halt to the regenerative process.", "You are not attempting to regenerate lost health.", "You have no regenerative ability to boost."}},
   boosting = { type = "athletics",
     on = {"You call upon your inner strength to boost your health regeneration.", "Your regeneration is already boosted."},
-    def = "Your regeneration is boosted.",
-    off = "Your regeneration is already boosted."},
+    def = "Your regeneration is boosted."},
   surge = { type = "athletics",
     on = {"You pound your chest with your fists, and bellow fiercely. Your body expands to heroic proportions.", "Your body is already surged to maximum potential."},
     off = {"Your body is not under a surge.", "You relax the surge of power through your body, and dwindle to normal proportions."}},
@@ -2629,7 +2628,9 @@ defences.complete_def({name = "Rebounding", def = "You are protected from hand-h
 
 defences.complete_def({name = "Reflection", def = "You are surrounded by one reflection of yourself.", tooltip = "Protects against the next attack."})
 
-defences.complete_def({name = "Boosting", def = {"You are regenerating lost health.", "Your regeneration is boosted."}, tooltip = "Health regeneration with a constant mana and willpower drain. Boosting increases the health regained."})
+defences.complete_def({name = "Regeneration", def = "You are regenerating lost health.", tooltip = "Grants a 2/8 boost to health regeneration"})
+
+defences.complete_def({name = "Boosting", def = "Your regeneration is boosted.", tooltip = "Health regeneration with a constant mana drain. Boosting increases the health regained."})
 
 defences.complete_def({name = "Resistance", def = "You are resisting magical damage.", tooltip = "Reduction of damage from magical sources."})
 
