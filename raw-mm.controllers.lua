@@ -518,6 +518,12 @@ prompt_stats = function ()
 #end
     bals.rightarm = (t.right_arm == "1") and true or false
     bals.leftarm = (t.left_arm == "1") and true or false
+    bals.lucidity = (t.slush == "1") and true or false
+    bals.ice = (t.ice == "1") and true or false
+    bals.steam = (t.steam == "1") and true or false
+    bals.wafer = (t.dust == "1") and true or false
+    bals.sip = (t.healing == "1") and true or false
+    bals.sparkle = (t.sparkleberry == "1") and true or false
 
 
     if t.blind == "1" and not defc.trueblind and not doingaction "trueblind" and not affs.blind then
