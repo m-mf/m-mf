@@ -524,6 +524,8 @@ prompt_stats = function ()
     bals.wafer = (t.dust == "1") and true or false
     bals.sip = (t.healing == "1") and true or false
     bals.sparkle = (t.sparkleberry == "1") and true or false
+    bals.beast = (t.beastbal == "1") and true or false
+
 
 
     if t.blind == "1" and not defc.trueblind and not doingaction "trueblind" and not affs.blind then
