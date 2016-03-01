@@ -22355,6 +22355,15 @@ dict = {
   },
 #end
 
+--wondercorn defs - they don't require balance, but consume it
+#basicdef("wondercornbal", "wondercorn activate balance")
+#basicdef("wondercornhp", "wondercorn activate health")
+#basicdef("wondercornmp", "wondercorn activate mana")
+#basicdef("wondercornego", "wondercorn activate ego")
+#basicdef("wondercornres", "wondercorn activate resistance")
+#basicdef("wondercorndam", "wondercorn activate damage")
+#basicdef("wondercorneq", "wondercorn activate equilibrium")
+
 #if skills.astrology then
 #basicdef("volcano", "astrocast volcano sphere at me")
 #basicdef("dragon", "astrocast dragon sphere at me")
