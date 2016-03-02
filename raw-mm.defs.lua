@@ -145,12 +145,21 @@ defs_data = phpTable({
   },
   alacrity = { nodef = true,
     def = "You are surrounded by a field of alacrity."},
-  curiohp = { nodef = true,
-    def = "You have a curio health blessing."},
-  curiomp = { nodef = true,
-    def = "You have a curio mana blessing."},
-  curioeg = { nodef = true,
-    def = "You have a curio ego blessing."},
+  redgenies = { type = "general",
+    on = {"Four genies burst out of their bottles, whirling around you as they wrap you in ribbons of multicoloured light. Your health swells as the blessing of the genies settle around you.", "You already have a curio health blessing!"},
+    offr = [[^It is now the \d+(?:st|nd|rd|th) of \w+, \d+ years after the Coming of Estarra\.$]],
+    def = "You have a curio health blessing.",
+    tooltip = "Add a 1/8 boost to health"},
+  bluegenies = { type = "general",
+    on = {"Four genies burst out of their bottles, whirling around you as they wrap you in ribbons of multicoloured light. Your mana swells as the blessing of the genies settle around you.", "You already have a curio mana blessing!"},
+    offr = [[^It is now the \d+(?:st|nd|rd|th) of \w+, \d+ years after the Coming of Estarra\.$]],
+    def = "You have a curio mana blessing.",
+    tooltip = "Adds a 1/8 boost to mana"},
+  yellowgenies = { type = "general",
+    on = {"Four genies burst out of their bottles, whirling around you as they wrap you in ribbons of multicoloured light. Your ego swells as the blessing of the genies settle around you.", "You already have a curio ego blessing!"},
+    offr = [[^It is now the \d+(?:st|nd|rd|th) of \w+, \d+ years after the Coming of Estarra\.$]],
+    def = "You have a curio ego blessing.",
+    tooltip = "Adds a 1/8 boost to ego"},
   faerie = { nodef = true,
     def = "You are wearing a pair of faerie wings."},
   gravity = { nodef = true,
@@ -285,31 +294,38 @@ defs_data = phpTable({
   decease = { nodef = true,
     def = "You have incredibly thickened skin.",
     tooltip = "+35 physical DMP"},
-  wondercornbal = { on = "Your balance is enhanced by the fine food.",
+  wondercornbal = { type = "general",
+    on = "Your balance is enhanced by the fine food.",
     off = "The increased balance from the infused food leaves you.",
     def = "Your balance has been enhanced through fine food.",
     tooltip = "Adds 1/3 boost to balance, doesn't stack with herofete"},
-  wondercornhp = {on = "Your health is enhanced by the fine food.",
+  wondercornhp = { type = "general",
+    on = "Your health is enhanced by the fine food.",
     off = "The increased health from the infused food leaves you.",
     def = "Your health has been enhanced through fine food.",
     tooltip = "adds 1/5 boost to health, doesn't stack with herofete"},
-  wondercornmp = { on = "Your mana is enhanced by the fine food.",
+  wondercornmp = { type = "general",
+    on = "Your mana is enhanced by the fine food.",
     off = "The increased mana from the infused food leaves you.",
     def = "Your mana has been enhanced through fine food.",
     tooltip = "adds 1/5 boost to mana, doesn't stack with herofete"},
-  wondercornego = {on = "Your ego is enhanced by the fine food.",
+  wondercornego = { type = "general",
+    on = "Your ego is enhanced by the fine food.",
     off = "The increased ego from the infused food leaves you.",
     def = "Your ego has been enhanced through fine food.",
     tooltip = "adds 1/5 boost to ego, doesn't stack with herofete"},
-  wondercornres = {on = "Your resistance is enhanced by the fine food.",
+  wondercornres = { type = "general",
+    on = "Your resistance is enhanced by the fine food.",
     off = "The increased resistance from the infused food leaves you.",
     def = "Your resistance has been enhanced through fine food.",
     tooltip = "adds 1/3 boost to resistance, doesn't stack with herofete"},
-  wondercorndam = {on = "Your damage is enhanced by the fine food.",
+  wondercorndam = { type = "general",
+    on = "Your damage is enhanced by the fine food.",
     off = "The increased damage from the infused food leaves you.",
     def = "Your damage has been enhanced through fine food.",
     tooltip = "adds 1/3 boost to damage, doesn't stack with herofete"},
-  wondercorneq = {on = "Your equilibrium is enhanced by the fine food.",
+  wondercorneq = { type = "general",
+    on = "Your equilibrium is enhanced by the fine food.",
     off = "The increased equilibrium from the infused food leaves you.",
     def = "Your equilibrium has been enhanced through fine food.",
     tooltip = "adds 1/3 boost to equilibrium, doesn't stack with herofete"},
@@ -2479,7 +2495,7 @@ defences.complete_def({name = "GreenTea", def = "Your movements are herbally hei
 
 defences.complete_def({name = "Grip", def = "Your hands are gripping your wielded items tightly.", tooltip = "Prevents many things that unwield or drop wielded items."})
 
-defences.complete_def({name = "red", def = "The pull of the earth roots you more firmly to the ground.", tooltip = "Resists summons."})
+defences.complete_def({name = "Red ", def = "The pull of the earth roots you more firmly to the ground.", tooltip = "Resists summons."})
 
 defences.complete_def({name = "Malkuth", def = "The pull of the earth roots you more firmly to the ground.", tooltip = "Resists summons."})
 
@@ -2811,7 +2827,7 @@ defences.complete_def({name = "World", defr = [[^You are strengthened by the pow
 
 defences.complete_def({name = "Wounded", def = "You are acting more wounded than you actually are.", tooltip = "Appear more wounded."})
 
-defences.complete_def({name = "Yellow", def = "You have empowered your yellow chakra.", tooltip = "Weighted +1 to constitution."})
+defences.complete_def({name = "Yellow ", def = "You have empowered your yellow chakra.", tooltip = "Adds a 1/5 boost to health for a time"})
 
 defences.complete_def({name = "Yesod", def = "Your actions are cloaked in secrecy.", tooltip = "Conceals most actions."})
 

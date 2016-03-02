@@ -22356,13 +22356,17 @@ dict = {
 #end
 
 --wondercorn defs - they don't require balance, but consume it
-#basicdef("wondercornbal", "wondercorn activate balance")
-#basicdef("wondercornhp", "wondercorn activate health")
-#basicdef("wondercornmp", "wondercorn activate mana")
-#basicdef("wondercornego", "wondercorn activate ego")
-#basicdef("wondercornres", "wondercorn activate resistance")
-#basicdef("wondercorndam", "wondercorn activate damage")
-#basicdef("wondercorneq", "wondercorn activate equilibrium")
+#basicdef("wondercornbal", "wondercorn activate balance", true)
+#basicdef("wondercornhp", "wondercorn activate health", true)
+#basicdef("wondercornmp", "wondercorn activate mana", true)
+#basicdef("wondercornego", "wondercorn activate ego", true)
+#basicdef("wondercornres", "wondercorn activate resistance", true)
+#basicdef("wondercorndam", "wondercorn activate damage", true)
+#basicdef("wondercorneq", "wondercorn activate equilibrium", true)
+
+#basicdef("redgenies", "curio collection activate redgenies", true)
+#basicdef("bluegenies", "curio collection activate bluegenies", true)
+#basicdef("yellowgenies", "curio collection activate yellowgenies", true)
 
 #if skills.astrology then
 #basicdef("volcano", "astrocast volcano sphere at me")
