@@ -1055,3 +1055,49 @@ function disableoverhaul(action, echoback)
 
   raiseEvent("m&m overhaul removed", action)
 end
+
+me.activeskills = {}
+skillstartcheck = false
+
+signals.gmcpcharskillsgroups:connect(function()
+  local t = _G.gmcp.Char.Skills.Groups
+  local current = {}
+  for _,tt in ipairs(t) do
+    if me.skills[tt.name:lower()] then
+      table.insert(current, tt.name:lower())
+    end
+  end
+
+  --this is to make sure everything is deactivated on startup, so there aren't any issues setting things up. After startup, it will only deactivate skills actively forgotten.
+  if not skillstartcheck then
+    for skill, v in pairs(me.skills) do
+      raiseEvent("m&m remove skill", skill)
+      if conf.autohide then
+        mm.ignoreskill(skill:title(),true,false)
+      end
+    end
+    skillstartcheck = true
+  else
+    for skill, v in pairs(me.activeskills) do
+      if v and not table.contains(current, skill) then
+        me.activeskills[skill] = nil
+        if conf.autohide then
+          mm.ignoreskill(skill:title(),true,false)
+        end
+        raiseEvent("m&m remove skill", skill)
+      end
+    end
+  end
+
+  for _, skill in ipairs(current) do
+    if not me.activeskills[skill] then
+      me.activeskills[skill] = true
+      if conf.autohide then
+        mm.ignoreskill(skill:title(),false,false)
+      end
+      raiseEvent("m&m add skill", skill)
+    end
+  end
+  end)
+
+

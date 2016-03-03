@@ -21533,9 +21533,14 @@ dict = {
       end,
 
       onstart = function ()
-        send("rub waterbreathe", conf.commandecho)
-        if conf.autorecharge and not sys.sync then
-          send("recharge waterbreathe from cube", conf.commandecho) end
+        if not conf.enchantments and me.activeskills.elementalism then
+          send("cast waterbreathe", conf.commandecho)
+        else
+          send("rub waterbreathe", conf.commandecho)
+          if conf.autorecharge and not sys.sync then
+            send("recharge waterbreathe from cube", conf.commandecho)
+          end
+        end
       end
     }
   },
@@ -22103,7 +22108,7 @@ dict = {
       def = true,
 
       isadvisable = function ()
-        return (((sys.deffing and defdefup[defs.mode].fervor and not defc.fervor) or (conf.keepup and defkeepup[defs.mode].fervor and not defc.fervor)) and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
+        return (((stats.currentpower >= 3 and sys.deffing and defdefup[defs.mode].fervor and not defc.fervor) or (conf.keepup and defkeepup[defs.mode].fervor and not defc.fervor)) and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
       end,
 
       oncompleted = function ()
@@ -22254,7 +22259,7 @@ dict = {
       end,
 
       onstart = function ()
-        if not conf.enchantments then
+        if not conf.enchantments and me.activeskills.rituals then
           send("chant acquisitio on", conf.commandecho)
         else
           send("rub acquisitio", conf.commandecho)
@@ -22994,7 +22999,7 @@ end)
       end,
 
       onstart = function ()
-        if not conf.enchantments then
+        if not conf.enchantments and me.activeskills.elementalism then
           send("cast levitate", conf.commandecho)
         else
           send("rub levitate", conf.commandecho)
@@ -23266,7 +23271,7 @@ end)
       end,
 
       onstart = function ()
-        if not conf.enchantments then
+        if not conf.enchantments and me.activeskill.cosmic then
           send("abjure nimbus", conf.commandecho)
         else
           send("rub nimbus", conf.commandecho)
@@ -23320,7 +23325,7 @@ end)
       end,
 
       onstart = function ()
-        if not conf.enchantments then
+        if not conf.enchantments and me.activeskills.cosmic then
           send("abjure waterwalk", conf.commandecho)
         else
           send("rub waterwalk", conf.commandecho)
