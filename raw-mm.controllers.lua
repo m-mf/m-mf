@@ -1056,7 +1056,6 @@ function disableoverhaul(action, echoback)
   raiseEvent("m&m overhaul removed", action)
 end
 
-<<<<<<< HEAD
 me.activeskills = {}
 skillstartcheck = false
 
