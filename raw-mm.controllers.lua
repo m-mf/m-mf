@@ -1047,3 +1047,7 @@ function disableoverhaul(action, echoback)
 
   raiseEvent("m&m overhaul removed", action)
 end
+
+function connected()
+  signals.connected:emit()
+end

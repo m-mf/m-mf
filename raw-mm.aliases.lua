@@ -26,7 +26,7 @@ function togglesip(what)
         min = v
       end
     end
-    if what == "health"  then 
+    if what == "health"  then
       if mp > ep then
         hp, mp, ep = max, mid, min
       else
@@ -462,7 +462,7 @@ function ashow()
   echoLink("ice", 'mm.printorder("ice")', 'View ice priorities', true)
   resetFormat()
   echo"\n"
- 
+
   echofn("Arena mode:       ")
   setFgColor(unpack(getDefaultColorNums))
   setUnderline(true)
@@ -481,7 +481,7 @@ function showaffs()
 end
 
 
-function app(what)
+function app(what, quiet)
   assert(what == nil or what == "on" or what == "off" or type(what) == "boolean", "mm.app wants 'on' or 'off' as an argument")
 
   if what == "on" or what == true or (what == nil and not conf.paused) then
@@ -490,7 +490,7 @@ function app(what)
     conf.paused = false
   end
 
-  echof("System " .. (conf.paused and "paused" or "unpaused") .. ".")
+  if not quiet then echof("System " .. (conf.paused and "paused" or "unpaused") .. ".") end
   raiseEvent("m&m config changed", "paused")
   showprompt()
 
