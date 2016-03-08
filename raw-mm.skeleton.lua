@@ -98,7 +98,7 @@ bals = bals or {
   herb = true, sip = true, sparkle = true,
   purgative = true,  salve = true, scroll = true,
   balance = true, equilibrium = true, focus = true, steam = true,
-  allheale = true, tea = true, leftarm = "unset", rightarm = "unset",
+  allheale = true, tea = true, leftarm = "unset", rightarm = "unset", beast = true,
 #if skills.psionics then
   super = "unset", sub = "unset", id = "unset",
 #end
@@ -1617,7 +1617,7 @@ sk.limbnames = {
       {glandular   = {"slickness"}},
       {senses      = {"concussion", "sensitivity", "vertigo", "deaf", "blind"}},
       {neurosis    = {"impatience", "loneliness", "shyness", "anorexia", "void", "masochism"}},
-      {breaks      = {"crippledrightarm", "crippledleftarm", "crippledleftleg", "crippledrightleg", "brokenjaw", "brokenrightwrist", "brokenleftwrist", "twistedleftarm", "twistedrightarm", "twistedrightleg", "twistedleftleg"}},
+      {breaks      = {"crippledrightarm", "crippledleftarm", "crippledleftleg", "crippledrightleg", "brokenjaw", "brokenrightwrist", "brokenleftwrist", "twistedleftarm", "twistedrightarm", "twistedrightleg", "twistedleftleg", "damagedleftarm", "damagedrightarm", "damagedleftleg", "damagedrightleg"}},
       {choleric    = {"vomiting", "vomitblood", "worms", "hypersomnia", "dysentery"}},
       {curses      = {"recklessness", "healthleech", "achromaticaura", "powerspikes", "manabarbs", "egovice", "minortimewarp", "moderatetimewarp", "majortimewarp", "massivetimewarp"}},
       {muscles     = {"paralysis", "rigormortis", "weakness", "dislocatedleftarm ", "dislocatedrightarm", "dislocatedrightleg", "dislocatedleftleg", "gashedcheek", "slicedtongue", "puncturedchest", "missingrightear", "missingleftear", "slicedrightbicep", "slicedleftbicep", "slicedleftthigh", "slicedrightthigh", "openchest", "opengut", "stiffleftarm", "stiffrightarm", "stiffhead", "stiffgut", "stiffchest", "slitthroat"}},
@@ -1630,7 +1630,7 @@ sk.limbnames = {
       {depression  = {"addiction", "gluttony"}},
       {auric       = {"aeon", "pacifism", "peace", "powersink", "justice", "jinx", "succumb"}},
       {mania       = {"confusion", "dementia", "hallucinating", "void", "paranoia", "stupidity", "scrambledbrain", "slightinsanity", "moderateinsanity",  "majorinsanity", "massiveinsanity"}},
-      {regenerate  = {{burstorgans = "gut"}, {missingrightleg = "legs"}, {missingleftarm = "arms"}, {missingleftleg = "legs"}, {missingrightarm = "arms"}, {eyepeckleft = "head"}, {eyepeckright = "head"}, {mangledleftleg = "legs"}, {mangledleftarm = "arms"}, {mangledrightarm = "arms"}, {mangledrightleg = "legs"}, {crushedchest = "chest"}, {collapsedrightnerve = "arms"}, {collapsedlungs = "chest"}, {collapsedleftnerve = "arms"}, {crackedleftelbow = "arms"}, {crackedrightelbow = "arms"}, {crackedrightkneecap = "legs"}, {crackedleftkneecap = "legs"}, {disembowel = "gut"}, {chestpain = "chest"}, {rupturedstomach = "gut"}, {tendonright = "legs"}, {tendonleft = "legs"}, {concussion = "head"}, {damagedhead = "head"}, {shatteredleftankle = "legs"}, {shatteredrightankle = "legs"}, {shatteredjaw = "head"}}}
+      {regenerate  = {{burstorgans = "gut"}, {missingrightleg = "legs"}, {missingleftarm = "arms"}, {missingleftleg = "legs"}, {missingrightarm = "arms"}, {eyepeckleft = "head"}, {eyepeckright = "head"}, {mangledleftleg = "legs"}, {mangledleftarm = "arms"}, {mangledrightarm = "arms"}, {mangledrightleg = "legs"}, {crushedchest = "chest"}, {collapsedrightnerve = "arms"}, {collapsedlungs = "chest"}, {collapsedleftnerve = "arms"}, {crackedleftelbow = "arms"}, {crackedrightelbow = "arms"}, {crackedrightkneecap = "legs"}, {crackedleftkneecap = "legs"}, {disembowel = "gut"}, {chestpain = "chest"}, {rupturedstomach = "gut"}, {tendonright = "legs"}, {tendonleft = "legs"}, {concussion = "head"}, {damagedhead = "head"}, {shatteredleftankle = "legs"}, {shatteredrightankle = "legs"}, {shatteredjaw = "head"}, {mutilatedleftarm = "arms"}, {mutilatedrightarm = "arms"}, {mutilatedleftleg = "legs"}, {mutilatedrightleg = "legs"}}}
     }
     --[[ doesn't cure: leglock, throatlock, severedspine, puncturedaura ]]
 

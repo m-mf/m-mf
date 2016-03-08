@@ -145,12 +145,21 @@ defs_data = phpTable({
   },
   alacrity = { nodef = true,
     def = "You are surrounded by a field of alacrity."},
-  curiohp = { nodef = true,
-    def = "You have a curio health blessing."},
-  curiomp = { nodef = true,
-    def = "You have a curio mana blessing."},
-  curioeg = { nodef = true,
-    def = "You have a curio ego blessing."},
+  redgenies = { type = "general",
+    on = {"Four genies burst out of their bottles, whirling around you as they wrap you in ribbons of multicoloured light. Your health swells as the blessing of the genies settle around you.", "You already have a curio health blessing!"},
+    offr = [[^It is now the \d+(?:st|nd|rd|th) of \w+, \d+ years after the Coming of Estarra\.$]],
+    def = "You have a curio health blessing.",
+    tooltip = "Add a 1/8 boost to health"},
+  bluegenies = { type = "general",
+    on = {"Four genies burst out of their bottles, whirling around you as they wrap you in ribbons of multicoloured light. Your mana swells as the blessing of the genies settle around you.", "You already have a curio mana blessing!"},
+    offr = [[^It is now the \d+(?:st|nd|rd|th) of \w+, \d+ years after the Coming of Estarra\.$]],
+    def = "You have a curio mana blessing.",
+    tooltip = "Adds a 1/8 boost to mana"},
+  yellowgenies = { type = "general",
+    on = {"Four genies burst out of their bottles, whirling around you as they wrap you in ribbons of multicoloured light. Your ego swells as the blessing of the genies settle around you.", "You already have a curio ego blessing!"},
+    offr = [[^It is now the \d+(?:st|nd|rd|th) of \w+, \d+ years after the Coming of Estarra\.$]],
+    def = "You have a curio ego blessing.",
+    tooltip = "Adds a 1/8 boost to ego"},
   faerie = { nodef = true,
     def = "You are wearing a pair of faerie wings."},
   gravity = { nodef = true,
@@ -219,7 +228,24 @@ defs_data = phpTable({
     ondef = function () return "("..matches[2]..")" end,
   },
   ["cement socks"] = { nodef = true,
-    def = "You are wearing cement socks, giving you great summon resistance."
+    def = "You are wearing cement socks, giving you great summon resistance.",
+    tooltip = "adds rooting at the cost of celerity"
+  },
+  haircurio = {nodef = true,
+    def = "Your influencing is buffed by hair! Glorious hair!"
+  },
+  gestalt = { nodef = true,
+    defr = [[^You have a \w+ gestalt composed of \w+ ikons\.$]]
+  },
+  ["poteen xp"] = { nodef = true,
+    defr = [[^You burped up increased experience gain for \d+ minutes\.$]]
+  },
+  ["poteen karma"] = { nodef = true,
+    defr = [[^You burped up increased karma gain for \d+ minutes\.$]]
+  },
+  ["poteen mana"] = { nodef = true,
+    defr = [[^You burped up increased mana for \d+ minutes\.$]],
+    tooltip = "Adds a 1/8 mana bonus",
   },
   healaura = { nodef = true,
     ondef = function () return "("..matches[2]..")" end,
@@ -268,6 +294,41 @@ defs_data = phpTable({
   decease = { nodef = true,
     def = "You have incredibly thickened skin.",
     tooltip = "+35 physical DMP"},
+  wondercornbal = { type = "general",
+    on = "Your balance is enhanced by the fine food.",
+    off = "The increased balance from the infused food leaves you.",
+    def = "Your balance has been enhanced through fine food.",
+    tooltip = "Adds 1/3 boost to balance, doesn't stack with herofete"},
+  wondercornhp = { type = "general",
+    on = "Your health is enhanced by the fine food.",
+    off = "The increased health from the infused food leaves you.",
+    def = "Your health has been enhanced through fine food.",
+    tooltip = "adds 1/5 boost to health, doesn't stack with herofete"},
+  wondercornmp = { type = "general",
+    on = "Your mana is enhanced by the fine food.",
+    off = "The increased mana from the infused food leaves you.",
+    def = "Your mana has been enhanced through fine food.",
+    tooltip = "adds 1/5 boost to mana, doesn't stack with herofete"},
+  wondercornego = { type = "general",
+    on = "Your ego is enhanced by the fine food.",
+    off = "The increased ego from the infused food leaves you.",
+    def = "Your ego has been enhanced through fine food.",
+    tooltip = "adds 1/5 boost to ego, doesn't stack with herofete"},
+  wondercornres = { type = "general",
+    on = "Your resistance is enhanced by the fine food.",
+    off = "The increased resistance from the infused food leaves you.",
+    def = "Your resistance has been enhanced through fine food.",
+    tooltip = "adds 1/3 boost to resistance, doesn't stack with herofete"},
+  wondercorndam = { type = "general",
+    on = "Your damage is enhanced by the fine food.",
+    off = "The increased damage from the infused food leaves you.",
+    def = "Your damage has been enhanced through fine food.",
+    tooltip = "adds 1/3 boost to damage, doesn't stack with herofete"},
+  wondercorneq = { type = "general",
+    on = "Your equilibrium is enhanced by the fine food.",
+    off = "The increased equilibrium from the infused food leaves you.",
+    def = "Your equilibrium has been enhanced through fine food.",
+    tooltip = "adds 1/3 boost to equilibrium, doesn't stack with herofete"},
   hardsmoke = { type = "general",
     on = {"The smoke settles around you in a haze, strangely weighing your body down.", "The smoke settles around you, but your body is already weighed down."},
     def = "Hardsmoke (hardsmoke) (indefinite).",
@@ -526,6 +587,22 @@ defs_data = phpTable({
   ["mindfield arti"] = { nodef = true,
     def = "You will discharge a psychic lash from a powerful artifact on those who scry.",
     },
+  ["solstice resist"] = {nodef = true,
+    ondef = function () return "("..matches[2]..")" end,
+    defr = [[^Solstice Resist \(solsticeresist\) \((\d+) minutes\)\.$]],
+    tooltip = "Adds 2/6 universal resistance."},
+  ["solstice health"] = {nodef = true,
+    ondef = function () return "("..matches[2]..")" end,
+    defr = [[^Solstice Health \(solsticehealth\) \((\d+) minutes\)\.$]],
+    tooltip = "Adds 2/6 boost to health."},
+  ["solstice mana"] = {nodef = true,
+    ondef = function () return "("..matches[2]..")" end,
+    defr = [[^Solstice Mana \(solsticemana\) \((\d+) minutes\)\.$]],
+    tooltip = "Adds 2/6 boost to mana."},
+  ["solstice ego"] = { nodef = true,
+    ondef = function () return "("..matches[2]..")" end,
+    defr = [[^Solstice Ego \(solsticeego\) \((\d+) minutes\)\.$]],
+    tooltip = "Adds 2/6 boost to ego"},
   ["prismatic barrier"] = { nodef = true },
   ["nightsweats"] = { nodef = true }, -- ?? if skills.night, etc, enable this
   ["garb"] = { nodef = true }, -- ?? if skills.night, etc, enable this
@@ -1767,12 +1844,11 @@ understanding\.$]],
     on = {"A brief shiver runs through your body.", "You are already attuned to the flows of weather."}},
   regeneration = { type = "athletics",
     on = {"You begin to concentrate on regeneration of your wounds.", "You are already regenerating."},
-    def = "Your regeneration is boosted.",
+    def = "You are regenerating lost health.",
     off = {"You call a halt to the regenerative process.", "You are not attempting to regenerate lost health.", "You have no regenerative ability to boost."}},
   boosting = { type = "athletics",
     on = {"You call upon your inner strength to boost your health regeneration.", "Your regeneration is already boosted."},
-    def = "Your regeneration is boosted.",
-    off = "Your regeneration is already boosted."},
+    def = "Your regeneration is boosted."},
   surge = { type = "athletics",
     on = {"You pound your chest with your fists, and bellow fiercely. Your body expands to heroic proportions.", "Your body is already surged to maximum potential."},
     off = {"Your body is not under a surge.", "You relax the surge of power through your body, and dwindle to normal proportions."}},
@@ -2435,7 +2511,7 @@ defences.complete_def({name = "GreenTea", def = "Your movements are herbally hei
 
 defences.complete_def({name = "Grip", def = "Your hands are gripping your wielded items tightly.", tooltip = "Prevents many things that unwield or drop wielded items."})
 
-defences.complete_def({name = "red", def = "The pull of the earth roots you more firmly to the ground.", tooltip = "Resists summons."})
+defences.complete_def({name = "Red ", def = "The pull of the earth roots you more firmly to the ground.", tooltip = "Resists summons."})
 
 defences.complete_def({name = "Malkuth", def = "The pull of the earth roots you more firmly to the ground.", tooltip = "Resists summons."})
 
@@ -2629,7 +2705,9 @@ defences.complete_def({name = "Rebounding", def = "You are protected from hand-h
 
 defences.complete_def({name = "Reflection", def = "You are surrounded by one reflection of yourself.", tooltip = "Protects against the next attack."})
 
-defences.complete_def({name = "Boosting", def = {"You are regenerating lost health.", "Your regeneration is boosted."}, tooltip = "Health regeneration with a constant mana and willpower drain. Boosting increases the health regained."})
+defences.complete_def({name = "Regeneration", def = "You are regenerating lost health.", tooltip = "Grants a 2/8 boost to health regeneration"})
+
+defences.complete_def({name = "Boosting", def = "Your regeneration is boosted.", tooltip = "Health regeneration with a constant mana drain. Boosting increases the health regained."})
 
 defences.complete_def({name = "Resistance", def = "You are resisting magical damage.", tooltip = "Reduction of damage from magical sources."})
 
@@ -2765,7 +2843,7 @@ defences.complete_def({name = "World", defr = [[^You are strengthened by the pow
 
 defences.complete_def({name = "Wounded", def = "You are acting more wounded than you actually are.", tooltip = "Appear more wounded."})
 
-defences.complete_def({name = "Yellow", def = "You have empowered your yellow chakra.", tooltip = "Weighted +1 to constitution."})
+defences.complete_def({name = "Yellow ", def = "You have empowered your yellow chakra.", tooltip = "Adds a 1/5 boost to health for a time"})
 
 defences.complete_def({name = "Yesod", def = "Your actions are cloaked in secrecy.", tooltip = "Conceals most actions."})
 
