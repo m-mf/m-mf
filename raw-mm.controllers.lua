@@ -1100,9 +1100,6 @@ signals.gmcpcharskillsgroups:connect(function()
   end
   end)
 
-
-=======
 function connected()
   signals.connected:emit()
 end
->>>>>>> refs/remotes/origin/master
