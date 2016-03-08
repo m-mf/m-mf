@@ -28781,6 +28781,29 @@ end</script>
                         <integer>3</integer>
                     </regexCodePropertyList>
                 </Trigger>
+                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                    <name>m&amp;m connect</name>
+                    <script>mm.connected()
+
+if mm.conf.paused then mm.dont_unpause_login = true
+else mm.app(&quot;on&quot;, true) end</script>
+                    <triggerType>0</triggerType>
+                    <conditonLineDelta>0</conditonLineDelta>
+                    <mStayOpen>0</mStayOpen>
+                    <mCommand></mCommand>
+                    <packageName></packageName>
+                    <mFgColor>#ff0000</mFgColor>
+                    <mBgColor>#ffff00</mBgColor>
+                    <mSoundFile></mSoundFile>
+                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                    <regexCodeList>
+                        <string>                        A G E  O F  A S C E N S I O N</string>
+                    </regexCodeList>
+                    <regexCodePropertyList>
+                        <integer>3</integer>
+                    </regexCodePropertyList>
+                </Trigger>
             </TriggerGroup>
             <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                 <name>Poisons + Generic lines</name>
@@ -54240,7 +54263,7 @@ end</script>
                 <packageName></packageName>
                 <regex>^mm ?save$</regex>
             </Alias>
-            <Alias isActive="yes" isFolder="no">
+            <Alias isActive="no" isFolder="no">
                 <name>m&amp;m Deepheal</name>
                 <script>  local t = {
     h = &quot;head&quot;,

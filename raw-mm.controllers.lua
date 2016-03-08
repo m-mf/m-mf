@@ -1056,6 +1056,7 @@ function disableoverhaul(action, echoback)
   raiseEvent("m&m overhaul removed", action)
 end
 
+<<<<<<< HEAD
 me.activeskills = {}
 skillstartcheck = false
 
@@ -1101,3 +1102,8 @@ signals.gmcpcharskillsgroups:connect(function()
   end)
 
 
+=======
+function connected()
+  signals.connected:emit()
+end
+>>>>>>> refs/remotes/origin/master
