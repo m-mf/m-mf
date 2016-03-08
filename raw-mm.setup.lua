@@ -153,6 +153,7 @@ signals.gmcproominfo = luanotify.signal.new()
 signals.gmcpcharitemslist = luanotify.signal.new()
 signals.gmcpcharskillsinfo = luanotify.signal.new()
 signals.gmcpcharskillslist = luanotify.signal.new()
+signals.gmcpcharskillsgroups = luanotify.signal.new()
 signals.gmcpcharitemsupdate = luanotify.signal.new()
 
 signals["mmapper updated pdb"] = luanotify.signal.new()

@@ -518,6 +518,14 @@ prompt_stats = function ()
 #end
     bals.rightarm = (t.right_arm == "1") and true or false
     bals.leftarm = (t.left_arm == "1") and true or false
+    bals.lucidity = (t.slush == "1") and true or false
+    bals.ice = (t.ice == "1") and true or false
+    bals.steam = (t.steam == "1") and true or false
+    bals.wafer = (t.dust == "1") and true or false
+    bals.sip = (t.healing == "1") and true or false
+    bals.sparkle = (t.sparkleberry == "1") and true or false
+    bals.beast = (t.beastbal == "1") and true or false
+
 
 
     if t.blind == "1" and not defc.trueblind and not doingaction "trueblind" and not affs.blind then
@@ -1047,6 +1055,50 @@ function disableoverhaul(action, echoback)
 
   raiseEvent("m&m overhaul removed", action)
 end
+
+me.activeskills = {}
+skillstartcheck = false
+
+signals.gmcpcharskillsgroups:connect(function()
+  local t = _G.gmcp.Char.Skills.Groups
+  local current = {}
+  for _,tt in ipairs(t) do
+    if me.skills[tt.name:lower()] then
+      table.insert(current, tt.name:lower())
+    end
+  end
+
+  --this is to make sure everything is deactivated on startup, so there aren't any issues setting things up. After startup, it will only deactivate skills actively forgotten.
+  if not skillstartcheck then
+    for skill, v in pairs(me.skills) do
+      raiseEvent("m&m remove skill", skill)
+      if conf.autohide then
+        mm.ignoreskill(skill:title(),true,false)
+      end
+    end
+    skillstartcheck = true
+  else
+    for skill, v in pairs(me.activeskills) do
+      if v and not table.contains(current, skill) then
+        me.activeskills[skill] = nil
+        if conf.autohide then
+          mm.ignoreskill(skill:title(),true,false)
+        end
+        raiseEvent("m&m remove skill", skill)
+      end
+    end
+  end
+
+  for _, skill in ipairs(current) do
+    if not me.activeskills[skill] then
+      me.activeskills[skill] = true
+      if conf.autohide then
+        mm.ignoreskill(skill:title(),false,false)
+      end
+      raiseEvent("m&m add skill", skill)
+    end
+  end
+  end)
 
 function connected()
   signals.connected:emit()

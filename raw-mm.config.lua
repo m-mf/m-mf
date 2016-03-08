@@ -241,6 +241,12 @@ config_dict = pl.OrderedMap {
     installstart = function () conf.cleanse = nil end,
     installcheck = function () echof("Should the system make use of any type of cleanse effect for curing?") end
   }},
+#conf_name = "autohide"
+  {$(conf_name) = {
+    type = "boolean",
+    onenabled = function () echof("<0,250,0>Will%s auto hide inactive skillsets on deflist.", getDefaultColor()) end,
+    ondisabled = function () echof("<250,0,0>Won't%s autohide inactive skillsets on deflist.", getDefaultColor()) end,
+  }},
 #conf_name = "rockclimbing"
   {$(conf_name) = {
     type = "boolean",
