@@ -134,6 +134,7 @@ signals.systemstart:connect(function ()
 end)
 #end
 
+signals.connected = luanotify.signal.new()
 signals.quit = luanotify.signal.new()
 #if DEBUG then
 signals.quit:connect(function ()
@@ -200,6 +201,10 @@ signals.enablegmcp:add_post_emit(function ()
     signals.relogin:emit()
     echof("Welcome back!")
   end
+
+  -- app("off", true) -- this triggers a dict() run too early before login
+  if dont_unpause_login then dont_unpause_login = nil
+  else conf.paused = false end
 end)
 signals.newroom = luanotify.signal.new()
 signals.newarea = luanotify.signal.new()
