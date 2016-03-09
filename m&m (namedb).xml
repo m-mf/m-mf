@@ -3839,6 +3839,7 @@ function ndb.getcolor(name)
 
   -- order of priority: watchfor &gt; divine &gt; city &gt; order &gt; house &gt; citizens.  
   if city == &quot;&quot; or not city then city = false else city = city:lower() end -- known rogues are returned as &quot;&quot;
+  if city == &quot;new celest&quot; then city = &quot;newcelest&quot; end
 
   -- color first
   if conf.highlightwatchfor and mm.me.watchfor[name] then
