@@ -1402,7 +1402,7 @@ if tonumber(matches[2]) &lt; 200 then temp_name_list[1].demigod = 1 end</script>
                                 <string>He is unranked in Lusternia.</string>
                                 <string>She is unranked in Lusternia.</string>
                                 <string>He has cut his thread from the Tapestry of the Fates.</string>
-                                <string>She has cut his thread from the Tapestry of the Fates.</string>
+                                <string>She has cut her thread from the Tapestry of the Fates.</string>
                                 <string>He is frozen in time and space.</string>
                                 <string>She is frozen in time and space.</string>
                             </regexCodeList>
