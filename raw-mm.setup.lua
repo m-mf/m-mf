@@ -134,6 +134,7 @@ signals.systemstart:connect(function ()
 end)
 #end
 
+signals.connected = luanotify.signal.new()
 signals.quit = luanotify.signal.new()
 #if DEBUG then
 signals.quit:connect(function ()
@@ -152,6 +153,7 @@ signals.gmcproominfo = luanotify.signal.new()
 signals.gmcpcharitemslist = luanotify.signal.new()
 signals.gmcpcharskillsinfo = luanotify.signal.new()
 signals.gmcpcharskillslist = luanotify.signal.new()
+signals.gmcpcharskillsgroups = luanotify.signal.new()
 signals.gmcpcharitemsupdate = luanotify.signal.new()
 
 signals["mmapper updated pdb"] = luanotify.signal.new()
@@ -200,6 +202,10 @@ signals.enablegmcp:add_post_emit(function ()
     signals.relogin:emit()
     echof("Welcome back!")
   end
+
+  -- app("off", true) -- this triggers a dict() run too early before login
+  if dont_unpause_login then dont_unpause_login = nil
+  else conf.paused = false end
 end)
 signals.newroom = luanotify.signal.new()
 signals.newarea = luanotify.signal.new()
@@ -247,6 +253,9 @@ conf.assumestats = 0
 
 
 conf.paused = false
+conf.autoarena = false
+conf.arena = false
+conf.oldwarrior = false
 conf.lag = 0
 sys.wait = 0.7 -- for lag
 conf.aillusion = false
@@ -385,7 +394,7 @@ local index_map = pl.tablex.index_map
 
 local addaff, removeaff, checkanyaffs, updateaffcount
 
-sk.salvetick, sk.herbtick, sk.focustick, sk.teatick, sk.purgativetick, sk.siptick, sk.luciditytick, sk.steamtick, sk.wafertick = 0, 0, 0, 0, 0, 0, 0, 0, 0
+sk.salvetick, sk.herbtick, sk.focustick, sk.teatick, sk.purgativetick, sk.siptick, sk.luciditytick, sk.steamtick, sk.wafertick, sk.icetick = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 sk.overhaul = sk.overhaul or {}
 
 
@@ -418,7 +427,7 @@ local affsp = {}
 
 local rift, pipes = {}, {}
 
-local check_focus, check_salve, check_sip, check_purgative, check_herb, check_scroll, check_sparkle, check_misc, check_balanceless_acts, check_allheale, check_balanceful_acts, check_lucidity, check_steam, check_wafer
+local check_focus, check_salve, check_sip, check_purgative, check_herb, check_scroll, check_sparkle, check_misc, check_balanceless_acts, check_allheale, check_balanceful_acts, check_lucidity, check_steam, check_wafer, check_ice
 
 local generics_enabled, generics_enabled_for_blackout, generics_enabled_for_passive, enable_generic_trigs, disable_generic_trigs, check_generics
 
@@ -465,6 +474,10 @@ sk.overhauldata = {
   vomiting       = { newbalances = {"wafer"}, oldbalances = {"purgative"}, replaces = {"vomitblood"}},
   rigormortis    = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   taintsick      = { newbalances = {"wafer"}, oldbalances = {"focus"}, replaces = {"crotamine"}},
+  anorexia       = { newbalances = {"lucidity"}, oldbalances = {"herb"}},
+  asthma         = { newbalances = {"wafer"}, oldbalances = {"salve"}},
+  slickness      = { newbalances = {"steam"}, oldbalances = {"herb"}},
+
 }
 sk.overhaulredirects = {}
 
@@ -696,3 +709,20 @@ signals.systemstart:connect(function ()
     echof("Enabled Overhaul mode for %s affliction%s.", concatand(enabledaffs), #enabledaffs == 1 and '' or 's')
   end
 end)
+
+sk.arena_areas = {
+  --Gaudiguch
+  ["Pyrodome of the Kaleidoscopic Trials"] = true,
+  --Hallifax
+  ["the Skylark Commemorative Demiplane"] = true,
+  --Glomdoring
+  ["the Shadowvale Arena"] = true,
+  --Serenwilde
+  ["the Glade of Champions"] = true,
+  --New Celest
+  ["the Pearl of the Amberle"] = true,
+  --Magnagora
+  ["the Midnight Coliseum"] = true,
+  --Avenger
+  ["the Klangratch Tourny Fields"] = true
+}

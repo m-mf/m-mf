@@ -125,7 +125,7 @@ config_dict = pl.OrderedMap {
   {$(conf_name) = {
     type = "string",
     check = function (what)
-      if contains(rift.curativeherbs, what) then return true end
+      if contains(rift.sparkleherbs, what) then return true end
     end,
     onset = function ()
       dict.healhealth.herb.eatcure = conf.sparkleherb
@@ -240,6 +240,12 @@ config_dict = pl.OrderedMap {
     ondisabled = function () echof("<250,0,0>Won't%s use the cleanse effect to cure.", getDefaultColor()) end,
     installstart = function () conf.cleanse = nil end,
     installcheck = function () echof("Should the system make use of any type of cleanse effect for curing?") end
+  }},
+#conf_name = "autohide"
+  {$(conf_name) = {
+    type = "boolean",
+    onenabled = function () echof("<0,250,0>Will%s auto hide inactive skillsets on deflist.", getDefaultColor()) end,
+    ondisabled = function () echof("<250,0,0>Won't%s autohide inactive skillsets on deflist.", getDefaultColor()) end,
   }},
 #conf_name = "rockclimbing"
   {$(conf_name) = {
@@ -1094,6 +1100,18 @@ config_dict = pl.OrderedMap {
     installstart = function ()
       conf.warningtype = "all" end,
   }},
+#conf_name = "autoarena"
+  {$(conf_name) = {
+    type = "boolean",
+    onenabled = function () echof("<0,250,0>Will%s automatically enable/disable arena mode as you enter/leave the arena.", getDefaultColor()) end,
+    ondisabled = function () echof("<250,0,0>Won't%s automatically enable/disable arena mode as you enter/leave the arena..", getDefaultColor()) end,
+  }}, 
+#conf_name = "oldwarrior" 
+  {$(conf_name) = {
+    type = "boolean",
+    onenabled = function () echof("<0,250,0>Will cure using old warrior mechanics, use 'mmsp convert off' to make appropiate changes", getDefaultColor()) end,
+    ondisabled = function () echof("<0,250,0>Will cure using new warrior mechanics, use 'mmsp convert on' to make appropiate changes", getDefaultColor()) end
+  }},
 #if skills.elementalism or skills.healing then
 #conf_name = "cleansetype"
   {$(conf_name) = {
@@ -1233,6 +1251,15 @@ local tntf_tbl = {
           echof"Anti-illusion disabled." end,
     alreadyoff = function () disableTrigger "Pre-parse anti-illusion";
           echof"Anti-illusion is already disabled." end,
+  },
+  arena = {
+    on = function()
+      local echos = {"Arena mode enabled. Good luck!", "Beat 'em up! Arena mode enabled.", "Arena mode on.", "Arena mode enabled. Kill them all!"}
+            echof(echos[math.random(#echos)])
+    end,
+    alreadyon = function() echof("Arena mode is already on.") end,
+    off = function() echof("Arena mode disabled.") end,
+    alreadyoff = function() echof("Arena mode is already off.") end
   },
   keepup = {
     on = function () echof"Auto keepup on." make_gnomes_work() end,

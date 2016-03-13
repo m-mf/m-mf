@@ -21,7 +21,7 @@ local cwd = lfs.currentdir()
 
 local args = lapp [[
 -d,--debug  Build with debugging information enabled
--r,--release  Build all systems
+-r,--release (default false) Build all systems
 -o,--own  Build an m&mf for yourself
  <name> (default me )  Name to build a system for
 ]]
@@ -38,8 +38,8 @@ local args = lapp [[
 
 local name    = args.name
 local release = not args.debug
-local version = "1"
-local doall   = args.release
+local version = args.release
+local doall   = args.release ~= "false"
 local own     = args.own
 local defaultaddons = {
   "peopletracker", "demesne", "namedb", "harvester", "healing", "influencer", "plsorter",
@@ -86,7 +86,7 @@ function os.capture(cmd, raw)
   return s
 end
 
-local function dowork(systemfor, release)
+local function dowork(systemfor, release, own)
   systemfor = stringx.title(systemfor)
 
   local tbl = {}
@@ -242,7 +242,7 @@ if doall then
     if not s then print(m) return end
   end
 else
-  local s,m = pcall(dowork, name, release)
+  local s,m = pcall(dowork, name, release, own)
   if not s then print(m) end
 end
 

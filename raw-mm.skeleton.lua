@@ -94,11 +94,11 @@ end
 
 -- balances
 bals = bals or {
-  lucidity = true, steam = true, wafer = true,
+  lucidity = true, steam = true, wafer = true, ice = true,
   herb = true, sip = true, sparkle = true,
   purgative = true,  salve = true, scroll = true,
   balance = true, equilibrium = true, focus = true, steam = true,
-  allheale = true, tea = true, leftarm = "unset", rightarm = "unset",
+  allheale = true, tea = true, leftarm = "unset", rightarm = "unset", beast = true,
 #if skills.psionics then
   super = "unset", sub = "unset", id = "unset",
 #end
@@ -218,9 +218,9 @@ end
 check_lucidity = function(sync_mode)
   -- can we even sip?
   if not bals.lucidity or usingbal("lucidity") or affs.stun
-    or affs.sleep or affs.anorexia or affs.scarab or affs.slitthroat
+    or affs.sleep or affs.scarab or affs.slitthroat
     or affs.throatlock or affs.inquisition
-    or affs.crucified or affs.crushedwindpipe then
+    or affs.crucified or affs.crushedwindpipe or affs.damagedthroat then
       return
   end
 
@@ -395,6 +395,32 @@ check_salve = function(sync_mode)
   if not sync_mode then
     doaction(dict[getHighestKey(prios)].salve) else
     return dict[getHighestKey(prios)].salve end
+end
+
+-- ice check
+check_ice = function(sync_mode)
+  -- can we even use salves?
+  if not bals.ice or usingbal("ice") or not next(affs) or
+    affs.sleep or affs.stun or affs.inquisition or
+    affs.slickness or affs.crucified or (affs.missingleftarm and affs.missingrightarm) then
+      return
+  end
+
+  -- get all prios in the list
+  local prios = {}
+  for i, j in pairs(affs) do
+    if j.p.ice and j.p.ice.isadvisable() and not ignored(i, "ice") and not overhaul[i] then
+      prios[i] = (not sync_mode) and j.p.ice.aspriority or j.p.ice.spriority
+    end
+  end
+
+  -- have nada?
+  if not next(prios) then return false end
+
+  -- otherwise, do the highest!
+  if not sync_mode then
+    doaction(dict[getHighestKey(prios)].ice) else
+    return dict[getHighestKey(prios)].ice end
 end
 
 -- herb check
@@ -827,7 +853,7 @@ local function find_highest_action(tbl)
 end
 
 local workload = {check_focus, check_salve, check_sip, check_purgative, check_lucidity,
-            check_steam, check_herb, check_wafer, check_scroll, check_sparkle, check_misc,
+            check_steam, check_herb, check_wafer, check_ice, check_scroll, check_sparkle, check_misc,
             check_balanceless_acts, check_balanceful_acts, check_allheale}
 
 -- real functions
@@ -842,6 +868,7 @@ local function work_slaves_work()
   check_steam()
   check_herb()
   check_wafer()
+  check_ice()
 
   check_scroll()
   check_sparkle()
@@ -1053,7 +1080,8 @@ end
 
 sk.stupidity_count = 0
 function sk.stupidity_symptom()
-  if not paragraph_length == 0 or affs.stupidity then return end
+  if not paragraph_length == 0 or affs.stupidity or affs.damagedskull
+   then return end
 
   sk.stupidity_count = sk.stupidity_count + 1
 
@@ -1261,6 +1289,25 @@ function sk.tangle_symptom()
   tempTimer(sys.wait * 2, function ()
     sk.tangle_count = sk.tangle_count - 1
     if sk.tangle_count < 0 then sk.tangle_count = 0 end
+  end)
+end
+
+sk.roped_count = 0
+function sk.roped_symptom()
+  if not paragraph_length == 0 or affs.roped then return end
+
+  sk.roped_count = sk.roped_count + 1
+
+  if sk.roped_count >= 2 then
+    valid.simpleroped()
+    echo"\n" echof("auto-detected roped.")
+    sk.roped_count = 0
+    return
+  end
+
+  tempTimer(sys.wait * 2, function ()
+    sk.roped_count = sk.roped_count - 1
+    if sk.roped_count < 0 then sk.roped_count = 0 end
   end)
 end
 
@@ -1492,6 +1539,19 @@ sk.lostbal_wafer = function()
   end)
 end
 
+sk.lostbal_ice = function()
+  bals.ice = false
+  sk.icetick = sk.icetick + 1
+  local oldicetick = sk.icetick
+
+  tempTimer(5, function ()
+    if not bals.ice and sk.icetick == oldicetick then
+      bals.ice = true
+      make_gnomes_work()
+    end
+  end)
+end
+
 sk.lostbal_tea = function()
   bals.tea = false
   sk.teatick = sk.teatick + 1
@@ -1557,7 +1617,7 @@ sk.limbnames = {
       {glandular   = {"slickness"}},
       {senses      = {"concussion", "sensitivity", "vertigo", "deaf", "blind"}},
       {neurosis    = {"impatience", "loneliness", "shyness", "anorexia", "void", "masochism"}},
-      {breaks      = {"crippledrightarm", "crippledleftarm", "crippledleftleg", "crippledrightleg", "brokenjaw", "brokenrightwrist", "brokenleftwrist", "twistedleftarm", "twistedrightarm", "twistedrightleg", "twistedleftleg"}},
+      {breaks      = {"crippledrightarm", "crippledleftarm", "crippledleftleg", "crippledrightleg", "brokenjaw", "brokenrightwrist", "brokenleftwrist", "twistedleftarm", "twistedrightarm", "twistedrightleg", "twistedleftleg", "damagedleftarm", "damagedrightarm", "damagedleftleg", "damagedrightleg"}},
       {choleric    = {"vomiting", "vomitblood", "worms", "hypersomnia", "dysentery"}},
       {curses      = {"recklessness", "healthleech", "achromaticaura", "powerspikes", "manabarbs", "egovice", "minortimewarp", "moderatetimewarp", "majortimewarp", "massivetimewarp"}},
       {muscles     = {"paralysis", "rigormortis", "weakness", "dislocatedleftarm ", "dislocatedrightarm", "dislocatedrightleg", "dislocatedleftleg", "gashedcheek", "slicedtongue", "puncturedchest", "missingrightear", "missingleftear", "slicedrightbicep", "slicedleftbicep", "slicedleftthigh", "slicedrightthigh", "openchest", "opengut", "stiffleftarm", "stiffrightarm", "stiffhead", "stiffgut", "stiffchest", "slitthroat"}},
@@ -1570,7 +1630,7 @@ sk.limbnames = {
       {depression  = {"addiction", "gluttony"}},
       {auric       = {"aeon", "pacifism", "peace", "powersink", "justice", "jinx", "succumb"}},
       {mania       = {"confusion", "dementia", "hallucinating", "void", "paranoia", "stupidity", "scrambledbrain", "slightinsanity", "moderateinsanity",  "majorinsanity", "massiveinsanity"}},
-      {regenerate  = {{burstorgans = "gut"}, {missingrightleg = "legs"}, {missingleftarm = "arms"}, {missingleftleg = "legs"}, {missingrightarm = "arms"}, {eyepeckleft = "head"}, {eyepeckright = "head"}, {mangledleftleg = "legs"}, {mangledleftarm = "arms"}, {mangledrightarm = "arms"}, {mangledrightleg = "legs"}, {crushedchest = "chest"}, {collapsedrightnerve = "arms"}, {collapsedlungs = "chest"}, {collapsedleftnerve = "arms"}, {crackedleftelbow = "arms"}, {crackedrightelbow = "arms"}, {crackedrightkneecap = "legs"}, {crackedleftkneecap = "legs"}, {disembowel = "gut"}, {chestpain = "chest"}, {rupturedstomach = "gut"}, {tendonright = "legs"}, {tendonleft = "legs"}, {concussion = "head"}, {damagedhead = "head"}, {shatteredleftankle = "legs"}, {shatteredrightankle = "legs"}, {shatteredjaw = "head"}}}
+      {regenerate  = {{burstorgans = "gut"}, {missingrightleg = "legs"}, {missingleftarm = "arms"}, {missingleftleg = "legs"}, {missingrightarm = "arms"}, {eyepeckleft = "head"}, {eyepeckright = "head"}, {mangledleftleg = "legs"}, {mangledleftarm = "arms"}, {mangledrightarm = "arms"}, {mangledrightleg = "legs"}, {crushedchest = "chest"}, {collapsedrightnerve = "arms"}, {collapsedlungs = "chest"}, {collapsedleftnerve = "arms"}, {crackedleftelbow = "arms"}, {crackedrightelbow = "arms"}, {crackedrightkneecap = "legs"}, {crackedleftkneecap = "legs"}, {disembowel = "gut"}, {chestpain = "chest"}, {rupturedstomach = "gut"}, {tendonright = "legs"}, {tendonleft = "legs"}, {concussion = "head"}, {damagedhead = "head"}, {shatteredleftankle = "legs"}, {shatteredrightankle = "legs"}, {shatteredjaw = "head"}, {mutilatedleftarm = "arms"}, {mutilatedrightarm = "arms"}, {mutilatedleftleg = "legs"}, {mutilatedrightleg = "legs"}}}
     }
     --[[ doesn't cure: leglock, throatlock, severedspine, puncturedaura ]]
 
@@ -1676,3 +1736,29 @@ function sk.showstatchanges()
     if conf.singleprompt then moveCursorEnd() end
   end
 end
+
+signals.newroom:connect(function ()
+  -- if not autoarena, then no need for this
+  if not conf.autoarena then return end
+
+  local t = sk.arena_areas
+
+  local area = atcp.RoomArea or gmcp.Room.Info.area
+
+  if t[area] and not conf.arena then
+    conf.arena = true
+    raiseEvent("m&m config changed", "arena")
+    prompttrigger("arena echo", function()
+      local echos = {"Arena mode enabled. Good luck!", "Beat 'em up! Arena mode enabled.", "Arena mode on.", "Arena mode enabled. Kill them all!"}
+      itf(echos[math.random(#echos)]..'\n')
+    end)
+  elseif conf.arena and not t[area] then
+    conf.arena = false
+    raiseEvent("m&m config changed", "arena`")
+    tempTimer(0, function()
+      local echos = {"Arena mode disabled."}
+      echof(echos[math.random(#echos)]..'\n')
+
+    end)
+  end
+end)

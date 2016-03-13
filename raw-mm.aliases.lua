@@ -7,17 +7,49 @@
 -- work. If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/>.
 
 function togglesip(what)
-  assert(what == nil or what == "health" or what == "mana", "mm.togglesip wants 'health' or 'mana' as an argument")
+  assert(what == nil or what == "health" or what == "mana" or what == "ego", "mm.togglesip wants 'health', 'mana' or 'ego' as an argument")
 
   local hp = dict.healhealth.sip.aspriority
   local mp = dict.healmana.sip.aspriority
-  if what == nil or
-    what == "health" and hp < mp or
-    what == "mana" and mp < hp then
-      hp, mp = mp, hp
+  local ep = dict.healego.sip.aspriority
+  if what == nil then
+    -- toggles health --> mana --> ego --> health
+    hp, mp, ep = ep, hp, mp
+  else
+    local max, mid, min = 0,0,0
+    for _,v in ipairs({hp,mp,ep}) do
+      if v > max then
+        max,mid,min = v,max,mid
+      elseif v > mid then
+        mid, min = v, mid
+      else
+        min = v
+      end
+    end
+    if what == "health"  then
+      if mp > ep then
+        hp, mp, ep = max, mid, min
+      else
+        hp, mp, ep = max, min, mid
+      end
+    elseif what == "mana" then
+      if hp > ep then
+        mp, hp, ep = max, mid, min
+      else
+        mp, hp, ep = max, min, mid
+      end
+    elseif what == "ego" then
+      if hp > mp then
+        ep, hp, mp = max, mid, min
+      else
+        ep, hp, mp = max, min, mid
+      end
+    end
   end
+
   dict.healhealth.sip.aspriority = hp
   dict.healmana.sip.aspriority = mp
+  dict.healego.sip.aspriority = ep
 
   local function getstring(name)
     if name == "healmana_sip" then return "<13,19,180>mana"
@@ -29,7 +61,7 @@ function togglesip(what)
   local prios = {}
   local links = {}
 
-  for _, j in ipairs({dict.healhealth.sip, dict.healmana.sip}) do
+  for _, j in ipairs({dict.healhealth.sip, dict.healmana.sip, dict.healego.sip}) do
     prios[j.name] = j.aspriority
     links[j.name] = j
   end
@@ -426,8 +458,15 @@ function ashow()
   echoLink("steam", 'mm.printorder("steam")', 'View steam priorities', true)
   setUnderline(false) echo", " setUnderline(true)
   echoLink("wafer", 'mm.printorder("wafer")', 'View wafer priorities', true)
+  setUnderline(false) echo", " setUnderline(true)
+  echoLink("ice", 'mm.printorder("ice")', 'View ice priorities', true)
   resetFormat()
   echo"\n"
+
+  echofn("Arena mode:       ")
+  setFgColor(unpack(getDefaultColorNums))
+  setUnderline(true)
+  echoLink(conf.arena and "enabled" or "disabled", "$(sys).tntf_set('arena', "..(conf.arena and "false" or "true").. ', false); svo.ashow()', (conf.arena and "Disable" or "Enable")..' arena triggers', true)
 
   if conf.paused then
     echof("System is currently paused.") end
@@ -442,7 +481,7 @@ function showaffs()
 end
 
 
-function app(what)
+function app(what, quiet)
   assert(what == nil or what == "on" or what == "off" or type(what) == "boolean", "mm.app wants 'on' or 'off' as an argument")
 
   if what == "on" or what == true or (what == nil and not conf.paused) then
@@ -451,7 +490,7 @@ function app(what)
     conf.paused = false
   end
 
-  echof("System " .. (conf.paused and "paused" or "unpaused") .. ".")
+  if not quiet then echof("System " .. (conf.paused and "paused" or "unpaused") .. ".") end
   raiseEvent("m&m config changed", "paused")
   showprompt()
 
@@ -720,3 +759,4 @@ function show_ignore()
   end
   showprompt()
 end
+

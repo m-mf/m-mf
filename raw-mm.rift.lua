@@ -26,6 +26,7 @@ rift.doprecache = false
 rift.allherbs = {"arnica", "calamus", "chervil", "colewort", "coltsfoot", "earwort", "faeleaf", "flax", "galingale", "horehound", "juniper", "kafe", "kombu", "marjoram", "merbloom", "mistletoe", "myrtle", "pennyroyal", "rawtea", "reishi", "rosehips", "sage", "sargassum", "sparkleberry", "spices", "weed", "wormwood", "yarrow", "steam", "dust",}
 rift.curativeherbs = {"arnica", "calamus", "chervil", "coltsfoot", "earwort", "faeleaf", "galingale", "horehound", "kafe", "kombu", "marjoram", "myrtle", "pennyroyal", "reishi", "sparkleberry",  "wormwood", "yarrow", "merbloom", "steam", "dust"}
 rift.functionalherbs = {"colewort", "flax", "juniper", "merbloom", "mistletoe", "rawtea", "rosehips", "sage", "sargassum", "spices", "weed"}
+rift.sparkleherbs = {"arnica", "calamus", "chervil", "colewort", "coltsfoot", "earwort", "faeleaf", "flax", "galingale", "horehound", "kafe", "kombu", "marjoram", "merbloom", "myrtle", "pennyroyal","rawtea","reishi","weed","wormwood","yarrow"}
 
 rift.resetriftcontents = function()
   for _, herb in ipairs(rift.allherbs) do
@@ -435,8 +436,11 @@ function riftate()
   local what = matches[2]
 
   if not rift.herbs_singular[what] then return end
-  rift.invcontents[rift.herbs_singular[what]] = rift.invcontents[rift.herbs_singular[what]] - 1
-  if rift.invcontents[rift.herbs_singular[what]] < 0 then rift.invcontents[rift.herbs_singular[what]] = 0 end
+
+  if not conf.arena then
+    rift.invcontents[rift.herbs_singular[what]] = rift.invcontents[rift.herbs_singular[what]] - 1
+    if rift.invcontents[rift.herbs_singular[what]] < 0 then rift.invcontents[rift.herbs_singular[what]] = 0 end
+  end
 
   rift.update_riftlabel()
   rift.checkprecache()

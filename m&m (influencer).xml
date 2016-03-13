@@ -54,7 +54,7 @@ mmi.influence_gag = (tempExactMatchTrigger or tempTrigger)(&quot;You have recove
                     <colorTriggerFgColor>#000000</colorTriggerFgColor>
                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                     <regexCodeList>
-                        <string>You sing</string>
+                        <string>You sing the praises</string>
                         <string>You confide</string>
                         <string>You compliment</string>
                     </regexCodeList>

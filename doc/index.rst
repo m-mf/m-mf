@@ -333,6 +333,12 @@ mmconfig options
   assumestats
     sets the % of health, mana, and ego which the system will assume you have when afflicted with blackout or recklessness (and thus your real stats are unknown).
 
+  autoarena
+  	turns on arena mode when entering an arena and turns it off upon exiting the arena 
+
+  autohide
+  	Automatically hides inactive skillsets and shows active skillsets on deflist (runs off gmcp.Char.Skills.Groups event)
+
   autorecharge
     specifies whenever the system should automatically recharge healing/protection scrolls after using them (make sure you have an energy cube with enough charges for this to work).
 
@@ -720,6 +726,8 @@ m&m lost lock         aff lock    raised whenever you cure a particular afflicti
 m&m got def           defence     raised when you obtain a defence
 m&m lost def          defence     raised when you lose a defence
 m&m redirected aff    from, to    raised when an affliction is redirected to another one in Overhaul mode. For example, with paranoia in Overhaul mode, vertigo would be getting redirected to be paranoia
+m&m add skill 		  skillset    raised whenever you activate a previously inactive skillset. Useful for classflexing.
+m&m remove skill      skillset    raised whenever you inactivate or forget a previously active skillset. Useful for classflexing.
 ===================== =========== ============
 
 Scripting to do things on the prompt
@@ -988,7 +996,7 @@ Alias list
     toggles rebounding upkeep; shortcut for *mmkeep rebounding*.
 
   hh
-    shortcut alias for toggling sipping priority between health and mana. You can also use it as *hh health* or *hh mana* to set the priority.
+    shortcut alias for toggling sipping priority between health, mana and ego. You can also use it as *hh health*, *hh mana* or *hh ego* to set the priority. If you specify a vital to prioritize, it will keep the existing order between the other two vitals.
 
   cc
     announces text on a channel (pt, clt, etc.) as specified by :term:`mmconfig ccto <ccto>`. This can be useful to learn to use instead of *sqt* since then you could change ccto to report on any clan or party and still use one short and quick alias for communicating with a group in a raid.
