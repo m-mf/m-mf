@@ -55525,7 +55525,7 @@ function mm.checkforupdate(type)
     end
 
     mm.checkingupdates = true
-    downloadFile(mm.versionfile, &quot;http://m-mf.github.io/m-mf/releases/current_version&quot;)
+    downloadFile(mm.versionfile, &quot;http://m-mf.github.io/m-mf/release/current_version&quot;)
 
     if type == &quot;checking&quot; then
       mm.echof(&quot;Checking for updates...&quot;)
@@ -55555,7 +55555,7 @@ end
 -- downloads the system &amp; updates the system version saved
 function mm.downloadnewsystem(newversion)
   mm.downloadedsystem = downloadfolder..string.format(&quot;%s m&amp;mf.zip&quot;, mm.me.class)
-  local downloadurl = [[http://m-mf.github.io/m-mf/releases/]]..mm.me.class..[[ m&amp;mf.v]]..newversion..[[.zip]]
+  local downloadurl = [[http://m-mf.github.io/m-mf/release/]]..mm.me.class..[[ m&amp;mf.v]]..newversion..[[.zip]]
 
   downloadFile(mm.downloadedsystem, downloadurl)
   mm.newdownloadedversion = newversion
