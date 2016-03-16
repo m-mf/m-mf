@@ -55477,7 +55477,7 @@ end</script>
       writtenversion = f:read(&quot;*a&quot;)
     end
 
-    if not writtenversion or writtenversion:trim() ~= s:trim() or not lfs.attributes(getMudletHomeDir()..&quot;/m&amp;m/downloads/&quot;..string.format(&quot;%s m&amp;m.zip&quot;, mm.me.name)) then
+    if not writtenversion or writtenversion:trim() ~= s:trim() or not lfs.attributes(getMudletHomeDir()..&quot;/m&amp;m/downloads/&quot;..string.format(&quot;%s m&amp;m.zip&quot;, mm.me.class)) then
       if mm.announceupdates == &quot;checking&quot; then mm.echof(&quot;A new m&amp;m is available! You're on %s, latest is %s. I'll download it for you.&quot;, mm.version, s:trim()) end
       mm.downloadnewsystem(s:trim())
     else
@@ -55525,7 +55525,7 @@ function mm.checkforupdate(type)
     end
 
     mm.checkingupdates = true
-    downloadFile(mm.versionfile, &quot;http://mm.vadisystems.com/current_version&quot;)
+    downloadFile(mm.versionfile, &quot;http://m-mf.github.io/current_version&quot;)
 
     if type == &quot;checking&quot; then
       mm.echof(&quot;Checking for updates...&quot;)
@@ -55541,7 +55541,7 @@ function mm.checkforupdate(type)
         if not s then mm.echof(&quot;Couldn't remove the %s file (error was: %s) - this might be a problem.&quot;, location, m) end
       end
 
-      location = downloadfolder..string.format(&quot;%s m&amp;m.zip&quot;, mm.me.name)
+      location = downloadfolder..string.format(&quot;%s m&amp;m.zip&quot;, mm.me.class)
       if io.exists(location) then
         local s,m = os.remove(location)
         if not s then mm.echof(&quot;Couldn't delete the old m&amp;m zip (located at %s), because of: %s. This might be a problem.&quot;, location, m) end
@@ -55554,8 +55554,8 @@ end
 
 -- downloads the system &amp; updates the system version saved
 function mm.downloadnewsystem(newversion)
-  mm.downloadedsystem = downloadfolder..string.format(&quot;%s m&amp;m.zip&quot;, mm.me.name)
-  local downloadurl = [[http://vadisystems.com/mm-r/r/]]..mm.me.name..[[ m&amp;m.zip]]
+  mm.downloadedsystem = downloadfolder..string.format(&quot;%s m&amp;m.zip&quot;, mm.me.class)
+  local downloadurl = [[http://m-mf.github.io/m-mf/r/]]..mm.me.class..[[ m&amp;m.zip]]
 
   downloadFile(mm.downloadedsystem, downloadurl)
   mm.newdownloadedversion = newversion
@@ -55658,7 +55658,7 @@ function mm_doupdate_click()
   mm.doupdatelabel:hide()
   mm.dontupdatelabel:hide()
 
-  local name = mm.me.name
+  local name = mm.me.class
 
   if not (uninstallPackage and installPackage) then
     mm.updatelabel:echo([[&lt;p align=&quot;center&quot; style=&quot;font-size:10pt; color:white&quot;&gt;Can't update your m&amp;m. You didn't update to Mudlet 2.1, and your current Mudlet lacks the features necessary. Go update first please.&lt;p&gt;]])
@@ -55667,7 +55667,7 @@ function mm_doupdate_click()
 
   function mm_update_system()
     uninstallPackage(name..&quot; m&amp;m&quot;)
-    installPackage(getMudletHomeDir()..&quot;/m&amp;m/downloads/&quot;..string.format(&quot;%s m&amp;m.zip&quot;, mm.me.name))
+    installPackage(getMudletHomeDir()..&quot;/m&amp;m/downloads/&quot;..string.format(&quot;%s m&amp;m.zip&quot;, mm.me.class))
 
     mm.echof(&quot;m&amp;m updated! Restart Mudlet, and you'll be all done.&quot;)
 
