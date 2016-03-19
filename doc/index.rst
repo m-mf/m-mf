@@ -726,7 +726,7 @@ m&m lost lock         aff lock    raised whenever you cure a particular afflicti
 m&m got def           defence     raised when you obtain a defence
 m&m lost def          defence     raised when you lose a defence
 m&m redirected aff    from, to    raised when an affliction is redirected to another one in Overhaul mode. For example, with paranoia in Overhaul mode, vertigo would be getting redirected to be paranoia
-m&m add skill 		  skillset    raised whenever you activate a previously inactive skillset. Useful for classflexing.
+m&m add skill 	      skillset    raised whenever you activate a previously inactive skillset. Useful for classflexing.
 m&m remove skill      skillset    raised whenever you inactivate or forget a previously active skillset. Useful for classflexing.
 ===================== =========== ============
 
