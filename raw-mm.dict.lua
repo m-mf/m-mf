@@ -23271,7 +23271,7 @@ end)
       end,
 
       onstart = function ()
-        if not conf.enchantments and mm.me.activeskill.cosmic then
+        if not conf.enchantments and mm.me.activeskills.cosmic then
           send("abjure nimbus", conf.commandecho)
         else
           send("rub nimbus", conf.commandecho)
