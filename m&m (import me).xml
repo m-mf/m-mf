@@ -55555,7 +55555,7 @@ end
 -- downloads the system &amp; updates the system version saved
 function mm.downloadnewsystem(newversion)
   mm.downloadedsystem = downloadfolder..string.format(&quot;%s m&amp;mf.zip&quot;, mm.me.class)
-  local downloadurl = [[http://m-mf.github.io/m-mf/release/]]..mm.me.class..[[ m&amp;mf.v]]..newversion..[[.zip]]
+  local downloadurl = [[http://m-mf.github.io/m-mf/release/]]..mm.me.class..[[.m-mf.v]]..newversion..[[.zip]]
 
   downloadFile(mm.downloadedsystem, downloadurl)
   mm.newdownloadedversion = newversion
