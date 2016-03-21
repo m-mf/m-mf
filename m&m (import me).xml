@@ -28804,6 +28804,26 @@ else mm.app(&quot;on&quot;, true) end</script>
                         <integer>3</integer>
                     </regexCodePropertyList>
                 </Trigger>
+                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                    <name>m&amp;m missing tinderbox</name>
+                    <script>mm.valid.missing_tinderbox()</script>
+                    <triggerType>0</triggerType>
+                    <conditonLineDelta>0</conditonLineDelta>
+                    <mStayOpen>0</mStayOpen>
+                    <mCommand></mCommand>
+                    <packageName></packageName>
+                    <mFgColor>#ff0000</mFgColor>
+                    <mBgColor>#ffff00</mBgColor>
+                    <mSoundFile></mSoundFile>
+                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                    <regexCodeList>
+                        <string>You have nothing in your inventory capable of starting a fire.</string>
+                    </regexCodeList>
+                    <regexCodePropertyList>
+                        <integer>3</integer>
+                    </regexCodePropertyList>
+                </Trigger>
             </TriggerGroup>
             <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                 <name>Poisons + Generic lines</name>
@@ -54263,7 +54283,7 @@ end</script>
                 <packageName></packageName>
                 <regex>^mm ?save$</regex>
             </Alias>
-            <Alias isActive="no" isFolder="no">
+            <Alias isActive="yes" isFolder="no">
                 <name>m&amp;m Deepheal</name>
                 <script>  local t = {
     h = &quot;head&quot;,
@@ -55457,7 +55477,7 @@ end</script>
       writtenversion = f:read(&quot;*a&quot;)
     end
 
-    if not writtenversion or writtenversion:trim() ~= s:trim() or not lfs.attributes(getMudletHomeDir()..&quot;/m&amp;m/downloads/&quot;..string.format(&quot;%s m&amp;m.zip&quot;, mm.me.name)) then
+    if not writtenversion or writtenversion:trim() ~= s:trim() or not lfs.attributes(getMudletHomeDir()..&quot;/m&amp;m/downloads/&quot;..string.format(&quot;%s m&amp;m.zip&quot;, mm.me.class)) then
       if mm.announceupdates == &quot;checking&quot; then mm.echof(&quot;A new m&amp;m is available! You're on %s, latest is %s. I'll download it for you.&quot;, mm.version, s:trim()) end
       mm.downloadnewsystem(s:trim())
     else
@@ -55505,7 +55525,7 @@ function mm.checkforupdate(type)
     end
 
     mm.checkingupdates = true
-    downloadFile(mm.versionfile, &quot;http://mm.vadisystems.com/current_version&quot;)
+    downloadFile(mm.versionfile, &quot;http://m-mf.github.io/m-mf/release/current_version&quot;)
 
     if type == &quot;checking&quot; then
       mm.echof(&quot;Checking for updates...&quot;)
@@ -55521,7 +55541,7 @@ function mm.checkforupdate(type)
         if not s then mm.echof(&quot;Couldn't remove the %s file (error was: %s) - this might be a problem.&quot;, location, m) end
       end
 
-      location = downloadfolder..string.format(&quot;%s m&amp;m.zip&quot;, mm.me.name)
+      location = downloadfolder..string.format(&quot;%s m&amp;mf.zip&quot;, mm.me.class)
       if io.exists(location) then
         local s,m = os.remove(location)
         if not s then mm.echof(&quot;Couldn't delete the old m&amp;m zip (located at %s), because of: %s. This might be a problem.&quot;, location, m) end
@@ -55534,8 +55554,8 @@ end
 
 -- downloads the system &amp; updates the system version saved
 function mm.downloadnewsystem(newversion)
-  mm.downloadedsystem = downloadfolder..string.format(&quot;%s m&amp;m.zip&quot;, mm.me.name)
-  local downloadurl = [[http://vadisystems.com/mm-r/r/]]..mm.me.name..[[ m&amp;m.zip]]
+  mm.downloadedsystem = downloadfolder..string.format(&quot;%s m&amp;mf.zip&quot;, mm.me.class)
+  local downloadurl = [[http://m-mf.github.io/m-mf/release/]]..mm.me.class..[[.m-mf.v]]..newversion..[[.zip]]
 
   downloadFile(mm.downloadedsystem, downloadurl)
   mm.newdownloadedversion = newversion
@@ -55638,7 +55658,7 @@ function mm_doupdate_click()
   mm.doupdatelabel:hide()
   mm.dontupdatelabel:hide()
 
-  local name = mm.me.name
+  local name = mm.me.class
 
   if not (uninstallPackage and installPackage) then
     mm.updatelabel:echo([[&lt;p align=&quot;center&quot; style=&quot;font-size:10pt; color:white&quot;&gt;Can't update your m&amp;m. You didn't update to Mudlet 2.1, and your current Mudlet lacks the features necessary. Go update first please.&lt;p&gt;]])
@@ -55647,7 +55667,7 @@ function mm_doupdate_click()
 
   function mm_update_system()
     uninstallPackage(name..&quot; m&amp;m&quot;)
-    installPackage(getMudletHomeDir()..&quot;/m&amp;m/downloads/&quot;..string.format(&quot;%s m&amp;m.zip&quot;, mm.me.name))
+    installPackage(getMudletHomeDir()..&quot;/m&amp;m/downloads/&quot;..string.format(&quot;%s m&amp;m.zip&quot;, mm.me.class))
 
     mm.echof(&quot;m&amp;m updated! Restart Mudlet, and you'll be all done.&quot;)
 

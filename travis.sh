@@ -7,9 +7,14 @@ then
   exit 0
 fi
 
-# Create documentation for the release
+# Checkin documentation and release artifacts to github-pages branch
 cd doc/_build/html
-touch .nojekyll
+touch .nojekyll     #make sure  _underscore directories are not ignored
+
+#prepare release artifact folder and copy them here
+mkdir release
+cp ../../../output/*.zip release/
+echo "$TRAVIS_TAG" > release/current_version
 
 git init
 

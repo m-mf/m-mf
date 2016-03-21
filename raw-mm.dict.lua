@@ -21533,7 +21533,7 @@ dict = {
       end,
 
       onstart = function ()
-        if not conf.enchantments and me.activeskills.elementalism then
+        if not conf.enchantments and mm.me.activeskills.elementalism then
           send("cast waterbreathe", conf.commandecho)
         else
           send("rub waterbreathe", conf.commandecho)
@@ -22259,7 +22259,7 @@ dict = {
       end,
 
       onstart = function ()
-        if not conf.enchantments and me.activeskills.rituals then
+        if not conf.enchantments and mm.me.activeskills.rituals then
           send("chant acquisitio on", conf.commandecho)
         else
           send("rub acquisitio", conf.commandecho)
@@ -22999,7 +22999,7 @@ end)
       end,
 
       onstart = function ()
-        if not conf.enchantments and me.activeskills.elementalism then
+        if not conf.enchantments and mm.me.activeskills.elementalism then
           send("cast levitate", conf.commandecho)
         else
           send("rub levitate", conf.commandecho)
@@ -23271,7 +23271,7 @@ end)
       end,
 
       onstart = function ()
-        if not conf.enchantments and me.activeskill.cosmic then
+        if not conf.enchantments and mm.me.activeskills.cosmic then
           send("abjure nimbus", conf.commandecho)
         else
           send("rub nimbus", conf.commandecho)
@@ -23325,7 +23325,7 @@ end)
       end,
 
       onstart = function ()
-        if not conf.enchantments and me.activeskills.cosmic then
+        if not conf.enchantments and mm.me.activeskills.cosmic then
           send("abjure waterwalk", conf.commandecho)
         else
           send("rub waterwalk", conf.commandecho)

@@ -1395,6 +1395,40 @@ function valid.missing_herb()
   end
 end
 
+-- a function to stop any light* actions and put all current non-artefact pipes on ignore
+function missing_tinderbox()
+  -- find which pipes were we lighting and kill those actions. We we were lighting at least one, figure out which pipes are non-arty, get a list, put them on ignore and say which ones we've added to ignore now
+
+  local gotaction
+  if actions.lightvalerian_physical then
+    killaction(dict.lightvalerian.physical); gotaction = true
+  end
+  if actions.lightelm_physical then
+    killaction(dict.lightelm.physical); gotaction = true
+  end
+  if actions.lightskullcap_physical then
+    killaction(dict.lightskullcap.physical); gotaction = true
+  end
+
+  -- if we weren't lighting - then... this might not be real!
+  if not gotaction then return end
+
+  -- find out which pipes are not artefact & ignore
+  local realthing, assumedname = {}, {}
+  for id = 1, #pipes.pnames do
+    local herb, pipe = pipes.pnames[id], pipes[pipes.pnames[id]]
+    if not pipe.arty and not ignore["light"..herb] then
+      realthing[#realthing+1] = "light"..herb
+      assumedname[#assumedname+1] = pipe.filledwith
+      setignore("light"..herb, { because = "you were missing a tinderbox" })
+    end
+  end
+
+  if realthing[1] then
+    echo"\n" echof("Looks like you don't have a tinderbox! I've put non-artefact pipes - %s on the ignore list (under the names of %s). To unignore them, check vshow ignore.", concatand(assumedname), concatand(realthing))
+  end
+end
+
 function valid.symp_anorexia()
   local doingthings = findbybals({"sip", "purgative", "allheale", "herb", "sparkle", "lucidity"})
 
