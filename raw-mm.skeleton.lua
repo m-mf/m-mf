@@ -409,7 +409,11 @@ check_ice = function(sync_mode)
   -- get all prios in the list
   local prios = {}
   for i, j in pairs(affs) do
-    if j.p.ice and j.p.ice.isadvisable() and not ignored(i, "ice") and not overhaul[i] then
+    if j.p.ice and j.p.ice.isadvisable() and not ignored(i, "ice") and not overhaul[i]
+#if skills.healing then
+      and sk.wont_heal_this(i)
+#end
+    then
       prios[i] = (not sync_mode) and j.p.ice.aspriority or j.p.ice.spriority
     end
   end
