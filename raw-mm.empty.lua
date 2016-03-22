@@ -37,6 +37,9 @@ end
 empty.sip_lucidity = function()
   sk.lostbal_lucidity()
   removeaff({"epilepsy", "paranoia", "sensitivity", "confusion", "recklessness", "hallucinating", "clumsiness", "stupidity", "addiction", "anorexia"})
+  if conf.arena then
+    removeaff({"massiveinsanity","majorinsanity","moderateinsanity","slightinsanity"})
+  end
 end
 
 empty.eat_wafer = function()
@@ -105,6 +108,9 @@ end
 
 empty.smoke_steam = function()
   removeaff({"egovice", "manabarbs", "achromaticaura", "powerspikes", "disloyalty", "pacifism", "illuminated", "healthleech", "aeon", "slickness"})
+  if conf.arena then
+    removeaff({"massivetimewarp", "majortimewarp","moderatetimewarp","minortimewarp"})
+  end
 end
 
 empty.applyarnica_head = function()
@@ -151,7 +157,9 @@ end
 
 empty.apply_liniment = function ()
   sk.lostbal_salve ()
-  removeaff({"scabies", "pox", "sunallergy", "fourthdegreeburn", "thirddegreeburn", "seconddegreeburn", "firstdegreeburn"})
+  if not conf.arena then
+    removeaff({"scabies", "pox", "sunallergy", "fourthdegreeburn", "thirddegreeburn", "seconddegreeburn", "firstdegreeburn"})
+  end
 end
 
 empty.noeffect_melancholic_chest = function()
@@ -206,6 +214,12 @@ end
 
 empty.noeffect_ice_rightleg = function()
   removeaff({"damagedrightleg","mutilatedrightleg"})
+end
+
+empty.noeffect_ice_body = function()
+  if conf.arena then
+    removeaff({"fourthdegreeburn","thirddegreeburn","seconddegreeburn","firstdegreeburn","shivering","frozen"})
+  end
 end
 
 empty.cleanse = function()
