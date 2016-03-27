@@ -16170,7 +16170,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("apply health left leg", conf.commandecho)
+        send("apply health to legs", conf.commandecho)
       end
     },
     aff = {
@@ -16214,7 +16214,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("apply health left arm", conf.commandecho)
+        send("apply health to arms", conf.commandecho)
       end
     },
     aff = {
@@ -16258,7 +16258,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("apply health right arm", conf.commandecho)
+        send("apply health to arms", conf.commandecho)
       end
     },
     aff = {
