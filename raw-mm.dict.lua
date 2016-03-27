@@ -2230,7 +2230,7 @@ dict = {
       spriority = 169,
 
       isadvisable = function ()
-        return (not conf.arena and affs.shivering) or false
+        return (affs.shivering) or false
       end,
 
       oncompleted = function ()
@@ -2250,89 +2250,6 @@ dict = {
 
       empty = function ()
         sk.lostbal_purgative()
-        removeaff("shivering")
-        removeaff("frozen")
-      end
-    },
-    ice = {
-      aspriority = 0,
-      spriority = 0,
-
-      isadvisable = function ()
-        return (conf.arena and affs.shivering and not doingaction("shivering")) or false
-      end,
-
-      oncompleted = function ()
-        sk.lostbal_ice()
-        removeaff("shivering")
-        defences.lost("fire")
-      end,
-
-      noeffect = function()
-        sk.lostbal_ice()
-      end,
-
-      onstart = function ()
-        send("apply ice to body", conf.commandecho)
-      end,
-
-      empty = function ()
-        empty.noeffect_ice_body()
-      end
-    },
-    wafer = {
-      aspriority = 0,
-      spriority = 0,
-
-      isadvisable = function ()
-        return (not conf.arena and affs.shivering and not doingaction("shivering")) or false
-      end,
-
-      oncompleted = function ()
-        sk.lostbal_wafer()
-        removeaff("shivering")
-        defences.lost("fire")
-      end,
-
-      noeffect = function()
-        sk.lostbal_wafer()
-      end,
-
-      eatcure = "dust",
-      onstart = function ()
-        eat("dust")
-      end,
-
-      empty = function ()
-        sk.lostbal_wafer()
-        removeaff("shivering")
-        removeaff("frozen")
-      end
-    },
-    steam = {
-      aspriority = 0,
-      spriority = 0,
-
-      isadvisable = function ()
-        return (not conf.arena and affs.shivering and not doingaction("shivering")) or false
-      end,
-
-      oncompleted = function ()
-        sk.lostbal_steam()
-        removeaff("shivering")
-        defences.lost("fire")
-      end,
-
-      noeffect = function()
-        sk.lostbal_steam()
-      end,
-
-      onstart = function ()
-        send("smoke steam", conf.commandecho)
-      end,
-
-      empty = function ()
-        sk.lostbal_steam()
         removeaff("shivering")
         removeaff("frozen")
       end
@@ -4127,7 +4044,7 @@ dict = {
       spriority = 28,
 
       isadvisable = function ()
-        return (not conf.arena and affs.fourthdegreeburn) or false
+        return (affs.fourthdegreeburn) or false
       end,
 
       oncompleted = function ()
@@ -4153,37 +4070,6 @@ dict = {
         sk.lostbal_salve()
       end
     },
-    ice = {
-      aspriority = 0,
-      spriority = 0,
-
-      isadvisable = function ()
-        return (conf.arena and affs.fourthdegreeburn) or false
-      end,
-
-      oncompleted = function ()
-        sk.lostbal_ice()
-        removeaff("fourthdegreeburn")
-        addaff(dict.thirddegreeburn)
-      end,
-
-      empty = function ()
-        empty.noeffect_ice_body()
-      end,
-
-      noeffect = function ()
-        empty.noeffect_ice_body()
-      end,
-
-      onstart = function ()
-        send("apply ice to body", conf.commandecho)
-      end,
-
-
-      stillgot = function()
-        sk.lostbal_ice()
-      end
-    },
     aff = {
       oncompleted = function ()
         codepaste.remove_burns()
@@ -4202,7 +4088,7 @@ dict = {
       spriority = 27,
 
       isadvisable = function ()
-        return (not conf.arena and affs.thirddegreeburn) or false
+        return (affs.thirddegreeburn) or false
       end,
 
       oncompleted = function ()
@@ -4227,37 +4113,6 @@ dict = {
         sk.lostbal_salve()
       end
     },
-    ice = {
-      aspriority = 0,
-      spriority = 0,
-
-      isadvisable = function ()
-        return (conf.arena and affs.thirddegreeburn) or false
-      end,
-
-      oncompleted = function ()
-        sk.lostbal_ice()
-        removeaff("thirddegreeburn")
-        addaff(dict.seconddegreeburn)
-      end,
-
-      empty = function ()
-        empty.noeffect_ice_body()
-      end,
-
-      noeffect = function ()
-        empty.noeffect_ice_body()
-      end,
-
-      onstart = function ()
-        send("apply ice to body", conf.commandecho)
-      end,
-
-
-      stillgot = function()
-        sk.lostbal_ice()
-      end
-    },
     aff = {
       oncompleted = function ()
         codepaste.remove_burns()
@@ -4276,7 +4131,7 @@ dict = {
       spriority = 26,
 
       isadvisable = function ()
-        return (not conf.arena and affs.seconddegreeburn) or false
+        return (affs.seconddegreeburn) or false
       end,
 
       oncompleted = function ()
@@ -4299,37 +4154,6 @@ dict = {
 
       stillgot = function()
         sk.lostbal_salve()
-      end
-    },
-    ice = {
-      aspriority = 0,
-      spriority = 0,
-
-      isadvisable = function ()
-        return (conf.arena and affs.seconddegreeburn) or false
-      end,
-
-      oncompleted = function ()
-        sk.lostbal_ice()
-        removeaff("seconddegreeburn")
-        addaff(dict.firstdegreeburn)
-      end,
-
-      empty = function ()
-        empty.noeffect_ice_body()
-      end,
-
-      noeffect = function ()
-        empty.noeffect_ice_body()
-      end,
-
-      onstart = function ()
-        send("apply ice to body", conf.commandecho)
-      end,
-
-
-      stillgot = function()
-        sk.lostbal_ice()
       end
     },
     aff = {
@@ -4350,7 +4174,7 @@ dict = {
       spriority = 25,
 
       isadvisable = function ()
-        return (not conf.arena and affs.firstdegreeburn) or false
+        return (affs.firstdegreeburn) or false
       end,
 
       oncompleted = function ()
@@ -4372,36 +4196,6 @@ dict = {
 
       stillgot = function()
         sk.lostbal_salve()
-      end
-    },
-    ice = {
-      aspriority = 0,
-      spriority = 0,
-
-      isadvisable = function ()
-        return (conf.arena and affs.firstdegreeburn) or false
-      end,
-
-      oncompleted = function ()
-        sk.lostbal_ice()
-        removeaff("firstdegreeburn")
-      end,
-
-      empty = function ()
-        empty.noeffect_ice_body()
-      end,
-
-      noeffect = function ()
-        empty.noeffect_ice_body()
-      end,
-
-      onstart = function ()
-        send("apply ice to body", conf.commandecho)
-      end,
-
-
-      stillgot = function()
-        sk.lostbal_ice()
       end
     },
     aff = {
@@ -10320,7 +10114,7 @@ dict = {
       spriority = 299,
 
       isadvisable = function ()
-        return (not conf.arena and affs.massiveinsanity and
+        return (affs.massiveinsanity and
           not doingaction("massiveinsanity")) or false
       end,
 
@@ -10344,7 +10138,7 @@ dict = {
       spriority = 304,
 
       isadvisable = function ()
-        return (not conf.arena and affs.massiveinsanity and
+        return (affs.massiveinsanity and
           not doingaction("massiveinsanity")) or false
       end,
 
@@ -10365,31 +10159,6 @@ dict = {
         empty.focus_mind()
       end
     },
-    lucidity = {
-      aspriority = 0,
-      spriority = 0,
-
-      isadvisable = function ()
-        return (conf.arena and affs.massiveinsanity and
-          not doingaction("massiveinsanity")) or false
-      end,
-
-      oncompleted = function ()
-        removeaff("massiveinsanity")
-        addaff(dict.majorinsanity)
-        sk.lostbal_lucidity()
-      end,
-
-      onstart = function ()
-        send("sip lucidity", conf.commandecho)
-      end,
-
-      empty = function ()
-        sk.lostbal_lucidity()
-
-        empty.sip_lucidity()
-      end
-    },
     aff = {
       oncompleted = function ()
         codepaste.remove_insanities()
@@ -10408,7 +10177,7 @@ dict = {
       spriority = 298,
 
       isadvisable = function ()
-        return (not conf.arena and affs.majorinsanity and
+        return (affs.majorinsanity and
           not doingaction("majorinsanity")) or false
       end,
 
@@ -10432,7 +10201,7 @@ dict = {
       spriority = 303,
 
       isadvisable = function ()
-        return (not conf.arena and affs.majorinsanity and
+        return (affs.majorinsanity and
           not doingaction("majorinsanity")) or false
       end,
 
@@ -10453,31 +10222,6 @@ dict = {
         empty.focus_mind()
       end
     },
-    lucidity = {
-      aspriority = 0,
-      spriority = 0,
-
-      isadvisable = function ()
-        return (conf.arena and affs.majorinsanity and
-          not doingaction("majorinsanity")) or false
-      end,
-
-      oncompleted = function ()
-        removeaff("majorinsanity")
-        addaff(dict.moderateinsanity)
-        sk.lostbal_lucidity()
-      end,
-
-      onstart = function ()
-        send("sip lucidity", conf.commandecho)
-      end,
-
-      empty = function ()
-        sk.lostbal_lucidity()
-
-        empty.sip_lucidity()
-      end
-    },
     aff = {
       oncompleted = function ()
         codepaste.remove_insanities()
@@ -10496,7 +10240,7 @@ dict = {
       spriority = 297,
 
       isadvisable = function ()
-        return (not conf.arena and affs.moderateinsanity and
+        return (affs.moderateinsanity and
           not doingaction("moderateinsanity")) or false
       end,
 
@@ -10520,7 +10264,7 @@ dict = {
       spriority = 302,
 
       isadvisable = function ()
-        return (not conf.arena and affs.moderateinsanity and
+        return (affs.moderateinsanity and
           not doingaction("moderateinsanity")) or false
       end,
 
@@ -10541,31 +10285,6 @@ dict = {
         empty.focus_mind()
       end
     },
-    lucidity = {
-      aspriority = 0,
-      spriority = 0,
-
-      isadvisable = function ()
-        return (conf.arena and affs.moderateinsanity and
-          not doingaction("moderateinsanity")) or false
-      end,
-
-      oncompleted = function ()
-        removeaff("moderateinsanity")
-        addaff(dict.slightinsanity)
-        sk.lostbal_lucidity()
-      end,
-
-      onstart = function ()
-        send("sip lucidity", conf.commandecho)
-      end,
-
-      empty = function ()
-        sk.lostbal_lucidity()
-
-        empty.sip_lucidity()
-      end
-    },
     aff = {
       oncompleted = function ()
         codepaste.remove_insanities()
@@ -10584,7 +10303,7 @@ dict = {
       spriority = 296,
 
       isadvisable = function ()
-        return (not conf.arena and affs.slightinsanity and
+        return (affs.slightinsanity and
           not doingaction("slightinsanity")) or false
       end,
 
@@ -10607,7 +10326,7 @@ dict = {
       spriority = 301,
 
       isadvisable = function ()
-        return (not conf.arena and affs.slightinsanity and
+        return (affs.slightinsanity and
           not doingaction("slightinsanity")) or false
       end,
 
@@ -10625,30 +10344,6 @@ dict = {
         sk.lostbal_focus()
 
         empty.focus_mind()
-      end
-    },
-    lucidity = {
-      aspriority = 0,
-      spriority = 0,
-
-      isadvisable = function ()
-        return (conf.arena and affs.slightinsanity and
-          not doingaction("slightinsanity")) or false
-      end,
-
-      oncompleted = function ()
-        removeaff("slightinsanity")
-        sk.lostbal_lucidity()
-      end,
-
-      onstart = function ()
-        send("sip lucidity", conf.commandecho)
-      end,
-
-      empty = function ()
-        sk.lostbal_lucidity()
-
-        empty.sip_lucidity()
       end
     },
     aff = {
@@ -17088,7 +16783,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (not conf.arena and affs.massivetimewarp and not doingaction "massivetimewarp") or false
+        return (affs.massivetimewarp and not doingaction "massivetimewarp") or false
       end,
 
       oncompleted = function ()
@@ -17116,7 +16811,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (not conf.arena and affs.massivetimewarp and
+        return (affs.massivetimewarp and
           not doingaction("massivetimewarp")) or false
       end,
 
@@ -17135,31 +16830,6 @@ dict = {
         sk.lostbal_focus()
 
         empty.focus_mind()
-      end
-    },
-    steam = {
-      aspriority = 0,
-      spriority = 0,
-
-      isadvisable = function ()
-        return (conf.arena and affs.massivetimewarp and
-          not doingaction("massivetimewarp")) or false
-      end,
-
-      oncompleted = function ()
-        removeaff("massivetimewarp")
-        addaff (dict.majortimewarp)
-        sk.lostbal_steam()
-      end,
-
-      onstart = function ()
-        send("smoke steam", conf.commandecho)
-      end,
-
-      empty = function ()
-        sk.lostbal_steam()
-
-        empty.smoke_steam()
       end
     },
     aff = {
@@ -17180,7 +16850,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (not conf.arena and affs.majortimewarp and not doingaction "majortimewarp") or false
+        return (affs.majortimewarp and not doingaction "majortimewarp") or false
       end,
 
       oncompleted = function ()
@@ -17208,7 +16878,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (not conf.arena and affs.majortimewarp and
+        return (affs.majortimewarp and
           not doingaction("majortimewarp")) or false
       end,
 
@@ -17227,31 +16897,6 @@ dict = {
         sk.lostbal_focus()
 
         empty.focus_mind()
-      end
-    },
-    steam = {
-      aspriority = 0,
-      spriority = 0,
-
-      isadvisable = function ()
-        return (conf.arena and affs.majortimewarp and
-          not doingaction("majortimewarp")) or false
-      end,
-
-      oncompleted = function ()
-        removeaff("majortimewarp")
-        addaff (dict.moderatetimewarp)
-        sk.lostbal_steam()
-      end,
-
-      onstart = function ()
-        send("smoke steam", conf.commandecho)
-      end,
-
-      empty = function ()
-        sk.lostbal_steam()
-
-        empty.smoke_steam()
       end
     },
     aff = {
@@ -17272,7 +16917,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (not conf.arena and affs.moderatetimewarp and not doingaction "moderatetimewarp") or false
+        return (affs.moderatetimewarp and not doingaction "moderatetimewarp") or false
       end,
 
       oncompleted = function ()
@@ -17300,7 +16945,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (not conf.arena and affs.moderatetimewarp and
+        return (affs.moderatetimewarp and
           not doingaction("moderatetimewarp")) or false
       end,
 
@@ -17319,31 +16964,6 @@ dict = {
         sk.lostbal_focus()
 
         empty.focus_mind()
-      end
-    },
-    steam = {
-      aspriority = 0,
-      spriority = 0,
-
-      isadvisable = function ()
-        return (conf.arena and affs.moderatetimewarp and
-          not doingaction("moderatetimewarp")) or false
-      end,
-
-      oncompleted = function ()
-        removeaff("moderatetimewarp")
-        addaff (dict.minortimewarp)
-        sk.lostbal_steam()
-      end,
-
-      onstart = function ()
-        send("smoke steam", conf.commandecho)
-      end,
-
-      empty = function ()
-        sk.lostbal_steam()
-
-        empty.smoke_steam()
       end
     },
     aff = {
@@ -17364,7 +16984,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (not conf.arena and affs.minortimewarp and not doingaction "minortimewarp") or false
+        return (affs.minortimewarp and not doingaction "minortimewarp") or false
       end,
 
       oncompleted = function ()
@@ -17391,7 +17011,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (not conf.arena and affs.minortimewarp and
+        return (affs.minortimewarp and
           not doingaction("minortimewarp")) or false
       end,
 
@@ -17409,30 +17029,6 @@ dict = {
         sk.lostbal_focus()
 
         empty.focus_mind()
-      end
-    },
-    steam = {
-      aspriority = 0,
-      spriority = 0,
-
-      isadvisable = function ()
-        return (conf.arena and affs.minortimewarp and
-          not doingaction("minortimewarp")) or false
-      end,
-
-      oncompleted = function ()
-        removeaff("minortimewarp")
-        sk.lostbal_steam()
-      end,
-
-      onstart = function ()
-        send("smoke steam", conf.commandecho)
-      end,
-
-      empty = function ()
-        sk.lostbal_steam()
-
-        empty.smoke_steam()
       end
     },
     aff = {
@@ -19887,11 +19483,7 @@ dict = {
     },
     aff = {
       oncompleted = function ()
-        if conf.arena then
-          doaction(dict.tangle.aff.oncompleted)
-        elseif not conf.arena then
-          addaff(dict.roped)
-        end
+        addaff(dict.roped)
       end,
     },
     gone = {
@@ -19940,13 +19532,10 @@ dict = {
     },
     aff = {
       oncompleted = function ()
-        if conf.arena then
-          doaction(dict.tangle.aff.oncompleted)
-        elseif not conf.arena then
-          addaff(dict.shackled)
-          if actions.sap_physical then
-            killaction (dict.sap.physical)
-          end
+        addaff(dict.shackled)
+
+        if actions.sap_physical then
+          killaction (dict.sap.physical)
         end
       end,
     },
@@ -20119,14 +19708,7 @@ dict = {
     },
     aff = {
       oncompleted = function ()
-        if conf.arena then
-          doaction(dict.tangle.aff.oncompleted)
-        elseif not conf.arena then
-          addaff(dict.truss)
-          if actions.sap_physical then
-            killaction (dict.sap.physical)
-          end
-        end
+        addaff(dict.truss)
       end,
     },
     gone = {
@@ -20567,7 +20149,7 @@ dict = {
       def = true,
 
       isadvisable = function ()
-        return (not conf.arena and (not affs.earache and ((sys.deffing and defdefup[defs.mode].truedeaf and not defc.truedeaf) or (conf.keepup and defkeepup[defs.mode].truedeaf and not defc.truedeaf)))) or false
+        return (not affs.earache and ((sys.deffing and defdefup[defs.mode].truedeaf and not defc.truedeaf) or (conf.keepup and defkeepup[defs.mode].truedeaf and not defc.truedeaf))) or false
       end,
 
       oncompleted = function (def)
@@ -20598,45 +20180,6 @@ dict = {
       empty = function()
         defences.got("truedeaf")
         sk.lostbal_herb()
-      end
-    },
-    wafer = {
-      aspriority = 0,
-      spriority = 0,
-      def = true,
-
-      isadvisable = function ()
-        return (conf.arena and (not affs.earache and ((sys.deffing and defdefup[defs.mode].truedeaf and not defc.truedeaf) or (conf.keepup and defkeepup[defs.mode].truedeaf and not defc.truedeaf)))) or false
-      end,
-
-      oncompleted = function (def)
-        if def then defences.got("truedeaf")
-        else
-          defences.got("truedeaf")
-          sk.lostbal_wafer()
-        end
-      end,
-
-      earache = function ()
-        sk.lostbal_wafer()
-        if not affs.earache then addaff(dict.earache) end
-      end,
-
-      cureddeaf = function()
-        defences.lost("deaf")
-        sk.lostbal_wafer()
-
-        if not conf.aillusion then defences.lost("truedeaf") end
-      end,
-
-      eatcure = "earwort",
-      onstart = function ()
-        eat("earwort")
-      end,
-
-      empty = function()
-        defences.got("truedeaf")
-        sk.lostbal_wafer()
       end
     },
   },
@@ -20647,7 +20190,7 @@ dict = {
       def = true,
 
       isadvisable = function ()
-        return (not conf.arena and (((sys.deffing and defdefup[defs.mode].trueblind and not defc.trueblind) or (conf.keepup and defkeepup[defs.mode].trueblind and not defc.trueblind)) and not doingaction("waitingontrueblind") and not affs.afterimage and not (affs.eyepeckleft and affs.eyepeckright))) or false
+        return (((sys.deffing and defdefup[defs.mode].trueblind and not defc.trueblind) or (conf.keepup and defkeepup[defs.mode].trueblind and not defc.trueblind)) and not doingaction("waitingontrueblind") and not affs.afterimage and not (affs.eyepeckleft and affs.eyepeckright)) or false
       end,
 
       oncompleted = function (fromdef)
@@ -20677,58 +20220,6 @@ dict = {
       curedblind = function()
         defences.lost("blind")
         sk.lostbal_herb()
-
-        if not conf.aillusion then defences.lost("trueblind") end
-      end,
-
-      eatcure = "faeleaf",
-      onstart = function ()
-        eat("faeleaf")
-      end,
-
-      empty = function()
-        if affs.blind then
-          removeaff("blind")
-          defences.got("trueblind")
-        end
-      end
-    },
-    wafer = {
-      aspriority = 0,
-      spriority = 0,
-      def = true,
-
-      isadvisable = function ()
-        return (conf.arena and (((sys.deffing and defdefup[defs.mode].trueblind and not defc.trueblind) or (conf.keepup and defkeepup[defs.mode].trueblind and not defc.trueblind)) and not doingaction("waitingontrueblind") and not affs.afterimage and not (affs.eyepeckleft and affs.eyepeckright))) or false
-      end,
-
-      oncompleted = function (fromdef)
-        if fromdef then
-          defences.got("trueblind")
-        else
-          doaction(dict.waitingontrueblind.waitingfor)
-          sk.lostbal_wafer()
-        end
-      end,
-
-      gettingtrueblind = function ()
-        doaction(dict.waitingontrueblind.waitingfor)
-        sk.lostbal_wafer()
-      end,
-
-      alreadygot = function ()
-        defences.got("trueblind")
-        sk.lostbal_wafer()
-      end,
-
-      afterimage = function ()
-        sk.lostbal_wafer()
-        addaff (dict.afterimage)
-      end,
-
-      curedblind = function()
-        defences.lost("blind")
-        sk.lostbal_wafer()
 
         if not conf.aillusion then defences.lost("trueblind") end
       end,
