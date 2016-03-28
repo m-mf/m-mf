@@ -13070,6 +13070,33 @@ dict = {
         empty["eat_"..conf.deafherb]()
       end
     },
+    wafer = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.deaf and not defc.truedeaf and not doingaction "deaf" and not affs.earache) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("deaf")
+        sk.lostbal_wafer()
+      end,
+
+      earache = function ()
+        sk.lostbal_wafer()
+        if not affs.earache then addaff(dict.earache) end
+      end,
+
+      eatcure = "earwort",
+      onstart = function ()
+        eat("earwort")
+      end,
+
+      empty = function()
+        empty["eat_earwort"]()
+      end
+    },
     aff = {
       oncompleted = function ()
         addaff(dict.deaf)
@@ -13112,6 +13139,40 @@ dict = {
 
       empty = function()
         empty["eat_"..conf.blindherb]()
+      end
+    },
+    wafer = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+      -- took out and not doingaction "waitingontrueblind", so there isn't a short time between you getting trueblind up
+        return (affs.blind and not doingaction "blind" and not defc.trueblind and not affs.afterimage and not (affs.eyepeckleft and affs.eyepeckright)) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("blind")
+        sk.lostbal_wafer()
+      end,
+
+      gettingtrueblind = function ()
+        removeaff("blind")
+        doaction(dict.waitingontrueblind.waitingfor)
+        sk.lostbal_wafer()
+      end,
+
+      afterimage = function ()
+        sk.lostbal_wafer()
+        addaff (dict.afterimage)
+      end,
+
+      eatcure = "faeleaf",
+      onstart = function ()
+        eat("faeleaf")
+      end,
+
+      empty = function()
+        empty["eat_faeleaf"]()
       end
     },
     aff = {
@@ -19483,7 +19544,8 @@ dict = {
     },
     aff = {
       oncompleted = function ()
-        addaff(dict.roped)
+        addaff(dict.tangle)
+        --addaff(dict.roped)
       end,
     },
     gone = {
@@ -19532,11 +19594,12 @@ dict = {
     },
     aff = {
       oncompleted = function ()
-        addaff(dict.shackled)
+        addaff(dict.tangle)
+        --[[addaff(dict.shackled)
 
         if actions.sap_physical then
           killaction (dict.sap.physical)
-        end
+        end]]
       end,
     },
     gone = {
@@ -19708,7 +19771,8 @@ dict = {
     },
     aff = {
       oncompleted = function ()
-        addaff(dict.truss)
+        addaff(dict.tangle)
+        --addaff(dict.truss)
       end,
     },
     gone = {
@@ -20182,8 +20246,100 @@ dict = {
         sk.lostbal_herb()
       end
     },
+    wafer = {
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+        return (not affs.earache and ((sys.deffing and defdefup[defs.mode].truedeaf and not defc.truedeaf) or (conf.keepup and defkeepup[defs.mode].truedeaf and not defc.truedeaf))) or false
+      end,
+
+      oncompleted = function (def)
+        if def then defences.got("truedeaf")
+        else
+          defences.got("truedeaf")
+          sk.lostbal_wafer()
+        end
+      end,
+
+      earache = function ()
+        sk.lostbal_wafer()
+        if not affs.earache then addaff(dict.earache) end
+      end,
+
+      cureddeaf = function()
+        defences.lost("deaf")
+        sk.lostbal_wafer()
+
+        if not conf.aillusion then defences.lost("truedeaf") end
+      end,
+
+      eatcure = "earwort",
+      onstart = function ()
+        eat("earwort")
+      end,
+
+      empty = function()
+        defences.got("truedeaf")
+        sk.lostbal_wafer()
+      end
+    },
   },
   trueblind = {
+  
+    wafer = {
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+        return (((sys.deffing and defdefup[defs.mode].trueblind and not defc.trueblind) or (conf.keepup and defkeepup[defs.mode].trueblind and not defc.trueblind)) and not doingaction("waitingontrueblind") and not affs.afterimage and not (affs.eyepeckleft and affs.eyepeckright)) or false
+      end,
+
+      oncompleted = function (fromdef)
+        if fromdef then
+          defences.got("trueblind")
+        else
+          doaction(dict.waitingontrueblind.waitingfor)
+          sk.lostbal_wafer()
+        end
+      end,
+
+      gettingtrueblind = function ()
+        doaction(dict.waitingontrueblind.waitingfor)
+        sk.lostbal_wafer()
+      end,
+
+      alreadygot = function ()
+        defences.got("trueblind")
+        sk.lostbal_wafer()
+      end,
+
+      afterimage = function ()
+        sk.lostbal_wafer()
+        addaff (dict.afterimage)
+      end,
+
+      curedblind = function()
+        defences.lost("blind")
+        sk.lostbal_wafer()
+
+        if not conf.aillusion then defences.lost("trueblind") end
+      end,
+
+      eatcure = "faeleaf",
+      onstart = function ()
+        eat("faeleaf")
+      end,
+
+      empty = function()
+        if affs.blind then
+          removeaff("blind")
+          defences.got("trueblind")
+        end
+      end
+    },
     herb = {
       aspriority = 128,
       spriority = 248,
@@ -22594,7 +22750,7 @@ dict = {
       def = true,
 
       isadvisable = function ()
-        return (((sys.deffing and defdefup[defs.mode].trueblind and not defdefup[defs.mode].secondsight and not defc.trueblind) or (conf.keepup and defkeepup[defs.mode].trueblind and not defkeepup[defs.mode].secondsight and not defc.trueblind)) and not doingaction("waitingontrueblind") and not doingaction ("waitingonsecondsight") and not affs.afterimage and not (affs.eyepeckleft and affs.eyepeckright)) or false
+        return false --[[(((sys.deffing and defdefup[defs.mode].trueblind and not defdefup[defs.mode].secondsight and not defc.trueblind) or (conf.keepup and defkeepup[defs.mode].trueblind and not defkeepup[defs.mode].secondsight and not defc.trueblind)) and not doingaction("waitingontrueblind") and not doingaction ("waitingonsecondsight") and not affs.afterimage and not (affs.eyepeckleft and affs.eyepeckright)) or false]]
       end,
 
       oncompleted = function (def)
@@ -22623,6 +22779,53 @@ dict = {
       curedblind = function()
         defences.lost("blind")
         sk.lostbal_herb()
+
+        if not conf.aillusion then defences.lost("trueblind") end
+      end,
+
+      eatcure = "faeleaf",
+      onstart = function ()
+        eat("faeleaf")
+      end,
+
+      empty = function()
+      end
+    },
+    wafer = {
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+        return (((sys.deffing and defdefup[defs.mode].trueblind and not defdefup[defs.mode].secondsight and not defc.trueblind) or (conf.keepup and defkeepup[defs.mode].trueblind and not defkeepup[defs.mode].secondsight and not defc.trueblind)) and not doingaction("waitingontrueblind") and not doingaction ("waitingonsecondsight") and not affs.afterimage and not (affs.eyepeckleft and affs.eyepeckright)) or false
+      end,
+
+      oncompleted = function (def)
+        if def then defences.got("trueblind")
+        else
+          doaction(dict.waitingontrueblind.waitingfor)
+          sk.lostbal_wafer()
+        end
+      end,
+
+      gettingtrueblind = function ()
+        doaction(dict.waitingontrueblind.waitingfor)
+        sk.lostbal_wafer()
+      end,
+
+      alreadygot = function ()
+        defences.got("trueblind")
+        sk.lostbal_wafer()
+      end,
+
+      afterimage = function ()
+        sk.lostbal_wafer()
+        addaff (dict.afterimage)
+      end,
+
+      curedblind = function()
+        defences.lost("blind")
+        sk.lostbal_wafer()
 
         if not conf.aillusion then defences.lost("trueblind") end
       end,

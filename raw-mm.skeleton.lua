@@ -312,8 +312,8 @@ check_wafer = function(sync_mode)
 #end
       then
 
-      prios[i] = (not sync_mode) and j.p.wafer.aspriority or j.p.wafer.spriority
-      gotsomething = true
+        prios[i] = (not sync_mode) and j.p.wafer.aspriority or j.p.wafer.spriority
+        gotsomething = true
       end
     end
 

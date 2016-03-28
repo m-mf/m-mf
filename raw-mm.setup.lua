@@ -477,6 +477,10 @@ sk.overhauldata = {
   anorexia       = { newbalances = {"lucidity"}, oldbalances = {"herb"}},
   asthma         = { newbalances = {"wafer"}, oldbalances = {"salve"}},
   slickness      = { newbalances = {"steam"}, oldbalances = {"herb"}},
+  blind          = { newbalances = {"wafer"}, oldbalances = {"herb"}},
+  trueblind      = { newbalances = {"wafer"}, oldbalances = {"herb"}},
+  deaf           = { newblanaces = {"wafer"}, oldbalances = {"herb"}},
+  truedeaf       = { newblanaces = {"wafer"}, oldbalances = {"herb"}},
 
 }
 sk.overhaulredirects = {}
