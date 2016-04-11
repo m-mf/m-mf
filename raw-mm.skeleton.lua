@@ -321,6 +321,7 @@ check_wafer = function(sync_mode)
   end
 
   check(affs)
+  if sys.deffing or conf.keepup then check(dict_wafer) end
 
   -- have nada?
   if not next(prios) then return end
