@@ -3787,7 +3787,7 @@ end
 -- special defences
 
 function defs.getting_trueblind()
-  local r = checkany(dict.trueblind.herb, dict.blind.herb)
+  local r = checkany(dict.trueblind.herb, dict.blind.herb, dict.trueblind.wafer, dict.blind.wafer)
 
   if not r then return end
 
@@ -3796,7 +3796,7 @@ function defs.getting_trueblind()
 end
 
 function valid.ate_afterimage()
-  local r = checkany(dict.trueblind.herb, dict.blind.herb)
+  local r = checkany(dict.trueblind.herb, dict.blind.herb, dict.trueblind.wafer, dict.blind.wafer)
 
   if not r then return end
 
@@ -3833,17 +3833,19 @@ function valid.herb_failed_aurawarp()
 end
 
 function defs.alreadygot_trueblind()
-  local r = checkany(dict.trueblind.herb, dict.blind.herb)
+  local r = checkany(dict.trueblind.herb, dict.blind.herb, dict.trueblind.wafer, dict.blind.wafer)
 
   if not r then return end
 
   herb_cure = true
   if r.action_name == "trueblind_herb" then
     lifevision.add(actions.trueblind_herb.p, "alreadygot")
+  elseif r.action_name == "trueblind_wafer" then
+    lifevision.add(actions.trueblind_wafer.p, "alreadygot")
   else
     killaction(dict[r.action_name].herb)
-    checkaction (dict.trueblind.herb, true)
-    lifevision.add(actions.trueblind_herb.p, "alreadygot")
+    checkaction (dict.trueblind.wafer, true)
+    lifevision.add(actions.trueblind_wafer.p, "alreadygot")
   end
 end
 
@@ -3887,7 +3889,7 @@ function valid.sour_sparkle()
 end
 
 function defs.curedblind()
-  local result = checkany(dict.trueblind.herb, dict.blind.herb)
+  local result = checkany(dict.trueblind.herb, dict.blind.herb, dict.trueblind.wafer, dict.blind.wafer)
   if not result then return end
 
 
@@ -3896,6 +3898,10 @@ function defs.curedblind()
     lifevision.add(actions.trueblind_herb.p, "curedblind")
   elseif actions.blind_herb then
     lifevision.add(actions.blind_herb.p)
+  elseif actions.trueblind_wafer then
+    lifevision.add(actions.trueblind_wafer.p, "curedblind")
+  elseif actions.blind_wafer then
+    lifevision.add(actions.blind_wafer.p)
   end
 end
 
