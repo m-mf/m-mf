@@ -132,13 +132,14 @@ local dict_balanceless = {}
 local dict_cleanse = {}
 
 -- defence shortlists
-local dict_herb = {}
-local dict_purgative = {}
-local dict_balanceful_def = {}
+local dict_balanceful_def  = {}
 local dict_balanceless_def = {}
-local dict_misc_def = {}
-local dict_misc = {}
-local dict_sparkleaffs = {}
+local dict_herb            = {}
+local dict_misc            = {}
+local dict_misc_def        = {}
+local dict_purgative       = {}
+local dict_sparkleaffs     = {}
+local dict_wafer           = {}
 
 local codepaste = {}
 
@@ -6348,7 +6349,7 @@ dict = {
         doaction(dict.curingcrushedchest.waitingfor)
       end,
 
-      noeffect = function() 
+      noeffect = function()
         sk.lostbal_ice()
         empty.noeffect_ice_chest()
       end,
@@ -6415,7 +6416,7 @@ dict = {
         doaction(dict.curingdamagedskull.waitingfor)
       end,
 
-      noeffect = function() 
+      noeffect = function()
         sk.lostbal_ice()
         empty.noeffect_ice_head()
       end,
@@ -6472,7 +6473,7 @@ dict = {
         doaction(dict.curingdamagedthroat.waitingfor)
       end,
 
-      noeffect = function() 
+      noeffect = function()
         sk.lostbal_ice()
         empty.noeffect_ice_head()
       end,
@@ -6531,7 +6532,7 @@ dict = {
         doaction(dict.curingdamagedorgans.waitingfor)
       end,
 
-      noeffect = function() 
+      noeffect = function()
         sk.lostbal_ice()
         empty.noeffect_ice_gut()
       end,
@@ -6590,7 +6591,7 @@ dict = {
         doaction(dict.curinginternalbleeding.waitingfor)
       end,
 
-      noeffect = function() 
+      noeffect = function()
         sk.lostbal_ice()
         empty.noeffect_ice_gut()
       end,
@@ -6649,7 +6650,7 @@ dict = {
         doaction(dict.curingdamagedleftarm.waitingfor)
       end,
 
-      noeffect = function() 
+      noeffect = function()
         sk.lostbal_ice()
         empty.noeffect_ice_leftarm()
       end,
@@ -6708,7 +6709,7 @@ dict = {
         doaction(dict.curingmutilatedleftarm.waitingfor)
       end,
 
-      noeffect = function() 
+      noeffect = function()
         sk.lostbal_ice()
         empty.noeffect_ice_leftarm()
       end,
@@ -6767,7 +6768,7 @@ dict = {
         doaction(dict.curingdamagedrightarm.waitingfor)
       end,
 
-      noeffect = function() 
+      noeffect = function()
         sk.lostbal_ice()
         empty.noeffect_ice_rightarm()
       end,
@@ -6826,7 +6827,7 @@ dict = {
         doaction(dict.curingmutilatedrightarm.waitingfor)
       end,
 
-      noeffect = function() 
+      noeffect = function()
         sk.lostbal_ice()
         empty.noeffect_ice_rightarm()
       end,
@@ -6885,7 +6886,7 @@ dict = {
         doaction(dict.curingdamagedleftleg.waitingfor)
       end,
 
-      noeffect = function() 
+      noeffect = function()
         sk.lostbal_ice()
         empty.noeffect_ice_leftleg()
       end,
@@ -6944,7 +6945,7 @@ dict = {
         doaction(dict.curingmutilatedleftleg.waitingfor)
       end,
 
-      noeffect = function() 
+      noeffect = function()
         sk.lostbal_ice()
         empty.noeffect_ice_leftleg()
       end,
@@ -7001,7 +7002,7 @@ dict = {
         doaction(dict.curingdamagedrightleg.waitingfor)
       end,
 
-      noeffect = function() 
+      noeffect = function()
         sk.lostbal_ice()
         empty.noeffect_ice_rightleg()
       end,
@@ -7060,7 +7061,7 @@ dict = {
         doaction(dict.curingmutilatedrightleg.waitingfor)
       end,
 
-      noeffect = function() 
+      noeffect = function()
         sk.lostbal_ice()
         empty.noeffect_ice_rightleg()
       end,
@@ -7201,7 +7202,7 @@ dict = {
         doaction(dict.curingcollapsedlungs.waitingfor)
       end,
 
-      noeffect = function() 
+      noeffect = function()
         empty.noeffect_ice_chest()
       end,
 
@@ -20287,7 +20288,7 @@ dict = {
     },
   },
   trueblind = {
-  
+
     wafer = {
       aspriority = 0,
       spriority = 0,
@@ -25072,6 +25073,7 @@ local function dict_setup()
   dict_misc_def        = {}
   dict_purgative       = {}
   dict_sparkleaffs     = {}
+  dict_wafer           = {}
 
   local unassigned_actions      = {}
   local unassigned_sync_actions = {}
@@ -25113,6 +25115,9 @@ local function dict_setup()
 
     if j.herb and j.herb.def then
       dict_herb[i] = {p = dict[i]} end
+
+    if j.wafer and j.wafer.def then
+      dict_wafer[i] = {p = dict[i]} end
 
     if j.sparkle then
       dict_sparkleaffs[i] = {p = dict[i]} end
