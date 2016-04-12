@@ -3531,7 +3531,7 @@ function valid.herbbanefail()
 end
 
 function valid.earachefail()
-  local result = checkany (dict.truedeaf.herb, dict.deaf.herb, dict.attraction.herb)
+  local result = checkany (dict.truedeaf.herb, dict.deaf.herb, dict.attraction.herb, dict.truedeaf.wafer, dict.deaf.wafer)
   if not result then return end
 
   herb_cure = true
@@ -3913,43 +3913,43 @@ function defs.got_trueblind()
 end
 
 function defs.got_truedeaf()
-  local result = checkany (dict.truedeaf.herb, dict.attraction.herb, dict.deaf.herb)
+  local result = checkany (dict.truedeaf.herb, dict.attraction.herb, dict.deaf.herb,dict.truedeaf.wafer, dict.deaf.wafer)
 
   if not result and conf.aillusion then
     return
   elseif not result and not conf.aillusion then
-    checkaction (dict.truedeaf.herb, true)
-    lifevision.add(actions.truedeaf_herb.p)
+    checkaction (dict.truedeaf.wafer, true)
+    lifevision.add(actions.truedeaf_wafer.p)
     return
   end
 
-  herb_cure = true
+  wafer_cure = true
   if result.action_name == "truedeaf" then
-    lifevision.add(actions.truedeaf_herb.p)
+    lifevision.add(actions.truedeaf_wafer.p)
 
     if affs.attraction then
-      checkaction (dict.attraction.herb, true)
-      lifevision.add(actions.attraction_herb.p)
+      checkaction (dict.attraction.wafer, true)
+      lifevision.add(actions.attraction_wafer.p)
     end
   else
-    killaction(dict[result.action_name].herb)
-    checkaction (dict.truedeaf.herb, true)
-    checkaction (dict.attraction.herb, true)
-    lifevision.add(actions.truedeaf_herb.p)
-    lifevision.add(actions.attraction_herb.p)
+    killaction(dict[result.action_name].wafer)
+    checkaction (dict.truedeaf.wafer, true)
+    checkaction (dict.attraction.wafer, true)
+    lifevision.add(actions.truedeaf_wafer.p)
+    lifevision.add(actions.attraction_wafer.p)
   end
 end
 
 function defs.cureddeaf()
-  local result = checkany (dict.truedeaf.herb, dict.deaf.herb)
+  local result = checkany (dict.truedeaf.herb, dict.deaf.herb, dict.truedeaf.wafer, dict.deaf.wafer)
   if not result then return end
 
 
-  herb_cure = true
-  if actions.truedeaf_herb then
-    lifevision.add(actions.truedeaf_herb.p, "cureddeaf")
-  elseif actions.deaf_herb then
-    lifevision.add(actions.deaf_herb.p)
+  wafer_cure = true
+  if actions.truedeaf_wafer then
+    lifevision.add(actions.truedeaf_wafer.p, "cureddeaf")
+  elseif actions.deaf_wafer then
+    lifevision.add(actions.deaf_wafer.p)
   end
 end
 
