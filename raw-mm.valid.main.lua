@@ -1924,6 +1924,14 @@ function valid.plant_had_no_effect()
   lifevision.add(actions[r.name].p, "noeffect")
 end
 
+function valid.wafer_had_no_effect()
+  local r = findbybal("wafer")
+  if not r then return end
+
+  herb_cure = true
+  lifevision.add(actions[r.name].p, "noeffect")
+end
+
 function valid.salve_slickness()
   if actions.checkslickness_misc then
     lifevision.add(actions.checkslickness_misc.p, "slicky")
@@ -3923,7 +3931,7 @@ function defs.got_truedeaf()
     return
   end
 
-  wafer_cure = true
+  herb_cure = true
   if result.action_name == "truedeaf" then
     lifevision.add(actions.truedeaf_wafer.p)
 
@@ -3945,7 +3953,7 @@ function defs.cureddeaf()
   if not result then return end
 
 
-  wafer_cure = true
+  herb_cure = true
   if actions.truedeaf_wafer then
     lifevision.add(actions.truedeaf_wafer.p, "cureddeaf")
   elseif actions.deaf_wafer then
