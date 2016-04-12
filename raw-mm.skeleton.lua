@@ -312,8 +312,8 @@ check_wafer = function(sync_mode)
 #end
       then
 
-      prios[i] = (not sync_mode) and j.p.wafer.aspriority or j.p.wafer.spriority
-      gotsomething = true
+        prios[i] = (not sync_mode) and j.p.wafer.aspriority or j.p.wafer.spriority
+        gotsomething = true
       end
     end
 
@@ -321,6 +321,7 @@ check_wafer = function(sync_mode)
   end
 
   check(affs)
+  if sys.deffing or conf.keepup then check(dict_wafer) end
 
   -- have nada?
   if not next(prios) then return end
