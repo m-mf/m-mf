@@ -55497,6 +55497,7 @@ end</script>
     -- new version file can not exist if we didn't download a system previously
     if f then
       writtenversion = f:read(&quot;*a&quot;)
+		 f:close()
     end
 
     if not writtenversion or writtenversion:trim() ~= s:trim() or not lfs.attributes(getMudletHomeDir()..&quot;/m&amp;m/downloads/&quot;..string.format(&quot;%s m&amp;m.zip&quot;, mm.me.class)) then
@@ -55689,7 +55690,7 @@ function mm_doupdate_click()
 
   function mm_update_system()
     uninstallPackage(name..&quot; m&amp;m&quot;)
-    installPackage(getMudletHomeDir()..&quot;/m&amp;m/downloads/&quot;..string.format(&quot;%s m&amp;m.zip&quot;, mm.me.class))
+    installPackage(getMudletHomeDir()..&quot;/m&amp;m/downloads/&quot;..string.format(&quot;%s m&amp;mf.zip&quot;, mm.me.class))
 
     mm.echof(&quot;m&amp;m updated! Restart Mudlet, and you'll be all done.&quot;)
 
