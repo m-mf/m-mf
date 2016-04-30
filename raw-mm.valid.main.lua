@@ -1611,6 +1611,58 @@ function valid.salve_still_fourthdegreeburn()
   end
 end
 
+function valid.ice_cured_ablaze()
+  local result = checkany(dict.ablaze.ice, dict.firstdegreeburn.ice, dict.seconddegreeburn.ice, dict.thirddegreeburn.ice, dict.fourthdegreeburn.ice)
+  if not result then return end
+
+  apply_ice = true
+  lifevision.add(actions.ablaze_ice.p)
+end
+
+function valid.ice_cured_firstdegreeburn()
+  if actions.firstdegreeburn_ice then
+    apply_ice = true
+    lifevision.add(actions.firstdegreeburn_ice.p)
+  end
+end
+
+function valid.ice_still_firstdegreeburn()
+  if actions.firstdegreeburn_ice then
+    apply_ice = true
+    lifevision.add(actions.firstdegreeburn_ice.p, "stillgot")
+  elseif actions.seconddegreeburn_ice then
+    apply_ice = true
+    lifevision.add(actions.seconddegreeburn_ice.p)
+  end
+end
+
+function valid.ice_still_seconddegreeburn()
+  if actions.seconddegreeburn_ice then
+    apply_ice = true
+    lifevision.add(actions.seconddegreeburn_ice.p, "stillgot")
+  elseif actions.thirddegreeburn_ice then
+    apply_ice = true
+    lifevision.add(actions.thirddegreeburn_ice.p)
+  end
+end
+
+function valid.ice_still_thirddegreeburn()
+  if actions.thirddegreeburn_ice then
+    apply_ice = true
+    lifevision.add(actions.thirddegreeburn_ice.p, "stillgot")
+  elseif actions.fourthdegreeburn_ice then
+    apply_ice = true
+    lifevision.add(actions.fourthdegreeburn_ice.p)
+  end
+end
+
+function valid.ice_still_fourthdegreeburn()
+  if actions.fourthdegreeburn_ice then
+    apply_ice = true
+    lifevision.add(actions.fourthdegreeburn_ice.p, "stillgot")
+  end
+end
+
 #for _, item in ipairs{"faeleaf", "myrtle", "coltsfoot", "steam"} do
 function valid.fill$(item)()
   checkaction(dict.fill$(item).physical)
@@ -2975,7 +3027,7 @@ end
 
 function valid.ice_nouse()
   local result = checkany(
-    dict.lighthead.ice, dict.heavyhead.ice, dict.criticalhead.ice, dict.lightrightarm.ice, dict.heavyrightarm.ice, dict.criticalrightarm.ice, dict.lightleftarm.ice, dict.heavyleftarm.ice, dict.criticalleftarm.ice, dict.lightleftleg.ice, dict.heavyleftleg.ice, dict.criticalleftleg.ice, dict.lightrightleg.ice, dict.heavyrightleg.ice, dict.criticalrightleg.ice, dict.lightchest.ice, dict.heavychest.ice, dict.criticalchest.ice, dict.lightgut.ice, dict.heavygut.ice, dict.criticalgut.ice, dict.damagedskull.ice, dict.damagedthroat.ice, dict.collapsedlungs.ice, dict.crushedchest.ice, dict.damagedorgans.ice, dict.internalbleeding.ice, dict.damagedleftarm.ice, dict.mutilatedleftarm.ice, dict.damagedrightarm.ice, dict.mutilatedrightarm.ice, dict.damagedleftleg.ice, dict.mutilatedleftleg.ice, dict.damagedrightleg.ice, dict.mutilatedrightleg.ice)
+    dict.lighthead.ice, dict.heavyhead.ice, dict.criticalhead.ice, dict.lightrightarm.ice, dict.heavyrightarm.ice, dict.criticalrightarm.ice, dict.lightleftarm.ice, dict.heavyleftarm.ice, dict.criticalleftarm.ice, dict.lightleftleg.ice, dict.heavyleftleg.ice, dict.criticalleftleg.ice, dict.lightrightleg.ice, dict.heavyrightleg.ice, dict.criticalrightleg.ice, dict.lightchest.ice, dict.heavychest.ice, dict.criticalchest.ice, dict.lightgut.ice, dict.heavygut.ice, dict.criticalgut.ice, dict.damagedskull.ice, dict.damagedthroat.ice, dict.collapsedlungs.ice, dict.crushedchest.ice, dict.damagedorgans.ice, dict.internalbleeding.ice, dict.damagedleftarm.ice, dict.mutilatedleftarm.ice, dict.damagedrightarm.ice, dict.mutilatedrightarm.ice, dict.damagedleftleg.ice, dict.mutilatedleftleg.ice, dict.damagedrightleg.ice, dict.mutilatedrightleg.ice, dict.fourthdegreeburn.ice, dict.thirddegreeburn.ice, dict.seconddegreeburn.ice, dict.firstdegreeburn.ice, dict.ablaze.ice)
   if not result then return end
 
   if actions[result.name] then
@@ -3029,7 +3081,7 @@ end
 --no effect should add both affs...
 function valid.ice_noeffect()
   local result = checkany(
-    dict.lighthead.ice, dict.heavyhead.ice, dict.criticalhead.ice, dict.lightrightarm.ice, dict.heavyrightarm.ice, dict.criticalrightarm.ice, dict.lightleftarm.ice, dict.heavyleftarm.ice, dict.criticalleftarm.ice, dict.lightleftleg.ice, dict.heavyleftleg.ice, dict.criticalleftleg.ice, dict.lightrightleg.ice, dict.heavyrightleg.ice, dict.criticalrightleg.ice, dict.lightchest.ice, dict.heavychest.ice, dict.criticalchest.ice, dict.lightgut.ice, dict.heavygut.ice, dict.criticalgut.ice, dict.damagedskull.ice, dict.damagedthroat.ice, dict.collapsedlungs.ice, dict.crushedchest.ice, dict.damagedorgans.ice, dict.internalbleeding.ice, dict.damagedleftarm.ice, dict.mutilatedleftarm.ice, dict.damagedrightarm.ice, dict.mutilatedrightarm.ice, dict.damagedleftleg.ice, dict.mutilatedleftleg.ice, dict.damagedrightleg.ice, dict.mutilatedrightleg.ice)
+    dict.lighthead.ice, dict.heavyhead.ice, dict.criticalhead.ice, dict.lightrightarm.ice, dict.heavyrightarm.ice, dict.criticalrightarm.ice, dict.lightleftarm.ice, dict.heavyleftarm.ice, dict.criticalleftarm.ice, dict.lightleftleg.ice, dict.heavyleftleg.ice, dict.criticalleftleg.ice, dict.lightrightleg.ice, dict.heavyrightleg.ice, dict.criticalrightleg.ice, dict.lightchest.ice, dict.heavychest.ice, dict.criticalchest.ice, dict.lightgut.ice, dict.heavygut.ice, dict.criticalgut.ice, dict.damagedskull.ice, dict.damagedthroat.ice, dict.collapsedlungs.ice, dict.crushedchest.ice, dict.damagedorgans.ice, dict.internalbleeding.ice, dict.damagedleftarm.ice, dict.mutilatedleftarm.ice, dict.damagedrightarm.ice, dict.mutilatedrightarm.ice, dict.damagedleftleg.ice, dict.mutilatedleftleg.ice, dict.damagedrightleg.ice, dict.mutilatedrightleg.ice, dict.fourthdegreeburn.ice, dict.thirddegreeburn.ice, dict.seconddegreeburn.ice, dict.firstdegreeburn.ice, dict.ablaze.ice)
   if not result then return end
 
   if actions[result.name] then

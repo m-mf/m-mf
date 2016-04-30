@@ -2659,7 +2659,7 @@ dict = {
       spriority = 57,
 
       isadvisable = function ()
-        return (affs.ablaze) or false
+        return (not conf.arena and affs.ablaze) or false
       end,
 
       oncompleted = function ()
@@ -2681,6 +2681,32 @@ dict = {
         sk.lostbal_purgative()
         removeaff("ablaze")
       end
+    },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.ablaze) or false
+      end,
+
+      oncompleted = function ()
+        sk.lostbal_ice()
+        removeaff("ablaze")
+      end,
+
+      noeffect = function()
+        removeaff("ablaze")
+        sk.lostbal_ice()
+      end,
+
+      nouse = function()
+        sk.lostbal_ice()
+      end,
+
+      onstart = function ()
+        send("apply ice to body", conf.commandecho)
+      end,
     },
     aff = {
       oncompleted = function ()
@@ -4045,7 +4071,7 @@ dict = {
       spriority = 28,
 
       isadvisable = function ()
-        return (affs.fourthdegreeburn) or false
+        return (not conf.arena and affs.fourthdegreeburn) or false
       end,
 
       oncompleted = function ()
@@ -4071,6 +4097,37 @@ dict = {
         sk.lostbal_salve()
       end
     },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.fourthdegreeburn) or false
+      end,
+
+      oncompleted = function ()
+        sk.lostbal_salve()
+        removeaff("fourthdegreeburn")
+        addaff(dict.thirddegreeburn)
+      end,
+
+      noeffect = function ()
+        valid.ice_noeffect()
+      end,
+
+      nouse = function()
+        sk.lostbal_ice()
+      end,
+
+      onstart = function ()
+        send("apply ice to body", conf.commandecho)
+      end,
+
+
+      stillgot = function()
+        sk.lostbal_ice()
+      end
+    },
     aff = {
       oncompleted = function ()
         codepaste.remove_burns()
@@ -4089,7 +4146,7 @@ dict = {
       spriority = 27,
 
       isadvisable = function ()
-        return (affs.thirddegreeburn) or false
+        return (not conf.arena and affs.thirddegreeburn) or false
       end,
 
       oncompleted = function ()
@@ -4114,6 +4171,37 @@ dict = {
         sk.lostbal_salve()
       end
     },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.thirddegreeburn) or false
+      end,
+
+      oncompleted = function ()
+        sk.lostbal_salve()
+        removeaff("thirddegreeburn")
+        addaff(dict.seconddegreeburn)
+      end,
+
+      noeffect = function ()
+        valid.ice_noeffect()
+      end,
+
+      nouse = function()
+        sk.lostbal_ice()
+      end,
+
+      onstart = function ()
+        send("apply ice to body", conf.commandecho)
+      end,
+
+
+      stillgot = function()
+        sk.lostbal_ice()
+      end
+    },
     aff = {
       oncompleted = function ()
         codepaste.remove_burns()
@@ -4132,7 +4220,7 @@ dict = {
       spriority = 26,
 
       isadvisable = function ()
-        return (affs.seconddegreeburn) or false
+        return (not conf.arena and affs.seconddegreeburn) or false
       end,
 
       oncompleted = function ()
@@ -4157,6 +4245,37 @@ dict = {
         sk.lostbal_salve()
       end
     },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.seconddegreeburn) or false
+      end,
+
+      oncompleted = function ()
+        sk.lostbal_salve()
+        removeaff("seconddegreeburn")
+        addaff(dict.firstdegreeburn)
+      end,
+
+      noeffect = function ()
+        valid.ice_noeffect()
+      end,
+
+      nouse = function()
+        sk.lostbal_ice()
+      end,
+
+      onstart = function ()
+        send("apply ice to body", conf.commandecho)
+      end,
+
+
+      stillgot = function()
+        sk.lostbal_ice()
+      end
+    },
     aff = {
       oncompleted = function ()
         codepaste.remove_burns()
@@ -4175,7 +4294,7 @@ dict = {
       spriority = 25,
 
       isadvisable = function ()
-        return (affs.firstdegreeburn) or false
+        return (not conf.arena and affs.firstdegreeburn) or false
       end,
 
       oncompleted = function ()
@@ -4197,6 +4316,36 @@ dict = {
 
       stillgot = function()
         sk.lostbal_salve()
+      end
+    },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.firstdegreeburn) or false
+      end,
+
+      oncompleted = function ()
+        sk.lostbal_salve()
+        removeaff("firstdegreeburn")
+      end,
+
+      noeffect = function ()
+        valid.ice_noeffect()
+      end,
+
+      nouse = function()
+        sk.lostbal_ice()
+      end,
+
+      onstart = function ()
+        send("apply ice to body", conf.commandecho)
+      end,
+
+
+      stillgot = function()
+        sk.lostbal_ice()
       end
     },
     aff = {
