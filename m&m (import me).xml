@@ -225,6 +225,32 @@ mm.ignore_illusion()</script>
                         </regexCodePropertyList>
                     </Trigger>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>focus line</name>
+                        <script>setTriggerStayOpen(&quot;Ate&quot;,2)</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>You have no beast here.</string>
+                            <string>A nimbus of light surrounds</string>
+                            <string>You focus on curing</string>
+                            <string>You call upon your aetheric power to focus on curing</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>3</integer>
+                            <integer>2</integer>
+                            <integer>2</integer>
+                            <integer>2</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>m&amp;m cure clumsiness herb</name>
                         <script>mm.valid.herb_cured_clumsiness()</script>
                         <triggerType>0</triggerType>
@@ -3447,6 +3473,90 @@ mm.show_vessels(1)</script>
                         </regexCodePropertyList>
                     </Trigger>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>m&amp;m major insanity</name>
+                        <script>mm.valid.sip_cured_massiveinsanity()</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>Your sanity partially returns, but you still suffer from a major case of temporary insanity.</string>
+                            <string>Your sanity partially returns, but you still suffer from a massive case of temporary insanity.</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>3</integer>
+                            <integer>3</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>m&amp;m moderate insanity</name>
+                        <script>mm.valid.sip_cured_majorinsanity()</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>Your sanity partially returns, but you still suffer from a moderate case of temporary insanity.</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>3</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>m&amp;m slightinsanity</name>
+                        <script>mm.valid.sip_cured_moderateinsanity()</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>Your sanity partially returns, but you still suffer from a slight case of temporary insanity.</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>3</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>m&amp;m cured tempinsanity</name>
+                        <script>mm.valid.sip_cured_slightinsanity()</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>You no longer have any temporary insanity.</string>
+                            <string>You have cured temporaryinsanity.</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>3</integer>
+                            <integer>3</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>m&amp;m sip2</name>
                         <script>mm.valid.sip2()</script>
                         <triggerType>0</triggerType>
@@ -5886,7 +5996,7 @@ mm.show_vessels(1)</script>
                         </regexCodeList>
                         <regexCodePropertyList>
                             <integer>3</integer>
-                            <integer>0</integer>
+                            <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
@@ -6014,6 +6124,90 @@ mm.show_vessels(1)</script>
                             <string>Your pipe goes dark as the last of its contents burn up.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>still major timewarp</name>
+                        <script>mm.valid.steam_cured_massivetimewarp()</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>The warping of time lightens, but you are still majorly warped.</string>
+                            <string>The warping of time lightens, but you are still massively warped.</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>3</integer>
+                            <integer>3</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>still moderate timewarp</name>
+                        <script>mm.valid.steam_cured_majortimewarp()</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>The warping of time lightens, but you are still moderately warped.</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>3</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>still minor timewarp</name>
+                        <script>mm.valid.steam_cured_moderatetimewarp()</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>The warping of time lightens, but you are still minorly warped.</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>3</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>cured timewarp</name>
+                        <script>mm.valid.steam_cured_minortimewarp()</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>Time no longer warps around you.</string>
+                            <string>You have cured timewarp.</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -55526,10 +55720,10 @@ end</script>
                 <name>Miscallaneous</name>
                 <packageName></packageName>
                 <script>mm.wounds_data.ice = mm.wounds_data.ice or {
-	onehand_nonpower = 1,
-	onehand_power = 2,
-	twohand_nonpower = 2,
-	twohand_power = 4
+	onehand_nonpower = 5,
+	onehand_power = 10,
+	twohand_nonpower = 12,
+	twohand_power = 24
 }
 
 mm.wounds_data.iceupdate = mm.wounds_data.iceupdate or {
