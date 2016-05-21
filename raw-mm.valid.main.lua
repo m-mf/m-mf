@@ -3749,6 +3749,7 @@ function valid.steam_cured_$(aff)()
   if not result then return end
 
   smoke_cure = true
+  setTriggerStayOpen("Smoke", 1)
   if result.name == "$(aff)_steam" then
     lifevision.add(actions.$(aff)_steam.p)
   else
