@@ -1786,6 +1786,8 @@ function valid.sip2()
     return
   end
 
+  if insanitycheck and isPrompt() then return end
+
   if sip_cure then return end
   sip_cure = false
 
@@ -1920,6 +1922,11 @@ function valid.smoke2()
   --account for new focus line
   if isFocusLine(line) or line == "A strange vibration prevents you from healing auric ailments." then
     setTriggerStayOpen("Smoke", 1)
+    return
+  end
+
+  if timewarpcheck and isPrompt() then
+    timewarpcheck = nil
     return
   end
 
@@ -3706,9 +3713,17 @@ function valid.sip_cured_$(aff)()
   if result.name == "$(aff)_lucidity" then
     lifevision.add(actions.$(aff)_lucidity.p)
   else
-    killaction(dict[result.action_name].lucidity)
+    if insanitycheck then
+      killaction(dict[result.action_name].lucidity)
+    then
+      insanitycheck = nil
+    end
     checkaction(dict.$(aff).lucidity, true)
     lifevision.add(dict.$(aff).lucidity)
+  end
+  if not result.name:find("insanity") then
+    setTriggerStayOpen("Sip",1)
+    insanitycheck = true
   end
 end
 
@@ -3737,9 +3752,17 @@ function valid.steam_cured_$(aff)()
   if result.name == "$(aff)_steam" then
     lifevision.add(actions.$(aff)_steam.p)
   else
-    killaction(dict[result.action_name].steam)
+    if not timewarpcheck then
+      killaction(dict[result.action_name].steam)
+    else
+      timewarpcheck = nil
+    end
     checkaction(dict.$(aff).steam, true)
     lifevision.add(dict.$(aff).steam)
+  end
+  if not result.name:find("timewarp") then
+    setTriggerStayOpen("Smoke",1)
+    timewarpcheck = true
   end
 end
 
