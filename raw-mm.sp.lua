@@ -89,6 +89,21 @@ sk.update_actionlevels = function ()
     end
   end
 
+  local min, max = 100, 0
+  for part, al in pairs(sp_config.parry_actionlevel) do
+    if al < min then
+      min = al
+    elseif al > max then
+      max = al
+    end
+  end
+
+  if max < 15 and min < 5 then
+    for part, al in pairs(sp_config.parry_actionlevel) do
+      sp_config.parry_actionlevel[part] = al*5
+    end
+  end
+
   echof("stance/parry actionlevels updated for warrior overhaul")
 end
 
@@ -145,7 +160,7 @@ sps.install = {
         local t = {}
         t[#t+1] = 'mm.sp.setstancelevel("'..name..'", false, true)'
         if not conf.oldwarrior then
-          for amount = 2, 20, 2 do
+          for amount = 5, 100, 5 do
             t[#t+1] = 'mm.sp.setstancelevel("'..name..'", '..amount..', true)'
           end
         else
@@ -159,7 +174,7 @@ sps.install = {
         local t = {}
         t[#t+1] = 'Set ' .. name .. ' to ' .. 'none'
         if not conf.oldwarrior then
-          for amount = 2, 20, 2 do
+          for amount = 5, 100, 5 do
             t[#t+1] = 'mm.sp.setstancelevel("'..name..'", '..amount..', true)'
           end
         else
@@ -191,7 +206,7 @@ sps.install = {
         local t = {}
         t[#t+1] = 'mm.sp.setparrylevel("'..name..'", false, true)'
         if not conf.oldwarrior then
-          for amount = 2, 20, 2 do
+          for amount = 5, 100, 5 do
             t[#t+1] = 'mm.sp.setstancelevel("'..name..'", '..amount..', true)'
           end
         else
@@ -205,7 +220,7 @@ sps.install = {
         local t = {}
         t[#t+1] = 'Set ' .. name .. ' to ' .. 'none'
         if not conf.oldwarrior then
-          for amount = 2, 20, 2 do
+          for amount = 5, 100, 5 do
             t[#t+1] = 'mm.sp.setstancelevel("'..name..'", '..amount..', true)'
           end
         else

@@ -385,8 +385,8 @@ local wlevel = phpTable(
 
 local ice_wlevel = phpTable(
   {light = 1},
-  {heavy = 7},
-  {critical = 15}
+  {heavy = 35},
+  {critical = 75}
 )
 
 function sk.get_wound_level(amount)
@@ -430,7 +430,7 @@ for _,k in ipairs({"rightarm", "leftarm", "leftleg", "rightleg", "chest", "gut",
     local amount
 
     if not conf.oldwarrior then
-      amount = 1
+      amount = 5
     elseif type == 'deepheal' then amount = math.random(1600, 2000)
     elseif type == 'puer' then amount = math.random(800, 1000)
     elseif type == 'healspring' then amount = math.random(200, 300)
@@ -447,6 +447,44 @@ for _,k in ipairs({"rightarm", "leftarm", "leftleg", "rightleg", "chest", "gut",
     end
 
     addaff(dict[sk.get_wound_level(amount)..k])
+  end
+end
+
+function focus_aff(aff, cmd)
+
+  local t = {taintsick = "sickening", illuminated = "luminosity", hallucinating = "hallucinations"}
+  local c_aff = (t[aff] or aff)
+
+  if (sys.sync and conf.aeonfocus) or me.focus[aff] then
+    if conf.beastfocus and bals.beast and not affs.disloyalty then
+      if cmd == "dust" then
+        eat("dust", "beastfocus", c_aff)
+      else
+        send(cmd.." beastfocus "..c_aff, conf.commandecho)
+      end
+    elseif conf.powerfocus and stats.currentpower >= 1 then
+      if cmd == "dust" then
+        eat("dust", "powerfocus",c_aff)
+      else
+        send(cmd.." powerfocus "..c_aff, conf.commandecho)
+      end
+    else
+      if cmd == "dust" then
+        eat("dust", "focus",c_aff)
+      else
+        send(cmd.." focus "..c_aff, conf.commandecho)
+      end
+    end
+    return
+  end
+
+  if not me.focus[aff] then
+    if cmd == "dust" then
+      eat("dust")
+    else
+      send(cmd, conf.commandecho)
+    end
+    return
   end
 end
 
@@ -2017,6 +2055,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.healthleech and codepaste.smoke_steam_pipe()) or false
       end,
@@ -2028,7 +2068,8 @@ dict = {
 
       smokecure = "steam",
       onstart = function ()
-        send("smoke " .. pipes.steam.id, conf.commandecho)
+        focus_aff("healthleech", "smoke "..pipes.steam.id)
+        --send("smoke " .. pipes.steam.id, conf.commandecho)
       end,
 
       empty = function ()
@@ -2079,6 +2120,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.powersap and not doingaction "powersap") or false
       end,
@@ -2090,7 +2133,8 @@ dict = {
 
       eatcure = "dust",
       onstart = function ()
-        eat("dust")
+        focus_aff("powersap", "dust")
+        --eat("dust")
       end,
 
       empty = function()
@@ -2339,6 +2383,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.disloyalty and codepaste.smoke_steam_pipe()) or false
       end,
@@ -2350,7 +2396,8 @@ dict = {
 
       smokecure = "steam",
       onstart = function ()
-        send("smoke " .. pipes.steam.id, conf.commandecho)
+        focus_aff("disloyalty", "smoke " .. pipes.steam.id)
+        --send("smoke " .. pipes.steam.id, conf.commandecho)
       end,
 
       empty = function ()
@@ -2440,6 +2487,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.dysentery and not doingaction "dysentery") or false
       end,
@@ -2451,7 +2500,8 @@ dict = {
 
       eatcure = "dust",
       onstart = function ()
-        eat("dust")
+        focus_aff("dysentery", "dust")
+        --eat("dust")
       end,
 
       empty = function()
@@ -2501,6 +2551,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.vomiting and not doingaction "vomiting") or false
       end,
@@ -2512,7 +2564,8 @@ dict = {
 
       eatcure = "dust",
       onstart = function ()
-        eat("dust")
+        focus_aff("vomiting", "dust")
+        --eat("dust")
       end,
 
       empty = function()
@@ -2624,6 +2677,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.haemophilia and not doingaction "haemophilia") or false
       end,
@@ -2635,7 +2690,8 @@ dict = {
 
       eatcure = "dust",
       onstart = function ()
-        eat("dust")
+        focus_aff("haemophilia", "dust")
+        --eat("dust")
       end,
 
       empty = function()
@@ -2659,7 +2715,7 @@ dict = {
       spriority = 57,
 
       isadvisable = function ()
-        return (affs.ablaze) or false
+        return (not conf.arena and affs.ablaze) or false
       end,
 
       oncompleted = function ()
@@ -2681,6 +2737,32 @@ dict = {
         sk.lostbal_purgative()
         removeaff("ablaze")
       end
+    },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.ablaze) or false
+      end,
+
+      oncompleted = function ()
+        sk.lostbal_ice()
+        removeaff("ablaze")
+      end,
+
+      noeffect = function()
+        removeaff("ablaze")
+        sk.lostbal_ice()
+      end,
+
+      nouse = function()
+        sk.lostbal_ice()
+      end,
+
+      onstart = function ()
+        send("apply ice to body", conf.commandecho)
+      end,
     },
     aff = {
       oncompleted = function ()
@@ -3914,6 +3996,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.scabies and not doingaction "scabies") or false
       end,
@@ -3925,7 +4009,8 @@ dict = {
 
       eatcure = "dust",
       onstart = function ()
-        eat("dust")
+        focus_aff("scabies", "dust")
+        --eat("dust")
       end,
 
       empty = function()
@@ -3973,6 +4058,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.pox and not doingaction "pox") or false
       end,
@@ -3984,7 +4071,8 @@ dict = {
 
       eatcure = "dust",
       onstart = function ()
-        eat("dust")
+        focus_aff("pox", "dust")
+        --eat("dust")
       end,
 
       empty = function()
@@ -4045,7 +4133,7 @@ dict = {
       spriority = 28,
 
       isadvisable = function ()
-        return (affs.fourthdegreeburn) or false
+        return (not conf.arena and affs.fourthdegreeburn) or false
       end,
 
       oncompleted = function ()
@@ -4071,6 +4159,37 @@ dict = {
         sk.lostbal_salve()
       end
     },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.fourthdegreeburn) or false
+      end,
+
+      oncompleted = function ()
+        sk.lostbal_salve()
+        removeaff("fourthdegreeburn")
+        addaff(dict.thirddegreeburn)
+      end,
+
+      noeffect = function ()
+        valid.ice_noeffect()
+      end,
+
+      nouse = function()
+        sk.lostbal_ice()
+      end,
+
+      onstart = function ()
+        send("apply ice to body", conf.commandecho)
+      end,
+
+
+      stillgot = function()
+        sk.lostbal_ice()
+      end
+    },
     aff = {
       oncompleted = function ()
         codepaste.remove_burns()
@@ -4089,7 +4208,7 @@ dict = {
       spriority = 27,
 
       isadvisable = function ()
-        return (affs.thirddegreeburn) or false
+        return (not conf.arena and affs.thirddegreeburn) or false
       end,
 
       oncompleted = function ()
@@ -4114,6 +4233,37 @@ dict = {
         sk.lostbal_salve()
       end
     },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.thirddegreeburn) or false
+      end,
+
+      oncompleted = function ()
+        sk.lostbal_salve()
+        removeaff("thirddegreeburn")
+        addaff(dict.seconddegreeburn)
+      end,
+
+      noeffect = function ()
+        valid.ice_noeffect()
+      end,
+
+      nouse = function()
+        sk.lostbal_ice()
+      end,
+
+      onstart = function ()
+        send("apply ice to body", conf.commandecho)
+      end,
+
+
+      stillgot = function()
+        sk.lostbal_ice()
+      end
+    },
     aff = {
       oncompleted = function ()
         codepaste.remove_burns()
@@ -4132,7 +4282,7 @@ dict = {
       spriority = 26,
 
       isadvisable = function ()
-        return (affs.seconddegreeburn) or false
+        return (not conf.arena and affs.seconddegreeburn) or false
       end,
 
       oncompleted = function ()
@@ -4157,6 +4307,37 @@ dict = {
         sk.lostbal_salve()
       end
     },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.seconddegreeburn) or false
+      end,
+
+      oncompleted = function ()
+        sk.lostbal_salve()
+        removeaff("seconddegreeburn")
+        addaff(dict.firstdegreeburn)
+      end,
+
+      noeffect = function ()
+        valid.ice_noeffect()
+      end,
+
+      nouse = function()
+        sk.lostbal_ice()
+      end,
+
+      onstart = function ()
+        send("apply ice to body", conf.commandecho)
+      end,
+
+
+      stillgot = function()
+        sk.lostbal_ice()
+      end
+    },
     aff = {
       oncompleted = function ()
         codepaste.remove_burns()
@@ -4175,7 +4356,7 @@ dict = {
       spriority = 25,
 
       isadvisable = function ()
-        return (affs.firstdegreeburn) or false
+        return (not conf.arena and affs.firstdegreeburn) or false
       end,
 
       oncompleted = function ()
@@ -4197,6 +4378,36 @@ dict = {
 
       stillgot = function()
         sk.lostbal_salve()
+      end
+    },
+    ice = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (conf.arena and affs.firstdegreeburn) or false
+      end,
+
+      oncompleted = function ()
+        sk.lostbal_salve()
+        removeaff("firstdegreeburn")
+      end,
+
+      noeffect = function ()
+        valid.ice_noeffect()
+      end,
+
+      nouse = function()
+        sk.lostbal_ice()
+      end,
+
+      onstart = function ()
+        send("apply ice to body", conf.commandecho)
+      end,
+
+
+      stillgot = function()
+        sk.lostbal_ice()
       end
     },
     aff = {
@@ -4374,6 +4585,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.asthma and not doingaction "asthma") or false
       end,
@@ -4385,7 +4598,8 @@ dict = {
 
       eatcure = "dust",
       onstart = function ()
-        eat("dust")
+        focus_aff("asthma", "dust")
+        --eat("dust")
       end,
 
       empty = function()
@@ -8398,6 +8612,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.rigormortis and not doingaction "rigormortis") or false
       end,
@@ -8409,7 +8625,8 @@ dict = {
 
       eatcure = "dust",
       onstart = function ()
-        eat("dust")
+        focus_aff("rigormortis", "dust")
+        --eat("dust")
       end,
 
       empty = function()
@@ -9256,6 +9473,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.clumsiness and not doingaction("clumsiness")) or false
       end,
@@ -9266,7 +9485,8 @@ dict = {
       end,
 
       onstart = function ()
-        send("sip lucidity", conf.commandecho)
+        focus_aff("clumsiness", "sip lucidity")
+        --send("sip lucidity", conf.commandecho)
       end,
 
       empty = function()
@@ -9332,6 +9552,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.slickness and not doingaction("slickness")) or false
       end,
@@ -9343,7 +9565,8 @@ dict = {
 
       smokecure = "steam",
       onstart = function ()
-        send("smoke " .. pipes.steam.id, conf.commandecho)
+        focus_aff("slickness", "smoke " .. pipes.steam.id)
+        --send("smoke " .. pipes.steam.id, conf.commandecho)
       end,
 
       empty = function ()
@@ -9444,6 +9667,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.confusion and not doingaction("confusion")) or false
       end,
@@ -9454,7 +9679,8 @@ dict = {
       end,
 
       onstart = function ()
-        send("sip lucidity", conf.commandecho)
+        focus_aff("confusion", "sip lucidity")
+        --send("sip lucidity", conf.commandecho)
       end,
 
       empty = function()
@@ -9647,6 +9873,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.hallucinating and not doingaction("hallucinating")) or false
       end,
@@ -9657,7 +9885,8 @@ dict = {
       end,
 
       onstart = function ()
-        send("sip lucidity", conf.commandecho)
+        focus_aff("hallucinating", "sip lucidity")
+        --send("sip lucidity", conf.commandecho)
       end,
 
       empty = function()
@@ -9728,6 +9957,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.paranoia and not doingaction("paranoia")) or false
       end,
@@ -9738,7 +9969,8 @@ dict = {
       end,
 
       onstart = function ()
-        send("sip lucidity", conf.commandecho)
+        focus_aff("paranoia", "sip lucidity")
+        --send("sip lucidity", conf.commandecho)
       end,
 
       empty = function()
@@ -10160,6 +10392,31 @@ dict = {
         empty.focus_mind()
       end
     },
+    lucidity = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.massiveinsanity and
+          not doingaction("massiveinsanity")) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("massiveinsanity")
+        addaff(dict.majorinsanity)
+        sk.lostbal_lucidity()
+      end,
+
+      onstart = function ()
+        send("sip lucidity tempinsanity", conf.commandecho)
+      end,
+
+      empty = function ()
+        sk.lostbal_lucidity()
+        empty.sip_lucidity()
+
+      end
+    },
     aff = {
       oncompleted = function ()
         codepaste.remove_insanities()
@@ -10223,6 +10480,31 @@ dict = {
         empty.focus_mind()
       end
     },
+    lucidity = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.majorinsanity and
+          not doingaction("majorinsanity")) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("majorinsanity")
+        addaff(dict.moderateinsanity)
+        sk.lostbal_lucidity()
+      end,
+
+      onstart = function ()
+        send("sip lucidity tempinsanity", conf.commandecho)
+      end,
+
+      empty = function ()
+        sk.lostbal_lucidity()
+        empty.sip_lucidity()
+
+      end
+    },
     aff = {
       oncompleted = function ()
         codepaste.remove_insanities()
@@ -10283,7 +10565,31 @@ dict = {
       empty = function ()
         sk.lostbal_focus()
 
-        empty.focus_mind()
+      end
+    },
+    lucidity = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.moderateinsanity and
+          not doingaction("moderateinsanity")) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("moderateinsanity")
+        addaff(dict.slightinsanity)
+        sk.lostbal_lucidity()
+      end,
+
+      onstart = function ()
+        send("sip lucidity tempinsanity", conf.commandecho)
+      end,
+
+      empty = function ()
+        sk.lostbal_lucidity()
+
+        empty.sip_lucidity()
       end
     },
     aff = {
@@ -10345,6 +10651,30 @@ dict = {
         sk.lostbal_focus()
 
         empty.focus_mind()
+      end
+    },
+    lucidity = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.slightinsanity and
+          not doingaction("slightinsanity")) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("slightinsanity")
+        sk.lostbal_lucidity()
+      end,
+
+      onstart = function ()
+        send("sip lucidity", conf.commandecho)
+      end,
+
+      empty = function ()
+        sk.lostbal_lucidity()
+        empty.sip_lucidity()
+
       end
     },
     aff = {
@@ -10939,6 +11269,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.pacifism and codepaste.smoke_steam_pipe()) or false
       end,
@@ -10950,7 +11282,8 @@ dict = {
 
       smokecure = "steam",
       onstart = function ()
-        send("smoke " .. pipes.steam.id, conf.commandecho)
+        focus_aff("pacifism", "smoke " .. pipes.steam.id)
+        --send("smoke " .. pipes.steam.id, conf.commandecho)
       end,
 
       empty = function ()
@@ -11502,6 +11835,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.addiction and not doingaction("addiction")) or false
       end,
@@ -11512,7 +11847,8 @@ dict = {
       end,
 
       onstart = function ()
-        send("sip lucidity", conf.commandecho)
+        focus_aff("addiction", "sip lucidity")
+        --send("sip lucidity", conf.commandecho)
       end,
 
       empty = function()
@@ -11591,6 +11927,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.epilepsy and not doingaction("epilepsy")) or false
       end,
@@ -11601,7 +11939,8 @@ dict = {
       end,
 
       onstart = function ()
-        send("sip lucidity", conf.commandecho)
+        focus_aff("addiction", "sip lucidity")
+        --send("sip lucidity", conf.commandecho)
       end,
 
       empty = function()
@@ -11754,6 +12093,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.achromaticaura and not affs.maestoso and codepaste.smoke_steam_pipe()) or false
       end,
@@ -11765,7 +12106,8 @@ dict = {
 
       smokecure = "steam",
       onstart = function ()
-        send("smoke " .. pipes.steam.id, conf.commandecho)
+        focus_aff("achromaticaura", "smoke " .. pipes.steam.id)
+        --send("smoke " .. pipes.steam.id, conf.commandecho)
       end,
 
       empty = function ()
@@ -11817,6 +12159,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.powerspikes and (not affs.maestoso or (defc.truedeaf or affs.deaf)) and codepaste.smoke_steam_pipe()) or false
       end,
@@ -11828,7 +12172,8 @@ dict = {
 
       smokecure = "steam",
       onstart = function ()
-        send("smoke " .. pipes.steam.id, conf.commandecho)
+        focus_aff("powerspikes", "smoke " .. pipes.steam.id)
+        --send("smoke " .. pipes.steam.id, conf.commandecho)
       end,
 
       empty = function ()
@@ -11903,6 +12248,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.manabarbs and not affs.maestoso and codepaste.smoke_steam_pipe()) or false
       end,
@@ -11914,7 +12261,8 @@ dict = {
 
       smokecure = "steam",
       onstart = function ()
-        send("smoke " .. pipes.steam.id, conf.commandecho)
+        focus_aff("manabarbs", "smoke " .. pipes.steam.id)
+        --send("smoke " .. pipes.steam.id, conf.commandecho)
       end,
 
       empty = function ()
@@ -11989,6 +12337,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.egovice and not affs.maestoso and codepaste.smoke_steam_pipe()) or false
       end,
@@ -12000,7 +12350,8 @@ dict = {
 
       smokecure = "steam",
       onstart = function ()
-        send("smoke " .. pipes.steam.id, conf.commandecho)
+        focus_aff("egovice", "smoke " .. pipes.steam.id)
+        --send("smoke " .. pipes.steam.id, conf.commandecho)
       end,
 
       empty = function ()
@@ -12138,6 +12489,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.recklessness and not doingaction("recklessness")) or false
       end,
@@ -12148,7 +12501,8 @@ dict = {
       end,
 
       onstart = function ()
-        send("sip lucidity", conf.commandecho)
+        focus_aff("recklessness", "sip lucidity")
+        --send("sip lucidity", conf.commandecho)
       end,
 
       empty = function()
@@ -12217,6 +12571,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.stupidity and not doingaction("stupidity")) or false
       end,
@@ -12227,7 +12583,8 @@ dict = {
       end,
 
       onstart = function ()
-        send("sip lucidity", conf.commandecho)
+        focus_aff("stupidity", "sip lucidity")
+        --send("sip lucidity", conf.commandecho)
       end,
 
       empty = function()
@@ -12914,6 +13271,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.anorexia and not doingaction("anorexia")) or false
       end,
@@ -12924,7 +13283,8 @@ dict = {
       end,
 
       onstart = function ()
-        send("sip lucidity", conf.commandecho)
+        focus_aff("anorexia", "sip lucidity")
+        --send("sip lucidity", conf.commandecho)
       end,
 
       empty = function()
@@ -13236,6 +13596,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.sensitivity and not doingaction("sensitivity")) or false
       end,
@@ -13246,7 +13608,8 @@ dict = {
       end,
 
       onstart = function ()
-        send("sip lucidity", conf.commandecho)
+        focus_aff("sensitivity", "sip lucidity")
+        --send("sip lucidity", conf.commandecho)
       end,
 
       empty = function()
@@ -16364,6 +16727,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.paralysis and
           not doingaction("curingparalysis") and not doingaction("paralysis")) or false
@@ -16375,9 +16740,15 @@ dict = {
         doaction(dict.curingparalysis.waitingfor)
       end,
 
+      instantcure = function()
+        sk.lostbal_wafer()
+        removeaff("paralysis")
+        end,
+
       eatcure = "dust",
       onstart = function ()
-        eat("dust")
+        focus_aff("paralysis", "dust")
+        --eat("dust")
       end,
 
       empty = function ()
@@ -16686,6 +17057,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.taintsick and not doingaction "taintsick") or false
       end,
@@ -16697,7 +17070,8 @@ dict = {
 
       eatcure = "dust",
       onstart = function ()
-        eat("dust")
+        focus_aff("sickening", "dust")
+        --eat("dust")
       end,
 
       empty = function()
@@ -16748,6 +17122,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.illuminated and codepaste.smoke_steam_pipe()) or false
       end,
@@ -16759,7 +17135,8 @@ dict = {
 
       smokecure = "steam",
       onstart = function ()
-        send("smoke " .. pipes.steam.id, conf.commandecho)
+        focus_aff("illuminated", "smoke " .. pipes.steam.id)
+        --send("smoke " .. pipes.steam.id, conf.commandecho)
       end,
 
       empty = function ()
@@ -16867,6 +17244,7 @@ dict = {
       empty = function()
         empty.eat_horehound()
       end
+
     },
     focus = {
       aspriority = 0,
@@ -16892,6 +17270,32 @@ dict = {
         sk.lostbal_focus()
 
         empty.focus_mind()
+      end
+    },
+    steam = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.massivetimewarp and
+          not doingaction("massivetimewarp")) or false
+      end,
+
+      oncompleted = function ()
+        cecho("\n<yellow>oncompleted fired")
+        removeaff("massivetimewarp")
+        addaff (dict.majortimewarp)
+        sk.lostbal_steam()
+      end,
+
+      onstart = function ()
+        send("smoke steam timewarp", conf.commandecho)
+      end,
+
+      empty = function ()
+        sk.lostbal_steam()
+        empty.smoke_steam()
+
       end
     },
     aff = {
@@ -16961,6 +17365,32 @@ dict = {
         empty.focus_mind()
       end
     },
+    steam = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.majortimewarp and
+          not doingaction("majortimewarp")) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("majortimewarp")
+        removeaff("massivetimewarp")
+        addaff (dict.moderatetimewarp)
+        sk.lostbal_steam()
+      end,
+
+      onstart = function ()
+        send("smoke steam timewarp", conf.commandecho)
+      end,
+
+      empty = function ()
+        sk.lostbal_steam()
+        empty.smoke_steam()
+
+      end
+    },
     aff = {
       oncompleted = function ()
         codepaste.remove_timewarps()
@@ -17028,6 +17458,33 @@ dict = {
         empty.focus_mind()
       end
     },
+    steam = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.moderatetimewarp and
+          not doingaction("moderatetimewarp")) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("moderatetimewarp")
+        removeaff("majortimewarp")
+        removeaff("massivetimewarp")
+        addaff (dict.minortimewarp)
+        sk.lostbal_steam()
+      end,
+
+      onstart = function ()
+        send("smoke steam timewarp", conf.commandecho)
+      end,
+
+      empty = function ()
+        sk.lostbal_steam()
+        empty.smoke_steam()
+
+      end
+    },
     aff = {
       oncompleted = function ()
         codepaste.remove_timewarps()
@@ -17091,6 +17548,32 @@ dict = {
         sk.lostbal_focus()
 
         empty.focus_mind()
+      end
+    },
+    steam = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.minortimewarp and
+          not doingaction("minortimewarp")) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("minortimewarp")
+        removeaff("moderatetimewarp")
+        removeaff("majortimewarp")
+        removeaff("massivetimewarp")
+        sk.lostbal_steam()
+      end,
+
+      onstart = function ()
+        send("smoke steam", conf.commandecho)
+      end,
+
+      empty = function ()
+        sk.lostbal_steam()
+        empty.smoke_steam()
       end
     },
     aff = {

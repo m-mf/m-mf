@@ -324,6 +324,9 @@ mmconfig options
 .. glossary::
   :sorted:
 
+  aeonfocus
+    specifies if afflictions being cured in slowcuring mode will be focused.
+
   allheale
     specifies whenever the system should make use of allheale to cure affs or not. Currently, it only makes use of it for blackout. You can disable this if you don't have any allheale potion so the system won't spam trying to use it.
 
@@ -350,6 +353,9 @@ mmconfig options
 
   autowounds
    has the system automatically check your wounds after a specific number of warrior hits, so tracking is more accurate. Wounds checking is gagged when the system does it automatically, so that you aren't spammed. This is set at 3 by default for Healers and at 10 for non-Healers.
+
+  beastfocus
+    specifies if system should attempt to use beastfocus before regular focus. Will automatically turn off if beast isn't present and it's on.
 
   blindherb
     sets which herb the system should use to cure blindness. Can be faeleaf or myrtle (default is faeleaf).
@@ -399,14 +405,17 @@ mmconfig options
   faeleafid
     sets the pipe ID to use for the faeleaf pipe. Normally you wouldn't need to use this, as the system can auto-assign IDs from the *pipelist* command - but if you don't have it, you can use this option.
 
+  focus
+    Adds/Removes an affliction to the focus table. Afflictions in the table will always be focused.
+
   focusbody
-    lets the system know if you have the Focus Body skill in Discipline so it can use it to cure.
+    (Deprecated - turn it off) - lets the system know if you have the Focus Body skill in Discipline so it can use it to cure.
 
   focusmind
-    lets the system know if you have the Focus Mind skill. If you don't have it, the system will just make use of normal (herbs, salves, etc.) cures for mental afflictions.
+    (Deprecated - turn it off) - lets the system know if you have the Focus Mind skill. If you don't have it, the system will just make use of normal (herbs, salves, etc.) cures for mental afflictions.
 
   focusspirit
-    lets the system know if you have the Focus Spirit ability or whenever it should use it to cure.
+    (Deprecated - turn it off) - lets the system know if you have the Focus Spirit ability or whenever it should use it to cure.
 
   gagbreath
     toggles whenever the system should gag (hide) breating or not. It will completely gag it - commands to put it up will not be shown, and you holding breath and exhaling will be completely gagged as well - so you will see no extra spam, at all.
@@ -452,6 +461,9 @@ mmconfig options
 
   parry
     lets the system know whenever you have parry or not so it can make use of it.
+
+  powerfocus
+    specifies if the system should use powerfocus when focusing on afflictions.
 
   preclot
     toggles whenever the system should preclot - that is, start clotting when you receive bleeding but before you take damage from bleeding. Doing so will save you from some bleeding damage, at the cost of a bigger willpower usage in the long term.
