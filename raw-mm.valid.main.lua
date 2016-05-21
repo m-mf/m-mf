@@ -3715,7 +3715,7 @@ function valid.sip_cured_$(aff)()
   else
     if insanitycheck then
       killaction(dict[result.action_name].lucidity)
-    then
+    else
       insanitycheck = nil
     end
     checkaction(dict.$(aff).lucidity, true)
