@@ -1430,7 +1430,7 @@ function missing_tinderbox()
 end
 
 function valid.symp_anorexia()
-  local doingthings = findbybals({"sip", "purgative", "allheale", "herb", "sparkle", "lucidity","dust"})
+  local doingthings = findbybals({"sip", "purgative", "allheale", "herb", "sparkle", "lucidity","wafer"})
 
   if conf.aillusion and not (doingthings or actions.quicksilver_misc) then return end
 
