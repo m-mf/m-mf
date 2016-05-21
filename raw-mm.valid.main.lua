@@ -1430,7 +1430,7 @@ function missing_tinderbox()
 end
 
 function valid.symp_anorexia()
-  local doingthings = findbybals({"sip", "purgative", "allheale", "herb", "sparkle", "lucidity"})
+  local doingthings = findbybals({"sip", "purgative", "allheale", "herb", "sparkle", "lucidity","dust"})
 
   if conf.aillusion and not (doingthings or actions.quicksilver_misc) then return end
 
@@ -1661,6 +1661,14 @@ function valid.ice_still_fourthdegreeburn()
     apply_ice = true
     lifevision.add(actions.fourthdegreeburn_ice.p, "stillgot")
   end
+end
+
+function valid.steam_still_massivetimewarp()
+  local result = checkany(dict.achromaticaura.steam, dict.aeon.steam, dict.disloyalty.steam, dict.healthleech.steam, dict.luminosity.steam, dict.manabarbs.steam, dict.pacifism.steam, dict.egovice.steam, dict.slickness.steam, dict.powerspikes.steam, dict.massivetimewarp.steam, dict.majortimewarp.steam, dict.moderatetimewarp.steam, dict.minortimewarp.steam)
+
+    if not result then return end
+
+    lifevision.add(actions.massivetimewarp.p, "stillgot")
 end
 
 #for _, item in ipairs{"faeleaf", "myrtle", "coltsfoot", "steam"} do
@@ -3640,7 +3648,7 @@ end
 
 -- lucidity sips
 #for _, lucidity in pairs({
-#lucidity = {"epilepsy", "paranoia", "sensitivity", "confusion", "recklessness", "hallucinating", "clumsiness", "stupidity", "addiction", "anorexia"},
+#lucidity = {"epilepsy", "paranoia", "sensitivity", "confusion", "recklessness", "hallucinating", "clumsiness", "stupidity", "addiction", "anorexia", "massiveinsanity","majorinsanity","moderateinsanity","slightinsanity"},
 #}) do
 #local checkany_string = ""
 #local temp = {}
@@ -3671,7 +3679,7 @@ end
 
 -- steam puffs
 #for _, steam in pairs({
-#steam = {"egovice", "manabarbs", "achromaticaura", "powerspikes", "disloyalty", "pacifism", "illuminated", "healthleech", "aeon", "slickness"},
+#steam = {"egovice", "manabarbs", "achromaticaura", "powerspikes", "disloyalty", "pacifism", "illuminated", "healthleech", "aeon", "slickness", "massivetimewarp","majortimewarp","moderatetimewarp","minortimewarp"},
 #}) do
 #local checkany_string = ""
 #local temp = {}
@@ -3688,7 +3696,6 @@ function valid.steam_cured_$(aff)()
   if not result then return end
 
   smoke_cure = true
-  setTriggerStayOpen("Smoke", 1)
   if result.name == "$(aff)_steam" then
     lifevision.add(actions.$(aff)_steam.p)
   else
@@ -3729,8 +3736,25 @@ function valid.wafer_cured_$(aff)()
   end
 end
 
+
+function valid.instant_cure_paralysis()
+  local result = checkany(dict.paralysis.wafer, $(checkany_string))
+  if not result then return end
+
+  herb_cure = true
+  if result.name == "paralysis_wafer" then
+    lifevision.add(actions.paralysis_wafer.p, "instantcure")
+  else
+    killaction(dict[result.action_name].wafer)
+    checkaction(dict.paralysis.wafer, true)
+    lifevision.add(dict.paralysis.wafer)
+  end
+end
+
 #end
 #end
+
+
 
 -- allheale sips
 #for _, allheale in pairs({

@@ -195,21 +195,33 @@ rub_cleanse = function()
     send("scrub", conf.commandecho) end
 end
 
-function sk.synceat(what)
+function sk.synceat(what, focus, aff)
   if rift.invcontents[what] > 0 then
-    send("eat " .. what, conf.commandecho)
+    if focus then
+      send("eat "..what.." "..focus.." "..aff, conf.commandecho)
+    else
+      send("eat " .. what, conf.commandecho)
+    end
   else
     rift.outr(what)
   end
 end
 
-function sk.asynceat(what)
+function sk.asynceat(what, focus, aff)
   if rift.invcontents[what] and rift.invcontents[what] > 0 then
-    send("eat " .. what, conf.commandecho)
+    if focus then
+      send("eat "..what.." "..focus.." "..aff, conf.commandecho)
+    else
+      send("eat " .. what, conf.commandecho)
+    end
     rift.outr(what)
   else
     rift.outr(what)
-    send("eat " .. what, conf.commandecho)
+    if focus then
+      send("eat "..what.." "..focus.." "..aff, conf.commandecho)
+    else
+      send("eat " .. what, conf.commandecho)
+    end
   end
 end
 eat = sk.asynceat

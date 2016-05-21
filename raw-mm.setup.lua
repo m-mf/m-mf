@@ -272,9 +272,13 @@ conf.manause = 35
 conf.bashing = true
 
 -- have skills?
-conf.focusbody = true
+conf.focusbody = false
 conf.focusmind = false
 conf.cleanse = false
+
+conf.beastfocus = false
+conf.aeonfocus = true
+conf.powerfocus = false
 
 conf.commandecho = true
 conf.blockcommands = true
@@ -359,6 +363,7 @@ me.skills  = {}
 me.wielded = {}
 me.dmplist = {}
 me.locks   = {}
+me.focus   = {}
 
 $(
 local paths = {}; paths.oldpath = package.path; package.path = package.path..";./?.lua;./bin/?.lua;"; local pretty = require "pl.pretty"; package.path = paths.oldpath
@@ -474,13 +479,23 @@ sk.overhauldata = {
   vomiting       = { newbalances = {"wafer"}, oldbalances = {"purgative"}, replaces = {"vomitblood"}},
   rigormortis    = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   taintsick      = { newbalances = {"wafer"}, oldbalances = {"focus"}, replaces = {"crotamine"}},
-  anorexia       = { newbalances = {"lucidity"}, oldbalances = {"herb"}},
+  anorexia       = { newbalances = {"lucidity"}, oldbalances = {"herb"}, replaces = {"throatlock"}},
   asthma         = { newbalances = {"wafer"}, oldbalances = {"salve"}},
   slickness      = { newbalances = {"steam"}, oldbalances = {"herb"}},
   blind          = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   trueblind      = { newbalances = {"wafer"}, oldbalances = {"herb"}},
-  deaf           = { newblanaces = {"wafer"}, oldbalances = {"herb"}},
-  truedeaf       = { newblanaces = {"wafer"}, oldbalances = {"herb"}},
+  deaf           = { newbalances = {"wafer"}, oldbalances = {"herb"}},
+  truedeaf       = { newbalances = {"wafer"}, oldbalances = {"herb"}},
+  massivetimewarp = { newbalances = {"steam"}, oldbalances = {"herb","focus"}},
+  majortimewarp = { newbalances = {"steam"}, oldbalances = {"herb","focus"}},
+  moderatetimewarp = { newbalances = {"steam"}, oldbalances = {"herb","focus"}},
+  minortimewarp = { newbalances = {"steam"}, oldbalances = {"herb","focus"}},
+  massiveinsanity = { newbalances = {"lucidity"}, oldbalances = {"herb","focus"}},
+  majorinsanity = { newbalances = {"lucidity"}, oldbalances = {"herb","focus"}},
+  moderateinsanity = { newbalances = {"lucidity"}, oldbalances = {"herb","focus"}},
+  slightinsanity = { newbalances = {"lucidity"}, oldbalances = {"herb","focus"}},
+  
+
 
 }
 sk.overhaulredirects = {}
@@ -621,6 +636,18 @@ signals.systemstart:connect(function ()
     update(me.lustlist, t)
   end
 end)
+
+-- load the focus list
+signals.systemstart:connect(function ()
+  local conf_path = getMudletHomeDir().."/m&m/config/focus"
+
+  if lfs.attributes(conf_path) then
+    local t = {}
+    table.load(conf_path, t)
+    update(me.focus, t)
+  end
+end)
+
 
 signals.saveconfig:connect(function () table.save(getMudletHomeDir() .. "/m&m/config/lustlist", me.lustlist) end)
 
