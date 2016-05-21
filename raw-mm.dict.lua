@@ -2055,6 +2055,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.healthleech and codepaste.smoke_steam_pipe()) or false
       end,
@@ -2117,6 +2119,8 @@ dict = {
     wafer = {
       aspriority = 0,
       spriority = 0,
+
+      focus = true,
 
       isadvisable = function ()
         return (affs.powersap and not doingaction "powersap") or false
@@ -2379,6 +2383,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.disloyalty and codepaste.smoke_steam_pipe()) or false
       end,
@@ -2481,6 +2487,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.dysentery and not doingaction "dysentery") or false
       end,
@@ -2542,6 +2550,8 @@ dict = {
     wafer = {
       aspriority = 0,
       spriority = 0,
+
+      focus = true,
 
       isadvisable = function ()
         return (affs.vomiting and not doingaction "vomiting") or false
@@ -2666,6 +2676,8 @@ dict = {
     wafer = {
       aspriority = 0,
       spriority = 0,
+
+      focus = true,
 
       isadvisable = function ()
         return (affs.haemophilia and not doingaction "haemophilia") or false
@@ -3984,6 +3996,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.scabies and not doingaction "scabies") or false
       end,
@@ -4043,6 +4057,8 @@ dict = {
     wafer = {
       aspriority = 0,
       spriority = 0,
+
+      focus = true,
 
       isadvisable = function ()
         return (affs.pox and not doingaction "pox") or false
@@ -4568,6 +4584,8 @@ dict = {
     wafer = {
       aspriority = 0,
       spriority = 0,
+
+      focus = true,
 
       isadvisable = function ()
         return (affs.asthma and not doingaction "asthma") or false
@@ -8594,6 +8612,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.rigormortis and not doingaction "rigormortis") or false
       end,
@@ -9453,6 +9473,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.clumsiness and not doingaction("clumsiness")) or false
       end,
@@ -9529,6 +9551,8 @@ dict = {
     steam = {
       aspriority = 0,
       spriority = 0,
+
+      focus = true,
 
       isadvisable = function ()
         return (affs.slickness and not doingaction("slickness")) or false
@@ -9642,6 +9666,8 @@ dict = {
     lucidity = {
       aspriority = 0,
       spriority = 0,
+
+      focus = true,
 
       isadvisable = function ()
         return (affs.confusion and not doingaction("confusion")) or false
@@ -9847,6 +9873,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.hallucinating and not doingaction("hallucinating")) or false
       end,
@@ -9928,6 +9956,8 @@ dict = {
     lucidity = {
       aspriority = 0,
       spriority = 0,
+
+      focus = true,
 
       isadvisable = function ()
         return (affs.paranoia and not doingaction("paranoia")) or false
@@ -11239,6 +11269,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.pacifism and codepaste.smoke_steam_pipe()) or false
       end,
@@ -11803,6 +11835,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.addiction and not doingaction("addiction")) or false
       end,
@@ -11892,6 +11926,8 @@ dict = {
     lucidity = {
       aspriority = 0,
       spriority = 0,
+
+      focus = true,
 
       isadvisable = function ()
         return (affs.epilepsy and not doingaction("epilepsy")) or false
@@ -12057,6 +12093,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.achromaticaura and not affs.maestoso and codepaste.smoke_steam_pipe()) or false
       end,
@@ -12120,6 +12158,8 @@ dict = {
     steam = {
       aspriority = 0,
       spriority = 0,
+
+      focus = true,
 
       isadvisable = function ()
         return (affs.powerspikes and (not affs.maestoso or (defc.truedeaf or affs.deaf)) and codepaste.smoke_steam_pipe()) or false
@@ -12208,6 +12248,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.manabarbs and not affs.maestoso and codepaste.smoke_steam_pipe()) or false
       end,
@@ -12294,6 +12336,8 @@ dict = {
     steam = {
       aspriority = 0,
       spriority = 0,
+
+      focus = true,
 
       isadvisable = function ()
         return (affs.egovice and not affs.maestoso and codepaste.smoke_steam_pipe()) or false
@@ -12445,6 +12489,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.recklessness and not doingaction("recklessness")) or false
       end,
@@ -12524,6 +12570,8 @@ dict = {
     lucidity = {
       aspriority = 0,
       spriority = 0,
+
+      focus = true,
 
       isadvisable = function ()
         return (affs.stupidity and not doingaction("stupidity")) or false
@@ -13223,6 +13271,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.anorexia and not doingaction("anorexia")) or false
       end,
@@ -13545,6 +13595,8 @@ dict = {
     lucidity = {
       aspriority = 0,
       spriority = 0,
+
+      focus = true,
 
       isadvisable = function ()
         return (affs.sensitivity and not doingaction("sensitivity")) or false
@@ -16675,6 +16727,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.paralysis and
           not doingaction("curingparalysis") and not doingaction("paralysis")) or false
@@ -17003,6 +17057,8 @@ dict = {
       aspriority = 0,
       spriority = 0,
 
+      focus = true,
+
       isadvisable = function ()
         return (affs.taintsick and not doingaction "taintsick") or false
       end,
@@ -17065,6 +17121,8 @@ dict = {
     steam = {
       aspriority = 0,
       spriority = 0,
+
+      focus = true,
 
       isadvisable = function ()
         return (affs.illuminated and codepaste.smoke_steam_pipe()) or false

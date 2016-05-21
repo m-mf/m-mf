@@ -224,9 +224,12 @@ mm.ignore_illusion()</script>
                             <integer>4</integer>
                         </regexCodePropertyList>
                     </Trigger>
-                    <Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                        <name>focus line</name>
-                        <script>setTriggerStayOpen(&quot;Ate&quot;,1)</script>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>no beast on beast focus</name>
+                        <script>if mm.conf.beastfocus then
+	mm.config.set(&quot;beastfocus&quot;, false, true)
+	mm.echo(&quot;No beast present, turning off beast focus&quot;)
+end</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>0</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -239,15 +242,9 @@ mm.ignore_illusion()</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>You have no beast here.</string>
-                            <string>A nimbus of light surrounds</string>
-                            <string>You focus on curing</string>
-                            <string>You call upon your aetheric power to focus on curing</string>
                         </regexCodeList>
                         <regexCodePropertyList>
                             <integer>3</integer>
-                            <integer>2</integer>
-                            <integer>2</integer>
-                            <integer>2</integer>
                         </regexCodePropertyList>
                     </Trigger>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
@@ -3576,6 +3573,29 @@ mm.show_vessels(1)</script>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>no beast present</name>
+                        <script>if mm.conf.beastfocus then
+	mm.config.set(&quot;beastfocus&quot;, false, true)
+	mm.echo(&quot;No beast present, turning off beast focus&quot;)
+end</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>You have no beast here.</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>3</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>m&amp;m sip2</name>
                         <script>mm.valid.sip2()</script>
@@ -6228,6 +6248,29 @@ mm.show_vessels(1)</script>
                         </regexCodeList>
                         <regexCodePropertyList>
                             <integer>3</integer>
+                            <integer>3</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>no beast present</name>
+                        <script>if mm.conf.beastfocus then
+	mm.config.set(&quot;beastfocus&quot;, false, true)
+	mm.echo(&quot;No beast present, turning off beast focus&quot;)
+end</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>You have no beast here.</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>

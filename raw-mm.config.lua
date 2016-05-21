@@ -66,7 +66,7 @@ config_dict = pl.OrderedMap {
     end,
     installstart = function () conf.blockcommands = true end,
   }},
---[[#conf_name = "focusbody"
+#conf_name = "focusbody"
   {$(conf_name) = {
     type = "boolean",
     g1 = "focus body",
@@ -92,7 +92,7 @@ config_dict = pl.OrderedMap {
     ondisabled = function () echof("<250,0,0>Won't%s use Focus Spirit to cure.", getDefaultColor()) end,
     installstart = function () conf.focusspirit = nil end,
     installcheck = function () echof("Can you make use of the FocusSpirit skill?") end
-  }},]]
+  }},
 #conf_name = "clot"
   {$(conf_name) = {
     type = "boolean",
@@ -969,7 +969,7 @@ config_dict = pl.OrderedMap {
     type = "string",
     onset = function()
       local aff = conf.focus
-      if not dict[aff] then
+      if not dict[aff].lucidity.focus and not dict[aff].wafer.focus and not dict[aff].steam.focus then
         echof("%s isn't an affliction we can focus.", aff)
         return
       end
