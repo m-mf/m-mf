@@ -1708,6 +1708,23 @@ function valid.litallpipes()
   end
 end
 
+local function isFocusLine(line)
+  local t = {
+    "You have no beast here.",
+    "A nimbus of light surrounds",
+    "You focus on curing",
+    "You call upon your aetheric power to focus on curing",
+    "You are not afflicted with",
+  }
+
+  for _,str in ipairs(t) do
+    if string.starts(line, str) then
+      return true
+    end
+  end
+  return false
+end
+
 herb_cure = false
 
 function valid.ate1()
@@ -1728,6 +1745,12 @@ function valid.ate1()
 end
 
 function valid.ate2()
+  --account for new focus line
+  if isFocusLine(line) then
+    setTriggerStayOpen("Ate", 1)
+    return
+  end
+
   if not herb_cure then
     if find_until_last_paragraph("You eat a wafer of purity dust.") and findbybal("wafer") then
       lifevision.add(actions[findbybal("wafer").name].p, "empty")
@@ -1757,6 +1780,12 @@ function valid.sip1()
 end
 
 function valid.sip2()
+  --account for new focus line
+  if isFocusLine(line) then
+    setTriggerStayOpen("Sip", 1)
+    return
+  end
+
   if sip_cure then return end
   sip_cure = false
 
@@ -1873,18 +1902,27 @@ function valid.smoke1()
   smoke_cure = false
 
   -- see if we need to enable arena mode for some reason
-  local t = sk.arena_areas
-  local area = atcp.RoomArea or (gmcp.Room and gmcp.Room.Info and gmcp.Room.Info.area)
-  if area and t[area] and not conf.arena then
-    conf.arena = true
-    raiseEvent("m&m config changed", "arena")
-    prompttrigger("arena echo", function()
-      echo'\n'echof("Looks like you're actually in the arena - enabled arena mode.\n") showprompt()
-    end)
+  if conf.autoarena then
+    local t = sk.arena_areas
+    local area = atcp.RoomArea or (gmcp.Room and gmcp.Room.Info and gmcp.Room.Info.area)
+    if area and t[area] and not conf.arena then
+      conf.arena = true
+      raiseEvent("m&m config changed", "arena")
+      prompttrigger("arena echo", function()
+        echo'\n'echof("Looks like you're actually in the arena - enabled arena mode.\n") showprompt()
+      end)
+    end
   end
 end
 
 function valid.smoke2()
+  -- prevent extra lines from setting off empty cures
+  --account for new focus line
+  if isFocusLine(line) or line == "A strange vibration prevents you from healing auric ailments." then
+    setTriggerStayOpen("Smoke", 1)
+    return
+  end
+
   if not smoke_cure then
     if actions.rebounding_misc then -- smoked rebounding?  No special line comes from it
       lifevision.add(actions.rebounding_misc.p)

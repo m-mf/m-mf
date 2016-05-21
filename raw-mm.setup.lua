@@ -651,6 +651,8 @@ end)
 
 signals.saveconfig:connect(function () table.save(getMudletHomeDir() .. "/m&m/config/lustlist", me.lustlist) end)
 
+signals.saveconfig:connect(function () table.save(getMudletHomeDir() .. "/m&m/config/focus", me.focus) end)
+
 -- load the ignore list
 signals.systemstart:connect(function ()
   local conf_path = getMudletHomeDir() .. "/m&m/config/ignore"

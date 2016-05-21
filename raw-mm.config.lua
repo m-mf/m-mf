@@ -1462,7 +1462,6 @@ function config.set(what, option, echoback)
 end
 
 signals.saveconfig:connect(function () table.save(getMudletHomeDir() .. "/m&m/config/conf", conf) end)
-signals.saveconfig:connect(function() table.save(getMudletHomeDir().."/m&mm/config/focus", me.focus) end)
 
 function config.showcolours()
   echof("Here's a list of available colors you can pick. To select, click on the name or use the %s command.", green("mmconfig echotype <name>"))
