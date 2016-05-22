@@ -30736,6 +30736,7 @@ mm.valid.proper_prone()</script>
                         <string>A youthful fink leaps forward and your vision goes black as he gouges your eyes out with his thumbs.</string>
                         <string>A Daughter of Darkness opens her mouth and a terrible shriek issues forth from her throat, causing painful reverberations in your mind.</string>
                         <string>Grasping you firmly in its talons, a snow eagle drives its beak firmly into your eye socket and plucks out your eye.</string>
+                        <string>The brilliant halo around a flickering coronuli flares brightly before all goes black.</string>
                     </regexCodeList>
                     <regexCodePropertyList>
                         <integer>3</integer>
@@ -30748,6 +30749,7 @@ mm.valid.proper_prone()</script>
                         <integer>3</integer>
                         <integer>3</integer>
                         <integer>1</integer>
+                        <integer>3</integer>
                         <integer>3</integer>
                         <integer>3</integer>
                         <integer>3</integer>

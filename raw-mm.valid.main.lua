@@ -1733,14 +1733,22 @@ function valid.ate1()
   end
 
   -- see if we need to enable arena mode for some reason
-  local t = sk.arena_areas
-  local area = atcp.RoomArea or (gmcp.Room and gmcp.Room.Info and gmcp.Room.Info.area)
-  if area and t[area] and not conf.arena then
-    conf.arena = true
-    raiseEvent("m&m config changed", "arena")
-    prompttrigger("arena echo", function()
-      echo'\n'echof("Looks like you're actually in the arena - enabled arena mode.\n") showprompt()
-    end)
+  if conf.autoarena then
+    local t = sk.arena_areas
+    local area = atcp.RoomArea or (gmcp.Room and gmcp.Room.Info and gmcp.Room.Info.area)
+    if area and t[area] and not conf.arena then
+      conf.arena = true
+      raiseEvent("m&m config changed", "arena")
+      prompttrigger("arena echo", function()
+        echo'\n'echof("Looks like you're actually in the arena - enabled arena mode.\n") showprompt()
+      end)
+    elseif area and not t[area] and conf.arena then
+      conf.arena = false
+      raiseEvent("m&m config changed", "arena")
+      prompttrigger("arena echo", function()
+        echo'\n'echof("Looks like you're not actually in the arena - disabled arena mode.\n") showprompt()
+      end)
+    end
   end
 end
 
@@ -1842,14 +1850,22 @@ function valid.arnica1()
   arnica_cure = false
 
   -- see if we need to enable arena mode for some reason
-  local t = sk.arena_areas
-  local area = atcp.RoomArea or (gmcp.Room and gmcp.Room.Info and gmcp.Room.Info.area)
-  if area and t[area] and not conf.arena then
-    conf.arena = true
-    raiseEvent("m&m config changed", "arena")
-    prompttrigger("arena echo", function()
-      echo'\n'echof("Looks like you're actually in the arena - enabled arena mode.\n") showprompt()
-    end)
+  if conf.autoarena then
+    local t = sk.arena_areas
+    local area = atcp.RoomArea or (gmcp.Room and gmcp.Room.Info and gmcp.Room.Info.area)
+    if area and t[area] and not conf.arena then
+      conf.arena = true
+      raiseEvent("m&m config changed", "arena")
+      prompttrigger("arena echo", function()
+        echo'\n'echof("Looks like you're actually in the arena - enabled arena mode.\n") showprompt()
+      end)
+    elseif area and not t[area] and conf.arena then
+      conf.arena = false
+      raiseEvent("m&m config changed", "arena")
+      prompttrigger("arena echo", function()
+        echo'\n'echof("Looks like you're not actually in the arena - disabled arena mode.\n") showprompt()
+      end)
+    end
   end
 end
 
@@ -1912,6 +1928,12 @@ function valid.smoke1()
       raiseEvent("m&m config changed", "arena")
       prompttrigger("arena echo", function()
         echo'\n'echof("Looks like you're actually in the arena - enabled arena mode.\n") showprompt()
+      end)
+    elseif area and not t[area] and conf.arena then
+      conf.arena = false
+      raiseEvent("m&m config changed", "arena")
+      prompttrigger("arena echo", function()
+        echo'\n'echof("Looks like you're not actually in the arena - disabled arena mode.\n") showprompt()
       end)
     end
   end
