@@ -969,7 +969,7 @@ config_dict = pl.OrderedMap {
     type = "string",
     onset = function()
       local aff = conf.focus
-      if not dict[aff].lucidity.focus and not dict[aff].wafer.focus and not dict[aff].steam.focus then
+      if (dict[aff].lucidity and not dict[aff].lucidity.focus) and (dict[aff].wafer and not dict[aff].wafer.focus) and (dict[aff].steam and not dict[aff].steam.focus) then
         echof("%s isn't an affliction we can focus.", aff)
         return
       end
