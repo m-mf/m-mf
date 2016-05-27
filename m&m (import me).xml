@@ -4890,12 +4890,12 @@ end</script>
                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                     <regexCodeList>
                         <string>You take out some restorative ice and quickly rub it on your</string>
-                        <string>A soothing chill spreads through your skin as the salve begins to sink in.</string>
+                        <string>The salve mends your</string>
                         <string>1</string>
                     </regexCodeList>
                     <regexCodePropertyList>
                         <integer>2</integer>
-                        <integer>3</integer>
+                        <integer>2</integer>
                         <integer>5</integer>
                     </regexCodePropertyList>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
