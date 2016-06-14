@@ -921,8 +921,8 @@ end
 #end
 
 function valid.attraction_woreoff()
-  checkaction(dict.attraction.herb, true)
-  lifevision.add(actions.attraction_herb.p, "woreoff")
+  checkaction(dict.attraction.wafer, true)
+  lifevision.add(actions.attraction_wafer.p, "woreoff")
 end
 
 function valid.choke_woreoff()
@@ -1725,6 +1725,16 @@ local function isFocusLine(line)
   return false
 end
 
+local function isBedeviled(line, bal)
+  if line == "The plague of bedeviling sickness causes your insides to clench in sheer agony." then
+    echo("Bedeviled firing")
+    local t = {steam = "recklessness", lucidity = "pacifism"}
+    lifevision.add(actions[t[bal].."_aff"].p)
+    return true
+  end
+  return false
+end
+
 herb_cure = false
 
 function valid.ate1()
@@ -1789,7 +1799,7 @@ end
 
 function valid.sip2()
   --account for new focus line
-  if isFocusLine(line) then
+  if isFocusLine(line) or isBedeviled(line, "lucidity") or line == "You are afflicted with an unknown affliction." then
     setTriggerStayOpen("Sip", 1)
     return
   end
@@ -1942,7 +1952,7 @@ end
 function valid.smoke2()
   -- prevent extra lines from setting off empty cures
   --account for new focus line
-  if isFocusLine(line) or line == "A strange vibration prevents you from healing auric ailments." then
+  if isFocusLine(line) or line == "A strange vibration prevents you from healing auric ailments." or isBedeviled(line, "steam") or line == "You are afflicted with an unknown affliction." then
     setTriggerStayOpen("Smoke", 1)
     return
   end
@@ -3666,7 +3676,7 @@ function valid.herbbanefail()
 end
 
 function valid.earachefail()
-  local result = checkany (dict.truedeaf.herb, dict.deaf.herb, dict.attraction.herb, dict.truedeaf.wafer, dict.deaf.wafer)
+  local result = checkany (dict.truedeaf.herb, dict.deaf.herb, dict.attraction.herb, dict.truedeaf.wafer, dict.deaf.wafer, dict.attraction.wafer)
   if not result then return end
 
   herb_cure = true
@@ -4081,7 +4091,7 @@ function defs.got_trueblind()
 end
 
 function defs.got_truedeaf()
-  local result = checkany (dict.truedeaf.herb, dict.attraction.herb, dict.deaf.herb,dict.truedeaf.wafer, dict.deaf.wafer)
+  local result = checkany (dict.truedeaf.herb, dict.attraction.herb, dict.deaf.herb,dict.truedeaf.wafer, dict.deaf.wafer, dict.attraction.wafer)
 
   if not result and conf.aillusion then
     return

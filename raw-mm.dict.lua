@@ -10268,6 +10268,39 @@ dict = {
         empty.eat_earwort()
       end
     },
+    wafer = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.attraction and not affs.earache and
+          not doingaction("attraction") and not dict.attraction.eaten) or false
+      end,
+
+      oncompleted = function ()
+        dict.attraction.eaten = true
+        sk.lostbal_wafer()
+        signals.newroom:unblock(sk.check_attraction)
+      end,
+
+      earache = function ()
+        sk.lostbal_wafer()
+        if not affs.earache then addaff(dict.earache) end
+      end,
+
+      woreoff = function()
+        removeaff("attraction")
+      end,
+
+      eatcure = "earwort",
+      onstart = function ()
+        eat("earwort")
+      end,
+
+      empty = function()
+        empty["eat_earwort"]()
+      end
+    },
     aff = {
       oncompleted = function ()
         addaff(dict.attraction)

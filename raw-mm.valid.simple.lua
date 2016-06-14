@@ -15,8 +15,9 @@ end
 end
 
 valid.simplebleeding = function (amount)
+  if gmcp and gmcp.Char and gmcp.Char.Vitals and gmcp.Char.Vitals.bruising then return end
 #if skills.psychometabolism then
-  if defc.bloodboil and conf.bloodboil and (stats.currentmana > sys.egouse) then return end
+  if defc.bloodboil and conf.bloodboil and (stats.currentego > sys.egouse) then return end
 #end
 
   if not conf.preclot then return end
@@ -28,8 +29,9 @@ valid.simplebleeding = function (amount)
 end
 
 valid.simplebruising = function (amount)
+  if gmcp and gmcp.Char and gmcp.Char.Vitals and gmcp.Char.Vitals.bruising then return end
 #if skills.psychometabolism then
-  if defc.bloodboil and conf.bloodboil and (stats.currentmana > sys.egouse) then return end
+  if defc.bloodboil and conf.bloodboil and (stats.currentego > sys.egouse) then return end
 #end
 
   if not conf.preclot then return end
