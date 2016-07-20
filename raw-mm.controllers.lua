@@ -548,6 +548,13 @@ prompt_stats = function ()
       end
     end
 
+    if tonumber(t.bleeding) > 50 then
+      dict.bleeding.aff.oncompleted(tonumber(t.bleeding))
+    end
+    if tonumber(t.bruising) > 50 then
+      dict.bruising.aff.oncompleted(tonumber(t.bruising))
+    end
+
     stats.momentum = tonumber(t.momentum)
 
     if t.kafe == "1" then defences.got("kafe") else defences.lost("kafe") end

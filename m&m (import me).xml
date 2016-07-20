@@ -3596,6 +3596,26 @@ end</script>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>bedevil hit</name>
+                        <script>mm.valid.bedevil_lucidity()</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>The plague of bedeviling sickness causes your insides to clench in sheer agony.</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>3</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>m&amp;m sip2</name>
                         <script>mm.valid.sip2()</script>
@@ -4610,7 +4630,8 @@ end</script>
                     </Trigger>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>cured partially</name>
-                        <script>mm.valid.ice_healed_partially()</script>
+                        <script>--echo(&quot;\n partial heal trigger firing&quot;)
+mm.valid.ice_healed_partially()</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>0</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -4890,12 +4911,12 @@ end</script>
                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                     <regexCodeList>
                         <string>You take out some restorative ice and quickly rub it on your</string>
-                        <string>A soothing chill spreads through your skin as the salve begins to sink in.</string>
+                        <string>^The salve mends your (?:head|chest|gut|right arm|left arm|right leg|left leg), curing your afflictions\.$</string>
                         <string>1</string>
                     </regexCodeList>
                     <regexCodePropertyList>
                         <integer>2</integer>
-                        <integer>3</integer>
+                        <integer>1</integer>
                         <integer>5</integer>
                     </regexCodePropertyList>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
@@ -6269,6 +6290,26 @@ end</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>You have no beast here.</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>3</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>bedeviled</name>
+                        <script>mm.valid.bedevil_steam()</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>The plague of bedeviling sickness causes your insides to clench in sheer agony.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
                             <integer>3</integer>
@@ -25434,7 +25475,7 @@ mm.valid.proper_prone()</script>
                             <integer>1</integer>
                         </regexCodePropertyList>
                     </Trigger>
-                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                    <Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Bedevil</name>
                         <script>mm.valid.simpleunknownany()</script>
                         <triggerType>0</triggerType>
@@ -26031,7 +26072,12 @@ if not (mm.valid[&quot;simple&quot;..aff] or mm.valid[&quot;affmsg_&quot;..aff])
   return
 end
 
-(mm.valid[&quot;affmsg_&quot;..aff] or mm.valid[&quot;simple&quot;..aff])()</script>
+if (aff == &quot;an unknown ailment&quot; or aff == &quot;an unknown affliction&quot;) and mm.knownaff then
+	mm.knownaff = nil
+	--not really unknown
+else
+	(mm.valid[&quot;affmsg_&quot;..aff] or mm.valid[&quot;simple&quot;..aff])()
+end</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>0</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -28130,10 +28176,12 @@ mm.valid.simpleunknownany()</script>
                         </regexCodePropertyList>
                     </Trigger>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                        <name>Leg must be working</name>
+                        <name>damagedleftleg symptom</name>
                         <script>-- this needs to know which afflictions can give this line, so it can ignore adding known if the system knows it has them
 
-mm.valid.simpleunknownany()</script>
+--mm.valid.simpleunknownany()
+
+mm.valid.symp_damagedleftleg()</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>0</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -28146,10 +28194,68 @@ mm.valid.simpleunknownany()</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>Your left leg must be working in order to do that.</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>3</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>damagedrightleg symptom</name>
+                        <script>mm.valid.symp_damagedrightleg()</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
                             <string>Your right leg must be working in order to do that.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
                             <integer>3</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>damagedleftarm symptom</name>
+                        <script>mm.valid.symp_damagedleftarm()</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>Your left arm must be free.</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>3</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>damagedrightarm symptom</name>
+                        <script>mm.valid.symp_damagedrightarm()</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>Your right arm must be free.</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -30736,6 +30842,7 @@ mm.valid.proper_prone()</script>
                         <string>A youthful fink leaps forward and your vision goes black as he gouges your eyes out with his thumbs.</string>
                         <string>A Daughter of Darkness opens her mouth and a terrible shriek issues forth from her throat, causing painful reverberations in your mind.</string>
                         <string>Grasping you firmly in its talons, a snow eagle drives its beak firmly into your eye socket and plucks out your eye.</string>
+                        <string>The brilliant halo around a flickering coronuli flares brightly before all goes black.</string>
                     </regexCodeList>
                     <regexCodePropertyList>
                         <integer>3</integer>
@@ -30748,6 +30855,7 @@ mm.valid.proper_prone()</script>
                         <integer>3</integer>
                         <integer>3</integer>
                         <integer>1</integer>
+                        <integer>3</integer>
                         <integer>3</integer>
                         <integer>3</integer>
                         <integer>3</integer>
@@ -55772,7 +55880,7 @@ end</script>
 	[&quot;sprawled&quot;]           = &quot;prone&quot;,
 	[&quot;temporaryinsanity&quot;]  = &quot;insanity&quot;,  
 	[&quot;transfix&quot;]           = &quot;transfixed&quot;,
-    [&quot;an unknown affliction&quot;] = &quot;unknownany&quot;,
+  	[&quot;an unknown affliction&quot;] = &quot;unknownany&quot;,
 	[&quot;sickening&quot;]  				= &quot;taintsick&quot;,
 	[&quot;luminosity&quot;]					= &quot;illuminated&quot;,
 }</script>

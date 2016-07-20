@@ -969,7 +969,7 @@ config_dict = pl.OrderedMap {
     type = "string",
     onset = function()
       local aff = conf.focus
-      if not dict[aff].lucidity.focus and not dict[aff].wafer.focus and not dict[aff].steam.focus then
+      if (dict[aff].lucidity and not dict[aff].lucidity.focus) and (dict[aff].wafer and not dict[aff].wafer.focus) and (dict[aff].steam and not dict[aff].steam.focus) then
         echof("%s isn't an affliction we can focus.", aff)
         return
       end
@@ -1143,6 +1143,12 @@ config_dict = pl.OrderedMap {
     onenabled = function () echof("<0,250,0>Will%s automatically enable/disable arena mode as you enter/leave the arena.", getDefaultColor()) end,
     ondisabled = function () echof("<250,0,0>Won't%s automatically enable/disable arena mode as you enter/leave the arena..", getDefaultColor()) end,
   }}, 
+#conf_name = "arena"
+  {$(conf_name) = {
+    type = "boolean",
+    onenabled = function () echof("<0,250,0>Will%s operate in arena mode.", getDefaultColor()) end,
+    ondisabled = function () echof("<0,250,0>Won't%s operate in arena mode.", getDefaultColor()) end,
+  }},
 #conf_name = "oldwarrior" 
   {$(conf_name) = {
     type = "boolean",

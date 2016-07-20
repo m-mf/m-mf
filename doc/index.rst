@@ -333,6 +333,9 @@ mmconfig options
   alwaysrockclimb
     specifies whenever the system should try to save power in combat by climbing normally if it can (and rock climbing only when there are things hindering you) or just outright always rock climbing. Hidden afflictions can slow down rock climbing if the system tries to normally climb first, so if those are an issue and power isn't, you can make the call.
 
+  arena
+    specifies if system should work as if you're in the arena or not.
+
   assumestats
     sets the % of health, mana, and ego which the system will assume you have when afflicted with blackout or recklessness (and thus your real stats are unknown).
 

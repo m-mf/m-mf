@@ -4,6 +4,9 @@ m&mf is an AI system for Lusternia, an online MUD. It has advanced and adaptable
 # Downloading
 To download the system for use, [see here](https://github.com/m-mf/m-mf/releases).
 
+# Documentation
+Documentation for m&mf can be found [here](http://m-mf.github.io/m-mf/)
+
 # Contributing
 To code in the system itself, follow instructions below on how to set it up. See also the [developer readme](Developer readme.md) for more useful information.
 

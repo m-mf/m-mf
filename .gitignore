@@ -39,6 +39,7 @@ bin/mm
 bin/mm.harvester.lua
 bin/mm.healing.lua
 bin/mm.namedb.lua
+Allclasses m&m.zip
 
 *.sublime-workspace
 /NUL:

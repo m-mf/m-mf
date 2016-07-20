@@ -3371,6 +3371,39 @@ dict = {
       end
     }
   },
+  lightsteam = {
+    physical = {
+      aspriority = 4,
+      spriority = 4,
+      balanceless_act = true,
+      herb = "steam",
+
+      isadvisable = function ()
+        -- disabled, handled with lightpipes by the system - but left here in case of manual lighting
+        return false
+      end,
+
+      oncompleted = function ()
+        pipes.steam.lit = true
+        sk.forcelight_steam = false
+        lastlit("steam")
+      end,
+
+      all = function ()
+        for name, pipe in pairs(pipes) do
+          pipe.lit = true
+          sk["forcelight_"..name] = false
+        end
+      end,
+      
+      onstart = function ()
+        if conf.gagrelight then
+          send("light " .. pipes.steam.id, false)
+        else
+          send("light " .. pipes.steam.id, conf.commandecho) end
+      end
+    }
+  },
   doparry = {
     misc = {
       aspriority = 41,
@@ -6791,7 +6824,7 @@ dict = {
       oncompleted = function ()
         sk.lostbal_ice()
 
-        addaff(dict.internalbleeding)
+        removeaff("internalbleeding")
       end,
 
       onstart = function ()
@@ -10266,6 +10299,39 @@ dict = {
 
       empty = function()
         empty.eat_earwort()
+      end
+    },
+    wafer = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.attraction and not affs.earache and
+          not doingaction("attraction") and not dict.attraction.eaten) or false
+      end,
+
+      oncompleted = function ()
+        dict.attraction.eaten = true
+        sk.lostbal_wafer()
+        signals.newroom:unblock(sk.check_attraction)
+      end,
+
+      earache = function ()
+        sk.lostbal_wafer()
+        if not affs.earache then addaff(dict.earache) end
+      end,
+
+      woreoff = function()
+        removeaff("attraction")
+      end,
+
+      eatcure = "earwort",
+      onstart = function ()
+        eat("earwort")
+      end,
+
+      empty = function()
+        empty["eat_earwort"]()
       end
     },
     aff = {

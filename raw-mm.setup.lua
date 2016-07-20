@@ -486,6 +486,7 @@ sk.overhauldata = {
   trueblind      = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   deaf           = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   truedeaf       = { newbalances = {"wafer"}, oldbalances = {"herb"}},
+  attraction       = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   massivetimewarp = { newbalances = {"steam"}, oldbalances = {"herb","focus"}},
   majortimewarp = { newbalances = {"steam"}, oldbalances = {"herb","focus"}},
   moderatetimewarp = { newbalances = {"steam"}, oldbalances = {"herb","focus"}},

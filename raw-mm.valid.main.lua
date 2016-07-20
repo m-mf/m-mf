@@ -819,6 +819,22 @@ function valid.bad_legs()
   valid.simpleunknownany()
 end
 
+function valid.symp_damagedleftleg()
+  valid.simpledamagedleftleg()
+end
+
+function valid.symp_damagedrightleg()
+  valid.simpledamagedrightleg()
+end
+
+function valid.symp_damagedleftarm()
+  valid.simpledamagedleftarm()
+end
+
+function valid.symp_damagedrightarm()
+  valid.simpledamagedrightarm()
+end
+
 function valid.symp_crushedwindpipe()
   if affs.crushedwindpipe then return end
   if not conf.aillusion then
@@ -921,8 +937,8 @@ end
 #end
 
 function valid.attraction_woreoff()
-  checkaction(dict.attraction.herb, true)
-  lifevision.add(actions.attraction_herb.p, "woreoff")
+  checkaction(dict.attraction.wafer, true)
+  lifevision.add(actions.attraction_wafer.p, "woreoff")
 end
 
 function valid.choke_woreoff()
@@ -1725,6 +1741,7 @@ local function isFocusLine(line)
   return false
 end
 
+
 herb_cure = false
 
 function valid.ate1()
@@ -1733,23 +1750,35 @@ function valid.ate1()
   end
 
   -- see if we need to enable arena mode for some reason
-  local t = sk.arena_areas
-  local area = atcp.RoomArea or (gmcp.Room and gmcp.Room.Info and gmcp.Room.Info.area)
-  if area and t[area] and not conf.arena then
-    conf.arena = true
-    raiseEvent("m&m config changed", "arena")
-    prompttrigger("arena echo", function()
-      echo'\n'echof("Looks like you're actually in the arena - enabled arena mode.\n") showprompt()
-    end)
+  if conf.autoarena then
+    local t = sk.arena_areas
+    local area = atcp.RoomArea or (gmcp.Room and gmcp.Room.Info and gmcp.Room.Info.area)
+    if area and t[area] and not conf.arena then
+      conf.arena = true
+      raiseEvent("m&m config changed", "arena")
+      prompttrigger("arena echo", function()
+        echo'\n'echof("Looks like you're actually in the arena - enabled arena mode.\n") showprompt()
+      end)
+    elseif area and not t[area] and conf.arena then
+      conf.arena = false
+      raiseEvent("m&m config changed", "arena")
+      prompttrigger("arena echo", function()
+        echo'\n'echof("Looks like you're not actually in the arena - disabled arena mode.\n") showprompt()
+      end)
+    end
   end
 end
 
 function valid.ate2()
-  --account for new focus line
-  if isFocusLine(line) then
+  if not isPrompt() then
     setTriggerStayOpen("Ate", 1)
     return
   end
+  --account for new focus line
+  --[[if isFocusLine(line) then
+    setTriggerStayOpen("Ate", 1)
+    return
+  end]]
 
   if not herb_cure then
     if find_until_last_paragraph("You eat a wafer of purity dust.") and findbybal("wafer") then
@@ -1780,13 +1809,17 @@ function valid.sip1()
 end
 
 function valid.sip2()
-  --account for new focus line
-  if isFocusLine(line) then
+  --account for any line that until the prompt
+  if not isPrompt() then
+    setTriggerStayOpen("Sip", 1)
+    return
+  end
+  --[[if isFocusLine(line) then
     setTriggerStayOpen("Sip", 1)
     return
   end
 
-  if insanitycheck and isPrompt() then return end
+  if insanitycheck and isPrompt() then return end]]
 
   if sip_cure then return end
   sip_cure = false
@@ -1842,14 +1875,22 @@ function valid.arnica1()
   arnica_cure = false
 
   -- see if we need to enable arena mode for some reason
-  local t = sk.arena_areas
-  local area = atcp.RoomArea or (gmcp.Room and gmcp.Room.Info and gmcp.Room.Info.area)
-  if area and t[area] and not conf.arena then
-    conf.arena = true
-    raiseEvent("m&m config changed", "arena")
-    prompttrigger("arena echo", function()
-      echo'\n'echof("Looks like you're actually in the arena - enabled arena mode.\n") showprompt()
-    end)
+  if conf.autoarena then
+    local t = sk.arena_areas
+    local area = atcp.RoomArea or (gmcp.Room and gmcp.Room.Info and gmcp.Room.Info.area)
+    if area and t[area] and not conf.arena then
+      conf.arena = true
+      raiseEvent("m&m config changed", "arena")
+      prompttrigger("arena echo", function()
+        echo'\n'echof("Looks like you're actually in the arena - enabled arena mode.\n") showprompt()
+      end)
+    elseif area and not t[area] and conf.arena then
+      conf.arena = false
+      raiseEvent("m&m config changed", "arena")
+      prompttrigger("arena echo", function()
+        echo'\n'echof("Looks like you're not actually in the arena - disabled arena mode.\n") showprompt()
+      end)
+    end
   end
 end
 
@@ -1888,6 +1929,10 @@ function valid.applyice1()
 end
 
 function valid.applyice2()
+  if string.find(line, "curing your afflictions") then
+    return
+  end
+
   if not apply_ice then
     local r = findbybal("ice")
     if not r then return end
@@ -1913,14 +1958,25 @@ function valid.smoke1()
       prompttrigger("arena echo", function()
         echo'\n'echof("Looks like you're actually in the arena - enabled arena mode.\n") showprompt()
       end)
+    elseif area and not t[area] and conf.arena then
+      conf.arena = false
+      raiseEvent("m&m config changed", "arena")
+      prompttrigger("arena echo", function()
+        echo'\n'echof("Looks like you're not actually in the arena - disabled arena mode.\n") showprompt()
+      end)
     end
   end
 end
 
 function valid.smoke2()
   -- prevent extra lines from setting off empty cures
+  if not isPrompt() then
+    setTriggerStayOpen("Sip", 1)
+    return
+  end
   --account for new focus line
-  if isFocusLine(line) or line == "A strange vibration prevents you from healing auric ailments." then
+  --[[if isFocusLine(line) or line == "A strange vibration prevents you from healing auric ailments."
+   then
     setTriggerStayOpen("Smoke", 1)
     return
   end
@@ -1928,7 +1984,7 @@ function valid.smoke2()
   if timewarpcheck and isPrompt() then
     timewarpcheck = nil
     return
-  end
+  end]]
 
   if not smoke_cure then
     if actions.rebounding_misc then -- smoked rebounding?  No special line comes from it
@@ -3019,6 +3075,52 @@ function valid.empty_light()
   end
 end
 
+function valid.empty_smoke()
+  local r = checkany(dict.achromaticaura.steam, dict.aeon.steam, dict.disloyalty.steam, dict.egovice.steam, dict.healtheech.steam, dict.manabarbs.steam, dict.pacifism.steam, dict.powerspikes.steam, dict.slickness.steam, dict.massivetimewarp.steam, dict.majortimewarp.steam, dict.moderatetimewarp.steam, dict.minortimewarp.steam)
+
+  if r then
+    killaction(dict[r.action_name].steam)
+    pipes.steam.puffs = 0
+    if not pipes.steam.arty then
+      pipes.steam.lit = false
+    end
+    return
+  end
+
+  r = checkany(dict.hemiplegyleft.herb, dict.hemiplegyright.herb, dict.hemiplegylower.herb, dict.piercedleftarm.herb, dict.piercedrightarm.herb, dict.piercedleftleg.herb, dict.piercedrightleg.herb, dict.crushedwindpipe.herb, dict.severedphrenic.herb)
+
+  if r then
+    killaction(dict[r.action_name].herb)
+    pipes.myrtle.puffs = 0
+    if not pipes.myrtle.arty then
+      pipes.myrtle.lit = false
+    end
+    return
+  end
+
+  r = checkany(dict.impatience.herb)
+
+  if r then
+    killaction(dict[r.action_name].herb)
+    pipes.coltsfoot.puffs = 0
+    if not pipes.coltsfoot.arty then
+      pipes.coltsfoot.lit = false
+    end
+    return
+  end
+
+  r = checkany(dict.rebounding.misc)
+
+  if r then
+    killaction(dict[r.action_name].misc)
+    pipes.faeleaf.puffs = 0
+    if not pipes.faeleaf.arty then
+      pipes.faeleaf.lit = false
+    end
+    return
+  end
+end
+
 function valid.healed_completely()
   local result = checkany(
     dict.lighthead.sip, dict.mediumhead.sip, dict.heavyhead.sip, dict.criticalhead.sip,
@@ -3644,7 +3746,7 @@ function valid.herbbanefail()
 end
 
 function valid.earachefail()
-  local result = checkany (dict.truedeaf.herb, dict.deaf.herb, dict.attraction.herb, dict.truedeaf.wafer, dict.deaf.wafer)
+  local result = checkany (dict.truedeaf.herb, dict.deaf.herb, dict.attraction.herb, dict.truedeaf.wafer, dict.deaf.wafer, dict.attraction.wafer)
   if not result then return end
 
   herb_cure = true
@@ -3959,6 +4061,16 @@ function valid.herb_failed_bedevil()
   lifevision.add(actions[r.name].p, "failed")
 end
 
+function valid.bedevil_steam()
+  mm.valid.simplerecklessness()
+  mm.knownaff = true
+end
+
+function valid.bedevil_lucidity()
+  mm.valid.simplepacifism()
+  mm.knownaff = true
+end
+
 function valid.herb_failed_jitterbug()
   local eating = findbybal("herb")
   if not eating then return end
@@ -4059,7 +4171,7 @@ function defs.got_trueblind()
 end
 
 function defs.got_truedeaf()
-  local result = checkany (dict.truedeaf.herb, dict.attraction.herb, dict.deaf.herb,dict.truedeaf.wafer, dict.deaf.wafer)
+  local result = checkany (dict.truedeaf.herb, dict.attraction.herb, dict.deaf.herb,dict.truedeaf.wafer, dict.deaf.wafer, dict.attraction.wafer)
 
   if not result and conf.aillusion then
     return
