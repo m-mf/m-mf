@@ -351,6 +351,7 @@ defs_data = phpTable({
   },
   fire = { type = "general",
     onr = [[^\w+ closes (?:his|her) eyes for a moment and turns towards you, beseeching the sun to shine\. A shaft of warm, golden light falls over you, soothing your body\.$]],
+    on = "A feeling of comfortable warmth spreads over you.",
     def = "Your insides are warmed by a fire potion." },
   trueblind = { type = "general" },
   ["regal aura"] = { nodef = true,

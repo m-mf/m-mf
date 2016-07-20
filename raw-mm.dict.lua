@@ -3371,6 +3371,39 @@ dict = {
       end
     }
   },
+  lightsteam = {
+    physical = {
+      aspriority = 4,
+      spriority = 4,
+      balanceless_act = true,
+      herb = "steam",
+
+      isadvisable = function ()
+        -- disabled, handled with lightpipes by the system - but left here in case of manual lighting
+        return false
+      end,
+
+      oncompleted = function ()
+        pipes.steam.lit = true
+        sk.forcelight_steam = false
+        lastlit("steam")
+      end,
+
+      all = function ()
+        for name, pipe in pairs(pipes) do
+          pipe.lit = true
+          sk["forcelight_"..name] = false
+        end
+      end,
+      
+      onstart = function ()
+        if conf.gagrelight then
+          send("light " .. pipes.steam.id, false)
+        else
+          send("light " .. pipes.steam.id, conf.commandecho) end
+      end
+    }
+  },
   doparry = {
     misc = {
       aspriority = 41,
@@ -6791,7 +6824,7 @@ dict = {
       oncompleted = function ()
         sk.lostbal_ice()
 
-        addaff(dict.internalbleeding)
+        removeaff("internalbleeding")
       end,
 
       onstart = function ()

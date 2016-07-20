@@ -819,6 +819,22 @@ function valid.bad_legs()
   valid.simpleunknownany()
 end
 
+function valid.symp_damagedleftleg()
+  valid.simpledamagedleftleg()
+end
+
+function valid.symp_damagedrightleg()
+  valid.simpledamagedrightleg()
+end
+
+function valid.symp_damagedleftarm()
+  valid.simpledamagedleftarm()
+end
+
+function valid.symp_damagedrightarm()
+  valid.simpledamagedrightarm()
+end
+
 function valid.symp_crushedwindpipe()
   if affs.crushedwindpipe then return end
   if not conf.aillusion then
@@ -1725,15 +1741,6 @@ local function isFocusLine(line)
   return false
 end
 
-local function isBedeviled(line, bal)
-  if line == "The plague of bedeviling sickness causes your insides to clench in sheer agony." then
-    echo("Bedeviled firing")
-    local t = {steam = "recklessness", lucidity = "pacifism"}
-    lifevision.add(actions[t[bal].."_aff"].p)
-    return true
-  end
-  return false
-end
 
 herb_cure = false
 
@@ -1763,11 +1770,15 @@ function valid.ate1()
 end
 
 function valid.ate2()
-  --account for new focus line
-  if isFocusLine(line) then
+  if not isPrompt() then
     setTriggerStayOpen("Ate", 1)
     return
   end
+  --account for new focus line
+  --[[if isFocusLine(line) then
+    setTriggerStayOpen("Ate", 1)
+    return
+  end]]
 
   if not herb_cure then
     if find_until_last_paragraph("You eat a wafer of purity dust.") and findbybal("wafer") then
@@ -1798,13 +1809,17 @@ function valid.sip1()
 end
 
 function valid.sip2()
-  --account for new focus line
-  if isFocusLine(line) or isBedeviled(line, "lucidity") or line == "You are afflicted with an unknown affliction." then
+  --account for any line that until the prompt
+  if not isPrompt() then
+    setTriggerStayOpen("Sip", 1)
+    return
+  end
+  --[[if isFocusLine(line) then
     setTriggerStayOpen("Sip", 1)
     return
   end
 
-  if insanitycheck and isPrompt() then return end
+  if insanitycheck and isPrompt() then return end]]
 
   if sip_cure then return end
   sip_cure = false
@@ -1914,6 +1929,10 @@ function valid.applyice1()
 end
 
 function valid.applyice2()
+  if string.find(line, "curing your afflictions") then
+    return
+  end
+
   if not apply_ice then
     local r = findbybal("ice")
     if not r then return end
@@ -1951,8 +1970,13 @@ end
 
 function valid.smoke2()
   -- prevent extra lines from setting off empty cures
+  if not isPrompt() then
+    setTriggerStayOpen("Sip", 1)
+    return
+  end
   --account for new focus line
-  if isFocusLine(line) or line == "A strange vibration prevents you from healing auric ailments." or isBedeviled(line, "steam") or line == "You are afflicted with an unknown affliction." then
+  --[[if isFocusLine(line) or line == "A strange vibration prevents you from healing auric ailments."
+   then
     setTriggerStayOpen("Smoke", 1)
     return
   end
@@ -1960,7 +1984,7 @@ function valid.smoke2()
   if timewarpcheck and isPrompt() then
     timewarpcheck = nil
     return
-  end
+  end]]
 
   if not smoke_cure then
     if actions.rebounding_misc then -- smoked rebounding?  No special line comes from it
@@ -3048,6 +3072,52 @@ function valid.empty_light()
   pipes[dict[r.action_name].physical.herb].puffs = 0
   if not pipes[dict[r.action_name].physical.herb].arty then
     pipes[dict[r.action_name].physical.herb].lit = false
+  end
+end
+
+function valid.empty_smoke()
+  local r = checkany(dict.achromaticaura.steam, dict.aeon.steam, dict.disloyalty.steam, dict.egovice.steam, dict.healtheech.steam, dict.manabarbs.steam, dict.pacifism.steam, dict.powerspikes.steam, dict.slickness.steam, dict.massivetimewarp.steam, dict.majortimewarp.steam, dict.moderatetimewarp.steam, dict.minortimewarp.steam)
+
+  if r then
+    killaction(dict[r.action_name].steam)
+    pipes.steam.puffs = 0
+    if not pipes.steam.arty then
+      pipes.steam.lit = false
+    end
+    return
+  end
+
+  r = checkany(dict.hemiplegyleft.herb, dict.hemiplegyright.herb, dict.hemiplegylower.herb, dict.piercedleftarm.herb, dict.piercedrightarm.herb, dict.piercedleftleg.herb, dict.piercedrightleg.herb, dict.crushedwindpipe.herb, dict.severedphrenic.herb)
+
+  if r then
+    killaction(dict[r.action_name].herb)
+    pipes.myrtle.puffs = 0
+    if not pipes.myrtle.arty then
+      pipes.myrtle.lit = false
+    end
+    return
+  end
+
+  r = checkany(dict.impatience.herb)
+
+  if r then
+    killaction(dict[r.action_name].herb)
+    pipes.coltsfoot.puffs = 0
+    if not pipes.coltsfoot.arty then
+      pipes.coltsfoot.lit = false
+    end
+    return
+  end
+
+  r = checkany(dict.rebounding.misc)
+
+  if r then
+    killaction(dict[r.action_name].misc)
+    pipes.faeleaf.puffs = 0
+    if not pipes.faeleaf.arty then
+      pipes.faeleaf.lit = false
+    end
+    return
   end
 end
 
