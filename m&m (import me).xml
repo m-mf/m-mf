@@ -3596,6 +3596,26 @@ end</script>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>bedevil hit</name>
+                        <script>mm.valid.bedevil_lucidity()</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>The plague of bedeviling sickness causes your insides to clench in sheer agony.</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>3</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>m&amp;m sip2</name>
                         <script>mm.valid.sip2()</script>
@@ -6270,6 +6290,26 @@ end</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>You have no beast here.</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>3</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>bedeviled</name>
+                        <script>mm.valid.bedevil_steam()</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>The plague of bedeviling sickness causes your insides to clench in sheer agony.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
                             <integer>3</integer>
@@ -25435,7 +25475,7 @@ mm.valid.proper_prone()</script>
                             <integer>1</integer>
                         </regexCodePropertyList>
                     </Trigger>
-                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                    <Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Bedevil</name>
                         <script>mm.valid.simpleunknownany()</script>
                         <triggerType>0</triggerType>
@@ -26032,7 +26072,12 @@ if not (mm.valid[&quot;simple&quot;..aff] or mm.valid[&quot;affmsg_&quot;..aff])
   return
 end
 
-(mm.valid[&quot;affmsg_&quot;..aff] or mm.valid[&quot;simple&quot;..aff])()</script>
+if (aff == &quot;an unknown ailment&quot; or aff == &quot;an unknown affliction&quot;) and mm.knownaff then
+	mm.knownaff = nil
+	--not really unknown
+else
+	(mm.valid[&quot;affmsg_&quot;..aff] or mm.valid[&quot;simple&quot;..aff])()
+end</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>0</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -28195,8 +28240,8 @@ mm.valid.symp_damagedleftleg()</script>
                         </regexCodePropertyList>
                     </Trigger>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                        <name>New Trigger</name>
-                        <script></script>
+                        <name>damagedrightarm symptom</name>
+                        <script>mm.valid.symp_damagedrightarm()</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>0</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -55835,7 +55880,7 @@ end</script>
 	[&quot;sprawled&quot;]           = &quot;prone&quot;,
 	[&quot;temporaryinsanity&quot;]  = &quot;insanity&quot;,  
 	[&quot;transfix&quot;]           = &quot;transfixed&quot;,
-    [&quot;an unknown affliction&quot;] = &quot;unknownany&quot;,
+  	[&quot;an unknown affliction&quot;] = &quot;unknownany&quot;,
 	[&quot;sickening&quot;]  				= &quot;taintsick&quot;,
 	[&quot;luminosity&quot;]					= &quot;illuminated&quot;,
 }</script>

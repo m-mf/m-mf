@@ -4061,6 +4061,16 @@ function valid.herb_failed_bedevil()
   lifevision.add(actions[r.name].p, "failed")
 end
 
+function valid.bedevil_steam()
+  mm.valid.simplerecklessness()
+  mm.knownaff = true
+end
+
+function valid.bedevil_lucidity()
+  mm.valid.simplepacifism()
+  mm.knownaff = true
+end
+
 function valid.herb_failed_jitterbug()
   local eating = findbybal("herb")
   if not eating then return end
