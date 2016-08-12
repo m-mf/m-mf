@@ -1798,12 +1798,13 @@ function valid.ate2()
 end
 
 local sip_cure = false
+local multiple_sip_lines = false
 
 function valid.sip1()
   local has_sip = pl.tablex.find_if(lifevision.l._keys, function(what) return what:find("_sip", 1, true) end) and true or false
 
   -- don't re-set it in the same 'sipping'. sip1 can go off multiple times now
-  if not has_sip then
+  if not has_sip and not multiple_sip_lines then
     sip_cure = false
   end
 end
@@ -1811,6 +1812,7 @@ end
 function valid.sip2()
   --account for any line that until the prompt
   if not isPrompt() then
+    multiple_sip_lines = true
     setTriggerStayOpen("Sip", 1)
     return
   end
@@ -1820,9 +1822,11 @@ function valid.sip2()
   end
 
   if insanitycheck and isPrompt() then return end]]
-
-  if sip_cure then return end
-  sip_cure = false
+  multiple_sip_lines = false
+  if sip_cure then 
+    sip_cure = false
+    return
+  end
 
   if find_until_last_paragraph("lucidity slush", true) and findbybal("lucidity") then
     lifevision.add(actions[findbybal("lucidity").name].p, "empty")
@@ -1944,9 +1948,12 @@ function valid.applyice2()
 end
 
 smoke_cure = false
+multiple_smoke_lines = false
 
 function valid.smoke1()
-  smoke_cure = false
+  if not multiple_smoke_lines then
+    smoke_cure = false
+  end
 
   -- see if we need to enable arena mode for some reason
   if conf.autoarena then
@@ -1968,12 +1975,15 @@ function valid.smoke1()
   end
 end
 
+
 function valid.smoke2()
   -- prevent extra lines from setting off empty cures
   if not isPrompt() then
-    setTriggerStayOpen("Sip", 1)
+    multiple_smoke_lines = true
+    setTriggerStayOpen("Smoke", 1)
     return
   end
+  multiple_smoke_lines = false
   --account for new focus line
   --[[if isFocusLine(line) or line == "A strange vibration prevents you from healing auric ailments."
    then
@@ -1985,7 +1995,10 @@ function valid.smoke2()
     timewarpcheck = nil
     return
   end]]
-
+  if smoke_cure then
+    smoke_cure = false
+    return
+  end
   if not smoke_cure then
     if actions.rebounding_misc then -- smoked rebounding?  No special line comes from it
       lifevision.add(actions.rebounding_misc.p)
@@ -1993,12 +2006,12 @@ function valid.smoke2()
     end
 
     local r = findbybals{"steam", "herb"}
-    if not r then return end
+    if not r then 
+      return 
+    end
     -- take in the first action, as it is most likely to be the steam smoke one with overhaul
     lifevision.add(actions[select(2, next(r)).name].p, "empty", "smoked")
   end
-
-  smoke_cure = false
 end
 
 function valid.pipe_ran_out()
@@ -3815,17 +3828,8 @@ function valid.sip_cured_$(aff)()
   if result.name == "$(aff)_lucidity" then
     lifevision.add(actions.$(aff)_lucidity.p)
   else
-    if insanitycheck then
-      killaction(dict[result.action_name].lucidity)
-    else
-      insanitycheck = nil
-    end
     checkaction(dict.$(aff).lucidity, true)
     lifevision.add(dict.$(aff).lucidity)
-  end
-  if not result.name:find("insanity") then
-    setTriggerStayOpen("Sip",1)
-    insanitycheck = true
   end
 end
 
@@ -3851,26 +3855,58 @@ function valid.steam_cured_$(aff)()
   if not result then return end
 
   smoke_cure = true
-  setTriggerStayOpen("Smoke", 1)
   if result.name == "$(aff)_steam" then
     lifevision.add(actions.$(aff)_steam.p)
   else
-    if not timewarpcheck then
-      killaction(dict[result.action_name].steam)
-    else
-      timewarpcheck = nil
-    end
     checkaction(dict.$(aff).steam, true)
     lifevision.add(dict.$(aff).steam)
-  end
-  if not result.name:find("timewarp") then
-    setTriggerStayOpen("Smoke",1)
-    timewarpcheck = true
   end
 end
 
 #end
 #end
+
+function valid.steam_noaff(aff)
+  if aff == "luminosity" then
+    aff = "illuminated"
+  end
+
+  if not dict[aff].steam then
+    return
+  end
+
+  local result = checkany(dict[aff].steam)
+  if not result then return end
+  lifevision.add(dict[aff].steam)
+end
+
+function valid.lucidity_noaff(aff)
+  if aff == "hallucinations" then
+    aff = "hallucinating"
+  end
+
+  if not dict[aff].lucidity then
+    return
+  end
+
+  local result = checkany(dict[aff].lucidity)
+  if not result then return end
+  lifevision.add(dict[aff].lucidity)
+end
+
+function valid.wafer_noaff(aff)
+  if aff == "sickening" then
+    aff = "taintsick"
+  end
+
+  if not dict[aff].wafer then
+    return
+  end
+
+  local result = checkany(dict[aff].wafer)
+  if not result then return end
+  lifevision.add(dict[aff].wafer)
+end
 
 -- wafer nomnoms
 #for _, wafer in pairs({
@@ -4073,12 +4109,19 @@ end
 
 function valid.herb_failed_jitterbug()
   local eating = findbybal("herb")
-  if not eating then return end
+  local wafer_ate = findbybal("wafer")
+
+  if not wafer_ate and not eating then return end
 
   herb_cure = true
-  sk.lostbal_herb()
+  if eating then
+    sk.lostbal_herb()
+    killaction(dict[eating.action_name].herb)
+  elseif wafer_ate then
+    sk.lostbal_wafer()
+    killaction(dict[wafer_ate.action_name].wafer)
+  end
 
-  killaction(dict[eating.action_name].herb)
 end
 
 function valid.herb_failed_aurawarp()
@@ -4267,7 +4310,7 @@ end
 
 
 local generic_cures_data = {
-  "clumsiness", "paranoia", "gluttony", "vertigo", "agoraphobia", "vestiphobia", "dizziness", "claustrophobia", "vapors", "recklessness", "epilepsy", "peace", "dementia", "addiction", "stupidity", "jinx", "healthleech", "sensitivity", "succumb", "arteryleftleg", "arteryleftarm", "arteryrightleg", "arteryrightarm", "slicedforehead", "opengut", "slicedleftthigh", "slicedrightthigh", "missingleftear", "missingrightear", "puncturedchest", "relapsing", "slickness", "laceratedleftarm", "laceratedrightarm", "laceratedrightleg", "laceratedleftleg", "laceratedunknown", "inlove", "achromaticaura", "slicedtongue", "clotleftshoulder", "clotrightshoulder", "clotrighthip", "clotlefthip", "gashedcheek", "weakness", "hallucinating", "rigormortis", "scrambledbrain", "openchest", "pacifism", "void", "confusion", "egovice", "manabarbs", "powerspikes", "achromaticaura", "slicedleftbicep", "slicedrightbicep", "bleeding", "puncturedaura",  "brokennose", "crushedleftfoot", "crushedrightfoot", "snappedrib", "fracturedleftarm", "fracturedrightarm", "crotamine", "healthleech", "powersap", "vomiting", "haemophilia", "weakness", "worms", "ablaze", "vomitblood", "dysentery", "scalped", "disloyalty", "shivering", "frozen", "dysentery", "furrowedbrow", "shyness", "confusion", "lovepotion", "sensitivity", "dizziness", "brokenjaw", "slitthroat", "pox", "scabies", "asthma", "blacklung", "puncturedlung", "crippledrightarm", "crippledleftarm", "crippledrightleg", "crippledleftleg", "fracturedskull", "sunallergy", "twistedleftleg", "twistedrightleg", "twistedleftarm", "twistedrightarm", "brokenrightwrist", "brokenleftwrist", "trembling", "shortbreath", "firstdegreeburn", "masochism", "impatience", "anorexia", "crushedwindpipe", "piercedleftleg", "piercedrightleg", "piercedleftarm", "piercedrightarm", "hemiplegyleft", "hemiplegyright", "hemiplegylower", "severedphrenic", "loneliness", "shyness", "cloudcoils", "loneliness", "masochism", "pacifism", "paranoia", "recklessness", "shyness", "stupidity", "vertigo", "void", "weakness", "addiction", "agoraphobia", "anorexia", "claustrophobia", "confusion", "dizziness", "epilepsy", "vestiphobia", "hallucinating", "treebane", "illuminated", "mud", "sap", "slickness", "slightinsanity", "moderateinsanity", "majorinsanity", "massiveinsanity", "impatience", "healhealth", "hypersomnia", "brokenchest", "daydreaming", "narcolepsy", "insomnia", "fear", "minortimewarp", "moderatetimewarp", "majortimewarp", "massivetimewarp", "oracle", "collapsedlungs", "hypochondria", "severedspine", "paralysis", "healego", "healmana", "avengingangel", "omniphobia", "aurawarp"
+  "clumsiness", "paranoia", "gluttony", "vertigo", "agoraphobia", "vestiphobia", "dizziness", "claustrophobia", "vapors", "recklessness", "epilepsy", "peace", "dementia", "addiction", "stupidity", "jinx", "healthleech", "sensitivity", "succumb", "arteryleftleg", "arteryleftarm", "arteryrightleg", "arteryrightarm", "slicedforehead", "opengut", "slicedleftthigh", "slicedrightthigh", "missingleftear", "missingrightear", "puncturedchest", "relapsing", "slickness", "laceratedleftarm", "laceratedrightarm", "laceratedrightleg", "laceratedleftleg", "laceratedunknown", "inlove", "achromaticaura", "slicedtongue", "clotleftshoulder", "clotrightshoulder", "clotrighthip", "clotlefthip", "gashedcheek", "weakness", "hallucinating", "rigormortis", "scrambledbrain", "openchest", "pacifism", "void", "confusion", "egovice", "manabarbs", "powerspikes", "achromaticaura", "slicedleftbicep", "slicedrightbicep", "bleeding", "puncturedaura",  "brokennose", "crushedleftfoot", "crushedrightfoot", "snappedrib", "fracturedleftarm", "fracturedrightarm", "crotamine", "healthleech", "powersap", "vomiting", "haemophilia", "weakness", "worms", "ablaze", "vomitblood", "dysentery", "scalped", "disloyalty", "shivering", "frozen", "dysentery", "furrowedbrow", "shyness", "confusion", "lovepotion", "sensitivity", "dizziness", "brokenjaw", "slitthroat", "pox", "scabies", "asthma", "blacklung", "puncturedlung", "crippledrightarm", "crippledleftarm", "crippledrightleg", "crippledleftleg", "fracturedskull", "sunallergy", "twistedleftleg", "twistedrightleg", "twistedleftarm", "twistedrightarm", "brokenrightwrist", "brokenleftwrist", "trembling", "shortbreath", "firstdegreeburn", "masochism", "impatience", "anorexia", "crushedwindpipe", "piercedleftleg", "piercedrightleg", "piercedleftarm", "piercedrightarm", "hemiplegyleft", "hemiplegyright", "hemiplegylower", "severedphrenic", "loneliness", "shyness", "cloudcoils", "loneliness", "masochism", "pacifism", "paranoia", "recklessness", "shyness", "stupidity", "vertigo", "void", "weakness", "addiction", "agoraphobia", "anorexia", "claustrophobia", "confusion", "dizziness", "epilepsy", "vestiphobia", "hallucinating", "treebane", "illuminated", "mud", "sap", "slickness", "slightinsanity", "moderateinsanity", "majorinsanity", "massiveinsanity", "impatience", "healhealth", "hypersomnia", "brokenchest", "daydreaming", "narcolepsy", "insomnia", "fear", "minortimewarp", "moderatetimewarp", "majortimewarp", "massivetimewarp", "oracle", "collapsedlungs", "hypochondria", "severedspine", "paralysis", "healego", "healmana", "avengingangel", "omniphobia", "aurawarp", "aeon"
 }
 
 for i = 1, #generic_cures_data do
@@ -5018,3 +5061,6 @@ function valid.lostwaferbalance()
   checkaction(dict.stolebalance.happened, true)
   lifevision.add(actions.stolebalance_happened.p, nil, "wafer")
 end
+
+
+

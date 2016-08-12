@@ -430,7 +430,7 @@ for _,k in ipairs({"rightarm", "leftarm", "leftleg", "rightleg", "chest", "gut",
     local amount
 
     if not conf.oldwarrior then
-      amount = 5
+      amount = 4
     elseif type == 'deepheal' then amount = math.random(1600, 2000)
     elseif type == 'puer' then amount = math.random(800, 1000)
     elseif type == 'healspring' then amount = math.random(200, 300)

@@ -466,13 +466,48 @@ function ashow()
   echofn("Arena mode:       ")
   setFgColor(unpack(getDefaultColorNums))
   setUnderline(true)
-  echoLink(conf.arena and "enabled" or "disabled", "$(sys).tntf_set('arena', "..(conf.arena and "false" or "true").. ', false); svo.ashow()', (conf.arena and "Disable" or "Enable")..' arena triggers', true)
+  echoLink(conf.arena and "enabled" or "disabled", "$(sys).tntf_set('arena', "..(conf.arena and "false" or "true").. ', false); $(sys).ashow()', (conf.arena and "Disable" or "Enable")..' arena triggers', true)
 
   echo"\n"
   if conf.paused then
     echof("System is currently paused.") end
   raiseEvent("m&m onshow")
   showprompt()
+end
+
+function showfocus()
+  echofn("Focusing Under Aeon:       ")
+  setFgColor(unpack(getDefaultColorNums))
+  setUnderline(true)
+  echoLink(conf.aeonfocus and "enabled" or "disabled", "$(sys).tntf_set('aeonfocus', "..(conf.aeonfocus and "false" or "true").. ', false); $(sys).showfocus()', (conf.aeonfocus and "Disable" or "Enable")..' focusing in aeon', true)
+  resetFormat()
+  echo"\n"
+
+  echofn("Using Beast Focus:         ")
+  setFgColor(unpack(getDefaultColorNums))
+  setUnderline(true)
+  echoLink(conf.beastfocus and "enabled" or "disabled", "$(sys).tntf_set('beastfocus', "..(conf.beastfocus and "false" or "true").. ', false); $(sys).showfocus()', (conf.beastfocus and "Disable" or "Enable")..' using beast to focus when possible', true)
+  resetFormat()
+  echo"\n"
+
+  echofn("Using Power Focus:         ")
+  setFgColor(unpack(getDefaultColorNums))
+  setUnderline(true)
+  echoLink(conf.powerfocus and "enabled" or "disabled", "$(sys).tntf_set('powerfocus', "..(conf.powerfocus and "false" or "true").. ', false); $(sys).showfocus()', (conf.powerfocus and "Disable" or "Enable")..' using power to focus when possible', true)
+  resetFormat()
+  echo"\n"
+
+  if next(mm.me.focus) then
+    local t = {}
+    for aff, val in pairs(mm.me.focus) do
+      t[#t+1] = aff
+    end
+    echofn("Currently focusing: ")
+    echofn(table.concat(t, ", "))
+  else
+    echofn("Currently not focusing any afflictions.")
+  end
+  echo"\n"
 end
 
 

@@ -2420,6 +2420,26 @@ mm.show_vessels(2)</script>
                         </regexCodePropertyList>
                     </Trigger>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>wafer no affliction</name>
+                        <script>mm.valid.wafer_noaff(matches[2])</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>^You are not afflicted with (asthma|dysentery|haemophilia|paralysis|powersap|pox|scabies|rigormortis|sickening|vomiting)\.$</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>1</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>m&amp;m ate2</name>
                         <script>mm.valid.ate2()</script>
                         <triggerType>0</triggerType>
@@ -3614,6 +3634,26 @@ end</script>
                         </regexCodeList>
                         <regexCodePropertyList>
                             <integer>3</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>no affliction lucidity</name>
+                        <script>mm.valid.lucidity_noaff(matches[2])</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>^You are not afflicted with (addiction|anorexia|clumsiness|confusion|epilepsy|hallucinations|paranoia|recklessness|sensitivity|stupidity)\.$</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>1</integer>
                         </regexCodePropertyList>
                     </Trigger>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
@@ -6313,6 +6353,26 @@ end</script>
                         </regexCodeList>
                         <regexCodePropertyList>
                             <integer>3</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>not afflicted</name>
+                        <script>mm.valid.steam_noaff(matches[2])</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>^You are not afflicted with (achromaticaura|aeon|disloyalty|egovice|healthleech|luminosity|manabarbs|pacifism|powerspikes|slickness)\.$</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>1</integer>
                         </regexCodePropertyList>
                     </Trigger>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
@@ -11502,6 +11562,28 @@ mm.defs.lost_fire()</script>
                             <string>You may not take another dose of allheale so soon.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>m&amp;m cure aeon generic</name>
+                        <script>mm.valid.generic_aeon()</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>You return to the normal timestream.</string>
+                            <string>You have cured aeon.</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
@@ -23274,8 +23356,10 @@ resetFormat()</script>
                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                     <regexCodeList>
                         <string>You return to the normal timestream.</string>
+                        <string>You have cured aeon.</string>
                     </regexCodeList>
                     <regexCodePropertyList>
+                        <integer>3</integer>
                         <integer>3</integer>
                     </regexCodePropertyList>
                 </Trigger>
@@ -34082,7 +34166,7 @@ mm.valid.proper_prone()</script>
                     <colorTriggerFgColor>#000000</colorTriggerFgColor>
                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                     <regexCodeList>
-                        <string>^\w+ charges in from the \w+ and slams into you, impaling (?:her|his) bardiche deep in your gut\.$</string>
+                        <string>^\w+ charges in from the \w+ and slams into you, impaling (?:her|his) \w+ deep in your gut.$</string>
                         <string>^\w+ charges in from the \w+ on .+ and slams into you, impaling (?:her|his) bardiche deep in your gut\.$</string>
                     </regexCodeList>
                     <regexCodePropertyList>
@@ -53370,8 +53454,10 @@ mm.valid.simplebleeding(150)</script>
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
                                 <string>^\w+ hits you with impale\.$</string>
+                                <string>^(\w+) sinks the blade of a (.+) deep into your gut, impaling you.$</string>
                             </regexCodeList>
                             <regexCodePropertyList>
+                                <integer>1</integer>
                                 <integer>1</integer>
                             </regexCodePropertyList>
                         </Trigger>
@@ -54420,6 +54506,13 @@ mm.addwounds(&quot;ice&quot;,&quot;haymaker&quot;, wound_loc)</script>
                 <command></command>
                 <packageName></packageName>
                 <regex>^mm ?show$</regex>
+            </Alias>
+            <Alias isActive="yes" isFolder="no">
+                <name>Show your focus list</name>
+                <script>mm.showfocus()</script>
+                <command></command>
+                <packageName></packageName>
+                <regex>^mm ?show (f|focus)$</regex>
             </Alias>
             <Alias isActive="yes" isFolder="no">
                 <name>Show overhaul menu</name>
@@ -55883,6 +55976,7 @@ end</script>
   	[&quot;an unknown affliction&quot;] = &quot;unknownany&quot;,
 	[&quot;sickening&quot;]  				= &quot;taintsick&quot;,
 	[&quot;luminosity&quot;]					= &quot;illuminated&quot;,
+	[&quot;collapsedlung&quot;]			= &quot;collapsedlungs&quot;,
 }</script>
                     <eventHandlerList/>
                 </Script>
