@@ -7402,11 +7402,11 @@ dict = {
       spriority = 108,
 
       isadvisable = function ()
-        return (affs.collapsedlungs and codepaste.regen_chest()
+        return --[[(affs.collapsedlungs and codepaste.regen_chest()
 #if skills.healing then
         and not (actions.usehealing_misc and dict.usehealing.curingaff == "collapsedlungs")
 #end
-          ) or false
+          ) or]] false
       end,
 
       oncompleted = function ()
@@ -17977,6 +17977,8 @@ dict = {
   },
   scarab = {
     waitingfor = {
+      customwait = 3,
+
       isadvisable = function ()
         return false
       end,
@@ -17990,6 +17992,7 @@ dict = {
     aff = {
       oncompleted = function ()
         addaff(dict.scarab)
+        doaction(dict.scarab.waitingfor)
       end
     },
     gone = {
