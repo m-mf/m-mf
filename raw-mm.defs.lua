@@ -145,21 +145,71 @@ defs_data = phpTable({
   },
   alacrity = { nodef = true,
     def = "You are surrounded by a field of alacrity."},
-  redgenies = { type = "general",
+  redgenies = { type = "artifact",
     on = {"Four genies burst out of their bottles, whirling around you as they wrap you in ribbons of multicoloured light. Your health swells as the blessing of the genies settle around you.", "You already have a curio health blessing!"},
     offr = [[^It is now the \d+(?:st|nd|rd|th) of \w+, \d+ years after the Coming of Estarra\.$]],
     def = "You have a curio health blessing.",
     tooltip = "Add a 1/8 boost to health"},
-  bluegenies = { type = "general",
+  bluegenies = { type = "artifact",
     on = {"Four genies burst out of their bottles, whirling around you as they wrap you in ribbons of multicoloured light. Your mana swells as the blessing of the genies settle around you.", "You already have a curio mana blessing!"},
     offr = [[^It is now the \d+(?:st|nd|rd|th) of \w+, \d+ years after the Coming of Estarra\.$]],
     def = "You have a curio mana blessing.",
     tooltip = "Adds a 1/8 boost to mana"},
-  yellowgenies = { type = "general",
+  yellowgenies = { type = "artifact",
     on = {"Four genies burst out of their bottles, whirling around you as they wrap you in ribbons of multicoloured light. Your ego swells as the blessing of the genies settle around you.", "You already have a curio ego blessing!"},
     offr = [[^It is now the \d+(?:st|nd|rd|th) of \w+, \d+ years after the Coming of Estarra\.$]],
     def = "You have a curio ego blessing.",
     tooltip = "Adds a 1/8 boost to ego"},
+  mint = { type = "artifact",
+    on = "You are now protected by the mint defence.",
+    off = "Your mint defence has expired.",
+    defr = [[^Mint Candy \(mint\) \(\d+ minutes\)\.]],
+    tooltip = "provides 10% ego boost during influencing, last 1 hour."},
+  gumball = { type = "artifact",
+    on = "You are now protected by the gumball defence.",
+    off = "Your gumball defence has expired.",
+    defr = [[^Gumball Candy \(gumball\) \(\d+ minutes\)\.]],
+    tooltip = "provides 10% chance of forming a shield during bashing, last 1 hour."},
+  fireball = { type = "artifact",
+    on = "You are now protected by the fireball defence.",
+    off = "Your fireball defence has expired.",
+    defr = [[^Fireball Candy \(fireball\) \(\d+ minutes\)\.]],
+    tooltip = "provides 10% chance of releasing firebreath attack during bashing, last 1 hour."},
+  rockcandy = { type = "artifact",
+    on = "You are now protected by the rockcandy defence.",
+    off = "Your rockcandy defence has expired.",
+    defr = [[^Rock Candy \(rockcandy\) \(\d+ minutes\)\.]],
+    tooltip = "gives moderate rooting bonus, last 1 hour."},
+  licorice = { type = "artifact",
+    on = "You are now protected by the licorice defence.",
+    off = "Your licorice defence has expired.",
+    defr = [[^Licorice Candy \(licorice\) \(\d+ minutes\)\.]],
+    tooltip = "provides 3/13 health buff, last 1 hour."},
+  jellybaby = { type = "artifact",
+    on = "You are now protected by the jellybaby defence.",
+    off = "Your jellybaby defence has expired.",
+    defr = [[^Jelly Baby Candy \(jellybaby\) \(\d+ minutes\)\.]],
+    tooltip = "provides 3/13 mana buff, last 1 hour."},
+  creamchew = { type = "artifact",
+    on = "You are now protected by the creamchew defence.",
+    off = "Your creamchew defence has expired.",
+    defr = [[^Cream Chew Candy \(creamchew\) \(\d+ minutes\)\.]],
+    tooltip = "provides 3/13 ego buff, last 1 hour."},
+  waxlips = { type = "artifact",
+    on = "You are now protected by the waxlips defence.",
+    off = "Your waxlips defence has expired.",
+    defr = [[^Wax Lips Candy \(waxlips\) \(\d+ minutes\)\.]],
+    tooltip = "provides 25% xp bonus, last 1 hour."},
+  redlollipop = { type = "artifact",
+    on = "You are now protected by the redlollipop defence.",
+    off = "Your redlollipop defence has expired.",
+    defr = [[^Red Lollipop Candy \(redlollipop\) \(\d+ minutes\)\.]],
+    tooltip = "provides 5/5 balance buff, lasts 1 minute."},
+  bluelollipop = { type = "artifact",
+    on = "You are now protected by the bluelollipop defence.",
+    off = "Your bluelollipop defence has expired.",
+    defr = [[^Blue Lollipop Candy \(bluelollipop\) \(\d+ minutes\)\.]],
+    tooltip = "provides 5/5 equilibrium buff, lasts 1 minute."},
   faerie = { nodef = true,
     def = "You are wearing a pair of faerie wings."},
   gravity = { nodef = true,
@@ -294,46 +344,46 @@ defs_data = phpTable({
   decease = { nodef = true,
     def = "You have incredibly thickened skin.",
     tooltip = "+35 physical DMP"},
-  wondercornbal = { type = "general",
+  wondercornbal = { type = "artifact",
     on = "Your balance is enhanced by the fine food.",
     off = "The increased balance from the infused food leaves you.",
     def = "Your balance has been enhanced through fine food.",
     tooltip = "Adds 1/3 boost to balance, doesn't stack with herofete"},
-  wondercornhp = { type = "general",
+  wondercornhp = { type = "artifact",
     on = "Your health is enhanced by the fine food.",
     off = "The increased health from the infused food leaves you.",
     def = "Your health has been enhanced through fine food.",
     tooltip = "adds 1/5 boost to health, doesn't stack with herofete"},
-  wondercornmp = { type = "general",
+  wondercornmp = { type = "artifact",
     on = "Your mana is enhanced by the fine food.",
     off = "The increased mana from the infused food leaves you.",
     def = "Your mana has been enhanced through fine food.",
     tooltip = "adds 1/5 boost to mana, doesn't stack with herofete"},
-  wondercornego = { type = "general",
+  wondercornego = { type = "artifact",
     on = "Your ego is enhanced by the fine food.",
     off = "The increased ego from the infused food leaves you.",
     def = "Your ego has been enhanced through fine food.",
     tooltip = "adds 1/5 boost to ego, doesn't stack with herofete"},
-  wondercornres = { type = "general",
+  wondercornres = { type = "artifact",
     on = "Your resistance is enhanced by the fine food.",
     off = "The increased resistance from the infused food leaves you.",
     def = "Your resistance has been enhanced through fine food.",
     tooltip = "adds 1/3 boost to resistance, doesn't stack with herofete"},
-  wondercorndam = { type = "general",
+  wondercorndam = { type = "artifact",
     on = "Your damage is enhanced by the fine food.",
     off = "The increased damage from the infused food leaves you.",
     def = "Your damage has been enhanced through fine food.",
     tooltip = "adds 1/3 boost to damage, doesn't stack with herofete"},
-  wondercorneq = { type = "general",
+  wondercorneq = { type = "artifact",
     on = "Your equilibrium is enhanced by the fine food.",
     off = "The increased equilibrium from the infused food leaves you.",
     def = "Your equilibrium has been enhanced through fine food.",
     tooltip = "adds 1/3 boost to equilibrium, doesn't stack with herofete"},
-  hardsmoke = { type = "general",
+  hardsmoke = { type = "artifact",
     on = {"The smoke settles around you in a haze, strangely weighing your body down.", "The smoke settles around you, but your body is already weighed down."},
     def = "Hardsmoke (hardsmoke) (indefinite).",
     defr = [[^Hardsmoke \(hardsmoke\) \(\d+ minutes\)\.$]]},
-  smokeweb = { type = "general",
+  smokeweb = { type = "artifact",
     on = "The smoke wafts across the ground, spreading to fill the area around you with a nigh-imperceptible haze.",
     def = "Smokeweb (smokeweb) (indefinite).",
     defr = [[^Smokeweb \(smokeweb\) \(\d+ minutes\)\.$]]},
@@ -3368,7 +3418,7 @@ signals.systemstart:connect(function ()
 
   -- remove skillsets from ignorelist that we don't have, for people that change
   for skillset, _ in pairs(sk.ignored_defences) do
-    if skillset ~= "general" and skillset ~= "enchantment" and not me.skills[skillset] then
+    if skillset ~= "general" and skillset ~= "enchantment" and skillset ~= "artifact" and not me.skills[skillset] then
       sk.ignored_defences[skillset] = nil
     end
   end
@@ -3588,9 +3638,10 @@ local function show_defs(tbl, linkcommand, cmdname)
   local underline = setUnderline; _G.setUnderline = function () end
 
   show_em(nil, defences.def_types.general)
+  show_em("Artifact\\Curio", defences.def_types.artifact)
 
   for j,k in pairs(defences.def_types) do
-    if j ~= "general" then show_em (j, k) end
+    if j ~= "general" and j ~= "artifact" then show_em (j, k) end
   end
 
   _G.setUnderline = underline
@@ -3762,10 +3813,11 @@ function showhidelist()
 
   echof("Select which skillsets or skills to show in defence display lists:")
   show_em("general", sk.ignored_defences.general)
+  show_em("artifact", sk.ignored_defences.artifact)
 
   local function f()
     for j,k in pairs(sk.ignored_defences) do
-      if j ~= "general" then show_em (j, k) end
+      if j ~= "general" and j ~= "artifact" then show_em (j, k) end
     end
   end
 

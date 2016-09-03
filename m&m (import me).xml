@@ -48996,7 +48996,9 @@ mm.valid.simpledamagedhead()</script>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Aeon</name>
                         <script>mm.valid.simplestun(4)
-mm.valid.got_aeon()</script>
+mm.valid.got_aeon()
+if skyTimer then killTimer(skyTimer) end
+skyTimer = tempTimer(3.1-getNetworkLatency(), [[mm.valid.stun_woreoff()]])</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>0</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -53249,10 +53251,10 @@ end</script>
                             <colorTriggerFgColor>#000000</colorTriggerFgColor>
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
-                                <string>^The blade of \w+'s sword slices deeply into your (head|chest|gut|left arm|right arm|left leg|right leg), leaving it (light|heavy|critical) wounded\.$</string>
-                                <string>^\w+'s axe sinks heavily into your (head|chest|gut|left arm|right arm|left leg|right leg), leaving it (light|heavy|critical) wounded\.$</string>
-                                <string>^\w+ slices into your (head|chest|gut|left arm|right arm|left leg|right leg) with the blade of (?:his|her) weapon, leaving it (light|heavy|critical) wounded\.$</string>
-                                <string>^\w+ batters your (head|chest|gut|left arm|right arm|left leg|right leg) with the haft of (?:his|her) weapon, leaving it (light|heavy|critical) wounded\.$</string>
+                                <string>^The blade of \w+'s sword slices deeply into your (head|chest|gut|left arm|right arm|left leg|right leg), leaving it (lightly|heavily|critically) wounded\.$</string>
+                                <string>^\w+'s axe sinks heavily into your (head|chest|gut|left arm|right arm|left leg|right leg), leaving it (lightly|heavily|critically) wounded\.$</string>
+                                <string>^\w+ slices into your (head|chest|gut|left arm|right arm|left leg|right leg) with the blade of (?:his|her) weapon, leaving it (lightly|heavily|critically) wounded\.$</string>
+                                <string>^\w+ batters your (head|chest|gut|left arm|right arm|left leg|right leg) with the haft of (?:his|her) weapon, leaving it (lightly|heavily|critically) wounded\.$</string>
                             </regexCodeList>
                             <regexCodePropertyList>
                                 <integer>1</integer>
@@ -53281,13 +53283,13 @@ end</script>
                             <colorTriggerFgColor>#000000</colorTriggerFgColor>
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
-                                <string>^\w+ hits you with assault, (head|chest|gut|left arm|right arm|left leg|right leg) now (light|heavy|cirtical) wounded\.$</string>
-                                <string>^\w+ hits you with sweep, (head|chest|gut|left arm|right arm|left leg|right leg) now (light|heavy|critical) wounded\.$</string>
-                                <string>^\w+ hits you with (?:cutting|blunt) sunder, (head|chest|gut|left arm|right arm|left leg|right leg) now (light|heavy|critical) wounded\.$</string>
-                                <string>^\w+ carves into you with a vicious assault, leaving your (head|chest|gut|left arm|right arm|left leg|right leg) (light|heavy|critical) wounded\.$</string>
-                                <string>^Attempting to sunder bone, \w+ batters your (head|chest|gut|left arm|right arm|left leg|right leg) with the haft of (?:his|her) weapon, leaving it (light|heavy|critical) wounded\.$</string>
+                                <string>^\w+ hits you with assault, (head|chest|gut|left arm|right arm|left leg|right leg) now (lightly|heavily|critically) wounded\.$</string>
+                                <string>^\w+ hits you with sweep, (head|chest|gut|left arm|right arm|left leg|right leg) now (lightly|heavily|critically) wounded\.$</string>
+                                <string>^\w+ hits you with (?:cutting|blunt) sunder, (head|chest|gut|left arm|right arm|left leg|right leg) now (lightly|heavily|critically) wounded\.$</string>
+                                <string>^\w+ carves into you with a vicious assault, leaving your (head|chest|gut|left arm|right arm|left leg|right leg) (lightly|heavily|critically) wounded\.$</string>
+                                <string>^Attempting to sunder bone, \w+ batters your (head|chest|gut|left arm|right arm|left leg|right leg) with the haft of (?:his|her) weapon, leaving it (lightly|heavily|critically) wounded\.$</string>
                                 <string>^\w+ sinks the blade of (?:his|her) axe into your (head|chest|gut|left arm|right arm|left leg|right leg) with a wide, sweeping arc\.$</string>
-                                <string>^Sundering the flesh, \w+ cuts viciously into your (head|chest|gut|left arm|right arm|left leg|right leg), leaving it (light|heavy|critical) wounded\.$</string>
+                                <string>^Sundering the flesh, \w+ cuts viciously into your (head|chest|gut|left arm|right arm|left leg|right leg), leaving it (lightly|heavily|critically) wounded\.$</string>
                             </regexCodeList>
                             <regexCodePropertyList>
                                 <integer>1</integer>
@@ -53320,8 +53322,8 @@ end</script>
                             <colorTriggerFgColor>#000000</colorTriggerFgColor>
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
-                                <string>^\w+'s blade bites into your (head|chest|gut|left arm|right arm|left leg|right leg), leaving it (light|heavy|critical) wounded\.$</string>
-                                <string>^\w+'s bludgeon crunches sickeningly into your (head|chest|gut|left arm|right arm|left leg|right leg), leaving it (light|heavy|critical) wounded\.$</string>
+                                <string>^\w+'s blade bites into your (head|chest|gut|left arm|right arm|left leg|right leg), leaving it (lightly|heavily|critically) wounded\.$</string>
+                                <string>^\w+'s bludgeon crunches sickeningly into your (head|chest|gut|left arm|right arm|left leg|right leg), leaving it (lightly|heavily|critically) wounded\.$</string>
                             </regexCodeList>
                             <regexCodePropertyList>
                                 <integer>1</integer>
@@ -53348,10 +53350,10 @@ end</script>
                             <colorTriggerFgColor>#000000</colorTriggerFgColor>
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
-                                <string>^\w+ lunges forcefully into (?:his|her) strike, leaving your (head|chest|gut|left arm|right arm|left leg|right leg) (light|heavy|cirtical) wounded\.$</string>
-                                <string>^\w+ hits you with crush, (head|chest|gut|left arm|right arm|left leg|right leg) now (light|heavy|critical) wounded\.$</string>
-                                <string>^The sound of shattering bone sounds as \w+ crushes your (head|chest|gut|left arm|right arm|left leg|right leg), leaving it (light|heavy|critical) wounded\.$</string>
-                                <string>^\w+ lunges forcefully into (?:his|her) strike, leaving your (head|chest|gut|left arm|right arm|left leg|right leg) (light|heavy|critical) wounded\.$</string>
+                                <string>^\w+ lunges forcefully into (?:his|her) strike, leaving your (head|chest|gut|left arm|right arm|left leg|right leg) (lightly|heavily|critically) wounded\.$</string>
+                                <string>^\w+ hits you with crush, (head|chest|gut|left arm|right arm|left leg|right leg) now (lightly|heavily|critically) wounded\.$</string>
+                                <string>^The sound of shattering bone sounds as \w+ crushes your (head|chest|gut|left arm|right arm|left leg|right leg), leaving it (lightly|heavily|critically) wounded\.$</string>
+                                <string>^\w+ lunges forcefully into (?:his|her) strike, leaving your (head|chest|gut|left arm|right arm|left leg|right leg) (lightly|heavily|critically) wounded\.$</string>
                             </regexCodeList>
                             <regexCodePropertyList>
                                 <integer>1</integer>

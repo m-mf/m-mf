@@ -502,8 +502,9 @@ function showfocus()
     for aff, val in pairs(mm.me.focus) do
       t[#t+1] = aff
     end
-    echofn("Currently focusing: ")
-    echofn(table.concat(t, ", "))
+    local str = "Currently focusing: "
+    str = str + table.concat(t, ", ")
+    echofn(str)
   else
     echofn("Currently not focusing any afflictions.")
   end
