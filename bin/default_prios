@@ -750,7 +750,7 @@ slowcuring = {
   "sap_physical",
   "aeon_herb",
   "aeon_purgative",
-  "aeon_steam"
+  "aeon_steam",
 }
 
 -- Purgative cures:
@@ -1104,7 +1104,7 @@ lucidity = {
   "addiction",
   "sensitivity",
   "recklessness",
-  "stupidity"
+  "stupidity",
   "anorexia",
   "massiveinsanity",
 }
@@ -1187,5 +1187,5 @@ ice = {
   "damagedrightarm",
   "damagedleftleg",
   "damagedrightleg",
-  "thirddegreeburn"
+  "thirddegreeburn",
 }
