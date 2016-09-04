@@ -3641,7 +3641,7 @@ dict = {
 #if skills.healing then
         not doingaction "usehealing" and
 #end
-        ((cnrl.lockdata["green a"]() and not doingaction "slickness") or (cnrl.lockdata["green b"]() and not doingaction "slickness") or (cnrl.lockdata["green c"]() and not doingaction "slickness") or (cnrl.lockdata["green d"]() and not doingaction "paralysis" and not doingaction "slitthroat") or cnrl.lockdata["slow"]())) or false
+        ((cnrl.lockdata["green a"]() and not doingaction "slickness") or (cnrl.lockdata["green b"]() and not doingaction "slickness") or (cnrl.lockdata["green c"]() and not doingaction "slickness") or cnrl.lockdata["slow"]())) or false
       end,
 
       oncompleted = function ()
@@ -12980,7 +12980,7 @@ dict = {
         if (affs.crushedwindpipe and
             ((codepaste.smoke_myrtle_pipe() and not affs.asthma and not affs.collapsedlungs and not affs.pinlegright and not affs.pinlegleft and not affs.pinlegunknown and not affs.pinlegunknown) -- we can either smoke it, or...
           or
-            (not affs.slitthroat and not affs.anorexia and not affs.throatlock and not affs.scarab and not affs.darkfate))  -- ...eat it
+            (not affs.slickness))  -- ...eat it
           ) then
         return true
       else
@@ -20969,6 +20969,219 @@ dict = {
       end
     }
   },
+
+  --candies
+  mint = {
+    misc = {
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+        return (((sys.deffing and defdefup[defs.mode].mint and not defc.mint) or (conf.keepup and defkeepup[defs.mode].mint  and not defc.mint)) and not doingaction("mint") and not affs.anorexia and not affs.throatlock and not affs.scarab and not affs.slitthroat) or false
+      end,
+
+      oncompleted = function ()
+        defences.got("mint")
+      end,
+
+      eatcure = "mint",
+
+      onstart = function ()
+        send("eat mint", conf.commandecho)
+      end
+    }
+  },
+  gumball = {
+    misc = {
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+        return (((sys.deffing and defdefup[defs.mode].gumball and not defc.gumball) or (conf.keepup and defkeepup[defs.mode].gumball  and not defc.gumball)) and not doingaction("gumball") and not affs.anorexia and not affs.throatlock and not affs.scarab and not affs.slitthroat) or false
+      end,
+
+      oncompleted = function ()
+        defences.got("gumball")
+      end,
+
+      eatcure = "bubblegum",
+
+      onstart = function ()
+        send("eat bubblegum", conf.commandecho)
+      end
+    }
+  },
+  fireball = {
+    misc = {
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+        return (((sys.deffing and defdefup[defs.mode].fireball and not defc.fireball) or (conf.keepup and defkeepup[defs.mode].fireball  and not defc.fireball)) and not doingaction("fireball") and not affs.anorexia and not affs.throatlock and not affs.scarab and not affs.slitthroat) or false
+      end,
+
+      oncompleted = function ()
+        defences.got("fireball")
+      end,
+
+      eatcure = "fireball",
+
+      onstart = function ()
+        send("eat fireball", conf.commandecho)
+      end
+    }
+  },
+  rockcandy = {
+    misc = {
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+        return (((sys.deffing and defdefup[defs.mode].rockcandy and not defc.rockcandy) or (conf.keepup and defkeepup[defs.mode].rockcandy  and not defc.rockcandy)) and not doingaction("rockcandy") and not affs.anorexia and not affs.throatlock and not affs.scarab and not affs.slitthroat) or false
+      end,
+
+      oncompleted = function ()
+        defences.got("rockcandy")
+      end,
+
+      eatcure = "rockcandy",
+
+      onstart = function ()
+        send("eat rockcandy", conf.commandecho)
+      end
+    }
+  },
+  licorice = {
+    misc = {
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+        return (((sys.deffing and defdefup[defs.mode].licorice and not defc.licorice) or (conf.keepup and defkeepup[defs.mode].licorice  and not defc.licorice)) and not doingaction("licorice") and not affs.anorexia and not affs.throatlock and not affs.scarab and not affs.slitthroat) or false
+      end,
+
+      oncompleted = function ()
+        defences.got("licorice")
+      end,
+
+      eatcure = "licorice",
+
+      onstart = function ()
+        send("eat licorice", conf.commandecho)
+      end
+    }
+  },
+  jellybaby = {
+    misc = {
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+        return (((sys.deffing and defdefup[defs.mode].jellybaby and not defc.jellybaby) or (conf.keepup and defkeepup[defs.mode].jellybaby  and not defc.jellybaby)) and not doingaction("jellybaby") and not affs.anorexia and not affs.throatlock and not affs.scarab and not affs.slitthroat) or false
+      end,
+
+      oncompleted = function ()
+        defences.got("jellybaby")
+      end,
+
+      eatcure = "jellybaby",
+
+      onstart = function ()
+        send("eat jellybaby", conf.commandecho)
+      end
+    }
+  },
+  creamchew = {
+    misc = {
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+        return (((sys.deffing and defdefup[defs.mode].creamchew and not defc.creamchew) or (conf.keepup and defkeepup[defs.mode].creamchew  and not defc.creamchew)) and not doingaction("creamchew") and not affs.anorexia and not affs.throatlock and not affs.scarab and not affs.slitthroat) or false
+      end,
+
+      oncompleted = function ()
+        defences.got("creamchew")
+      end,
+
+      eatcure = "creamchews",
+
+      onstart = function ()
+        send("eat creamchews", conf.commandecho)
+      end
+    }
+  },
+  waxlips = {
+    misc = {
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+        return (((sys.deffing and defdefup[defs.mode].waxlips and not defc.waxlips) or (conf.keepup and defkeepup[defs.mode].waxlips  and not defc.waxlips)) and not doingaction("waxlips") and not affs.anorexia and not affs.throatlock and not affs.scarab and not affs.slitthroat) or false
+      end,
+
+      oncompleted = function ()
+        defences.got("waxlips")
+      end,
+
+      eatcure = "waxlips",
+
+      onstart = function ()
+        send("eat waxlips", conf.commandecho)
+      end
+    }
+  },
+  redlollipop = {
+    misc = {
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+        return (((sys.deffing and defdefup[defs.mode].redlollipop and not defc.redlollipop) or (conf.keepup and defkeepup[defs.mode].redlollipop  and not defc.redlollipop)) and not doingaction("redlollipop") and not affs.anorexia and not affs.throatlock and not affs.scarab and not affs.slitthroat) or false
+      end,
+
+      oncompleted = function ()
+        defences.got("redlollipop")
+      end,
+
+      eatcure = "redlollipop",
+
+      onstart = function ()
+        send("eat redlollipop", conf.commandecho)
+      end
+    }
+  },
+  bluelollipop = {
+    misc = {
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+        return (((sys.deffing and defdefup[defs.mode].bluelollipop and not defc.bluelollipop) or (conf.keepup and defkeepup[defs.mode].bluelollipop  and not defc.bluelollipop)) and not doingaction("bluelollipop") and not affs.anorexia and not affs.throatlock and not affs.scarab and not affs.slitthroat) or false
+      end,
+
+      oncompleted = function ()
+        defences.got("bluelollipop")
+      end,
+
+      eatcure = "bluelollipop",
+
+      onstart = function ()
+        send("eat bluelollipop", conf.commandecho)
+      end
+    }
+  },
+
 
   --purgative
   galvanism = {
