@@ -548,11 +548,33 @@ prompt_stats = function ()
       end
     end
 
-    if tonumber(t.bleeding) > 50 then
+    if dict.bleeding.count > 0 and tonumber(t.bleeding) == 0 then
+      dict.bleeding.misc.oncured()
+    end
+    if tonumber(t.bleeding) > 0 then
       dict.bleeding.aff.oncompleted(tonumber(t.bleeding))
     end
-    if tonumber(t.bruising) > 50 then
+    if dict.bruising.count > 0 and tonumber(t.bruising) == 0 then
+      dict.bruising.misc.oncured()
+    end
+    if tonumber(t.bruising) > 0 then
       dict.bruising.aff.oncompleted(tonumber(t.bruising))
+    end
+
+    for _,part in ipairs({"head","chest","gut","leftarm","rightarm","leftleg","rightleg"}) do
+      local limb = tonumber(t[part.."wounds"])
+      if limb ~= dict["light"..part].count then
+        if limb > dict["light"..part].count then
+          cn.wounds_to_add[part] = limb
+          signals.before_prompt_processing:unblock(cn.addupwounds)
+        elseif limb < dict["light"..part].count then
+          if limb > 0 then
+            mm.valid.ice_healed_partially()
+          elseif limb <= 0 then
+            mm.valid.ice_healed_completely()
+          end
+        end
+      end
     end
 
     stats.momentum = tonumber(t.momentum)
@@ -678,6 +700,7 @@ signals.before_prompt_processing:connect(cn.addupwounds)
 signals.before_prompt_processing:block(cn.addupwounds)
 
 function addwounds(class, attack, where, ...)
+  if conf.gmcpvitals then return end
   assert(class and attack and where, "Not enough arguments to mm.addwounds(class, attack, where)")
   assert(type(where) ~= "string" or (type(where) == "string" and sk.limbnames[where]), tostring(where) .. " isn't a valid limb name.")
 
@@ -1110,3 +1133,13 @@ signals.gmcpcharskillsgroups:connect(function()
 function connected()
   signals.connected:emit()
 end
+
+function check_wound_triggers()
+  if conf.gmcpvitals then
+    disableTrigger("m&m wound overhaul")
+  else
+    enableTrigger("m&m wound overhaul")
+  end
+end
+
+signals.connected:connect("check_wound_triggers()")
