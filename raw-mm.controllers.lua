@@ -1134,12 +1134,12 @@ function connected()
   signals.connected:emit()
 end
 
-function check_wound_triggers()
+
+
+signals.connected:connect(function()
   if conf.gmcpvitals then
     disableTrigger("m&m wound overhaul")
   else
     enableTrigger("m&m wound overhaul")
   end
-end
-
-signals.connected:connect("check_wound_triggers()")
+end)

@@ -263,6 +263,7 @@ conf.keepup = true
 conf.sparkleherb = "coltsfoot"
 conf.vitaemode = "empty"
 conf.attemptearlystun = false
+conf.adrenaline = false
 
 conf.sacdelay = 0.5 -- delay after which the systems curing should resume in sync mode
 conf.pindelay = 0.050

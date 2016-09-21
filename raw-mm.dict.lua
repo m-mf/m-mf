@@ -21603,7 +21603,7 @@ dict = {
       def = true,
 
       isadvisable = function ()
-        return (((sys.deffing and defdefup[defs.mode].quicksilver and not defc.quicksilver) or (conf.keepup and defkeepup[defs.mode].quicksilver  and not defc.quicksilver)) and not doingaction("curingquicksilver") and not doingaction("quicksilver") and not affs.anorexia and not affs.throatlock and not affs.scarab and not affs.slitthroat and not affs.crushedwindpipe and not affs.crucified and not dict.quicksilver.blocked and not sys.manualdefcheck) or false
+        return (((sys.deffing and defdefup[defs.mode].quicksilver and not defc.quicksilver) or (conf.keepup and defkeepup[defs.mode].quicksilver  and not defc.quicksilver)) and not doingaction("curingquicksilver") and not doingaction("quicksilver") and not affs.anorexia and not affs.throatlock and not affs.scarab and not affs.slitthroat and not affs.crushedwindpipe and not affs.crucified and not dict.quicksilver.blocked and not sys.manualdefcheck and not conf.adrenaline) or false
       end,
 
       oncompleted = function (def)
@@ -21642,6 +21642,48 @@ dict = {
       empty = function ()
         dict.quicksilver.misc.oncompleted ()
       end
+    },
+    physical = {
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+      balanceful_act = true,
+
+      isadvisable = function ()
+        return (((sys.deffing and defdefup[defs.mode].quicksilver and not defc.quicksilver) or (conf.keepup and defkeepup[defs.mode].quicksilver  and not defc.quicksilver)) and conf.adrenaline and not doingaction("curingquicksilver") and not doingaction("quicksilver") and not affs.paralysis and not dict.quicksilver.blocked and not sys.manualdefcheck and mm.me.activeskills.athletics and mm.bals.balance and mm.bals.equilibrium) or false
+      end,
+
+      onstart = function ()
+        send("adrenaline", conf.commandecho)
+      end,
+
+      oncompleted = function (def)
+        if def then defences.got("quicksilver")
+        else
+          -- update quicksilver delay appropriately
+          if affs.minortimewarp then
+            dict.curingquicksilver.waitingfor.customwait = 5.6
+          elseif affs.moderatetimewarp then
+            dict.curingquicksilver.waitingfor.customwait = 6
+          elseif affs.majortimewarp then
+            dict.curingquicksilver.waitingfor.customwait = 6.7
+          elseif affs.massivetimewarp then
+            dict.curingquicksilver.waitingfor.customwait = 7.6
+          else
+            dict.curingquicksilver.waitingfor.customwait = 5
+          end
+
+          doaction(dict.curingquicksilver.waitingfor)
+        end
+      end,
+
+      ontimeout = function ()
+        if not affs.blackout then return end
+
+        dict.quicksilver.blocked = true
+        tempTimer(3, function () dict.quicksilver.blocked = false; make_gnomes_work() end)
+      end,
+
     },
     gone = {
       oncompleted = function ()

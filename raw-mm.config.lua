@@ -809,6 +809,13 @@ config_dict = pl.OrderedMap {
     onenabled = function() echof("<0,250,0>Will%s attempt to cure before stun wears off in slowcuring.", getDefaultColor()) end,
     ondisabled = function() echof("<250,0,0>Won't%s attempt to cure before stun wears off in slowcuring.", getDefaultColor()) end,
   }},
+#conf_name = "adrenaline"
+  {$(conf_name) = {
+    type = "boolean",
+    onshow = "Use Adrenaline instead of quicksilver for the def",
+    onenabled = function() echof("<0,250,0>Will%s use adrenaline instead of quicksilver", getDefaultColor()) end,
+    ondisabled = function() echof("<250,0,0>Won't%s use adrenaline instead of quicksilver", getDefaultColor()) end,
+  }},
 #conf_name = "preclot"
   {$(conf_name) = {
     type = "boolean",

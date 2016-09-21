@@ -1020,21 +1020,37 @@ function valid.aeon_woreoff()
 end
 
 function valid.adrenaline_cured_aeon()
-  local result = checkaction(dict.aeon.physical)
-  if not result then return end
-  lifevision.add(actions[result.name].p)
+  checkaction(dict.aeon.physical, true)
+  if actions.aeon_physical then 
+    lifevision.add(actions.aeon_physical.p)
+  end
 end
 
 function valid.adrenaline_already()
-  local result = checkaction(dict.aeon.physical)
-  if not result then return end
-  lifevision.add(actions[result.name].p, "already")
+  checkaction(dict.quicksilver.physical, true)
+  if actions.quicksilver_physical then
+    lifevision.add(actions.quicksilver_physical.p, "oncompleted", true)
+    return
+  end
+
+  checkaction(dict.aeon.physical, true)
+  if actions.aeon_physical then
+    lifevision.add(actions.aeon_physical.p, "already")
+  end
 end
 
 function valid.adrenaline_quicksilver()
-  local result = checkaction(dict.aeon.physical)
-  if not result then return end
-  lifevision.add(actions[result.name].p, "quicksilver")
+  checkaction(dict.quicksilver.physical, true)
+  if actions.quicksilver_physical then
+    lifevision.add(actions.quicksilver_physical.p)
+    return
+  end
+
+  checkaction(dict.aeon.physical, true)
+  if actions.aeon_physical then
+    lifevision.add(actions.aeon_physical.p, "quicksilver")
+    return
+  end
 end
 
 function valid.wake_start()
@@ -2396,7 +2412,7 @@ function valid.unlit_pipe()
 end
 
 function valid.maestoso_ruined()
-  local r = findbybal("herb")
+  local r = findbybals("herb", "steam")
   if not r then return end
 
   lifevision.add(actions[r.name].p, "maestoso")

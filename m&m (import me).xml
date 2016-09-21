@@ -23409,7 +23409,8 @@ resetFormat()</script>
                 </Trigger>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>adrenaline adding speed</name>
-                    <script>mm.valid.adrenaline_quicksilver()</script>
+                    <script>mm.valid.adrenaline_quicksilver()
+</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -53279,7 +53280,7 @@ disableTrigger(&quot;m&amp;m last trigger&quot;)</script>
                         <integer>1</integer>
                         <integer>1</integer>
                     </regexCodePropertyList>
-                    <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                    <TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>m&amp;m wound overhaul</name>
                         <script></script>
                         <triggerType>0</triggerType>
