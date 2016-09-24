@@ -228,7 +228,7 @@ for _,k in ipairs({"rightarm", "leftarm", "leftleg", "rightleg", "chest", "gut",
     assert(type(howmuch) == "number", "mm.valid.wounds"..k.."_add: how much damage do you want to add?")
 
     local amount = dict["light"..k].count + howmuch
-    if gmcp and gmcp.Char and gmcp.Char.Vitals then
+    if conf.gmcpvitals then
       amount = howmuch
     end
     valid["simple"..sk.get_wound_level(amount)..k](amount)
