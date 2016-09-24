@@ -324,9 +324,20 @@ defs_data = phpTable({
     ondef = function () return string.format("(%d %s%s)", matches[2], matches[3], (matches[4] and ", "..matches[4].." "..matches[5] or '')) end,
   },
   curioatk = { nodef = true,
-    defr = [[^You are using a curio for (\d+) (\w+) damage enhancement\.$]],
-    ondef = function () return string.format("(%d %s)", matches[2], matches[3]) end,
+    defr = {[[^You are using a curio for (\d+) (\w+) damage enhancement\.$]],
+            [[^You are using a curio for 1 (\w+) \& 1 (\w+) damage enhancement\.$]]},
+    ondef = function ()
+      if tonumber(matches[2]) then
+        return string.format("(%d %s)", matches[2], matches[3])
+      else
+        return string.format("(%s/%s)", matches[2], matches[3])
+      end
+    end,
   },
+  curiofood = { nodef = true,
+    defr = [[^You will receive a Level (\d+) Critical Hit Bonus \(Blessed Food\)\.$]],
+    ondef = function () return string.format("(%d)",matches[2]) end,
+    },
   wigcurio = { nodef = true,
     def = "Your influencing is buffed by hair! Glorious hair!."
   },
@@ -654,6 +665,8 @@ defs_data = phpTable({
     ondef = function () return "("..matches[2]..")" end,
     defr = [[^Solstice Ego \(solsticeego\) \((\d+) minutes\)\.$]],
     tooltip = "Adds 2/6 boost to ego"},
+  ["masquerade"] = { nodef = true,
+    def = "You are masking your divine spark to appear mortal."},
   ["prismatic barrier"] = { nodef = true },
   ["nightsweats"] = { nodef = true }, -- ?? if skills.night, etc, enable this
   ["garb"] = { nodef = true }, -- ?? if skills.night, etc, enable this

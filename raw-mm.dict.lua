@@ -1873,7 +1873,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (affs.aeon and codepaste.smoke_steam_pipe()) or false
+        return (affs.aeon and codepaste.smoke_steam_pipe() and not doingaction("aeon")) or false
       end,
 
       oncompleted = function ()
@@ -1890,6 +1890,34 @@ dict = {
         sk.lostbal_steam()
         empty.smoke_steam()
       end
+    },
+    physical = {
+      balanceful_act = true,
+      aspriority = 38,
+      spriority = 324,
+
+      isadvisable = function ()
+        return (affs.aeon and not affs.paralysis and not affs.severedspine and not doingaction("aeon") and mm.bals.balance and mm.bals.equilibrium and mm.me.activeskills.athletics) or false
+      end,
+
+      onstart = function ()
+        send("adrenaline", conf.commandecho)
+      end,
+
+      oncompleted = function ()
+        removeaff("aeon")
+      end,
+
+      already = function ()
+        removeaff("aeon")
+        defences.got("speed")
+      end,
+
+      quicksilver = function()
+        removeaff("aeon")
+        dict.quicksilver.misc.oncompleted()
+      end,
+
     },
     aff = {
       oncompleted = function ()
@@ -3924,7 +3952,7 @@ dict = {
       spriority = 10,
 
       isadvisable = function ()
-        return (affs.bleeding and not doingaction("bleeding") and not affs.haemophilia and not affs.sleep and not affs.pinlegright and not affs.pinlegleft and not affs.pinlegunknown and not affs.pinlegunknown and can_usemana() and conf.clot and dict.bleeding.count >= conf.bleedamount and not affs.manabarbs) or false
+        return (affs.bleeding and not doingaction("bleeding") and not affs.haemophilia and not affs.sleep and not affs.pinlegright and not affs.pinlegleft and not affs.pinlegunknown and not affs.pinlegunknown and can_usemana() and conf.clot and dict.bleeding.count >= (conf.bleedamount or 60) and not affs.manabarbs and not doingaction("bruising")) or false
       end,
 
       -- by default, oncompleted means a clot went through okay
@@ -3938,11 +3966,14 @@ dict = {
       end,
 
       onstart = function ()
+        local needClot = math.floor(dict.bleeding.count/25)
+        local maxClot = math.floor((mm.stats.currentmana - (mm.stats.maxmana*(mm.conf.manause/100)))/60)
+        local toClot = math.min(needClot, maxClot)
         if conf.gagclot and not sys.sync then
-          send("clot", false)
+          send("clot "..toClot, false)
         else
-          send("clot", conf.commandecho) end
-      end
+          send("clot "..toClot, conf.commandecho) end
+        end
     },
     aff = {
       oncompleted = function (amount)
@@ -3965,7 +3996,7 @@ dict = {
       spriority = 10,
 
       isadvisable = function ()
-        return (affs.bruising and not doingaction("bruising") and not affs.haemophilia and not affs.sleep and not affs.pinlegright and not affs.pinlegleft and not affs.pinlegunknown and not affs.pinlegunknown and can_usemana() and conf.clot and dict.bruising.count >= conf.bleedamount and not affs.manabarbs and not doingaction("bleeding")) or false
+        return (affs.bruising and not doingaction("bruising") and not affs.haemophilia and not affs.sleep and not affs.pinlegright and not affs.pinlegleft and not affs.pinlegunknown and not affs.pinlegunknown and can_usemana() and conf.clot and dict.bruising.count >= (conf.bleedamount or 60) and not affs.manabarbs and not doingaction("bleeding")) or false
       end,
 
       -- by default, oncompleted means a clot went through okay
@@ -3979,11 +4010,14 @@ dict = {
       end,
 
       onstart = function ()
+        local needClot = math.floor(dict.bruising.count/12)
+        local maxClot = math.floor((mm.stats.currentmana - (mm.stats.maxmana*(mm.conf.manause/100)))/60)
+        local toClot = math.min(needClot, maxClot)
         if conf.gagclot and not sys.sync then
-          send("clot", false)
+          send("clot "..toClot, false)
         else
-          send("clot", conf.commandecho) end
-      end
+          send("clot "..toClot, conf.commandecho) end
+        end
     },
     aff = {
       oncompleted = function (amount)
@@ -17348,7 +17382,6 @@ dict = {
       end,
 
       oncompleted = function ()
-        cecho("\n<yellow>oncompleted fired")
         removeaff("massivetimewarp")
         addaff (dict.majortimewarp)
         sk.lostbal_steam()
@@ -21570,7 +21603,7 @@ dict = {
       def = true,
 
       isadvisable = function ()
-        return (((sys.deffing and defdefup[defs.mode].quicksilver and not defc.quicksilver) or (conf.keepup and defkeepup[defs.mode].quicksilver  and not defc.quicksilver)) and not doingaction("curingquicksilver") and not doingaction("quicksilver") and not affs.anorexia and not affs.throatlock and not affs.scarab and not affs.slitthroat and not affs.crushedwindpipe and not affs.crucified and not dict.quicksilver.blocked and not sys.manualdefcheck) or false
+        return (((sys.deffing and defdefup[defs.mode].quicksilver and not defc.quicksilver) or (conf.keepup and defkeepup[defs.mode].quicksilver  and not defc.quicksilver)) and not doingaction("curingquicksilver") and not doingaction("quicksilver") and not affs.anorexia and not affs.throatlock and not affs.scarab and not affs.slitthroat and not affs.crushedwindpipe and not affs.crucified and not dict.quicksilver.blocked and not sys.manualdefcheck and not conf.adrenaline) or false
       end,
 
       oncompleted = function (def)
@@ -21609,6 +21642,48 @@ dict = {
       empty = function ()
         dict.quicksilver.misc.oncompleted ()
       end
+    },
+    physical = {
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+      balanceful_act = true,
+
+      isadvisable = function ()
+        return (((sys.deffing and defdefup[defs.mode].quicksilver and not defc.quicksilver) or (conf.keepup and defkeepup[defs.mode].quicksilver  and not defc.quicksilver)) and conf.adrenaline and not doingaction("curingquicksilver") and not doingaction("quicksilver") and not affs.paralysis and not dict.quicksilver.blocked and not sys.manualdefcheck and mm.me.activeskills.athletics and mm.bals.balance and mm.bals.equilibrium) or false
+      end,
+
+      onstart = function ()
+        send("adrenaline", conf.commandecho)
+      end,
+
+      oncompleted = function (def)
+        if def then defences.got("quicksilver")
+        else
+          -- update quicksilver delay appropriately
+          if affs.minortimewarp then
+            dict.curingquicksilver.waitingfor.customwait = 5.6
+          elseif affs.moderatetimewarp then
+            dict.curingquicksilver.waitingfor.customwait = 6
+          elseif affs.majortimewarp then
+            dict.curingquicksilver.waitingfor.customwait = 6.7
+          elseif affs.massivetimewarp then
+            dict.curingquicksilver.waitingfor.customwait = 7.6
+          else
+            dict.curingquicksilver.waitingfor.customwait = 5
+          end
+
+          doaction(dict.curingquicksilver.waitingfor)
+        end
+      end,
+
+      ontimeout = function ()
+        if not affs.blackout then return end
+
+        dict.quicksilver.blocked = true
+        tempTimer(3, function () dict.quicksilver.blocked = false; make_gnomes_work() end)
+      end,
+
     },
     gone = {
       oncompleted = function ()

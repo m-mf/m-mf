@@ -228,6 +228,9 @@ for _,k in ipairs({"rightarm", "leftarm", "leftleg", "rightleg", "chest", "gut",
     assert(type(howmuch) == "number", "mm.valid.wounds"..k.."_add: how much damage do you want to add?")
 
     local amount = dict["light"..k].count + howmuch
+    if conf.gmcpvitals then
+      amount = howmuch
+    end
     valid["simple"..sk.get_wound_level(amount)..k](amount)
   end
 end
@@ -1005,7 +1008,7 @@ function valid.rainbowpattern_woreoff()
 end
 
 function valid.aeon_woreoff()
-  local result = checkany(dict.aeon.purgative, dict.aeon.herb)
+  local result = checkany(dict.aeon.purgative, dict.aeon.herb, dict.aeon.steam, dict.aeon.physical)
 
   if not result then
     checkaction(dict.aeon.gone, true)
@@ -1013,6 +1016,40 @@ function valid.aeon_woreoff()
   else
     sip_cure = true
     lifevision.add(actions[result.name].p)
+  end
+end
+
+function valid.adrenaline_cured_aeon()
+  checkaction(dict.aeon.physical, true)
+  if actions.aeon_physical then 
+    lifevision.add(actions.aeon_physical.p)
+  end
+end
+
+function valid.adrenaline_already()
+  checkaction(dict.quicksilver.physical, true)
+  if actions.quicksilver_physical then
+    lifevision.add(actions.quicksilver_physical.p, "oncompleted", true)
+    return
+  end
+
+  checkaction(dict.aeon.physical, true)
+  if actions.aeon_physical then
+    lifevision.add(actions.aeon_physical.p, "already")
+  end
+end
+
+function valid.adrenaline_quicksilver()
+  checkaction(dict.quicksilver.physical, true)
+  if actions.quicksilver_physical then
+    lifevision.add(actions.quicksilver_physical.p)
+    return
+  end
+
+  checkaction(dict.aeon.physical, true)
+  if actions.aeon_physical then
+    lifevision.add(actions.aeon_physical.p, "quicksilver")
+    return
   end
 end
 
@@ -1929,7 +1966,11 @@ end
 apply_ice = false
 
 function valid.applyice1()
-  apply_ice = false
+  if ice_gmcp then
+    ice_gmcp = nil
+  else
+    apply_ice = false
+  end
 end
 
 function valid.applyice2()
@@ -2371,7 +2412,7 @@ function valid.unlit_pipe()
 end
 
 function valid.maestoso_ruined()
-  local r = findbybal("herb")
+  local r = findbybals("herb", "steam")
   if not r then return end
 
   lifevision.add(actions[r.name].p, "maestoso")
@@ -3153,12 +3194,12 @@ function valid.healed_completely()
 end
 
 function valid.ice_healed_completely()
-  apply_ice = true
   local result = checkany(
     dict.lighthead.ice, dict.heavyhead.ice, dict.criticalhead.ice, dict.lightrightarm.ice, dict.heavyrightarm.ice, dict.criticalrightarm.ice, dict.lightleftarm.ice, dict.heavyleftarm.ice, dict.criticalleftarm.ice, dict.lightleftleg.ice, dict.heavyleftleg.ice, dict.criticalleftleg.ice,
     dict.lightrightleg.ice, dict.heavyrightleg.ice, dict.criticalrightleg.ice, dict.lightchest.ice, dict.heavychest.ice, dict.criticalchest.ice, dict.lightgut.ice, dict.heavygut.ice, dict.criticalgut.ice)
 
   if result and actions[result.name] then
+    ice_gmcp = true
     apply_ice = true
     lifevision.add(actions[result.name].p, "completely")
   end
@@ -3228,6 +3269,7 @@ function valid.ice_healed_partially()
     dict.lighthead.ice, dict.heavyhead.ice, dict.criticalhead.ice, dict.lightrightarm.ice, dict.heavyrightarm.ice, dict.criticalrightarm.ice, dict.lightleftarm.ice, dict.heavyleftarm.ice, dict.criticalleftarm.ice, dict.lightleftleg.ice, dict.heavyleftleg.ice, dict.criticalleftleg.ice, dict.lightrightleg.ice, dict.heavyrightleg.ice, dict.criticalrightleg.ice, dict.lightchest.ice, dict.heavychest.ice, dict.criticalchest.ice, dict.lightgut.ice, dict.heavygut.ice, dict.criticalgut.ice)
 
   if result and actions[result.name] then
+    ice_gmcp = true
     apply_ice = true
     lifevision.add(actions[result.name].p, "partially")
   end

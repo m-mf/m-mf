@@ -15,7 +15,7 @@ end
 end
 
 valid.simplebleeding = function (amount)
-  if gmcp and gmcp.Char and gmcp.Char.Vitals and gmcp.Char.Vitals.bruising then return end
+  if conf.gmcpvitals then return end
 #if skills.psychometabolism then
   if defc.bloodboil and conf.bloodboil and (stats.currentego > sys.egouse) then return end
 #end
@@ -29,7 +29,7 @@ valid.simplebleeding = function (amount)
 end
 
 valid.simplebruising = function (amount)
-  if gmcp and gmcp.Char and gmcp.Char.Vitals and gmcp.Char.Vitals.bruising then return end
+  if conf.gmcpvitals then return end
 #if skills.psychometabolism then
   if defc.bloodboil and conf.bloodboil and (stats.currentego > sys.egouse) then return end
 #end
@@ -55,6 +55,14 @@ end
 valid.simplestun = function (amount)
   checkaction(dict.stun.aff, true)
   lifevision.add(actions.stun_aff.p, nil, amount)
+  if sys.sync and conf.attemptearlystun and amount then
+    if earlystunTimer then killTimer(earlystunTimer) end
+    local time = 1
+    if mm.defc.truetime then
+      time = 0.9
+    end
+    earlystunTimer = tempTimer(amount-(time-getNetworkLatency()), [[mm.valid.stun_woreoff()]])
+  end
 end
 
 valid.simpleunknownany = function (number)
