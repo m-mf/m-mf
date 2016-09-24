@@ -43414,7 +43414,7 @@ mm.valid.simpleunknownmental()</script>
                         <string>^\w+ sends a tendril of shadows into your face\. You try to cry out as your vision is blotted and spears of pain stab into your eye sockets\.$</string>
                     </regexCodeList>
                     <regexCodePropertyList>
-                        <integer>3</integer>
+                        <integer>1</integer>
                     </regexCodePropertyList>
                 </Trigger>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
