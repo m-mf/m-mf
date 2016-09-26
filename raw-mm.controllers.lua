@@ -1134,6 +1134,10 @@ function connected()
   signals.connected:emit()
 end
 
+function loggedin()
+  signals.loggedin:emit()
+end
+
 
 
 signals.connected:connect(function()

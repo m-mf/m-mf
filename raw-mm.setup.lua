@@ -135,6 +135,7 @@ end)
 #end
 
 signals.connected = luanotify.signal.new()
+signals.loggedin = luanotify.signal.new()
 signals.quit = luanotify.signal.new()
 #if DEBUG then
 signals.quit:connect(function ()
