@@ -55368,6 +55368,13 @@ send(&quot;domoth status&quot;)</script>
                 <packageName></packageName>
                 <regex>^mmsp convert(?: (\w+))?$</regex>
             </Alias>
+            <Alias isActive="yes" isFolder="no">
+                <name>mmdocs</name>
+                <script>openUrl(&quot;http://m-mf.github.io/m-mf/&quot;)</script>
+                <command></command>
+                <packageName></packageName>
+                <regex>^mm ?docs$</regex>
+            </Alias>
         </AliasGroup>
     </AliasPackage>
     <ActionPackage>
