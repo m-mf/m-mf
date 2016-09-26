@@ -29068,7 +29068,7 @@ selectCurrentLine() setFgColor(0,170,255) resetFormat()</script>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Setup prompt status</name>
                         <script>-- for lost/gain tracking
-for _, balance in pairs{&quot;balance&quot;, &quot;equilibrium&quot;} do
+for _, balance in pairs{&quot;balance&quot;, &quot;equilibrium&quot;,&quot;leftarm&quot;,&quot;rightarm&quot;} do
   if mm.bals[balance] then mm[&quot;had_&quot;..balance] = true end
 end</script>
                         <triggerType>0</triggerType>
@@ -29374,7 +29374,7 @@ end</script>
 
 mm.watch = mm.watch or {}
 
-for _, balance in pairs{&quot;balance&quot;, &quot;equilibrium&quot;} do
+for _, balance in pairs{&quot;balance&quot;, &quot;equilibrium&quot;, &quot;leftarm&quot;, &quot;rightarm&quot;} do
   if mm[&quot;had_&quot;..balance] and not mm.bals[balance] then
     raiseEvent(&quot;m&amp;m lost balance&quot;, balance)
 
