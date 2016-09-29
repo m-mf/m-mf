@@ -270,6 +270,11 @@ function valid.spiders_all_overme()
   valid.simplehallucinating()
 end
 
+function valid.stun_hallucination()
+  valid.simplestun()
+  valid.simplehallucinating()
+end
+
 function valid.proper_masochism()
   valid.simplemasochism()
 

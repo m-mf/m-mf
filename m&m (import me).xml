@@ -22991,7 +22991,7 @@ resetFormat()</script>
                         <integer>1</integer>
                     </regexCodePropertyList>
                 </Trigger>
-                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>m&amp;m lit pipes</name>
                     <script>mm.valid.litallpipes()</script>
                     <triggerType>0</triggerType>
@@ -23005,11 +23005,11 @@ resetFormat()</script>
                     <colorTriggerFgColor>#000000</colorTriggerFgColor>
                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                     <regexCodeList>
-                        <string>Using</string>
                         <string>^Using .+?, you carefully light .+ pipes? until (?:they are|it is) burning nicely\.$</string>
+                        <string>^You gently breathe fire over \w+ pipes until they are burning nicely\.$</string>
                     </regexCodeList>
                     <regexCodePropertyList>
-                        <integer>2</integer>
+                        <integer>1</integer>
                         <integer>1</integer>
                     </regexCodePropertyList>
                 </Trigger>
@@ -27789,7 +27789,7 @@ mm.valid.simplebleeding()</script>
                     </Trigger>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Hallucinating</name>
-                        <script>mm.valid.simplehallucinating()</script>
+                        <script>mm.valid.stun_hallucination()</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>0</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -27802,8 +27802,10 @@ mm.valid.simplebleeding()</script>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
                             <string>You are stunned by a vision of divine astral beings.</string>
+                            <string>You are stunned by the sight of a massive pink bunny hopping by.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>

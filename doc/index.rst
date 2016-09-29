@@ -327,6 +327,9 @@ mmconfig options
   aeonfocus
     specifies if afflictions being cured in slowcuring mode will be focused.
 
+  adrenaline
+    Will cause athletics users to only use adrenaline for the quicksilver defense.
+
   allheale
     specifies whenever the system should make use of allheale to cure affs or not. Currently, it only makes use of it for blackout. You can disable this if you don't have any allheale potion so the system won't spam trying to use it.
 
@@ -338,6 +341,9 @@ mmconfig options
 
   assumestats
     sets the % of health, mana, and ego which the system will assume you have when afflicted with blackout or recklessness (and thus your real stats are unknown).
+
+  attemptearlystun
+    Will attempt to start curing before stun wears off in slowcuring for more effective curing. Considers truetime defence.
 
   autoarena
   	turns on arena mode when entering an arena and turns it off upon exiting the arena 
