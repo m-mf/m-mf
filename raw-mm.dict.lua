@@ -6583,11 +6583,11 @@ dict = {
       spriority = 128,
 
       isadvisable = function ()
-        return (affs.crushedchest and codepaste.regen_chest()
+        return false --[[(affs.crushedchest and codepaste.regen_chest()
 #if skills.healing then
         and not (actions.usehealing_misc and dict.usehealing.curingaff == "crushedchest")
 #end
-          ) or false
+          ) or false]]
       end,
 
       oncompleted = function ()
