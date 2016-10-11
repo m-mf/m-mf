@@ -1115,6 +1115,9 @@ Alias list
   mminstall
     starts the installation of the system.
 
+  mmdocs
+  	opens up the m&mf documentation in your browser
+
   mmsetup pc
     shows the current configuration of the herb precache system, for the current defences mode you're in. You can adjusts the amounts by clicking on + or - beside the herb.
 

@@ -762,7 +762,7 @@ function aignore(action, balance)
 end
 
 signals.systemstart:connect(function ()
-  winningAlias = tempAlias("^winning$", [[mm.valid.winning1()]])
+  winningTrigger = tempExactMatchTrigger([["WINNING!" you scream, pumping a fist in the air like an idiot.]], [[mm.valid.winning1()]])
 end)
 
 function show_ignore()

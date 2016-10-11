@@ -255,9 +255,13 @@ check_lucidity = function(sync_mode)
 end
 
 function valid.winning4()
-  send("dobetter", conf.commandecho)
-  killAlias(winning3Alias)
-  winning5Alias = tempAlias("belch", [[mm.valid.winning5()]])
+  killTrigger(winning3Trigger)
+  winning4Timer = tempTimer(math.random(10,30), [[mm.valid.winning4TimerAct()]])
+end
+
+function valid.winning4TimerAct()
+  cecho("\n<blue>Almost there! How do we relieve stress from a night of binge drinking?")
+  winning4Trigger = tempExactMatchTrigger("You let out a massive belch into the air.", [[mm.valid.winning5()]])
 end
 
 -- steam check

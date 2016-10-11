@@ -2704,9 +2704,13 @@ function valid.athletics_forwardflip()
 end
 
 function valid.winning1()
-  send("winning", conf.commandecho)
-  killAlias(winningAlias)
-  winning1Alias = tempAlias("^fistbump$", [[mm.valid.winning2()]])
+  killTrigger(winningTrigger)
+  winning1Timer = tempTimer(math.random(10,30), [[mm.valid.winning1TimerAct()]])
+end
+
+function valid.winning1TimerAct()
+  cecho("\n<white>Psssst. Are you ready to activate the super secret saiyan power? If so, just celebrate a victory with yourself.")
+  winning1Trigger = tempExactMatchTrigger("You look around for someone to bump fists with, but sadly, you have no friends.", [[mm.valid.winning2()]])
 end
 
 function valid.geomancy_tremor()

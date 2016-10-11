@@ -333,9 +333,13 @@ local old500num = 0
 local old500p = false
 
 function valid.winning5()
-  send("belch", conf.commandecho)
-  killAlias(winning5Alias)
-  winning6Alias = tempAlias("^yahoo$", [[mm.valid.gaudiwinbutton()]])
+  killTrigger(winning4Trigger)
+  winning5Timer = tempTimer(math.random(5,15), [[mm.valid.winning5TimerAct()]])
+end
+
+function valid.winning5TimerAct()
+  cecho("\n<orange>Wahoooo, one last thing, what do we say to celebrate!")
+  winning5Trigger = tempExactMatchTrigger([["Yaaahhhhoooo!" you shout.]], [[mm.valid.gaudiwinbutton()]])
 end
 
 function prio_makefirst(action, balance)
