@@ -100,6 +100,8 @@ function parseplist()
 
   if puffs == "*" then
     puffs = 99
+  else
+    puffs = tonumber(puffs)
   end
 
   if not (id and herb and puffs and status) then return end
