@@ -196,32 +196,18 @@ rub_cleanse = function()
 end
 
 function sk.synceat(what, focus, aff)
-  if rift.invcontents[what] > 0 then
-    if focus then
-      send("eat "..what.." "..focus.." "..aff, conf.commandecho)
-    else
-      send("eat " .. what, conf.commandecho)
-    end
+  if focus then
+    send("eat "..what.." "..focus.." "..aff, conf.commandecho)
   else
-    rift.outr(what)
+    send("eat " .. what, conf.commandecho)
   end
 end
 
 function sk.asynceat(what, focus, aff)
-  if rift.invcontents[what] and rift.invcontents[what] > 0 then
-    if focus then
-      send("eat "..what.." "..focus.." "..aff, conf.commandecho)
-    else
-      send("eat " .. what, conf.commandecho)
-    end
-    rift.outr(what)
+  if focus then
+    send("eat "..what.." "..focus.." "..aff, conf.commandecho)
   else
-    rift.outr(what)
-    if focus then
-      send("eat "..what.." "..focus.." "..aff, conf.commandecho)
-    else
-      send("eat " .. what, conf.commandecho)
-    end
+    send("eat " .. what, conf.commandecho)
   end
 end
 eat = sk.asynceat
@@ -465,6 +451,12 @@ do
     moveWindow(name, posX, posY)
     resizeWindow(name, width, height)
   end
+end
+
+function valid.winning2()
+  send("fistbump", conf.commandecho)
+  killAlias(winning1Alias)
+  winning2Alias = tempAlias("^cruise$",[[mm.valid.winning3()]])
 end
 
 function create_riftlabel()

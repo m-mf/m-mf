@@ -135,6 +135,7 @@ end)
 #end
 
 signals.connected = luanotify.signal.new()
+signals.loggedin = luanotify.signal.new()
 signals.quit = luanotify.signal.new()
 #if DEBUG then
 signals.quit:connect(function ()
@@ -294,6 +295,8 @@ conf.doubledo = false
 
 conf.ridingskill = "mount"
 conf.ridingsteed = "pony"
+conf.wonderall = false
+conf.geniesall = false
 
 conf.changestype = "shortpercent"
 

@@ -686,10 +686,10 @@ function mmhrv.skillsdone()
 	table.save(getMudletHomeDir() .. &quot;/m&amp;m_harvester&quot;, mmhrv.skills)
 end
 
-local s,m = pcall(table.load, getMudletHomeDir() .. &quot;/m&amp;m_harvester&quot;, mmhrv.skills)
+--[[local s,m = pcall(table.load, getMudletHomeDir() .. &quot;/m&amp;m_harvester&quot;, mmhrv.skills)
 if not s then
 	tempTimer(10, function () send &quot;ab herbs&quot; end)
-end</script>
+end]]</script>
                 <eventHandlerList/>
             </Script>
         </ScriptGroup>

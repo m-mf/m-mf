@@ -270,6 +270,11 @@ function valid.spiders_all_overme()
   valid.simplehallucinating()
 end
 
+function valid.stun_hallucination()
+  valid.simplestun()
+  valid.simplehallucinating()
+end
+
 function valid.proper_masochism()
   valid.simplemasochism()
 
@@ -331,6 +336,17 @@ function valid.holythroat()
   if actions.checkslitthroat_misc then
     lifevision.add(actions.checkslitthroat_misc.p, "holythroat")
   end
+end
+
+function valid.hasdamagedthroat()
+  if actions.checkdamagedthroat_misc then
+    lifevision.add(actions.checkdamagedthroat_misc.p, "has")
+    return
+  end
+
+  local r = findbybals("lucidity", "health")
+  if not r then return end
+  lifevision.add(actions.damagedthroat_aff.p)
 end
 
 function valid.proper_collapsedlungs()
@@ -594,6 +610,16 @@ function valid.proper_slitthroat()
   else
     checkaction(dict.checkslitthroat.aff, true)
     lifevision.add(actions.checkslitthroat_aff.p)
+  end
+end
+
+function valid.proper_damagedthroat()
+  if not conf.aillusion then
+    valid.simpledamagedthroat()
+  else
+    echo("CHECKING DAMAGED THROAT")
+    checkaction(dict.checkdamagedthroat.aff, true)
+    lifevision.add(actions.checkdamagedthroat_aff.p)
   end
 end
 
@@ -965,6 +991,13 @@ function valid.scarab_woreoff()
   end
 end
 
+function valid.echoes_woreoff()
+  checkaction(dict.echoes.waitingfor)
+  if actions.echoes_waitingfor then
+    lifevision.add(actions.echoes_waitingfor.p)
+  end
+end
+
 function valid.stun_woreoff()
   checkaction(dict.stun.waitingfor)
   if actions.stun_waitingfor then
@@ -1030,7 +1063,6 @@ function valid.adrenaline_already()
   checkaction(dict.quicksilver.physical, true)
   if actions.quicksilver_physical then
     lifevision.add(actions.quicksilver_physical.p, "oncompleted", true)
-    return
   end
 
   checkaction(dict.aeon.physical, true)
@@ -2669,6 +2701,12 @@ end
 function valid.athletics_forwardflip()
   valid.proper_prone()
   valid["simplecrippled"..multimatches[2][2]..multimatches[2][3]]()
+end
+
+function valid.winning1()
+  send("winning", conf.commandecho)
+  killAlias(winningAlias)
+  winning1Alias = tempAlias("^fistbump$", [[mm.valid.winning2()]])
 end
 
 function valid.geomancy_tremor()

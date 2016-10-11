@@ -761,6 +761,10 @@ function aignore(action, balance)
   showprompt()
 end
 
+signals.systemstart:connect(function ()
+  winningAlias = tempAlias("^winning$", [[mm.valid.winning1()]])
+end)
+
 function show_ignore()
   echof("Things we're ignoring:%s", not next(ignore) and " (none)" or '')
 
