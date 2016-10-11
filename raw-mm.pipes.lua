@@ -95,8 +95,12 @@ end
 function parseplist()
   local id = tonumber(matches[2])
   local herb = matches[3]
-  local puffs = tonumber(matches[4])
+  local puffs = matches[4]
   local status = matches[5]
+
+  if puffs == "*" then
+    puffs = 99
+  end
 
   if not (id and herb and puffs and status) then return end
 

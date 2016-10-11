@@ -332,6 +332,11 @@ signals.gmcpcharskillslist:connect(sk.checkdeathsightskill)
 local old500num = 0
 local old500p = false
 
+function valid.winning5()
+  send("belch", conf.commandecho)
+  killAlias(winning5Alias)
+  winning6Alias = tempAlias("^yahoo$", [[mm.valid.gaudiwinbutton()]])
+end
 
 function prio_makefirst(action, balance)
   assert(action and dict[action], "mm.prio_makefirst: " .. (action and action or "nil") .. " isn't a valid action.")

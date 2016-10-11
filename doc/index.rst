@@ -435,6 +435,9 @@ mmconfig options
   gagrelight
     toggles whenever the system should gag (hide) pipe relighting or not.
 
+  geniesall
+  	Will use the 'curio collection activate genies' command to put up all the genies, removing spam.
+
   gmcpvitals
   	sets m&mf to pull stats information from Char.Vitals - this means that it won't spam when deffing up locked in modules and will track balance/eq in blackout, among other things.
 
@@ -569,6 +572,9 @@ mmconfig options
 
   warningtype
     can be either *all*, *prompt* or *none* (default is *all*). This is about instakill warnings - with all, then the warning will be prefixed on every line while it's in effect. With prompt, it will only be prefixed to prompt lines - and none will have it not prefix anything.
+
+  wonderall
+  	Will use the singular 'wondercorn activate all' to put up all the wondercorn defences, removing spam.
 
   ccto
     adjusts where do the :term:`cc alias <cc>` and the :ref:`mm.cc() <mm-cc-function>` function report information to. You can set it to a variety of different options:

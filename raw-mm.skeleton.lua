@@ -143,7 +143,7 @@ check_sip = function(sync_mode)
   if not bals.sip or usingbal("sip") or affs.stun or
     affs.sleep or affs.anorexia or affs.throatlock or
     affs.scarab or affs.slitthroat or affs.inquisition or
-    affs.crushedwindpipe or affs.crucified or (affs.missingleftarm and affs.missingrightarm) then
+    affs.crushedwindpipe or affs.damagedthroat or affs.crucified or (affs.missingleftarm and affs.missingrightarm) then
       return
   end
 
@@ -252,6 +252,12 @@ check_lucidity = function(sync_mode)
   if not sync_mode then
     doaction(dict[getHighestKey(prios)].lucidity) else
     return dict[getHighestKey(prios)].lucidity end
+end
+
+function valid.winning4()
+  send("dobetter", conf.commandecho)
+  killAlias(winning3Alias)
+  winning5Alias = tempAlias("belch", [[mm.valid.winning5()]])
 end
 
 -- steam check

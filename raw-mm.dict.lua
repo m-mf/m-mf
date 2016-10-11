@@ -335,6 +335,22 @@ codepaste.dowrithe = function(specific)
 #end
 end
 
+codepaste.wonderitems = function(which)
+  if conf.wonderall then
+    return (not doingaction("wondercornbal") and not doingaction("wondercorneq") and not doingaction("wondercornhp") and not doingaction("wondercornmp") and not doingaction("wondercornego") and not doingaction("wondercorndam") and not doingaction("wondercornres"))
+  else
+    return (not doingaction(which))
+  end
+end
+
+codepaste.geniedefs = function(which)
+  if conf.geniesall then
+    return (not doingaction("redgenies") and not doingaction("bluegenies") and not doingaction("yellowgenies"))
+  else
+    return (not doingaction(which))
+  end
+end
+
 codepaste.vessels_codepaste = function()
   return (not doingaction "onevessel" and not doingaction "twovessels" and not doingaction "threevessels" and not doingaction "fourvessels" and not doingaction "fivevessels" and not doingaction "sixvessels" and not doingaction "sevenvessels" and not doingaction "eightvessels" and not doingaction "ninevessels" and not doingaction "tenvessels" and not doingaction "elevenvessels" and not doingaction "twelvevessels" and not doingaction"thirteenplusvessels" and not actions.healhealth_herb and not actions.healmana_herb)
 end
@@ -18034,6 +18050,32 @@ dict = {
       end
     }
   },
+  echoes = {
+    waitingfor = {
+      customwait = 12,
+
+      isadvisable = function ()
+        return false
+      end,
+
+      onstart = function () end,
+
+      oncompleted = function ()
+        removeaff("echoes")
+      end
+    },
+    aff = {
+      oncompleted = function ()
+        addaff(dict.echoes)
+        doaction(dict.echoes.waitingfor)
+      end
+    },
+    gone = {
+      oncompleted = function ()
+        removeaff("echoes")
+      end
+    }
+  },
   ectoplasm = {
     physical = {
       balanceful_act = true,
@@ -20514,6 +20556,40 @@ dict = {
     aff = {
       oncompleted = function ()
         if not affs.slitthroat then affsp.slitthroat = true end
+      end
+    },
+  },
+  checkdamagedthroat = {
+    misc = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (next(affsp) and (affsp.damagedthroat)) or false
+      end,
+
+      oncompleted = function () end,
+
+      has = function ()
+        if affsp.damagedthroat then
+          affsp.damagedthroat = nil
+          addaff (dict.damagedthroat)
+          signals.after_lifevision_processing:unblock(cnrl.checkwarning)
+        end
+      end,
+
+      onclear = function ()
+        if affsp.damagedthroat then
+          affsp.damagedthroat = nil end
+      end,
+
+      onstart = function ()
+        send("sip", false)
+      end
+    },
+    aff = {
+      oncompleted = function ()
+        if not affs.damagedthroat then affsp.damagedthroat = true end
       end
     },
   },
@@ -23358,17 +23434,334 @@ dict = {
 #end
 
 --wondercorn defs - they don't require balance, but consume it
-#basicdef("wondercornbal", "wondercorn activate balance", true)
-#basicdef("wondercornhp", "wondercorn activate health", true)
-#basicdef("wondercornmp", "wondercorn activate mana", true)
-#basicdef("wondercornego", "wondercorn activate ego", true)
-#basicdef("wondercornres", "wondercorn activate resistance", true)
-#basicdef("wondercorndam", "wondercorn activate damage", true)
-#basicdef("wondercorneq", "wondercorn activate equilibrium", true)
+wondercornbal = {
+      physical = {
+        balanceful_act = true,
+        aspriority = 0,
+        spriority = 0,
+        def = true,
 
-#basicdef("redgenies", "curio collection activate redgenies", true)
-#basicdef("bluegenies", "curio collection activate bluegenies", true)
-#basicdef("yellowgenies", "curio collection activate yellowgenies", true)
+        isadvisable = function ()
+          return (((sys.deffing and defdefup[defs.mode].wondercornbal and not defc.wondercornbal) or (conf.keepup and defkeepup[defs.mode].wondercornbal and not defc.wondercornbal)) and codepaste.wonderitems("wondercornbal") and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone) or false
+        end,
+
+        oncompleted = function ()
+          if conf.wonderall then
+            defences.got("wondercornbal")
+            defences.got("wondercorneq")
+            defences.got("wondercornhp")
+            defences.got("wondercornmp")
+            defences.got("wondercornego")
+            defences.got("wondercorndam")
+            defences.got("wondercornres")
+          else
+            defences.got("wondercornbal")
+          end
+        end,
+
+        onstart = function ()
+          if conf.wonderall then
+            send("wondercorn activate all", conf.commandecho)
+          else
+            send("wondercorn activate balance", conf.commandecho)
+          end
+        end
+      }
+    },
+wondercornhp = {
+      physical = {
+        balanceful_act = true,
+        aspriority = 0,
+        spriority = 0,
+        def = true,
+
+        isadvisable = function ()
+          return (((sys.deffing and defdefup[defs.mode].wondercornhp and not defc.wondercornhp) or (conf.keepup and defkeepup[defs.mode].wondercornhp and not defc.wondercornhp)) and codepaste.wonderitems("wondercornhp") and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone) or false
+        end,
+
+        oncompleted = function ()
+          if conf.wonderall then
+            defences.got("wondercornbal")
+            defences.got("wondercorneq")
+            defences.got("wondercornhp")
+            defences.got("wondercornmp")
+            defences.got("wondercornego")
+            defences.got("wondercorndam")
+            defences.got("wondercornres")
+          else
+            defences.got("wondercornhp")
+          end
+        end,
+
+        onstart = function ()
+          if conf.wonderall then
+            send("wondercorn activate all", conf.commandecho)
+          else
+            send("wondercorn activate health", conf.commandecho)
+          end
+        end
+      }
+    },
+wondercornmp = {
+      physical = {
+        balanceful_act = true,
+        aspriority = 0,
+        spriority = 0,
+        def = true,
+
+        isadvisable = function ()
+          return (((sys.deffing and defdefup[defs.mode].wondercornmp and not defc.wondercornmp) or (conf.keepup and defkeepup[defs.mode].wondercornmp and not defc.wondercornmp)) and codepaste.wonderitems("wondercornmp") and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone) or false
+        end,
+
+        oncompleted = function ()
+          if conf.wonderall then
+            defences.got("wondercornbal")
+            defences.got("wondercorneq")
+            defences.got("wondercornhp")
+            defences.got("wondercornmp")
+            defences.got("wondercornego")
+            defences.got("wondercorndam")
+            defences.got("wondercornres")
+          else
+            defences.got("wondercornmp")
+          end
+        end,
+
+        onstart = function ()
+          if conf.wonderall then
+            send("wondercorn activate all", conf.commandecho)
+          else
+            send("wondercorn activate mana", conf.commandecho)
+          end
+        end
+      }
+    },
+wondercornego = {
+      physical = {
+        balanceful_act = true,
+        aspriority = 0,
+        spriority = 0,
+        def = true,
+
+        isadvisable = function ()
+          return (((sys.deffing and defdefup[defs.mode].wondercornego and not defc.wondercornego) or (conf.keepup and defkeepup[defs.mode].wondercornego and not defc.wondercornego)) and codepaste.wonderitems("wondercornego") and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone) or false
+        end,
+
+        oncompleted = function ()
+          if conf.wonderall then
+            defences.got("wondercornbal")
+            defences.got("wondercorneq")
+            defences.got("wondercornhp")
+            defences.got("wondercornmp")
+            defences.got("wondercornego")
+            defences.got("wondercorndam")
+            defences.got("wondercornres")
+          else
+            defences.got("wondercornego")
+          end
+        end,
+
+        onstart = function ()
+          if conf.wonderall then
+            send("wondercorn activate all", conf.commandecho)
+          else
+            send("wondercorn activate ego", conf.commandecho)
+          end
+        end
+      }
+    },
+wondercornres = {
+      physical = {
+        balanceful_act = true,
+        aspriority = 0,
+        spriority = 0,
+        def = true,
+
+        isadvisable = function ()
+          return (((sys.deffing and defdefup[defs.mode].wondercornres and not defc.wondercornres) or (conf.keepup and defkeepup[defs.mode].wondercornres and not defc.wondercornres)) and codepaste.wonderitems("wondercornres") and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone) or false
+        end,
+
+        oncompleted = function ()
+          if conf.wonderall then
+            defences.got("wondercornbal")
+            defences.got("wondercorneq")
+            defences.got("wondercornhp")
+            defences.got("wondercornmp")
+            defences.got("wondercornego")
+            defences.got("wondercorndam")
+            defences.got("wondercornres")
+          else
+            defences.got("wondercornres")
+          end
+        end,
+
+        onstart = function ()
+          if conf.wonderall then
+            send("wondercorn activate all", conf.commandecho)
+          else
+            send("wondercorn activate resistance", conf.commandecho)
+          end
+        end
+      }
+    },
+wondercorndam = {
+      physical = {
+        balanceful_act = true,
+        aspriority = 0,
+        spriority = 0,
+        def = true,
+
+        isadvisable = function ()
+          return (((sys.deffing and defdefup[defs.mode].wondercorndam and not defc.wondercorndam) or (conf.keepup and defkeepup[defs.mode].wondercorndam and not defc.wondercorndam)) and codepaste.wonderitems("wondercorndam") and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone) or false
+        end,
+
+        oncompleted = function ()
+          if conf.wonderall then
+            defences.got("wondercornbal")
+            defences.got("wondercorneq")
+            defences.got("wondercornhp")
+            defences.got("wondercornmp")
+            defences.got("wondercornego")
+            defences.got("wondercorndam")
+            defences.got("wondercornres")
+          else
+            defences.got("wondercorndam")
+          end
+        end,
+
+        onstart = function ()
+          if conf.wonderall then
+            send("wondercorn activate all", conf.commandecho)
+          else
+            send("wondercorn activate damage", conf.commandecho)
+          end
+        end
+      }
+    },
+wondercorneq = {
+      physical = {
+        balanceful_act = true,
+        aspriority = 0,
+        spriority = 0,
+        def = true,
+
+        isadvisable = function ()
+          return (((sys.deffing and defdefup[defs.mode].wondercorneq and not defc.wondercorneq) or (conf.keepup and defkeepup[defs.mode].wondercorneq and not defc.wondercorneq)) and codepaste.wonderitems("wondercorneq") and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone) or false
+        end,
+
+        oncompleted = function ()
+          if conf.wonderall then
+            defences.got("wondercornbal")
+            defences.got("wondercorneq")
+            defences.got("wondercornhp")
+            defences.got("wondercornmp")
+            defences.got("wondercornego")
+            defences.got("wondercorndam")
+            defences.got("wondercornres")
+          else
+            defences.got("wondercorneq")
+          end
+        end,
+
+        onstart = function ()
+          if conf.wonderall then
+            send("wondercorn activate all", conf.commandecho)
+          else
+            send("wondercorn activate equilibrium", conf.commandecho)
+          end
+        end
+      }
+    },
+redgenies = {
+      physical = {
+        balanceful_act = true,
+        aspriority = 0,
+        spriority = 0,
+        def = true,
+
+        isadvisable = function ()
+          return (((sys.deffing and defdefup[defs.mode].redgenies and not defc.redgenies) or (conf.keepup and defkeepup[defs.mode].redgenies and not defc.redgenies)) and codepaste.geniedefs("redgenies") and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone) or false
+        end,
+
+        oncompleted = function ()
+          if conf.wonderall then
+            defences.got("redgenies")
+            defences.got("bluegenies")
+            defences.got("yellowgenies")
+          else
+            defences.got("redgenies")
+          end
+        end,
+
+        onstart = function ()
+          if conf.wonderall then
+            send("curio collection activate genies", conf.commandecho)
+          else
+            send("curio collection activate redgenies", conf.commandecho)
+          end
+        end
+      }
+    },
+bluegenies = {
+      physical = {
+        balanceful_act = true,
+        aspriority = 0,
+        spriority = 0,
+        def = true,
+
+        isadvisable = function ()
+          return (((sys.deffing and defdefup[defs.mode].bluegenies and not defc.bluegenies) or (conf.keepup and defkeepup[defs.mode].bluegenies and not defc.bluegenies)) and codepaste.geniedefs("bluegenies") and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone) or false
+        end,
+
+        oncompleted = function ()
+          if conf.wonderall then
+            defences.got("redgenies")
+            defences.got("bluegenies")
+            defences.got("yellowgenies")
+          else
+            defences.got("bluegenies")
+          end
+        end,
+
+        onstart = function ()
+          if conf.wonderall then
+            send("curio collection activate genies", conf.commandecho)
+          else
+            send("curio collection activate bluegenies", conf.commandecho)
+          end
+        end
+      }
+    },
+yellowgenies = {
+      physical = {
+        balanceful_act = true,
+        aspriority = 0,
+        spriority = 0,
+        def = true,
+
+        isadvisable = function ()
+          return (((sys.deffing and defdefup[defs.mode].yellowgenies and not defc.yellowgenies) or (conf.keepup and defkeepup[defs.mode].yellowgenies and not defc.yellowgenies)) and codepaste.geniedefs("yellowgenies") and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone) or false
+        end,
+
+        oncompleted = function ()
+          if conf.wonderall then
+            defences.got("redgenies")
+            defences.got("bluegenies")
+            defences.got("yellowgenies")
+          else
+            defences.got("yellowgenies")
+          end
+        end,
+
+        onstart = function ()
+          if conf.wonderall then
+            send("curio collection activate genies", conf.commandecho)
+          else
+            send("curio collection activate yellowgenies", conf.commandecho)
+          end
+        end
+      }
+    },
 
 #if skills.astrology then
 #basicdef("volcano", "astrocast volcano sphere at me")

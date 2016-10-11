@@ -295,6 +295,8 @@ conf.doubledo = false
 
 conf.ridingskill = "mount"
 conf.ridingsteed = "pony"
+conf.wonderall = false
+conf.geniesall = false
 
 conf.changestype = "shortpercent"
 

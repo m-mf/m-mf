@@ -247,6 +247,18 @@ config_dict = pl.OrderedMap {
     onenabled = function () echof("<0,250,0>Will%s auto hide inactive skillsets on deflist.", getDefaultColor()) end,
     ondisabled = function () echof("<250,0,0>Won't%s autohide inactive skillsets on deflist.", getDefaultColor()) end,
   }},
+#conf_name = "wonderall"
+  {$(conf_name) = {
+    type = "boolean",
+    onenabled = function () echof("<0,250,0>Will%s use wondercorn activate all.", getDefaultColor()) end,
+    ondisabled = function () echof("<250,0,0>Won't%s use wondercorn activate all.", getDefaultColor()) end,
+  }},
+#conf_name = "geniesall"
+  {$(conf_name) = {
+    type = "boolean",
+    onenabled = function () echof("<0,250,0>Will%s use curio collection activate genies.", getDefaultColor()) end,
+    ondisabled = function () echof("<250,0,0>Won't%s use curio collection activate genies.", getDefaultColor()) end,
+  }},
 #conf_name = "rockclimbing"
   {$(conf_name) = {
     type = "boolean",

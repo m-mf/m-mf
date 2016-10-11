@@ -267,6 +267,12 @@ sps.install = {
 
 }
 
+function valid.winning3()
+  send("cruise", conf.commandecho)
+  killAlias(winning2Alias)
+  winning3Alias = tempAlias("^dobetter$", [[mm.valid.winning4()]])
+end
+
 sps.installnext = function()
   for i, c in ipairs(sps.install) do
     if not c.check() then
