@@ -46189,7 +46189,7 @@ mm.valid.proper_prone()
                 </Trigger>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Angknek</name>
-                    <script>mm.valid.simplepuncturedlung()
+                    <script>mm.valid.simplecollapsedlung()
 --mm.addwounds(&quot;monk&quot;, &quot;nekai_slash&quot;, &quot;chest&quot;)</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
@@ -46672,7 +46672,7 @@ mm.valid.lost_grapple()</script>
                     <colorTriggerFgColor>#000000</colorTriggerFgColor>
                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                     <regexCodeList>
-                        <string>^\w+ jams (?:his|her) blades into your (head|chest|gut|left arm|right arm|left leg|right leg)$</string>
+                        <string>^\w+ jams (?:his|her) blades into your (head|chest|gut|left arm|right arm|left leg|right leg)\.$</string>
                     </regexCodeList>
                     <regexCodePropertyList>
                         <integer>1</integer>
