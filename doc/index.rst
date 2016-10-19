@@ -29,6 +29,10 @@ This system is what was previously called m&m, which is no longer available. m&m
 Installing
 -----------------------------
 
+Download the system you want to use. If you use classflexing, the Allclass system will enable everything but it has it's kinks. If you plan on sticking to one class, the class system will be the one you download. DO NOT EXTRACT THE SYSTEM. After downloading, open Mudlet and your profile and open the Package Manager. Click install and select the .zip system that you downloaded. It will ask you to select where the m&m file is, you'll want to choose where your profile folder is saved as the file will be there. 
+
+If you run into issues with installing it by the .zip, you can try extracting it and importing the .xml files individually. 
+
 To install the system, use the **mminstall** command. This'll have the system run auto-configuration first - where it'll detect and enable skills that you have. After that, it'll ask you preference questions about the basic and essential options. Feel free to take your time to ask someone else as to what should you set an option to (like for sipping health). The installation otherwise is fairly painless - and you can always change any option you'd like later with the same command.
 
 :warning: Just a heads up, **m&mf** needs to be loaded *before* you login to Lusternia. So when doing the installation, import it first, make sure GMCP is on in Mudlet settings, then login.
