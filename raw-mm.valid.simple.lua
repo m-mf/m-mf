@@ -52,9 +52,17 @@ valid.simplelovers = function (name)
 end
 
 valid.gaudiwinbutton = function()
-    killAlias(winning6Alias)
-    cecho("\n<red> you've activated the super duper secret auto win button for members of Gaudiguch. If you are not a member of Gaudiguch, please restart your system, or everything will be deleted. If you are a member of Gaudiguch, remember these keys and you'll always end up on top. Live and Learn. Will to Live. Death doesn't matter. Freeeeeddddddooooooommmmmm")
-    winTimer = tempTimer(5, [[cecho("\n<red>This isn't really a win button in case that wasn't obvious")]])
+    gaudiWinTimer1 = tempTimer(10, [[cecho("\n<red>You've activated the super duper secret auto win button for members of Gaudiguch.")]])
+    gaudiWinTimer2 = tempTimer(15, [[cecho("\n<red>If you are not a member of Gaudiguch, please restart your system, or everything will be deleted.")]])
+    gaudiWinTimer3 = tempTimer(20, [[cecho("\n<red>If you are a member of Gaudiguch, remember the following phrases and you'll always end up on top.")]])
+    gaudiWinTimer4 = tempTimer(25, [[cecho("\n<red>Live and Learn.")]])
+    gaudiWinTimer5 = tempTimer(27, [[cecho("\n<red>  Will to Live!")]])
+    gaudiWinTimer6 = tempTimer(29, [[cecho("\n<red>    Even in Victory, We can improve")]])
+    gaudiWinTimer7 = tempTimer(31, [[cecho("\n<red>      Death matters not")]])
+    gaudiWinTimer8 = tempTimer(33, [[cecho("\n<red>        Can't win if you don't try")]])
+    gaudiWinTimer9 = tempTimer(35, [[cecho("\n<red>          Everyone is useful!")]])
+    gaudiWinTimer10 = tempTimer(37, [[cecho("\n<red>            Freeeeeddddddooooooommmmmm!!")]])
+    gaudiWinTimer11 = tempTimer(45, [[cecho("\n<red>This has been a friendly announcement of your friendly neighborhood developer. If you are not a member of Gaudiguch, don't worry, your system will not be deleted. Hope you enjoyed!")]])
 end
 
 valid.simplestun = function (amount)

@@ -41,7 +41,7 @@ end
 
 empty.eat_wafer = function()
   sk.lostbal_wafer()
-  removeaff({"paralysis", "haemophilia", "powersap", "scabies", "dysentery", "pox", "vomiting", "rigormortis", "taintsick", "asthma"})
+  removeaff({"paralysis", "haemophilia", "powersap", "scabies", "dysentery", "pox", "vomiting", "rigormortis", "taintsick", "asthma","clotleftshoulder","clotrightshoulder","clotlefthip","clotrighthip"})
 end
 
 empty.eat_earwort = function()

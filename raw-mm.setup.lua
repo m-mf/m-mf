@@ -490,19 +490,20 @@ sk.overhauldata = {
   blind          = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   trueblind      = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   deaf           = { newbalances = {"wafer"}, oldbalances = {"herb"}},
-  truedeaf       = { newbalances = {"wafer"}, oldbalances = {"herb"}},
-  attraction       = { newbalances = {"wafer"}, oldbalances = {"herb"}},
-  massivetimewarp = { newbalances = {"steam"}, oldbalances = {"herb","focus"}},
-  majortimewarp = { newbalances = {"steam"}, oldbalances = {"herb","focus"}},
-  moderatetimewarp = { newbalances = {"steam"}, oldbalances = {"herb","focus"}},
-  minortimewarp = { newbalances = {"steam"}, oldbalances = {"herb","focus"}},
-  massiveinsanity = { newbalances = {"lucidity"}, oldbalances = {"herb","focus"}},
-  majorinsanity = { newbalances = {"lucidity"}, oldbalances = {"herb","focus"}},
-  moderateinsanity = { newbalances = {"lucidity"}, oldbalances = {"herb","focus"}},
-  slightinsanity = { newbalances = {"lucidity"}, oldbalances = {"herb","focus"}},
-  
-
-
+  truedeaf          = { newbalances = {"wafer"}, oldbalances = {"herb"}},
+  attraction        = { newbalances = {"wafer"}, oldbalances = {"herb"}},
+  massivetimewarp   = { newbalances = {"steam"}, oldbalances = {"herb","focus"}},
+  majortimewarp     = { newbalances = {"steam"}, oldbalances = {"herb","focus"}},
+  moderatetimewarp  = { newbalances = {"steam"}, oldbalances = {"herb","focus"}},
+  minortimewarp     = { newbalances = {"steam"}, oldbalances = {"herb","focus"}},
+  massiveinsanity   = { newbalances = {"lucidity"}, oldbalances = {"herb","focus"}},
+  majorinsanity     = { newbalances = {"lucidity"}, oldbalances = {"herb","focus"}},
+  moderateinsanity  = { newbalances = {"lucidity"}, oldbalances = {"herb","focus"}},
+  slightinsanity    = { newbalances = {"lucidity"}, oldbalances = {"herb","focus"}},
+  clotleftshoulder  = { newbalances = {"wafer"}, oldbalances = {"herb"}},
+  clotrightshoulder = { newbalances = {"wafer"}, oldbalances = {"herb"}},
+  clotlefthip       = { newbalances = {"wafer"}, oldbalances = {"herb"}},
+  clotrighthip      = { newbalances = {"wafer"}, oldbalances = {"herb"}},
 }
 sk.overhaulredirects = {}
 

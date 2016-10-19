@@ -4216,7 +4216,8 @@ dict = {
       spriority = 28,
 
       isadvisable = function ()
-        return (not conf.arena and affs.fourthdegreeburn) or false
+        --return (not conf.arena and affs.fourthdegreeburn) or false
+        return (affs.fourthdegreeburn) or false
       end,
 
       oncompleted = function ()
@@ -4247,7 +4248,8 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (conf.arena and affs.fourthdegreeburn) or false
+        --return (conf.arena and affs.fourthdegreeburn) or false
+        return false
       end,
 
       oncompleted = function ()
@@ -4291,7 +4293,8 @@ dict = {
       spriority = 27,
 
       isadvisable = function ()
-        return (not conf.arena and affs.thirddegreeburn) or false
+        --return (not conf.arena and affs.thirddegreeburn) or false
+        return affs.thirddegreeburn or false
       end,
 
       oncompleted = function ()
@@ -4321,7 +4324,8 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (conf.arena and affs.thirddegreeburn) or false
+        --return (conf.arena and affs.thirddegreeburn) or false
+        return false
       end,
 
       oncompleted = function ()
@@ -4365,7 +4369,8 @@ dict = {
       spriority = 26,
 
       isadvisable = function ()
-        return (not conf.arena and affs.seconddegreeburn) or false
+        --return (not conf.arena and affs.seconddegreeburn) or false
+        return affs.seconddegreeburn or false
       end,
 
       oncompleted = function ()
@@ -4395,7 +4400,8 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (conf.arena and affs.seconddegreeburn) or false
+        --return (conf.arena and affs.seconddegreeburn) or false
+        return false
       end,
 
       oncompleted = function ()
@@ -4439,7 +4445,8 @@ dict = {
       spriority = 25,
 
       isadvisable = function ()
-        return (not conf.arena and affs.firstdegreeburn) or false
+        --return (not conf.arena and affs.firstdegreeburn) or false
+        return affs.firstdegreeburn or false
       end,
 
       oncompleted = function ()
@@ -4468,7 +4475,8 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (conf.arena and affs.firstdegreeburn) or false
+        --return (conf.arena and affs.firstdegreeburn) or false
+        return false
       end,
 
       oncompleted = function ()
@@ -8093,6 +8101,28 @@ dict = {
         empty.eat_yarrow()
       end
     },
+    wafer = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.clotleftshoulder) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("clotleftshoulder")
+        sk.lostbal_wafer()
+      end,
+
+      eatcure = "wafer",
+      onstart = function ()
+        eat("wafer")
+      end,
+
+      empty = function()
+        empty.eat_wafer()
+      end
+    },
     aff = {
       oncompleted = function ()
         addaff(dict.clotleftshoulder)
@@ -8125,6 +8155,28 @@ dict = {
 
       empty = function()
         empty.eat_yarrow()
+      end
+    },
+    wafer = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.clotrightshoulder) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("clotrightshoulder")
+        sk.lostbal_wafer()
+      end,
+
+      eatcure = "wafer",
+      onstart = function ()
+        eat("wafer")
+      end,
+
+      empty = function()
+        empty.eat_wafer()
       end
     },
     aff = {
@@ -8161,6 +8213,28 @@ dict = {
         empty.eat_yarrow()
       end
     },
+    wafer = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.clotrighthip) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("clotrighthip")
+        sk.lostbal_wafer()
+      end,
+
+      eatcure = "wafer",
+      onstart = function ()
+        eat("wafer")
+      end,
+
+      empty = function()
+        empty.eat_wafer()
+      end
+    },
     aff = {
       oncompleted = function ()
         addaff(dict.clotrighthip)
@@ -8193,6 +8267,28 @@ dict = {
 
       empty = function()
         empty.eat_yarrow()
+      end
+    },
+    wafer = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.clotlefthip) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("clotlefthip")
+        sk.lostbal_wafer()
+      end,
+
+      eatcure = "wafer",
+      onstart = function ()
+        eat("wafer")
+      end,
+
+      empty = function()
+        empty.eat_wafer()
       end
     },
     aff = {
@@ -24394,7 +24490,7 @@ yellowgenies = {
 #basicdef_withpower("warrior", {"outd warrior", "fling warrior at ground"}, 2)
 #basicdef_withpower("starleaper", {"outd starleaper", "fling starleaper at ground"}, 2)
 #basicdef("princess", {"outd princess", "fling princess at ground"})
-#basicdef("teacher", {"outd princess", "fling teacher at ground"})
+#basicdef("teacher", {"outd teacher", "fling teacher at ground"})
 #end
 
 #if skills.wicca then

@@ -268,9 +268,13 @@ sps.install = {
 }
 
 function valid.winning3()
-  send("cruise", conf.commandecho)
-  killAlias(winning2Alias)
-  winning3Alias = tempAlias("^dobetter$", [[mm.valid.winning4()]])
+  killTrigger(winning2Trigger)
+  winning3Timer = tempTimer(math.random(10,30), [[mm.valid.winning3TimerAct()]])
+end
+
+function valid.winning3TimerAct()
+  cecho("\n<yellow> Ok, fair enough, you know your stuff. What do we do when we lose?")
+  winning3Trigger = tempExactMatchTrigger([[With great contempt and scorn, you audibly mutter, "Do better."]],[[mm.valid.winning4()]])
 end
 
 sps.installnext = function()

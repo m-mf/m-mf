@@ -454,9 +454,13 @@ do
 end
 
 function valid.winning2()
-  send("fistbump", conf.commandecho)
-  killAlias(winning1Alias)
-  winning2Alias = tempAlias("^cruise$",[[mm.valid.winning3()]])
+  killTrigger(winning1Trigger)
+  winning2Timer = tempTimer(math.random(10, 30), [[mm.valid.winning2TimerAct()]])
+end
+
+function valid.winning2TimerAct()
+  cecho("\n<green> Ok, first step done, how do we greet someone?")
+  winning2Trigger = tempExactMatchTrigger("You eagerly look around for someone interesting to cruise but come up disappointed.", [[mm.valid.winning3()]])
 end
 
 function create_riftlabel()
