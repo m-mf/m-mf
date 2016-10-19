@@ -1194,24 +1194,24 @@ end)
   grip = { type = "ninjakari",
     on = {"You concentrate on gripping tightly with your hands.", "You already have a firm grip."},
     off = {"You relax your grip.", "Your grip is already relaxed."}},
-  deflectright = { type = "ninjakari",
+  --[[deflectright = { type = "ninjakari",
     on = "You prepare your right hand to deflect blows.",
     off = "You relax your hands."},
   deflectleft = { type = "ninjakari",
     on = "You prepare your left hand to deflect blows.",
-    off = "You relax your hands."},
+    off = "You relax your hands."},]]
 #end
 
 #if skills.nekotai then
   grip = { type = "nekotai",
     on = {"You concentrate on gripping tightly with your hands.", "You already have a firm grip."},
     off = {"You relax your grip.", "Your grip is already relaxed."}},
-  deflectright = { type = "nekotai",
+  --[[deflectright = { type = "nekotai",
     on = "You prepare your right hand to deflect blows.",
     off = "You relax your hands."},
   deflectleft = { type = "nekotai",
     on = "You prepare your left hand to deflect blows.",
-    off = "You relax your hands."},
+    off = "You relax your hands."},]]
   scorpiontail = { type = "nekotai",
     on = "A glowing scorpion's tail arcs overhead as you shift the weight in your legs."},
   scorpionspit = { type = "nekotai",
@@ -1648,8 +1648,9 @@ understanding\.$]],
   doublepain = { type = "psychometabolism",
     on = "You tune your body to inflict greater pain."},
   introspection = { type = "psychometabolism",
-    on = {"You close your eyes, bow your head, and intensely focus upon your deepest, most introspective thoughts.", "Your mental prowess is already swollen to its maximum."},
-    off = "You snap your head up as you break your meditation."},
+    on = {"You split your mind's focus, allowing a part of it to introspect constantly and boost your regenerative capabilities.", "You are already introspectively boosting your regeneration."},
+    off = "You snap your head up as you break your meditation.",
+    def = "You are maintaining a constant state of introspection, boosting your regeneration."},
   energycontainment = { type = "psychometabolism",
     on = "You reconfigure your nervous system to contain and disperse elemental energies."},
   enhancementstrength = { type = "psychometabolism",
@@ -1719,12 +1720,12 @@ understanding\.$]],
   grip = { type = "tahtetso",
     on = {"You concentrate on gripping tightly with your hands.", "You already have a firm grip."},
     off = {"You relax your grip.", "Your grip is already relaxed."}},
-  deflectright = { type = "tahtetso",
+  --[[deflectright = { type = "tahtetso",
     on = "You prepare your right hand to deflect blows.",
     off = "You relax your hands."},
   deflectleft = { type = "tahtetso",
     on = "You prepare your left hand to deflect blows.",
-    off = "You relax your hands."},
+    off = "You relax your hands."},]]
 #end
 
 #if skills.illusions then
@@ -1929,12 +1930,12 @@ understanding\.$]],
   grip = { type = "shofangi",
     on = {"You concentrate on gripping tightly with your hands.", "You already have a firm grip."},
     off = {"You relax your grip.", "Your grip is already relaxed."}},
-  deflectright = { type = "shofangi",
+  --[[deflectright = { type = "shofangi",
     on = "You prepare your right hand to deflect blows.",
     off = "You relax your hands."},
   deflectleft = { type = "shofangi",
     on = "You prepare your left hand to deflect blows.",
-    off = "You relax your hands."},
+    off = "You relax your hands."},]]
 #end
 
 
@@ -2618,8 +2619,8 @@ defences.complete_def({name = "IronWill", def = "You are regenerating mental str
 
 defences.complete_def({name = "Kafe", def = "You have ingested the kafe bean and are feeling extremely energetic.", tooltip = "Allows quick awakening."})
 
-defences.complete_def({name = "Deflectright", def = "You are deflecting blows with your right hand.", tooltip = "Reduces damage on that side."})
-defences.complete_def({name = "Deflectleft", def = "You are deflecting blows with your left hand.", tooltip = "Reduces damage on that side."})
+--[[defences.complete_def({name = "Deflectright", def = "You are deflecting blows with your right hand.", tooltip = "Reduces damage on that side."})
+defences.complete_def({name = "Deflectleft", def = "You are deflecting blows with your left hand.", tooltip = "Reduces damage on that side."})]]
 
 defences.complete_def({name = "Kephera", def = "You are empowered by the Kephera Queen of Queens.", tooltip = "Unweighted +1 to dexterity, intelligence, and charisma."})
 
