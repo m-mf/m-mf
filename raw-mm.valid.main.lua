@@ -2497,6 +2497,10 @@ function valid.hex_thrown()
   end
 end
 
+function valid.masked_runes()
+  valid.simpleunknownany(2)
+end
+
 function valid.shofangi_rake()
   valid["simplelacerated"..multimatches[2][2]..multimatches[2][3]]()
 end
