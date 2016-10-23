@@ -1026,7 +1026,7 @@ end</script>
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>m&amp;m cure clotleftshoulder</name>
-                            <script>mm.valid.herb_cured_clotleftshoulder()</script>
+                            <script>mm.valid.wafer_cured_clotleftshoulder()</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>0</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -1046,7 +1046,7 @@ end</script>
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>m&amp;m cure clotrightshoulder</name>
-                            <script>mm.valid.herb_cured_clotrightshoulder()</script>
+                            <script>mm.valid.wafer_cured_clotrightshoulder()</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>99</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -1066,7 +1066,7 @@ end</script>
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>m&amp;m cure clotrighthip</name>
-                            <script>mm.valid.herb_cured_clotrighthip()</script>
+                            <script>mm.valid.wafer_cured_clotrighthip()</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>0</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -16514,8 +16514,12 @@ mm.valid.writheclampedright_helpless()</script>
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
                                 <string>The majesty of Mother Moon fades from your mind.</string>
+                                <string>The silvery light of Mother Moon moves away, no longer draining your mind.</string>
+                                <string>You have cured succumb.</string>
                             </regexCodeList>
                             <regexCodePropertyList>
+                                <integer>3</integer>
+                                <integer>3</integer>
                                 <integer>3</integer>
                             </regexCodePropertyList>
                         </Trigger>
@@ -29117,6 +29121,146 @@ mm.valid.ceased_wielding()</script>
                             <integer>4</integer>
                         </regexCodePropertyList>
                     </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>no target</name>
+                        <script>mm.valid.notarget()</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>You detect nothing here by that name.</string>
+                            <string>Nothing can be seen here by that name.</string>
+                            <string>Ahh, I am truly sorry, but I do not see anyone by that name here.</string>
+                            <string>You cannot see that being here.</string>
+                            <string>I do not recognize anything called that here.</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>3</integer>
+                            <integer>3</integer>
+                            <integer>3</integer>
+                            <integer>3</integer>
+                            <integer>3</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                    <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>Check lines</name>
+                        <script></script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList/>
+                        <regexCodePropertyList/>
+                        <TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                            <name>m&amp;m check paralysis</name>
+                            <script></script>
+                            <triggerType>0</triggerType>
+                            <conditonLineDelta>0</conditonLineDelta>
+                            <mStayOpen>0</mStayOpen>
+                            <mCommand></mCommand>
+                            <packageName></packageName>
+                            <mFgColor>#ff0000</mFgColor>
+                            <mBgColor>#ffff00</mBgColor>
+                            <mSoundFile></mSoundFile>
+                            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                            <regexCodeList/>
+                            <regexCodePropertyList/>
+                            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                <name>m&amp;m check_paralysis paralyzed</name>
+                                <script>mm.valid.checkparalysis_paralysis()</script>
+                                <triggerType>0</triggerType>
+                                <conditonLineDelta>0</conditonLineDelta>
+                                <mStayOpen>0</mStayOpen>
+                                <mCommand></mCommand>
+                                <packageName></packageName>
+                                <mFgColor>#ff0000</mFgColor>
+                                <mBgColor>#ffff00</mBgColor>
+                                <mSoundFile></mSoundFile>
+                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                <regexCodeList>
+                                    <string>You are paralysed and cannot do that.</string>
+                                </regexCodeList>
+                                <regexCodePropertyList>
+                                    <integer>3</integer>
+                                </regexCodePropertyList>
+                            </Trigger>
+                            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                <name>m&amp;mcheck_paralysis sprawled</name>
+                                <script>mm.valid.checkparalysis_sprawled()</script>
+                                <triggerType>0</triggerType>
+                                <conditonLineDelta>0</conditonLineDelta>
+                                <mStayOpen>0</mStayOpen>
+                                <mCommand></mCommand>
+                                <packageName></packageName>
+                                <mFgColor>#ff0000</mFgColor>
+                                <mBgColor>#ffff00</mBgColor>
+                                <mSoundFile></mSoundFile>
+                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                <regexCodeList>
+                                    <string>You must first stand up before you can do that.</string>
+                                </regexCodeList>
+                                <regexCodePropertyList>
+                                    <integer>3</integer>
+                                </regexCodePropertyList>
+                            </Trigger>
+                            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                <name>m&amp;m check_paralysis entangled</name>
+                                <script>mm.valid.checkparalysis_tangled()</script>
+                                <triggerType>0</triggerType>
+                                <conditonLineDelta>0</conditonLineDelta>
+                                <mStayOpen>0</mStayOpen>
+                                <mCommand></mCommand>
+                                <packageName></packageName>
+                                <mFgColor>#ff0000</mFgColor>
+                                <mBgColor>#ffff00</mBgColor>
+                                <mSoundFile></mSoundFile>
+                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                <regexCodeList>
+                                    <string>Tight bindings prevent you from moving.</string>
+                                </regexCodeList>
+                                <regexCodePropertyList>
+                                    <integer>3</integer>
+                                </regexCodePropertyList>
+                            </Trigger>
+                            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                <name>m&amp;m check_paralysis impaled</name>
+                                <script>mm.valid.checkparalysis_impale()</script>
+                                <triggerType>0</triggerType>
+                                <conditonLineDelta>0</conditonLineDelta>
+                                <mStayOpen>0</mStayOpen>
+                                <mCommand></mCommand>
+                                <packageName></packageName>
+                                <mFgColor>#ff0000</mFgColor>
+                                <mBgColor>#ffff00</mBgColor>
+                                <mSoundFile></mSoundFile>
+                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                <regexCodeList>
+                                    <string>You are impaled, which makes movement impossible.</string>
+                                </regexCodeList>
+                                <regexCodePropertyList>
+                                    <integer>3</integer>
+                                </regexCodePropertyList>
+                            </Trigger>
+                        </TriggerGroup>
+                    </TriggerGroup>
                 </TriggerGroup>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Prompt</name>
@@ -51579,7 +51723,8 @@ mm.valid.simpledisrupt()</script>
                 </Trigger>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>AncestralCurse</name>
-                    <script>mm.valid.simpleunknownmental()</script>
+                    <script>--impatience, clumsiness, recklessness, addiction, paranoia, hallucinations
+mm.valid.simpleunknownmental()</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -54090,8 +54235,8 @@ mm.valid.proper_unknowncrippledarm()</script>
                     </regexCodePropertyList>
                 </Trigger>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>Bluehorn(Succumb)</name>
-                    <script>mm.valid.simplesuccumb()</script>
+                    <name>Bluehorn(Asthma)</name>
+                    <script>mm.valid.simpleasthma()</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>

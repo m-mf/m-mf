@@ -908,7 +908,42 @@ function valid.symp_paralysis()
   if not affs.severedspine then
     valid.simpleparalysis()
   end
+  if actions.checkparalysis_misc then
+    killaction(dict.paralysis.misc)
+  end
 end
+
+function valid.checkparalysis_paralysis()
+  if actions.checkparalysis_misc then
+    lifevision.add(actions.checkparalysis_misc.p, "paralyzed")
+  end
+  disableTrigger("m&m check paralysis")
+end
+
+function valid.checkparalysis_tangled()
+  if actions.checkparalysis_misc then
+    lifevision.add(actions.checkparalysis_misc.p, "onclear")
+    valid.simpletangle()
+  end
+  disableTrigger("m&m check paralysis")
+end
+
+function valid.checkparalysis_sprawled()
+  if actions.checkparalysis_misc then
+    lifevision.add(actions.checkparalysis_misc.p, "onclear")
+  end
+  disableTrigger("m&m check paralysis")
+end
+
+function valid.checkparalysis_impale()
+  if actions.checkparalysis_misc then
+    lifevision.add(actions.checkparalysis_misc.p, "onclear")
+    valid.simpletangle()
+  end
+  disableTrigger("m&m check paralysis")
+end
+
+
 
 function valid.symp_shatteredankle()
   if not conf.aillusion or doingaction "prone" then
@@ -2498,6 +2533,7 @@ function valid.hex_thrown()
 end
 
 function valid.masked_runes()
+  valid.proper_paralysis()
   valid.simpleunknownany(2)
 end
 
@@ -2728,8 +2764,15 @@ function valid.geomancy_tremor()
 end
 
 function sk.proper_paralysis()
-  if pflags.p then
+  if not pflags.p then 
+    signals.before_prompt_processing:block(sk.proper_paralysis)
+    return 
+  end
+  if (me.prone and not me.lastprone) or sys.sync then
     valid.simpleparalysis()
+  elseif not sys.sync then
+    checkaction(dict.checkparalysis.aff, true)
+    lifevision.add(actions.checkparalysis_aff.p)
   end
   signals.before_prompt_processing:block(sk.proper_paralysis)
 end
@@ -3847,7 +3890,7 @@ function valid.herbbanefail()
 end
 
 function valid.earachefail()
-  local result = checkany (dict.truedeaf.herb, dict.deaf.herb, dict.attraction.herb, dict.truedeaf.wafer, dict.deaf.wafer, dict.attraction.wafer)
+  local result = checkany (dict.truedeaf.steam, dict.deaf.steam, dict.attraction.steam)
   if not result then return end
 
   herb_cure = true
@@ -3998,7 +4041,7 @@ end
 
 -- wafer nomnoms
 #for _, wafer in pairs({
-#wafer = {"paralysis", "haemophilia", "powersap", "scabies", "dysentery", "pox", "vomiting", "rigormortis", "taintsick", "asthma"},
+#wafer = {"paralysis", "haemophilia", "powersap", "scabies", "dysentery", "pox", "vomiting", "rigormortis", "taintsick", "asthma","clotleftshoulder","clotrightshoulder","clotlefthip","clotrighthip"},
 #}) do
 #local checkany_string = ""
 #local temp = {}
@@ -4302,43 +4345,43 @@ function defs.got_trueblind()
 end
 
 function defs.got_truedeaf()
-  local result = checkany (dict.truedeaf.herb, dict.attraction.herb, dict.deaf.herb,dict.truedeaf.wafer, dict.deaf.wafer, dict.attraction.wafer)
+  local result = checkany (dict.truedeaf.steam, dict.attraction.steam, dict.deaf.steam)
 
   if not result and conf.aillusion then
     return
   elseif not result and not conf.aillusion then
-    checkaction (dict.truedeaf.wafer, true)
-    lifevision.add(actions.truedeaf_wafer.p)
+    checkaction (dict.truedeaf.steam, true)
+    lifevision.add(actions.truedeaf_steam.p)
     return
   end
 
   herb_cure = true
   if result.action_name == "truedeaf" then
-    lifevision.add(actions.truedeaf_wafer.p)
+    lifevision.add(actions.truedeaf_steam.p)
 
     if affs.attraction then
-      checkaction (dict.attraction.wafer, true)
-      lifevision.add(actions.attraction_wafer.p)
+      checkaction (dict.attraction.steam, true)
+      lifevision.add(actions.attraction_steam.p)
     end
   else
-    killaction(dict[result.action_name].wafer)
-    checkaction (dict.truedeaf.wafer, true)
-    checkaction (dict.attraction.wafer, true)
-    lifevision.add(actions.truedeaf_wafer.p)
-    lifevision.add(actions.attraction_wafer.p)
+    killaction(dict[result.action_name].steam)
+    checkaction (dict.truedeaf.steam, true)
+    checkaction (dict.attraction.steam, true)
+    lifevision.add(actions.truedeaf_steam.p)
+    lifevision.add(actions.attraction_steam.p)
   end
 end
 
 function defs.cureddeaf()
-  local result = checkany (dict.truedeaf.herb, dict.deaf.herb, dict.truedeaf.wafer, dict.deaf.wafer)
+  local result = checkany (dict.truedeaf.steam, dict.deaf.steam)
   if not result then return end
 
 
   herb_cure = true
-  if actions.truedeaf_wafer then
-    lifevision.add(actions.truedeaf_wafer.p, "cureddeaf")
-  elseif actions.deaf_wafer then
-    lifevision.add(actions.deaf_wafer.p)
+  if actions.truedeaf_steam then
+    lifevision.add(actions.truedeaf_steam.p, "cureddeaf")
+  elseif actions.deaf_steam then
+    lifevision.add(actions.deaf_steam.p)
   end
 end
 
@@ -5148,6 +5191,11 @@ end
 function valid.lostwaferbalance()
   checkaction(dict.stolebalance.happened, true)
   lifevision.add(actions.stolebalance_happened.p, nil, "wafer")
+end
+
+function valid.notarget()
+  checkaction(dict.checkparalysis.misc, true)
+  lifevision.add(actions.checkparalysis_misc.p, "onclear")
 end
 
 

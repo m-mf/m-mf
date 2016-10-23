@@ -155,7 +155,12 @@ end
 function prio.getnumber(aff, balance)
   assert(aff and balance and dict[aff] and dict[aff][balance], "Such affliction/defence or balance doesn't exist")
   return dict[aff][balance].aspriority
-end
+end     
+
+function prio.getslownumber(aff, balance)
+  assert(aff and balance and dict[aff] and dict[aff][balance], "Such affliction/defence or balance doesn't exist")
+  return dict[aff][balance].spriority
+end                                                                                                                                                                                                                                                                                                                                           
 
 function prio.cleargaps(balance, echoback)
   -- sync mode

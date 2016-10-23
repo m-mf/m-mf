@@ -369,6 +369,8 @@ me.wielded = {}
 me.dmplist = {}
 me.locks   = {}
 me.focus   = {}
+me.prone = false
+me.lastprone = false
 
 $(
 local paths = {}; paths.oldpath = package.path; package.path = package.path..";./?.lua;./bin/?.lua;"; local pretty = require "pl.pretty"; package.path = paths.oldpath
@@ -489,9 +491,9 @@ sk.overhauldata = {
   slickness      = { newbalances = {"steam"}, oldbalances = {"herb"}},
   blind          = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   trueblind      = { newbalances = {"wafer"}, oldbalances = {"herb"}},
-  deaf           = { newbalances = {"wafer"}, oldbalances = {"herb"}},
-  truedeaf          = { newbalances = {"wafer"}, oldbalances = {"herb"}},
-  attraction        = { newbalances = {"wafer"}, oldbalances = {"herb"}},
+  deaf           = { newbalances = {"steam"}, oldbalances = {"herb","wafer"}},
+  truedeaf          = { newbalances = {"steam"}, oldbalances = {"herb","wafer"}},
+  attraction        = { newbalances = {"steam"}, oldbalances = {"herb","wafer"}},
   massivetimewarp   = { newbalances = {"steam"}, oldbalances = {"herb","focus"}},
   majortimewarp     = { newbalances = {"steam"}, oldbalances = {"herb","focus"}},
   moderatetimewarp  = { newbalances = {"steam"}, oldbalances = {"herb","focus"}},
