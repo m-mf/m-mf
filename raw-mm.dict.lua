@@ -140,6 +140,7 @@ local dict_misc_def        = {}
 local dict_purgative       = {}
 local dict_sparkleaffs     = {}
 local dict_wafer           = {}
+local dict_steam           = {}
 
 local codepaste = {}
 
@@ -10452,8 +10453,9 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (affs.attraction and not affs.earache and
-          not doingaction("attraction") and not dict.attraction.eaten) or false
+        --[[return (affs.attraction and not affs.earache and
+          not doingaction("attraction") and not dict.attraction.eaten) or false]]
+          return false
       end,
 
       oncompleted = function ()
@@ -10478,6 +10480,39 @@ dict = {
 
       empty = function()
         empty["eat_earwort"]()
+      end
+    },
+    steam = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.attraction and not affs.earache and codepaste.smoke_steam_pipe() and not doingaction("attraction") and not dict.attraction.eaten) or false
+      end,
+
+      oncompleted = function (def)
+        dict.attraction.eaten = true
+        sk.lostbal_steam()
+        signals.newroom:unblock(sk.check_attraction)
+      end,
+
+      earache = function ()
+        sk.lostbal_steam()
+        if not affs.earache then addaff(dict.earache) end
+      end,
+
+      woreoff = function()
+        removeaff("attraction")
+      end,
+
+      eatcure = "earwort",
+      onstart = function ()
+        eat("earwort")
+      end,
+
+      empty = function()
+        empty.smoke_steam()
+        sk.lostbal_steam()
       end
     },
     aff = {
@@ -11599,7 +11634,7 @@ dict = {
       spriority = 79,
 
       isadvisable = function ()
-        return (affs.succumb and not doingaction "succumb") or false
+        return false
       end,
 
       oncompleted = function ()
@@ -11616,25 +11651,29 @@ dict = {
         dict.succumb.herb.oncompleted()
       end
     },
+    waitingfor = {
+      customwait = 10,
+
+      isadvisable = function ()
+        return false
+      end,
+
+      onstart = function () end,
+
+      oncompleted = function ()
+        removeaff("succumb")
+      end
+    },
     aff = {
       oncompleted = function ()
         addaff(dict.succumb)
+        doaction(dict.succumb.waitingfor)
       end,
     },
     gone = {
       oncompleted = function ()
         removeaff("succumb")
       end,
-    },
-    waitingfor = {
-      customwait = 6,
-
-      oncompleted = function ()
-        removeaff("succumb")
-      end,
-
-      onstart = function ()
-      end
     }
   },
   peace = {
@@ -13648,7 +13687,8 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (affs.deaf and not defc.truedeaf and not doingaction "deaf" and not affs.earache) or false
+        --[[return (affs.deaf and not defc.truedeaf and not doingaction "deaf" and not affs.earache) or false]]
+        return false
       end,
 
       oncompleted = function ()
@@ -13668,6 +13708,34 @@ dict = {
 
       empty = function()
         empty["eat_earwort"]()
+      end
+    },
+    steam = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.deaf and not affs.earache and codepaste.smoke_steam_pipe() and not defc.truedeaf and not doingaction("deaf")) or false
+      end,
+
+      oncompleted = function (def)
+        removeaff("deaf")
+        sk.lostbal_steam()
+      end,
+
+      earache = function ()
+        sk.lostbal_steam()
+        if not affs.earache then addaff(dict.earache) end
+      end,
+
+      eatcure = "earwort",
+      onstart = function ()
+        eat("earwort")
+      end,
+
+      empty = function()
+        empty.smoke_steam()
+        sk.lostbal_steam()
       end
     },
     aff = {
@@ -16966,6 +17034,13 @@ dict = {
       empty = function ()
         empty.eat_wafer()
       end
+    },
+    waitingfor = {
+      customwait = 30,
+      oncompleted = function()
+        removeaff("paralysis")
+      end,
+
     },
     aff = {
       oncompleted = function ()
@@ -20621,6 +20696,48 @@ dict = {
       end
     },
   },
+  checkparalysis = {
+    misc = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (next(affsp) and (affsp.paralysis)) or false
+      end,
+
+      oncompleted = function () end,
+
+      paralyzed = function ()
+        if affsp.paralysis then
+          affsp.paralysis = nil
+          addaff (dict.paralysis)
+        end
+      end,
+
+      onclear = function ()
+        if affsp.paralysis then
+          affsp.paralysis = nil end
+      end,
+
+      onstart = function ()
+        if not gmcp and not gmcp.Room and not gmcp.Room.Info and not gmcp.Room.Info.exits and not next(gmcp.Room.Info.exits) then
+          dict.checkparalysis.misc.paralyzed()
+        else
+          enableTrigger("m&m check paralysis")
+          local exit = "none"
+          for dir,num in pairs(gmcp.Room.Info.exits) do
+            send(dir, false)
+            return
+          end
+        end
+      end
+    },
+    aff = {
+      oncompleted = function ()
+        if not affs.paralysis then affsp.paralysis = true end
+      end
+    },
+  },
   checkslitthroat = {
     misc = {
       aspriority = 0,
@@ -21010,7 +21127,8 @@ dict = {
       def = true,
 
       isadvisable = function ()
-        return (not affs.earache and ((sys.deffing and defdefup[defs.mode].truedeaf and not defc.truedeaf) or (conf.keepup and defkeepup[defs.mode].truedeaf and not defc.truedeaf))) or false
+        --[[return (not affs.earache and ((sys.deffing and defdefup[defs.mode].truedeaf and not defc.truedeaf) or (conf.keepup and defkeepup[defs.mode].truedeaf and not defc.truedeaf))) or false]]
+        return false
       end,
 
       oncompleted = function (def)
@@ -21041,6 +21159,45 @@ dict = {
       empty = function()
         defences.got("truedeaf")
         sk.lostbal_wafer()
+      end
+    },
+    steam = {
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+        return (not affs.earache and codepaste.smoke_steam_pipe() and ((sys.deffing and defdefup[defs.mode].truedeaf and not defc.truedeaf) or (conf.keepup and defkeepup[defs.mode].truedeaf and not defc.truedeaf))) or false
+      end,
+
+      oncompleted = function (def)
+        if def then defences.got("truedeaf")
+        else
+          defences.got("truedeaf")
+          sk.lostbal_steam()
+        end
+      end,
+
+      earache = function ()
+        sk.lostbal_steam()
+        if not affs.earache then addaff(dict.earache) end
+      end,
+
+      cureddeaf = function()
+        defences.lost("deaf")
+        sk.lostbal_steam()
+
+        if not conf.aillusion then defences.lost("truedeaf") end
+      end,
+
+      eatcure = "earwort",
+      onstart = function ()
+        eat("earwort")
+      end,
+
+      empty = function()
+        defences.got("truedeaf")
+        sk.lostbal_steam()
       end
     },
   },
@@ -24470,7 +24627,7 @@ yellowgenies = {
 #basicdef("fusion", "shift fusion on")
 #basicdef("polarity", "shift polarity on")
 #basicdef("enthrall", "shift enthrall")
-#basicdef("chaotesign", "shift chaotesign")
+#basicdef_withpower("chaotesign", "shift chaotesign", 2)
 #basicdef_withpower("chaosaura", "shift chaosaura on", 10)
 #end
 
@@ -26403,6 +26560,7 @@ local function dict_setup()
   dict_purgative       = {}
   dict_sparkleaffs     = {}
   dict_wafer           = {}
+  dict_steam           = {}
 
   local unassigned_actions      = {}
   local unassigned_sync_actions = {}
@@ -26447,6 +26605,9 @@ local function dict_setup()
 
     if j.wafer and j.wafer.def then
       dict_wafer[i] = {p = dict[i]} end
+
+    if j.steam and j.steam.def then
+      dict_steam[i] = {p = dict[i]} end
 
     if j.sparkle then
       dict_sparkleaffs[i] = {p = dict[i]} end
