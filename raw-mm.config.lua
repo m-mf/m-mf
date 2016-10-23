@@ -226,6 +226,13 @@ config_dict = pl.OrderedMap {
     onshow = "Double do actions in stupidity",
     v2 = true
   }},
+#conf_name = "glenfiddich"
+  {$(conf_name) = {
+    type = "boolean",
+    onenabled = function () echof("<0,250,0>Will%s automatically fill whiskey during deathsongs.", getDefaultColor()) end,
+    ondisabled = function () echof("<250,0,0>Won't%s automatically fill whiskey during deathsongs.", getDefaultColor()) end,
+    onshow = "Automatically fill your whiskey during deathsong",
+  }},
 #conf_name = "cleanse"
   {$(conf_name) = {
     type = "boolean",
