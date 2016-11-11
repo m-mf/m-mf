@@ -1895,6 +1895,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("aeon")
+        removeaff("unknownsteam")
         sk.lostbal_steam()
       end,
 
@@ -2108,6 +2109,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("healthleech")
+        removeaff("unknownsteam")
         sk.lostbal_steam()
       end,
 
@@ -2173,6 +2175,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("powersap")
+        removeaff("unknownwafer")
         sk.lostbal_wafer()
       end,
 
@@ -2436,6 +2439,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("disloyalty")
+        removeaff("unknownsteam")
         sk.lostbal_steam()
       end,
 
@@ -2540,6 +2544,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("dysentery")
+        removeaff("unknownwafer")
         sk.lostbal_wafer()
       end,
 
@@ -2604,6 +2609,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("vomiting")
+        removeaff("unknownwafer")
         sk.lostbal_wafer()
       end,
 
@@ -2730,6 +2736,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("haemophilia")
+        removeaff("unknownwafer")
         sk.lostbal_wafer()
       end,
 
@@ -3228,6 +3235,10 @@ dict = {
       end,
 
       oncompleted = function ()
+        removeaff("prone")
+      end,
+
+      notprone = function ()
         removeaff("prone")
       end,
 
@@ -4088,6 +4099,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("scabies")
+        removeaff("unknownwafer")
         sk.lostbal_wafer()
       end,
 
@@ -4150,6 +4162,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("pox")
+        removeaff("unknownwafer")
         sk.lostbal_wafer()
       end,
 
@@ -4685,6 +4698,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("asthma")
+        removeaff("unknownwafer")
         sk.lostbal_wafer()
       end,
 
@@ -8112,6 +8126,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("clotleftshoulder")
+        removeaff("unknownwafer")
         sk.lostbal_wafer()
       end,
 
@@ -8168,6 +8183,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("clotrightshoulder")
+        removeaff("unknownwafer")
         sk.lostbal_wafer()
       end,
 
@@ -8224,6 +8240,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("clotrighthip")
+        removeaff("unknownwafer")
         sk.lostbal_wafer()
       end,
 
@@ -8280,6 +8297,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("clotlefthip")
+        removeaff("unknownwafer")
         sk.lostbal_wafer()
       end,
 
@@ -8800,6 +8818,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("rigormortis")
+        removeaff("unknownwafer")
         sk.lostbal_wafer()
       end,
 
@@ -9661,6 +9680,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("clumsiness")
+        removeaff("unknownlucidity")
         sk.lostbal_lucidity()
       end,
 
@@ -9695,6 +9715,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("slickness")
+        removeaff("unknownsteam")
         sk.lostbal_herb()
       end,
 
@@ -9855,6 +9876,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("confusion")
+        removeaff("unknownlucidity")
         sk.lostbal_lucidity()
       end,
 
@@ -10061,6 +10083,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("hallucinating")
+        removeaff("unknownlucidity")
         sk.lostbal_lucidity()
       end,
 
@@ -10145,6 +10168,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("paranoia")
+        removeaff("unknownlucidity")
         sk.lostbal_lucidity()
       end,
 
@@ -10651,6 +10675,7 @@ dict = {
       oncompleted = function ()
         removeaff("massiveinsanity")
         addaff(dict.majorinsanity)
+        removeaff("unknownlucidity")
         sk.lostbal_lucidity()
       end,
 
@@ -10739,6 +10764,7 @@ dict = {
       oncompleted = function ()
         removeaff("majorinsanity")
         addaff(dict.moderateinsanity)
+        removeaff("unknownlucidity")
         sk.lostbal_lucidity()
       end,
 
@@ -10826,6 +10852,7 @@ dict = {
       oncompleted = function ()
         removeaff("moderateinsanity")
         addaff(dict.slightinsanity)
+        removeaff("unknownlucidity")
         sk.lostbal_lucidity()
       end,
 
@@ -10911,6 +10938,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("slightinsanity")
+        removeaff("unknownlucidity")
         sk.lostbal_lucidity()
       end,
 
@@ -11215,6 +11243,95 @@ dict = {
         dict.unknownany.count = 0
       end,
     }
+  },
+  unknownlucidity = {
+    lucidity = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function()
+        return (affs.unknownlucidity) or false
+      end,
+
+      oncompleted = function ()
+        if not affs.unknownlucidity then return end
+        removeaff("unknownlucidity")
+        sk.lostbal_lucidity()
+      end,
+
+      onstart = function()
+        send("sip lucidity", conf.commandecho)
+      end,
+
+      empty = function()
+        empty.sip_lucidity()
+      end,
+    },
+    aff = {
+      oncompleted = function()
+        addaff(dict.unknownlucidity)
+      end,
+    },
+  },
+  unknownsteam = {
+    steam = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function()
+        return (affs.unknownsteam) or false
+      end,
+
+      oncompleted = function ()
+        if not affs.unknownsteam then return end
+        removeaff("unknownsteam")
+        sk.lostbal_steam()
+      end,
+
+      smokecure = "steam",
+      onstart = function ()
+        send("smoke " .. pipes.steam.id, conf.commandecho)
+      end,
+
+      empty = function()
+        empty.smoke_steam()
+      end,
+    },
+    aff = {
+      oncompleted = function()
+        addaff(dict.unknownsteam)
+      end,
+    },
+  },
+  unknownwafer = {
+    wafer = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function()
+        return (affs.unknownwafer) or false
+      end,
+
+      oncompleted = function ()
+        if not affs.unknownwafer then return end
+        removeaff("unknownwafer")
+        sk.lostbal_wafer()
+      end,
+      
+      eatcure = "dust",
+      onstart = function ()
+        eat("dust")
+      end,
+
+      empty = function()
+        empty.eat_wafer()
+      end,
+    },
+    aff = {
+      oncompleted = function()
+        addaff(dict.unknownwafer)
+      end,
+    },
   },
   unknownmental = {
     count = 0,
@@ -11524,6 +11641,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("pacifism")
+        removeaff("unknownsteam")
         sk.lostbal_steam()
       end,
 
@@ -12094,6 +12212,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("addiction")
+        removeaff("unknownlucidity")
         sk.lostbal_lucidity()
       end,
 
@@ -12186,6 +12305,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("epilepsy")
+        removeaff("unknownlucidity")
         sk.lostbal_lucidity()
       end,
 
@@ -12323,6 +12443,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("achromaticaura")
+        removeaff("unknownsteam")
         sk.lostbal_herb()
       end,
 
@@ -12418,6 +12539,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("powerspikes")
+        removeaff("unknownsteam")
         sk.lostbal_steam()
       end,
 
@@ -12507,6 +12629,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("manabarbs")
+        removeaff("unknownsteam")
         sk.lostbal_steam()
       end,
 
@@ -12596,6 +12719,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("egovice")
+        removeaff("unknownsteam")
         sk.lostbal_steam()
       end,
 
@@ -12748,6 +12872,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("recklessness")
+        removeaff("unknownlucidity")
         sk.lostbal_lucidity()
       end,
 
@@ -12830,6 +12955,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("stupidity")
+        removeaff("unknownlucidity")
         sk.lostbal_lucidity()
       end,
 
@@ -13530,6 +13656,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("anorexia")
+        removeaff("unknownlucidity")
         sk.lostbal_lucidity()
       end,
 
@@ -13884,6 +14011,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("sensitivity")
+        removeaff("unknownlucidity")
         sk.lostbal_lucidity()
       end,
 
@@ -16990,7 +17118,6 @@ dict = {
 
       oncompleted = function ()
         sk.lostbal_focus()
-
         doaction(dict.curingparalysis.waitingfor)
       end,
 
@@ -17016,12 +17143,17 @@ dict = {
 
       oncompleted = function ()
         sk.lostbal_wafer()
-
+        removeaff("unknownwafer")
         doaction(dict.curingparalysis.waitingfor)
+      end,
+
+      notprone = function ()
+        removeaff("paralysis")
       end,
 
       instantcure = function()
         sk.lostbal_wafer()
+        removeaff("unknownwafer")
         removeaff("paralysis")
         end,
 
@@ -17071,6 +17203,10 @@ dict = {
       ontimeout = function ()
         removeaff("paralysis")
         bals.focus = true
+      end,
+
+      notprone = function()
+        removeaff("paralysis")
       end,
 
       onstart = function ()
@@ -17352,6 +17488,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("taintsick")
+        removeaff("unknownwafer")
         sk.lostbal_wafer()
       end,
 
@@ -17417,6 +17554,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("illuminated")
+        removeaff("unknownsteam")
         sk.lostbal_steam()
       end,
 
@@ -17570,6 +17708,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("massivetimewarp")
+        removeaff("unknownsteam")
         addaff (dict.majortimewarp)
         sk.lostbal_steam()
       end,
@@ -17663,6 +17802,7 @@ dict = {
       oncompleted = function ()
         removeaff("majortimewarp")
         removeaff("massivetimewarp")
+        removeaff("unknownsteam")
         addaff (dict.moderatetimewarp)
         sk.lostbal_steam()
       end,
@@ -17757,6 +17897,7 @@ dict = {
         removeaff("moderatetimewarp")
         removeaff("majortimewarp")
         removeaff("massivetimewarp")
+        removeaff("unknownsteam")
         addaff (dict.minortimewarp)
         sk.lostbal_steam()
       end,
@@ -17850,6 +17991,7 @@ dict = {
         removeaff("moderatetimewarp")
         removeaff("majortimewarp")
         removeaff("massivetimewarp")
+        removeaff("unknownsteam")
         sk.lostbal_steam()
       end,
 
@@ -20614,6 +20756,10 @@ dict = {
         codepaste.dowrithe("entangle")
       end,
 
+      notprone = function ()
+        removeaff("tangle")
+      end,
+
       helpless = function ()
         empty.writhe_entangle()
       end
@@ -20640,6 +20786,10 @@ dict = {
       customwait = 6,
 
       oncompleted = function ()
+        removeaff("tangle")
+      end,
+
+      notprone = function ()
         removeaff("tangle")
       end,
 
@@ -20702,7 +20852,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (next(affsp) and (affsp.paralysis)) or false
+        return (next(affsp) and affsp.paralysis and bals.equilibrium and bals.balance) or false
       end,
 
       oncompleted = function () end,
@@ -20719,16 +20869,16 @@ dict = {
           affsp.paralysis = nil end
       end,
 
+      notprone = function ()
+        dict.checkparalysis.onclear()
+      end,
+
       onstart = function ()
         if not gmcp and not gmcp.Room and not gmcp.Room.Info and not gmcp.Room.Info.exits and not next(gmcp.Room.Info.exits) then
           dict.checkparalysis.misc.paralyzed()
         else
           enableTrigger("m&m check paralysis")
-          local exit = "none"
-          for dir,num in pairs(gmcp.Room.Info.exits) do
-            send(dir, false)
-            return
-          end
+          send("touch balls", false)
         end
       end
     },

@@ -928,7 +928,7 @@ function valid.checkparalysis_tangled()
   disableTrigger("m&m check paralysis")
 end
 
-function valid.checkparalysis_sprawled()
+function valid.checkparalysis_noballs()
   if actions.checkparalysis_misc then
     lifevision.add(actions.checkparalysis_misc.p, "onclear")
   end
@@ -938,7 +938,6 @@ end
 function valid.checkparalysis_impale()
   if actions.checkparalysis_misc then
     lifevision.add(actions.checkparalysis_misc.p, "onclear")
-    valid.simpletangle()
   end
   disableTrigger("m&m check paralysis")
 end
@@ -2768,9 +2767,9 @@ function sk.proper_paralysis()
     signals.before_prompt_processing:block(sk.proper_paralysis)
     return 
   end
-  if (me.prone and not me.lastprone) or sys.sync then
+  if (me.prone and not me.lastprone) or mm.affl.sap or mm.affl.aeon then
     valid.simpleparalysis()
-  elseif not sys.sync then
+  else
     checkaction(dict.checkparalysis.aff, true)
     lifevision.add(actions.checkparalysis_aff.p)
   end
@@ -2781,6 +2780,30 @@ signals.before_prompt_processing:block(sk.proper_paralysis)
 
 function valid.proper_paralysis()
   signals.before_prompt_processing:unblock(sk.proper_paralysis)
+end
+
+function valid.not_prone()
+  --check paralysis
+  if affs.paralysis then
+    removeaff("paralysis")
+  end
+
+  if affs.tangle then
+    removeaff("tangle")
+  end
+
+  if affs.prone then
+    removeaff("prone")
+  end
+
+  if affs.impale then
+    removeaff("impale")
+  end
+
+  if affs.crucified then
+    removeaff("crucified")
+  end
+
 end
 
 function sk.proper_severedspine()
@@ -3939,7 +3962,7 @@ end
 
 -- lucidity sips
 #for _, lucidity in pairs({
-#lucidity = {"epilepsy", "paranoia", "sensitivity", "confusion", "recklessness", "hallucinating", "clumsiness", "stupidity", "addiction", "anorexia", "massiveinsanity","majorinsanity","moderateinsanity","slightinsanity"},
+#lucidity = {"epilepsy", "paranoia", "sensitivity", "confusion", "recklessness", "hallucinating", "clumsiness", "stupidity", "addiction", "anorexia", "massiveinsanity","majorinsanity","moderateinsanity","slightinsanity","unknownlucidity"},
 #}) do
 #local checkany_string = ""
 #local temp = {}
@@ -3959,6 +3982,7 @@ function valid.sip_cured_$(aff)()
   if result.name == "$(aff)_lucidity" then
     lifevision.add(actions.$(aff)_lucidity.p)
   else
+    killaction(dict[result.action_name].lucidity)
     checkaction(dict.$(aff).lucidity, true)
     lifevision.add(dict.$(aff).lucidity)
   end
@@ -3969,7 +3993,7 @@ end
 
 -- steam puffs
 #for _, steam in pairs({
-#steam = {"egovice", "manabarbs", "achromaticaura", "powerspikes", "disloyalty", "pacifism", "illuminated", "healthleech", "aeon", "slickness", "massivetimewarp","majortimewarp","moderatetimewarp","minortimewarp"},
+#steam = {"egovice", "manabarbs", "achromaticaura", "powerspikes", "disloyalty", "pacifism", "illuminated", "healthleech", "aeon", "slickness", "massivetimewarp","majortimewarp","moderatetimewarp","minortimewarp","unknownsteam"},
 #}) do
 #local checkany_string = ""
 #local temp = {}
@@ -4041,7 +4065,7 @@ end
 
 -- wafer nomnoms
 #for _, wafer in pairs({
-#wafer = {"paralysis", "haemophilia", "powersap", "scabies", "dysentery", "pox", "vomiting", "rigormortis", "taintsick", "asthma","clotleftshoulder","clotrightshoulder","clotlefthip","clotrighthip"},
+#wafer = {"paralysis", "haemophilia", "powersap", "scabies", "dysentery", "pox", "vomiting", "rigormortis", "taintsick", "asthma","clotleftshoulder","clotrightshoulder","clotlefthip","clotrighthip","unknownwafer"},
 #}) do
 #local checkany_string = ""
 #local temp = {}

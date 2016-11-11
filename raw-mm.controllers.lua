@@ -559,11 +559,8 @@ prompt_stats = function ()
 
     me.lastprone = me.prone
     me.prone = (t.prone == "1") and true or false
-    if not me.prone and actions.checkparalysis_misc then
-      killaction(dict.checkparalysis.misc)
-      removeaff("paralysis")
-      removeaff("tangle")
-      removeaff("prone")
+    if me.lastprone and not me.prone then
+      valid.not_prone()
     end
 
     if dict.bleeding.count > 0 and tonumber(t.bleeding) == 0 then
