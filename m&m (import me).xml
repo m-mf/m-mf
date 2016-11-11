@@ -29121,34 +29121,6 @@ mm.valid.ceased_wielding()</script>
                             <integer>4</integer>
                         </regexCodePropertyList>
                     </Trigger>
-                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                        <name>no target</name>
-                        <script>mm.valid.notarget()</script>
-                        <triggerType>0</triggerType>
-                        <conditonLineDelta>0</conditonLineDelta>
-                        <mStayOpen>0</mStayOpen>
-                        <mCommand></mCommand>
-                        <packageName></packageName>
-                        <mFgColor>#ff0000</mFgColor>
-                        <mBgColor>#ffff00</mBgColor>
-                        <mSoundFile></mSoundFile>
-                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                        <regexCodeList>
-                            <string>You detect nothing here by that name.</string>
-                            <string>Nothing can be seen here by that name.</string>
-                            <string>Ahh, I am truly sorry, but I do not see anyone by that name here.</string>
-                            <string>You cannot see that being here.</string>
-                            <string>I do not recognize anything called that here.</string>
-                        </regexCodeList>
-                        <regexCodePropertyList>
-                            <integer>3</integer>
-                            <integer>3</integer>
-                            <integer>3</integer>
-                            <integer>3</integer>
-                            <integer>3</integer>
-                        </regexCodePropertyList>
-                    </Trigger>
                     <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Check lines</name>
                         <script></script>
@@ -29194,28 +29166,12 @@ mm.valid.ceased_wielding()</script>
                                 <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                 <regexCodeList>
                                     <string>You are paralysed and cannot do that.</string>
+                                    <string>Frustratingly, your body won't respond to your call to action.</string>
+                                    <string>Your state of paralysis prevents you from doing that.</string>
                                 </regexCodeList>
                                 <regexCodePropertyList>
                                     <integer>3</integer>
-                                </regexCodePropertyList>
-                            </Trigger>
-                            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                                <name>m&amp;mcheck_paralysis sprawled</name>
-                                <script>mm.valid.checkparalysis_sprawled()</script>
-                                <triggerType>0</triggerType>
-                                <conditonLineDelta>0</conditonLineDelta>
-                                <mStayOpen>0</mStayOpen>
-                                <mCommand></mCommand>
-                                <packageName></packageName>
-                                <mFgColor>#ff0000</mFgColor>
-                                <mBgColor>#ffff00</mBgColor>
-                                <mSoundFile></mSoundFile>
-                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                                <regexCodeList>
-                                    <string>You must first stand up before you can do that.</string>
-                                </regexCodeList>
-                                <regexCodePropertyList>
+                                    <integer>3</integer>
                                     <integer>3</integer>
                                 </regexCodePropertyList>
                             </Trigger>
@@ -29234,8 +29190,10 @@ mm.valid.ceased_wielding()</script>
                                 <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                 <regexCodeList>
                                     <string>Tight bindings prevent you from moving.</string>
+                                    <string>Tight bindings cling to you, making that impossible.</string>
                                 </regexCodeList>
                                 <regexCodePropertyList>
+                                    <integer>3</integer>
                                     <integer>3</integer>
                                 </regexCodePropertyList>
                             </Trigger>
@@ -29256,6 +29214,35 @@ mm.valid.ceased_wielding()</script>
                                     <string>You are impaled, which makes movement impossible.</string>
                                 </regexCodeList>
                                 <regexCodePropertyList>
+                                    <integer>3</integer>
+                                </regexCodePropertyList>
+                            </Trigger>
+                            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                <name>m&amp;m no balls</name>
+                                <script>
+mm.valid.checkparalysis_noballs()</script>
+                                <triggerType>0</triggerType>
+                                <conditonLineDelta>0</conditonLineDelta>
+                                <mStayOpen>0</mStayOpen>
+                                <mCommand></mCommand>
+                                <packageName></packageName>
+                                <mFgColor>#ff0000</mFgColor>
+                                <mBgColor>#ffff00</mBgColor>
+                                <mSoundFile></mSoundFile>
+                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                <regexCodeList>
+                                    <string>You detect nothing here by that name.</string>
+                                    <string>Nothing can be seen here by that name.</string>
+                                    <string>Ahh, I am truly sorry, but I do not see anyone by that name here.</string>
+                                    <string>You cannot see that being here.</string>
+                                    <string>I do not recognize anything called that here.</string>
+                                </regexCodeList>
+                                <regexCodePropertyList>
+                                    <integer>3</integer>
+                                    <integer>3</integer>
+                                    <integer>3</integer>
+                                    <integer>3</integer>
                                     <integer>3</integer>
                                 </regexCodePropertyList>
                             </Trigger>
@@ -51901,6 +51888,27 @@ mm.valid.simpleparanoia()</script>
                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                     <regexCodeList>
                         <string>The light of Holy Celestia flares brightly as the blessed Supernals judge you.</string>
+                    </regexCodeList>
+                    <regexCodePropertyList>
+                        <integer>3</integer>
+                    </regexCodePropertyList>
+                </Trigger>
+                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                    <name>blindness/prone</name>
+                    <script>mm.valid.simpleblindness()
+mm.valid.simpleprone()</script>
+                    <triggerType>0</triggerType>
+                    <conditonLineDelta>0</conditonLineDelta>
+                    <mStayOpen>0</mStayOpen>
+                    <mCommand></mCommand>
+                    <packageName></packageName>
+                    <mFgColor>#ff0000</mFgColor>
+                    <mBgColor>#ffff00</mBgColor>
+                    <mSoundFile></mSoundFile>
+                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                    <regexCodeList>
+                        <string>The song of angelic choir fills the air with a brilliant light as you cover your eyes and drop to your knees.</string>
                     </regexCodeList>
                     <regexCodePropertyList>
                         <integer>3</integer>

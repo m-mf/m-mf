@@ -432,7 +432,7 @@ defs_data = phpTable({
   },
   waterbreathing = {
     type = "enchantment",
-    on = "You briefly hold your hand over your mouth until your lips and tongue tingle.",
+    on = {"You briefly hold your hand over your mouth until your lips and tongue tingle.","You are already filtering air out of water."},
     def = "Water Breathing (waterbreathe) (indefinite).",
     defr = [[^Water Breathing \(waterbreathe\) \(\d+ minutes\)\.$]],
     tooltip = "Allows breathing underwater."
