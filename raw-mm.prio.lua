@@ -435,4 +435,15 @@ end)
 
 signals.systemstart:connect(function ()
   prio.import("current")
+  if conf.loadsap then
+    prio.import(conf.aeonprios)
+  end
+end)
+
+signals.sapcured:connect(function ()
+  prio.import(conf.aeonprios)
+end)
+
+signals.sapafflicted:connect(function ()
+  prio.import(conf.sapprios)
 end)

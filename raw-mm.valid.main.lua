@@ -2533,7 +2533,14 @@ end
 
 function valid.masked_runes()
   valid.proper_paralysis()
-  valid.simpleunknownany(2)
+  valid.check_recklessness()
+  valid.simpleunknownlucidity()
+end
+
+function valid.tp_attack()
+  valid.proper_paralysis()
+  valid.check_recklessness()
+  valid.simpleunknownlucidity()
 end
 
 function valid.shofangi_rake()
@@ -2761,6 +2768,25 @@ function valid.geomancy_tremor()
     valid.simpleunknowncrippledleg()
   end
 end
+
+function sk.proper_recklessness()
+  local t = gmcp.Char.Vitals
+  if t.hp == t.maxhp and t.mp == t.maxmp and t.ego == t.maxego and t.pow == t.maxpow then
+    valid.simplerecklessness()
+  end
+  signals.before_prompt_processing:block(sk.proper_recklessness)
+end
+signals.before_prompt_processing:connect(sk.proper_recklessness)
+signals.before_prompt_processing:block(sk.proper_recklessness)
+
+function valid.check_recklessness()
+  signals.before_prompt_processing:unblock(sk.proper_recklessness)
+end
+
+function valid.cancel_checkrecklessness()
+  signals.before_prompt_processing:block(sk.proper_recklessness)
+end
+
 
 function sk.proper_paralysis()
   if not pflags.p then 
@@ -3314,6 +3340,16 @@ function valid.ice_healed_completely()
     ice_gmcp = true
     apply_ice = true
     lifevision.add(actions[result.name].p, "completely")
+  end
+end
+
+function valid.ice_curingaff()
+  local result = checkany(
+    dict.damagedskull.ice, dict.damagedthroat.ice, dict.collapsedlungs.ice, dict.crushedchest.ice, dict.internalbleeding.ice, dict.damagedorgans.ice, dict.damagedleftarm.ice, dict.mutilatedleftarm.ice, dict.damagedrightarm.ice, dict.mutilatedrightarm.ice, dict.damagedleftleg.ice, dict.mutilatedleftleg.ice, dict.damagedrightleg.ice, dict.mutilatedrightleg.ice)
+
+  if result and actions[result.name] then
+    apply_ice = true
+    lifevision.add(actions[result.name].p, "empty")
   end
 end
 

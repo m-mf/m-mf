@@ -158,6 +158,26 @@ config_dict = pl.OrderedMap {
     installcheck = function ()
       echof("Do you want to make use of sparkle to heal?") end,
   }},
+#conf_name = "loadsap"
+  {$(conf_name) = {
+    type = "boolean",
+    onenabled = function () echof("<0,250,0>Will%s import sap specific priorities on sap and import aeon specific priorities on cure", getDefaultColor()) end,
+    ondisabled = function () echof("<250,0,0>Won't%s import sap specific priorities on sap and import aeon specific priorities on cure", getDefaultColor()) end,
+    check = function() return conf.sapprios and conf.sapprios ~= "none" end,
+    checkfail = function() echof("<250,0,0>Warning:%s Need to set a prio list for sap to use this config", getDefaultColor()) end,
+  }},
+#conf_name = "sapprios"
+  {$(conf_name) = {
+    type = "string",
+    check = function(what) return io.exists(getMudletHomeDir().."/m&m/prios/"..what) end,
+    onset = function() echof("%sWill use <0,250,0>%s %s for sap curing priorities.", getDefaultColor(), conf.sapprios, getDefaultColor()) end,
+  }},
+#conf_name = "aeonprios"
+  {$(conf_name) = {
+    type = "string",
+    check = function(what) return io.exists(getMudletHomeDir().."/m&m/prios/"..what) end,
+    onset = function() echof("%sWill use <0,250,0>%s%s for aeon curing priorities.", getDefaultColor(), conf.aeonprios, getDefaultColor()) end,
+  }},
 #if skills.cavalier then
 #conf_name = "hook"
   {$(conf_name) = {
@@ -1430,6 +1450,16 @@ function config.set(what, option, echoback)
   end
 
   if config_dict[what].type == "boolean" then
+
+    if config_dict[what].check and not config_dict[what].check(option) then
+      if config_dict[what].checkfail then
+        config_dict[what].checkfail()
+      else
+        sendf("%s isn't something you can set %s to be.", option, what)
+      end
+      return
+    end
+
     if (type(option) == "boolean" and option == true) or convert_string(option) or (option == nil and not conf[what]) then
       conf[what] = true
       if echoback then config_dict[what].onenabled() end

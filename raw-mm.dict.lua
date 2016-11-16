@@ -393,6 +393,10 @@ codepaste.insane_ruined = function()
   sk.lostbal_focus()
 end
 
+codepaste.reckstats = function()
+  return stats.currenthealth == stats.maxhealth and stats.currentmana == stats.maxmana and stats.currentego == stats.maxego and stats.currentpower == stats.maxpower
+end
+
 local wlevel = phpTable(
   {light    = 1},
   {medium   = 423},
@@ -11214,9 +11218,9 @@ dict = {
     aff = {
       oncompleted = function (number)
 
-        if (dict.unknownany.reckhp and stats.currenthealth == stats.maxhealth) or
-          (dict.unknownany.reckmana and stats.currentmana == stats.maxmana) or
-          (dict.unknownany.reckego and stats.currentego == stats.maxego) then
+        if (dict.unknownany.reckhp and codepaste.reckstats()) or
+          (dict.unknownany.reckmana and codepaste.reckstats()) or
+          (dict.unknownany.reckego and codepaste.reckstats()) then
             addaff(dict.recklessness)
 
             if number and number > 1 then
@@ -18791,6 +18795,9 @@ dict = {
 
       oncompleted = function ()
         removeaff("sap")
+        if conf.loadsap then
+          signals.sapcured:emit()
+        end
       end,
 
       empty = function () empty.cleanse() end,
@@ -18804,18 +18811,27 @@ dict = {
       oncompleted = function ()
         addaff(dict.sap)
         signals.aeony:emit()
+        if conf.loadsap then
+          signals.sapafflicted:emit()
+        end
       end
     },
     gone = {
       oncompleted = function ()
         removeaff("sap")
         killaction (dict.earache.waitingfor)
+        if conf.loadsap then
+          signals.sapcured:emit()
+        end
       end,
     },
     onremoved = function ()
       if affsp.sap then
         affsp.sap = nil end
       signals.aeony:emit()
+      if conf.loadsap then
+        signals.sapcured:emit()
+      end
     end,
   },
   choke = {
@@ -20852,7 +20868,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (next(affsp) and affsp.paralysis and bals.equilibrium and bals.balance) or false
+        return (next(affsp) and affsp.paralysis) or false
       end,
 
       oncompleted = function () end,
@@ -20874,12 +20890,8 @@ dict = {
       end,
 
       onstart = function ()
-        if not gmcp and not gmcp.Room and not gmcp.Room.Info and not gmcp.Room.Info.exits and not next(gmcp.Room.Info.exits) then
-          dict.checkparalysis.misc.paralyzed()
-        else
           enableTrigger("m&m check paralysis")
           send("touch balls", false)
-        end
       end
     },
     aff = {
