@@ -501,9 +501,9 @@ prompt_stats = function ()
     stats[i] = tonumber(j)
   end
 
-  if (stats.currentwillpower <= 1000 and not (stats.currenthealth == 0 and stats.currentmana == 0 and stats.currentego == 0)) or sk.lowwillpower then
+  --[[if (stats.currentwillpower <= 1000 and not (stats.currenthealth == 0 and stats.currentmana == 0 and stats.currentego == 0)) or sk.lowwillpower then
     sk.checkwillpower()
-  end
+  end]]
 
   if affs.illusorywounds then
     stats.currenthealth = math.floor(stats.currenthealth * 1.3333)
@@ -576,21 +576,21 @@ prompt_stats = function ()
       dict.bruising.aff.oncompleted(tonumber(t.bruising))
     end
 
-    for _,part in ipairs({"head","chest","gut","leftarm","rightarm","leftleg","rightleg"}) do
-      local limb = tonumber(t[part.."wounds"])
-      if limb ~= dict["light"..part].count then
-        if limb > dict["light"..part].count then
-          cn.wounds_to_add[part] = limb
-          signals.before_prompt_processing:unblock(cn.addupwounds)
-        elseif limb < dict["light"..part].count then
-          if limb > 0 then
-            mm.valid.ice_healed_partially()
-          elseif limb <= 0 then
-            mm.valid.ice_healed_completely()
+      for _,part in ipairs({"head","chest","gut","leftarm","rightarm","leftleg","rightleg"}) do
+        local limb = tonumber(t[part.."wounds"])
+        if limb and limb ~= dict["light"..part].count then
+          if limb > dict["light"..part].count then
+            cn.wounds_to_add[part] = limb
+            signals.before_prompt_processing:unblock(cn.addupwounds)
+          elseif limb < dict["light"..part].count then
+            if limb > 0 then
+              mm.valid.ice_healed_partially()
+            elseif limb <= 0 then
+              mm.valid.ice_healed_completely()
+            end
           end
         end
       end
-    end
 
     stats.momentum = tonumber(t.momentum)
 

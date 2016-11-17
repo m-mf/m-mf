@@ -3040,13 +3040,12 @@ dict = {
   woundscheck = {
     autocheckcount = 0,
     physical = {
-      balanceful_act = true,
+      balanceful_act = false,
       aspriority = 63,
       spriority = 351,
 
       isadvisable = function ()
-        local bals = bals
-        return (bals.balance and bals.equilibrium and sys.manualwoundscheck and not doingaction("woundscheck") and not affs.inquisition) or false
+        return (sys.manualwoundscheck and not doingaction("woundscheck") and not affs.inquisition) or false
       end,
 
       oncompleted = function ()
@@ -3223,6 +3222,7 @@ dict = {
 #end
           and not doingaction("prone")
           and not affs.crippledrightleg and not affs.crippledleftleg
+          and not affs.damagedrightleg and not affs.damagedleftleg
           and not affs.unknowncrippledleg
           and not affs.mangledrightleg and not affs.mangledleftleg
           and not affs.missingrightleg and not affs.missingleftleg

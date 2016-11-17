@@ -1590,7 +1590,7 @@ function sk.doingstuff_inslowmode()
   if result then return true end
 end
 
-function sk.checkwillpower()
+--[[function sk.checkwillpower()
   if stats.currentwillpower <= 1000 and not sk.lowwillpower then
     sk.lowwillpower = true
     sk.warn("lowwillpower")
@@ -1603,10 +1603,12 @@ function sk.checkwillpower()
   elseif stats.currentwillpower > 1500 and sk.lowwillpower then
     sk.lowwillpower = false
 
-    can_usemana = function()
-      return (stats.currentmana > sys.manause) and true or false
-    end
   end
+end]]
+
+
+can_usemana = function()
+    return (stats.currentmana > sys.manause) and true or false
 end
 
 sk.limbnames = {
