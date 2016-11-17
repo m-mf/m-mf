@@ -2,7 +2,7 @@
 <!DOCTYPE MudletPackage>
 <MudletPackage version="1.0">
     <TriggerPackage>
-        <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+        <TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
             <name>m&amp;m Harvester</name>
             <script></script>
             <triggerType>0</triggerType>
@@ -240,7 +240,7 @@ if harvest_gag then return end
     </TriggerPackage>
     <TimerPackage/>
     <AliasPackage>
-        <AliasGroup isActive="yes" isFolder="yes">
+        <AliasGroup isActive="no" isFolder="yes">
             <name>m&amp;m Harvester</name>
             <script></script>
             <command></command>

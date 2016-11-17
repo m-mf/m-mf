@@ -393,6 +393,10 @@ codepaste.insane_ruined = function()
   sk.lostbal_focus()
 end
 
+codepaste.reckstats = function()
+  return stats.currenthealth == stats.maxhealth and stats.currentmana == stats.maxmana and stats.currentego == stats.maxego and stats.currentpower == stats.maxpower
+end
+
 local wlevel = phpTable(
   {light    = 1},
   {medium   = 423},
@@ -3036,13 +3040,12 @@ dict = {
   woundscheck = {
     autocheckcount = 0,
     physical = {
-      balanceful_act = true,
+      balanceful_act = false,
       aspriority = 63,
       spriority = 351,
 
       isadvisable = function ()
-        local bals = bals
-        return (bals.balance and bals.equilibrium and sys.manualwoundscheck and not doingaction("woundscheck") and not affs.inquisition) or false
+        return (sys.manualwoundscheck and not doingaction("woundscheck") and not affs.inquisition) or false
       end,
 
       oncompleted = function ()
@@ -3219,6 +3222,7 @@ dict = {
 #end
           and not doingaction("prone")
           and not affs.crippledrightleg and not affs.crippledleftleg
+          and not affs.damagedrightleg and not affs.damagedleftleg
           and not affs.unknowncrippledleg
           and not affs.mangledrightleg and not affs.mangledleftleg
           and not affs.missingrightleg and not affs.missingleftleg
@@ -11214,9 +11218,9 @@ dict = {
     aff = {
       oncompleted = function (number)
 
-        if (dict.unknownany.reckhp and stats.currenthealth == stats.maxhealth) or
-          (dict.unknownany.reckmana and stats.currentmana == stats.maxmana) or
-          (dict.unknownany.reckego and stats.currentego == stats.maxego) then
+        if (dict.unknownany.reckhp and codepaste.reckstats()) or
+          (dict.unknownany.reckmana and codepaste.reckstats()) or
+          (dict.unknownany.reckego and codepaste.reckstats()) then
             addaff(dict.recklessness)
 
             if number and number > 1 then
@@ -18791,6 +18795,9 @@ dict = {
 
       oncompleted = function ()
         removeaff("sap")
+        if conf.loadsap then
+          signals.sapcured:emit()
+        end
       end,
 
       empty = function () empty.cleanse() end,
@@ -18804,18 +18811,27 @@ dict = {
       oncompleted = function ()
         addaff(dict.sap)
         signals.aeony:emit()
+        if conf.loadsap then
+          signals.sapafflicted:emit()
+        end
       end
     },
     gone = {
       oncompleted = function ()
         removeaff("sap")
         killaction (dict.earache.waitingfor)
+        if conf.loadsap then
+          signals.sapcured:emit()
+        end
       end,
     },
     onremoved = function ()
       if affsp.sap then
         affsp.sap = nil end
       signals.aeony:emit()
+      if conf.loadsap then
+        signals.sapcured:emit()
+      end
     end,
   },
   choke = {
@@ -20852,7 +20868,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (next(affsp) and affsp.paralysis and bals.equilibrium and bals.balance) or false
+        return (next(affsp) and affsp.paralysis) or false
       end,
 
       oncompleted = function () end,
@@ -20874,12 +20890,8 @@ dict = {
       end,
 
       onstart = function ()
-        if not gmcp and not gmcp.Room and not gmcp.Room.Info and not gmcp.Room.Info.exits and not next(gmcp.Room.Info.exits) then
-          dict.checkparalysis.misc.paralyzed()
-        else
           enableTrigger("m&m check paralysis")
           send("touch balls", false)
-        end
       end
     },
     aff = {

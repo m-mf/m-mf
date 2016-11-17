@@ -234,6 +234,8 @@ signals.saveconfig:add_post_emit(function ()
 end)
 
 signals.loadedconfig = luanotify.signal.new()
+signals.sapafflicted = luanotify.signal.new()
+signals.sapcured = luanotify.signal.new()
 
 paragraph_length = 0
 
@@ -329,6 +331,8 @@ conf.relight = true
 
 conf.showafftimes = true
 conf.waitherbai = true
+conf.loadsap = false
+conf.aeonprios = "current"
 
 sys.sync = false
 sys.deffing = false
