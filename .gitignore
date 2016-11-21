@@ -44,3 +44,4 @@ Allclasses m&m.zip
 *.sublime-workspace
 /NUL:
 *.sublime-project
+*.zip

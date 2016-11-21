@@ -157,6 +157,11 @@ defs_data = phpTable({
     on = {"Four genies burst out of their bottles, whirling around you as they wrap you in ribbons of multicoloured light. Your ego swells as the blessing of the genies settle around you.", "You already have a curio ego blessing!"},
     def = "You have a curio ego blessing.",
     tooltip = "Adds a 1/8 boost to ego"},
+  catsluck = { type = "artifact",
+    on = {"You are now protected by the catsluck defence.","You feel an aura of luck surround you."},
+    def = "Cat's Luck (catsluck) (indefinite).",
+    tooltip = "boosts critical hits",
+    },
   mint = { type = "artifact",
     on = "You are now protected by the mint defence.",
     off = "Your mint defence has expired.",
@@ -1894,10 +1899,15 @@ understanding\.$]],
     on = {"You weave a delicate lattice of energy around your body, sheltering your soul from the ravages of the cosmos.", "Your soul is already guarded against the ravages of the cosmos.", "Your inner worm is already guarded against the ravages of the cosmos."}},
 #end
 
+  vitality = { 
 #if skills.athletics then
-  vitality = { type = "athletics",
-    on = {"Your body positively glows with health and vitality.", "You need to be fully healthy in both body and mind before you can call upon your vitality.", "Vitality already sings in your bloodstream."},
+    type = "athletics",
+#else
+    type = "artifact",
+#end
+    on = {"Your body positively glows with health and vitality.", "You need to be fully healthy in both body and mind before you can call upon your vitality.", "Vitality already sings in your bloodstream.","You cannot call upon your vitality again so soon."},
     off = "A surge of rejuvenating energy floods your system, healing your wounds."},
+#if skills.athletics then
   breathing = { type = "athletics",
     on = "You take a few deep breaths to prepare your body for a marathon workout."},
   resistance = { type = "athletics", on = "You call aloud and feel an aura of resistance shroud itself silently about you." },

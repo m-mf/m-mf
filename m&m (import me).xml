@@ -25890,28 +25890,6 @@ mm.valid.proper_prone()</script>
                         </regexCodePropertyList>
                     </Trigger>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                        <name>Harmony peace</name>
-                        <script>mm.valid.simplepeace()</script>
-                        <triggerType>0</triggerType>
-                        <conditonLineDelta>0</conditonLineDelta>
-                        <mStayOpen>0</mStayOpen>
-                        <mCommand></mCommand>
-                        <packageName></packageName>
-                        <mFgColor>#ff0000</mFgColor>
-                        <mBgColor>#ffff00</mBgColor>
-                        <mSoundFile></mSoundFile>
-                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                        <regexCodeList>
-                            <string>A soft pink glow flows out of </string>
-                            <string>^A soft pink glow flows out of \w+'s chest and covers you\.$</string>
-                        </regexCodeList>
-                        <regexCodePropertyList>
-                            <integer>2</integer>
-                            <integer>1</integer>
-                        </regexCodePropertyList>
-                    </Trigger>
-                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Cloak of thorns bleeding</name>
                         <script>mm.valid.simplebleeding()</script>
                         <triggerType>0</triggerType>
@@ -26531,7 +26509,7 @@ if not (mm.valid[&quot;simple&quot;..aff] or mm.valid[&quot;affmsg_&quot;..aff])
 end
 
 if (aff == &quot;an unknown ailment&quot; or aff == &quot;an unknown affliction&quot;) and mm.knownaff then
-	mm.knownaff = nil
+	mm.valid.removeunknownaff()
 	--not really unknown
 else
 	(mm.valid[&quot;affmsg_&quot;..aff] or mm.valid[&quot;simple&quot;..aff])()
@@ -33409,6 +33387,26 @@ mm.parseplistend()</script>
                         </regexCodePropertyList>
                     </Trigger>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>Vitality pendant</name>
+                        <script>mm.valid.have_artifact(&quot;vitality&quot;)</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>^\d+\s+a Pendant of Vitality</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>1</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Stop (artefact list)</name>
                         <script>setTriggerStayOpen(&quot;Artefact list&quot;, 0)</script>
                         <triggerType>0</triggerType>
@@ -34752,8 +34750,10 @@ end</script>
                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                     <regexCodeList>
                         <string>^\w+ languidly gestures at you and the world tilts as time itself warps\.$</string>
+                        <string>^\w+'s fluctuating time field flares near you, tearing you away from the present\.$</string>
                     </regexCodeList>
                     <regexCodePropertyList>
+                        <integer>1</integer>
                         <integer>1</integer>
                     </regexCodePropertyList>
                 </Trigger>
@@ -39272,6 +39272,29 @@ mm.valid.simpleasthma()</script>
                         <integer>1</integer>
                     </regexCodePropertyList>
                 </Trigger>
+                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                    <name>Harmony peace</name>
+                    <script>mm.valid.simplepeace()
+mm.valid.knownaff()</script>
+                    <triggerType>0</triggerType>
+                    <conditonLineDelta>0</conditonLineDelta>
+                    <mStayOpen>0</mStayOpen>
+                    <mCommand></mCommand>
+                    <packageName></packageName>
+                    <mFgColor>#ff0000</mFgColor>
+                    <mBgColor>#ffff00</mBgColor>
+                    <mSoundFile></mSoundFile>
+                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                    <regexCodeList>
+                        <string>A soft pink glow flows out of </string>
+                        <string>^A soft pink glow flows out of \w+'s chest and covers you\.$</string>
+                    </regexCodeList>
+                    <regexCodePropertyList>
+                        <integer>2</integer>
+                        <integer>1</integer>
+                    </regexCodePropertyList>
+                </Trigger>
             </TriggerGroup>
             <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                 <name>Healing</name>
@@ -43611,7 +43634,7 @@ mm.addwounds(&quot;ice&quot;,&quot;haymaker&quot;, wound_loc)</script>
                 </Trigger>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Shotnote</name>
-                    <script>echo&quot;\n&quot; mm.echof(&quot;Getting more and more drunk!&quot;)</script>
+                    <script>mm.valid.simplestun(2)</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -43645,6 +43668,26 @@ mm.addwounds(&quot;ice&quot;,&quot;haymaker&quot;, wound_loc)</script>
                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                     <regexCodeList>
                         <string>A purple haze descends over your vision, confusing you with wild hallucinations.</string>
+                    </regexCodeList>
+                    <regexCodePropertyList>
+                        <integer>3</integer>
+                    </regexCodePropertyList>
+                </Trigger>
+                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                    <name>Drunkenfool</name>
+                    <script>mm.valid.simpleblackout()</script>
+                    <triggerType>0</triggerType>
+                    <conditonLineDelta>0</conditonLineDelta>
+                    <mStayOpen>0</mStayOpen>
+                    <mCommand></mCommand>
+                    <packageName></packageName>
+                    <mFgColor>#ff0000</mFgColor>
+                    <mBgColor>#ffff00</mBgColor>
+                    <mSoundFile></mSoundFile>
+                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                    <regexCodeList>
+                        <string>Laughing gaily in your drunken state, you hop about wildly to the music, shaking your rear and giving a loud belch. Sobriety suddenly slaps you coldly in the face as you quickly descend from your high, glancing around in mute embarrassment.</string>
                     </regexCodeList>
                     <regexCodePropertyList>
                         <integer>3</integer>
@@ -45622,7 +45665,7 @@ mm.valid.simpleearache()</script>
                     <regexCodeList>
                         <string>&quot;</string>
                         <string>&quot;.+&quot; sings (\w+), .+he looks directly at you\.$</string>
-                        <string>return (not line:find(&quot;cackling&quot;, 1, true) and not line:find(&quot;sharp chord&quot;, 1, true) and not line:find(&quot;burns hot and begins to smoke&quot;, 1, true) and not line:find(&quot;haunting harmonies&quot;, 1, true)) and true or false</string>
+                        <string>return (not line:find(&quot;cackling&quot;, 1, true) and not line:find(&quot;sharp chord&quot;, 1, true) and not line:find(&quot;burns hot and begins to smoke&quot;, 1, true) and not line:find(&quot;haunting harmonies&quot;, 1, true) and not line:find(&quot;bawdy laugh piercing zinger&quot;,1,true) and not line:find(&quot;frenzied bolero&quot;,1,true)) and true or false</string>
                         <string>1</string>
                         <string>.+</string>
                     </regexCodeList>
@@ -53912,7 +53955,7 @@ mm.valid.simplestun()</script>
                 </Trigger>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Crone</name>
-                    <script>mm.valid.simpleunknownany()</script>
+                    <script>mm.valid.simpleunknownlucidity()</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>85</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>

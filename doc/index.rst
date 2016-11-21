@@ -331,6 +331,9 @@ mmconfig options
   aeonfocus
     specifies if afflictions being cured in slowcuring mode will be focused.
 
+  aeonprios
+  	sets a user definied slowcuring priority list optimized for aeon
+
   adrenaline
     Will cause athletics users to only use adrenaline for the quicksilver defense.
 
@@ -460,6 +463,9 @@ mmconfig options
   lag
     lets the system known if you're lagging or not - you want to use this option when you see the system double-doing command and wasting things too often. 0 is default, ie not lagging, and the number goes up to 3.
 
+  loadsap
+  	Will import your sapprios list upon being afflicted by sap and your aeonprios list upon curing sap.
+
   lustlist
     adds or removes a name to the lust list. See autoreject option on how will m&mf deal with the names on it.
 
@@ -492,6 +498,9 @@ mmconfig options
 
   rockclimbing
     sets whenever you have the rockclimbing skill or not - if you do, the system will make use of it when normal climbing out of a pit can't work.
+
+  sapprios
+  	used to load a user definied slowcuring priority list optimized for sap curing
 
   screeleft
     (nekotai only) sets the poison to use for the screeleft defence.

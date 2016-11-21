@@ -5258,5 +5258,17 @@ function valid.notarget()
   lifevision.add(actions.checkparalysis_misc.p, "onclear")
 end
 
+function valid.knownaff()
+  knownaff = true
+end
+
+function valid.removeknownaff()
+  knownaff = nil
+end
+
+function valid.have_artifact(arty)
+  mm.me.artifacts[arty] = true
+end
+
 
 
