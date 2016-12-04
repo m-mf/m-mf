@@ -156,6 +156,12 @@ signals.gmcpcharskillsinfo = luanotify.signal.new()
 signals.gmcpcharskillslist = luanotify.signal.new()
 signals.gmcpcharskillsgroups = luanotify.signal.new()
 signals.gmcpcharitemsupdate = luanotify.signal.new()
+signals.gmcpcharafflictionsadd = luanotify.signal.new()
+signals.gmcpcharafflictionsremove = luanotify.signal.new()
+signals.gmcpcharafflictionslist = luanotify.signal.new()
+signals.gmcpchardefencesadd = luanotify.signal.new()
+signals.gmcpchardefencesremove = luanotify.signal.new()
+signals.gmcpchardefenceslist = luanotify.signal.new()
 
 signals["mmapper updated pdb"] = luanotify.signal.new()
 signals.sysexitevent = luanotify.signal.new()
@@ -373,6 +379,7 @@ me.wielded = {}
 me.dmplist = {}
 me.locks   = {}
 me.focus   = {}
+me.artifacts = {}
 me.prone = false
 me.lastprone = false
 
@@ -664,10 +671,21 @@ signals.systemstart:connect(function ()
   end
 end)
 
+signals.systemstart:connect(function ()
+  local conf_path = getMudletHomeDir().."/m&m/config/artifacts"
+
+  if lfs.attributes(conf_path) then
+    local t = {}
+    table.load(conf_path, t)
+    update(me.artifacts, t)
+  end
+end)
+
 
 signals.saveconfig:connect(function () table.save(getMudletHomeDir() .. "/m&m/config/lustlist", me.lustlist) end)
 
 signals.saveconfig:connect(function () table.save(getMudletHomeDir() .. "/m&m/config/focus", me.focus) end)
+signals.saveconfig:connect(function () table.save(getMudletHomeDir() .. "/m&m/config/artifacts", me.artifacts) end)
 
 -- load the ignore list
 signals.systemstart:connect(function ()

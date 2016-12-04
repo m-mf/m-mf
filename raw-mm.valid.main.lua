@@ -4315,6 +4315,24 @@ function valid.herb_failed_jitterbug()
 
 end
 
+function valid.steam_failed_jitterbug()
+  local smoking = findbybal("steam")
+
+  if not smoking then return end
+  smoke_cure = true
+  sk.lostbal_steam()
+  killaction(dict[smoking.action_name].steam)
+end
+
+function valid.lucidity_failed_jitterbug()
+  local sipping = findbybal("lucidity")
+
+  if not sipping then return end
+  sip_cure = true
+  sk.lostbal_lucidity()
+  killaction(dict[smoking.action_name].lucidity)
+end
+
 function valid.herb_failed_aurawarp()
   local r = checkany(dict.aurawarp.herb)
 
@@ -5256,6 +5274,18 @@ end
 function valid.notarget()
   checkaction(dict.checkparalysis.misc, true)
   lifevision.add(actions.checkparalysis_misc.p, "onclear")
+end
+
+function valid.knownaff()
+  knownaff = true
+end
+
+function valid.removeknownaff()
+  knownaff = nil
+end
+
+function valid.have_artifact(arty)
+  mm.me.artifacts[arty] = true
 end
 
 

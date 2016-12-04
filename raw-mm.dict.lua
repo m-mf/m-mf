@@ -6699,7 +6699,7 @@ dict = {
   curingcrushedchest = {
     spriority = 0,
     waitingfor = {
-      customwait = 3,
+      customwait = 5,
 
       oncompleted = function ()
         removeaff("crushedchest")
@@ -6763,7 +6763,7 @@ dict = {
   curingdamagedskull = {
     spriority = 0,
     waitingfor = {
-      customwait = 3,
+      customwait = 5,
 
       oncompleted = function ()
         removeaff("damagedskull")
@@ -6820,7 +6820,7 @@ dict = {
   curingdamagedthroat = {
     spriority = 0,
     waitingfor = {
-      customwait = 3,
+      customwait = 5,
 
       oncompleted = function ()
         removeaff("damagedthroat")
@@ -6879,7 +6879,7 @@ dict = {
   curingdamagedorgans = {
     spriority = 0,
     waitingfor = {
-      customwait = 3,
+      customwait = 5,
 
       oncompleted = function ()
         removeaff("damagedorgans")
@@ -6938,7 +6938,7 @@ dict = {
   curinginternalbleeding = {
     spriority = 0,
     waitingfor = {
-      customwait = 3,
+      customwait = 5,
 
       oncompleted = function ()
         removeaff("internalbleeding")
@@ -6997,7 +6997,7 @@ dict = {
   curingdamagedleftarm = {
     spriority = 0,
     waitingfor = {
-      customwait = 3,
+      customwait = 5,
 
       oncompleted = function ()
         removeaff("damagedleftarm")
@@ -7056,7 +7056,7 @@ dict = {
   curingmutilatedleftarm = {
     spriority = 0,
     waitingfor = {
-      customwait = 3,
+      customwait = 5,
 
       oncompleted = function ()
         removeaff("mutilatedleftarm")
@@ -7115,7 +7115,7 @@ dict = {
   curingdamagedrightarm = {
     spriority = 0,
     waitingfor = {
-      customwait = 3,
+      customwait = 5,
 
       oncompleted = function ()
         removeaff("damagedrightarm")
@@ -7174,7 +7174,7 @@ dict = {
   curingmutilatedrightarm = {
     spriority = 0,
     waitingfor = {
-      customwait = 3,
+      customwait = 5,
 
       oncompleted = function ()
         removeaff("mutilatedrightarm")
@@ -7233,7 +7233,7 @@ dict = {
   curingdamagedleftleg = {
     spriority = 0,
     waitingfor = {
-      customwait = 3,
+      customwait = 5,
 
       oncompleted = function ()
         removeaff("damagedleftleg")
@@ -7292,7 +7292,7 @@ dict = {
   curingmutilatedleftleg = {
     spriority = 0,
     waitingfor = {
-      customwait = 3,
+      customwait = 5,
 
       oncompleted = function ()
         removeaff("mutilatedleftleg")
@@ -7349,7 +7349,7 @@ dict = {
   curingdamagedrightleg = {
     spriority = 0,
     waitingfor = {
-      customwait = 3,
+      customwait = 5,
 
       oncompleted = function ()
         removeaff("damagedrightleg")
@@ -7408,7 +7408,7 @@ dict = {
   curingmutilatedrightleg = {
     spriority = 0,
     waitingfor = {
-      customwait = 3,
+      customwait = 5,
 
       oncompleted = function ()
         removeaff("mutilatedrightleg")
@@ -18795,9 +18795,7 @@ dict = {
 
       oncompleted = function ()
         removeaff("sap")
-        if conf.loadsap then
-          signals.sapcured:emit()
-        end
+        signals.sapcured:emit()
       end,
 
       empty = function () empty.cleanse() end,
@@ -18811,27 +18809,21 @@ dict = {
       oncompleted = function ()
         addaff(dict.sap)
         signals.aeony:emit()
-        if conf.loadsap then
-          signals.sapafflicted:emit()
-        end
+        signals.sapafflicted:emit()
       end
     },
     gone = {
       oncompleted = function ()
         removeaff("sap")
         killaction (dict.earache.waitingfor)
-        if conf.loadsap then
-          signals.sapcured:emit()
-        end
+        signals.sapcured:emit()
       end,
     },
     onremoved = function ()
       if affsp.sap then
         affsp.sap = nil end
       signals.aeony:emit()
-      if conf.loadsap then
-        signals.sapcured:emit()
-      end
+      signals.sapcured:emit()
     end,
   },
   choke = {
@@ -23273,7 +23265,7 @@ dict = {
       def = true,
 
       isadvisable = function ()
-        return (((sys.deffing and defdefup[defs.mode].vitality and not defc.vitality) or (conf.keepup and defkeepup[defs.mode].vitality and not defc.vitality)) and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
+        return (((sys.deffing and defdefup[defs.mode].vitality and not defc.vitality) or (conf.keepup and defkeepup[defs.mode].vitality and not defc.vitality)) and (mm.me.activeskills.athletics or mm.me.artifacts.vitality) and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
       end,
 
       oncompleted = function ()
@@ -23449,9 +23441,51 @@ dict = {
       end
     },
   },
+#elseif not skills.athletics then
+  vitality = {
+    physical = {
+      balanceful_act = true,
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+        return (((sys.deffing and defdefup[defs.mode].vitality and not defc.vitality) or (conf.keepup and defkeepup[defs.mode].vitality and not defc.vitality)) and mm.me.artifacts.vitality and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
+      end,
+
+      oncompleted = function ()
+        defences.got("vitality")
+      end,
+
+      onstart = function ()
+        send("vitality", conf.commandecho)
+      end
+    }
+  },
 #end
+  
 
 #basicdef("respect", "manifest respect")
+  catsluck = {
+    physical = {
+      balanceful_act = true,
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+        return (((sys.deffing and defdefup[defs.mode].catsluck and not defc.catsluck) or (conf.keepup and defkeepup[defs.mode].catsluck and not defc.catsluck)) and not codepaste.balanceful_defs_codepaste() and not affs.prone) and conf.catsluck or false
+      end,
+
+      oncompleted = function ()
+        defences.got("catsluck")
+      end,
+
+      onstart = function ()
+        send("jewel cast "..conf.catsluck, conf.commandecho)
+      end
+    }
+  },
 
 #if skills.highmagic then
   yesod = {

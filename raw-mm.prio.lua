@@ -441,9 +441,13 @@ signals.systemstart:connect(function ()
 end)
 
 signals.sapcured:connect(function ()
-  prio.import(conf.aeonprios)
+  if conf.loadsap then
+    prio.import(conf.aeonprios)
+  end
 end)
 
 signals.sapafflicted:connect(function ()
-  prio.import(conf.sapprios)
+  if conf.loadsap then
+    prio.import(conf.sapprios)
+  end
 end)

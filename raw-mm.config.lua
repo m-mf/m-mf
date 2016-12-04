@@ -178,6 +178,11 @@ config_dict = pl.OrderedMap {
     check = function(what) return io.exists(getMudletHomeDir().."/m&m/prios/"..what) end,
     onset = function() echof("%sWill use <0,250,0>%s%s for aeon curing priorities.", getDefaultColor(), conf.aeonprios, getDefaultColor()) end,
   }},
+#conf_name = "catsluck"
+  {$(conf_name) = {
+    type = "string",
+    onset = function() echof("%sWill use <0,250,0>%s%s for casting Cats Luck", getDefaultColor(), conf.catsluck, getDefaultColor()) end,
+  }},
 #if skills.cavalier then
 #conf_name = "hook"
   {$(conf_name) = {

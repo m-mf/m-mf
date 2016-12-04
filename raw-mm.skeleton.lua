@@ -457,10 +457,11 @@ check_herb = function(sync_mode)
   local function check (what)
     for i, j in pairs(what) do
       if j.p.herb and j.p.herb.isadvisable() and not ignored(i, "herb") and not overhaul[i] and
-        (not j.p.herb.eatcure or ((not affs.crushedwindpipe or j.p.herb.applyherb) and not affs.slitthroat and
+        ((j.p.herb.eatcure and not j.p.herb.applycure and not affs.crushedwindpipe and not affs.slitthroat and not affs.anorexia and not affs.throatlock and not affs.scarab and not affs.darkfate) or (j.p.herb.eatcure and j.p.herb.applyherb and not affs.slickness) or (j.p.herb.smokecure and not affs.asthma and not affs.collapsedlungs and not affs.pinlegright and not affs.pinlegleft and not affs.pinlegunknown))
+        --[[(not j.p.herb.eatcure or ((not affs.crushedwindpipe or j.p.herb.applyherb) and not affs.slitthroat and
           not affs.anorexia and not affs.throatlock and not affs.scarab and not affs.darkfate)) and
         -- herb.applyherb is mostly to make it work with crushedwindpipe
-        ((not j.p.herb.smokecure or j.p.herb.applyherb) or (not affs.asthma and not affs.collapsedlungs and not affs.pinlegright and not affs.pinlegleft and not affs.pinlegunknown))
+        ((not j.p.herb.smokecure or j.p.herb.applyherb) or (not affs.asthma and not affs.collapsedlungs and not affs.pinlegright and not affs.pinlegleft and not affs.pinlegunknown))]]
 #if skills.healing then
          and sk.wont_heal_this(i)
 #end
