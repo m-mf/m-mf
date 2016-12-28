@@ -681,6 +681,27 @@ function valid.parry_none()
   end
 end
 
+vm.aurawarps = {"slightlyaurawarped", "moderatelyaurawarped", "aurawarped", "massivelyaurawarped", "completelyaurawarped"}
+
+vm.next_aurawarp = function()
+  for i,v in ipairs(vm.aurawarps) do
+    if affs[v] then return vm.aurawarps[i+1] or "completelyaurawarped" end
+  end
+end
+
+function valid.aurawarp_added()
+  local aff = vm.next_aurawarp()
+
+  if not aff then aff = "slightlyaurawarped" end
+  checkaction(dict[aff].aff, true)
+
+  if actions[aff .. "_aff"] then
+    lifevision.add(actions[aff .. "_aff"].p)
+  end
+end
+
+valid.affmsg_warpedaura = valid.aurawarp_added
+
 vm.timewarps = {"minortimewarp", "moderatetimewarp", "majortimewarp", "massivetimewarp"}
 
 vm.next_timewarp = function()
@@ -990,7 +1011,7 @@ function valid.illuminated_woreoff()
   end
 end
 
-#for _, aff in ipairs({"darkseed", "enfeeble", "timeechoes", "oracle", "succumb", "phantom", "bedevil", "avengingangel", "puncturedaura", "mildallergy", "darkfate", "sightstealer", "illusorywounds"}) do
+#for _, aff in ipairs({"darkseed", "enfeeble", "timeechoes", "oracle", "succumb", "phantom", "bedevil", "avengingangel", "puncturedaura", "mildallergy", "darkfate", "sightstealer", "illusorywounds", "anesthesia","bentaura"}) do
 function valid.$(aff)_woreoff()
   checkaction(dict.$(aff).waitingfor, true)
   if actions.$(aff)_waitingfor then
@@ -3476,6 +3497,10 @@ function valid.sippedhealth()
   end
 end
 
+function valid.medicinebag_health()
+  valid.sippedhealth()
+end
+
 function valid.cured_vessel_health()
   local result = checkany(dict.onevessel.sip, dict.twovessels.sip, dict.threevessels.sip, dict.fourvessels.sip, dict.fivevessels.sip, dict.sixvessels.sip,dict.sevenvessels.sip, dict.eightvessels.sip, dict.ninevessels.sip, dict.tenvessels.sip, dict.elevenvessels.sip, dict.twelvevessels.sip, dict.thirteenplusvessels.sip)
 
@@ -4029,7 +4054,7 @@ end
 
 -- steam puffs
 #for _, steam in pairs({
-#steam = {"egovice", "manabarbs", "achromaticaura", "powerspikes", "disloyalty", "pacifism", "illuminated", "healthleech", "aeon", "slickness", "massivetimewarp","majortimewarp","moderatetimewarp","minortimewarp","unknownsteam"},
+#steam = {"egovice", "manabarbs", "achromaticaura", "powerspikes", "disloyalty", "pacifism", "illuminated", "healthleech", "aeon", "slickness", "massivetimewarp","majortimewarp","moderatetimewarp","minortimewarp","unknownsteam","completelyaurawarped","massivelyaurawarped","aurawarped","moderatelyaurawarped","slightlyaurawarped"},
 #}) do
 #local checkany_string = ""
 #local temp = {}
@@ -5272,8 +5297,13 @@ function valid.lostwaferbalance()
 end
 
 function valid.notarget()
-  checkaction(dict.checkparalysis.misc, true)
-  lifevision.add(actions.checkparalysis_misc.p, "onclear")
+  if actions.checkparalysis_misc then
+    lifevision.add(actions.checkparalysis_misc.p, "onclear")
+  end
+
+  if actions.healhealth_sip and conf.medicinebag and me.activeskills.stag then
+    config.set("medicinebag",false,true)
+  end
 end
 
 function valid.knownaff()
@@ -5286,6 +5316,12 @@ end
 
 function valid.have_artifact(arty)
   mm.me.artifacts[arty] = true
+end
+
+function valid.healingflay()
+  if table.size(mm.affl)>0 then
+    valid.simpleunknownany()
+  end
 end
 
 
