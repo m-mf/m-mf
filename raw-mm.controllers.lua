@@ -281,7 +281,7 @@ function onprompt()
   end
 
   -- prefix an orange '?:' if we don't know the exact stats
-  if affs.recklessness or affs.blackout then
+  if affs.recklessness or affs.blackout or affs.anesthesia then
     moveCursor("main", 0, currentline)
     setFgColor(255, 102, 0)
     insertText("?:")
@@ -509,7 +509,7 @@ prompt_stats = function ()
     stats.currenthealth = math.floor(stats.currenthealth * 1.3333)
   end
 
-  if (stats.currenthealth == 0 and stats.currentmana == 0 and stats.currentego == 0) or (affs.recklessness and not actions.recklessness_focus and not actions.recklessness_herb) then
+  if (stats.currenthealth == 0 and stats.currentmana == 0 and stats.currentego == 0) or (affs.recklessness and not actions.recklessness_focus and not actions.recklessness_herb) or affs.anesthesia then
     local assumestats = conf.assumestats/100
     stats.currenthealth, stats.currentmana, stats.currentego =
       math.floor(stats.maxhealth * assumestats), math.floor(stats.maxmana * assumestats), math.floor(stats.maxego * assumestats)

@@ -373,11 +373,15 @@ codepaste.remove_allergies = function()
 end
 
 codepaste.remove_timewarps = function ()
-  removeaff {"minortimewarp", "moderatetimewarp", "majortimewarp", "massivetimewarp"}
+  removeaff({"minortimewarp", "moderatetimewarp", "majortimewarp", "massivetimewarp"})
+end
+
+codepaste.remove_aurawarps = function ()
+  removeaff({"completelyaurawarped","massivelyaurawarped","aurawarped","moderatelyaurawarped","slightlyaurawarped"})
 end
 
 codepaste.remove_burns = function()
-  removeaff {"firstdegreeburn", "seconddegreeburn", "thirddegreeburn", "fourthdegreeburn"}
+  removeaff({"firstdegreeburn", "seconddegreeburn", "thirddegreeburn", "fourthdegreeburn"})
 end
 
 codepaste.maestoso_ruined = function()
@@ -543,7 +547,11 @@ dict = {
       sipcure = "health",
 
       onstart = function ()
-        send("sip health", conf.commandecho)
+        if conf.medicinebag and me.activeskills.stag then
+          send("touch medicinebag", conf.commandecho)
+        else
+          send("sip health", conf.commandecho)
+        end
       end
     },
     scroll = {
@@ -910,7 +918,11 @@ dict = {
       sipcure = "health",
 
       onstart = function ()
-        send("sip health", conf.commandecho)
+        if conf.medicinebag and me.activeskills.stag then
+          send("touch medicinebag", conf.commandecho)
+        else
+          send("sip health", conf.commandecho)
+        end
       end
     },
     sparkle = {
@@ -989,7 +1001,11 @@ dict = {
       sipcure = "health",
 
       onstart = function ()
-        send("sip health", conf.commandecho)
+        if conf.medicinebag and me.activeskills.stag then
+          send("touch medicinebag", conf.commandecho)
+        else
+          send("sip health", conf.commandecho)
+        end
       end
     },
     sparkle = {
@@ -1059,7 +1075,11 @@ dict = {
       sipcure = "health",
 
       onstart = function ()
-        send("sip health", conf.commandecho)
+        if conf.medicinebag and me.activeskills.stag then
+          send("touch medicinebag", conf.commandecho)
+        else
+          send("sip health", conf.commandecho)
+        end
       end
     },
     sparkle = {
@@ -1129,7 +1149,11 @@ dict = {
       sipcure = "health",
 
       onstart = function ()
-        send("sip health", conf.commandecho)
+        if conf.medicinebag and me.activeskills.stag then
+          send("touch medicinebag", conf.commandecho)
+        else
+          send("sip health", conf.commandecho)
+        end
       end
     },
     sparkle = {
@@ -1199,7 +1223,11 @@ dict = {
       sipcure = "health",
 
       onstart = function ()
-        send("sip health", conf.commandecho)
+        if conf.medicinebag and me.activeskills.stag then
+          send("touch medicinebag", conf.commandecho)
+        else
+          send("sip health", conf.commandecho)
+        end
       end
     },
     sparkle = {
@@ -1269,7 +1297,11 @@ dict = {
       sipcure = "health",
 
       onstart = function ()
-        send("sip health", conf.commandecho)
+        if conf.medicinebag and me.activeskills.stag then
+          send("touch medicinebag", conf.commandecho)
+        else
+          send("sip health", conf.commandecho)
+        end
       end
     },
     sparkle = {
@@ -1339,7 +1371,11 @@ dict = {
       sipcure = "health",
 
       onstart = function ()
-        send("sip health", conf.commandecho)
+        if conf.medicinebag and me.activeskills.stag then
+          send("touch medicinebag", conf.commandecho)
+        else
+          send("sip health", conf.commandecho)
+        end
       end
     },
     sparkle = {
@@ -1409,7 +1445,11 @@ dict = {
       sipcure = "health",
 
       onstart = function ()
-        send("sip health", conf.commandecho)
+        if conf.medicinebag and me.activeskills.stag then
+          send("touch medicinebag", conf.commandecho)
+        else
+          send("sip health", conf.commandecho)
+        end
       end
     },
     sparkle = {
@@ -1477,7 +1517,11 @@ dict = {
       sipcure = "health",
 
       onstart = function ()
-        send("sip health", conf.commandecho)
+        if conf.medicinebag and me.activeskills.stag then
+          send("touch medicinebag", conf.commandecho)
+        else
+          send("sip health", conf.commandecho)
+        end
       end
     },
     sparkle = {
@@ -1546,7 +1590,11 @@ dict = {
       sipcure = "health",
 
       onstart = function ()
-        send("sip health", conf.commandecho)
+        if conf.medicinebag and me.activeskills.stag then
+          send("touch medicinebag", conf.commandecho)
+        else
+          send("sip health", conf.commandecho)
+        end
       end
     },
     sparkle = {
@@ -1616,7 +1664,11 @@ dict = {
       sipcure = "health",
 
       onstart = function ()
-        send("sip health", conf.commandecho)
+        if conf.medicinebag and me.activeskills.stag then
+          send("touch medicinebag", conf.commandecho)
+        else
+          send("sip health", conf.commandecho)
+        end
       end
     },
     sparkle = {
@@ -1685,7 +1737,11 @@ dict = {
       sipcure = "health",
 
       onstart = function ()
-        send("sip health", conf.commandecho)
+        if conf.medicinebag and me.activeskills.stag then
+          send("touch medicinebag", conf.commandecho)
+        else
+          send("sip health", conf.commandecho)
+        end
       end
     },
     sparkle = {
@@ -1755,7 +1811,11 @@ dict = {
       sipcure = "health",
 
       onstart = function ()
-        send("sip health", conf.commandecho)
+        if conf.medicinebag and me.activeskills.stag then
+          send("touch medicinebag", conf.commandecho)
+        else
+          send("sip health", conf.commandecho)
+        end
       end
     },
     sparkle = {
@@ -11798,6 +11858,58 @@ dict = {
       end,
     }
   },
+  anesthesia = {
+    waitingfor = {
+      customwait = 15,
+
+      isadvisable = function ()
+        return false
+      end,
+
+      onstart = function () end,
+
+      oncompleted = function ()
+        removeaff("anesthesia")
+      end
+    },
+    aff = {
+      oncompleted = function ()
+        addaff(dict.anesthesia)
+        doaction(dict.anesthesia.waitingfor)
+      end,
+    },
+    gone = {
+      oncompleted = function ()
+        removeaff("anesthesia")
+      end,
+    }
+  },
+  bentaura = {
+    waitingfor = {
+      customwait = 150,
+
+      isadvisable = function ()
+        return false
+      end,
+
+      onstart = function () end,
+
+      oncompleted = function ()
+        removeaff("bentaura")
+      end
+    },
+    aff = {
+      oncompleted = function ()
+        addaff(dict.bentaura)
+        doaction(dict.bentaura.waitingfor)
+      end,
+    },
+    gone = {
+      oncompleted = function ()
+        removeaff("bentaura")
+      end,
+    }
+  },
   peace = {
     herb = {
       aspriority = 39,
@@ -17645,6 +17757,186 @@ dict = {
     }
   },
 
+  completelyaurawarped = {
+    steam = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.completelyaurawarped and
+          not doingaction("completelyaurawarped")) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("completelyaurawarped")
+        removeaff("unknownsteam")
+        addaff (dict.massivelyaurawarped)
+        sk.lostbal_steam()
+      end,
+
+      onstart = function ()
+        send("smoke steam", conf.commandecho)
+      end,
+
+      empty = function ()
+        sk.lostbal_steam()
+        empty.smoke_steam()
+
+      end
+    },
+    aff = {
+      oncompleted = function ()
+        codepaste.remove_aurawarps()
+        addaff(dict.completelyaurawarped)
+      end,
+    },
+  },
+  massivelyaurawarped = {
+    steam = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.massivelyaurawarped and
+          not doingaction("massivelyaurawarped")) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("completelyaurawarped")
+        removeaff("massivelyaurawarped")
+        removeaff("unknownsteam")
+        addaff (dict.aurawarped)
+        sk.lostbal_steam()
+      end,
+
+      onstart = function ()
+        send("smoke steam", conf.commandecho)
+      end,
+
+      empty = function ()
+        sk.lostbal_steam()
+        empty.smoke_steam()
+
+      end
+    },
+    aff = {
+      oncompleted = function ()
+        codepaste.remove_aurawarps()
+        addaff(dict.massivelyaurawarped)
+      end,
+    },
+  },
+
+  aurawarped = {
+    steam = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.aurawarped and
+          not doingaction("aurawarped")) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("completelyaurawarped")
+        removeaff("massivelyaurawarped")
+        removeaff("aurawarped")
+        removeaff("unknownsteam")
+        addaff (dict.moderatelyaurawarped)
+        sk.lostbal_steam()
+      end,
+
+      onstart = function ()
+        send("smoke steam", conf.commandecho)
+      end,
+
+      empty = function ()
+        sk.lostbal_steam()
+        empty.smoke_steam()
+
+      end
+    },
+    aff = {
+      oncompleted = function ()
+        codepaste.remove_aurawarps()
+        addaff(dict.aurawarped)
+      end,
+    },
+  },
+  moderatelyaurawarped = {
+    steam = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.moderatelyaurawarped and
+          not doingaction("moderatelyaurawarped")) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("completelyaurawarped")
+        removeaff("massivelyaurawarped")
+        removeaff("aurawarped")
+        removeaff("moderatelyaurawarped")
+        removeaff("unknownsteam")
+        addaff (dict.slightlyaurawarped)
+        sk.lostbal_steam()
+      end,
+
+      onstart = function ()
+        send("smoke steam", conf.commandecho)
+      end,
+
+      empty = function ()
+        sk.lostbal_steam()
+        empty.smoke_steam()
+
+      end
+    },
+    aff = {
+      oncompleted = function ()
+        codepaste.remove_aurawarps()
+        addaff(dict.moderatelyaurawarped)
+      end,
+    },
+  },
+  slightlyaurawarped = {
+    steam = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.slightlyaurawarped and
+          not doingaction("slightlyaurawarped")) or false
+      end,
+
+      oncompleted = function ()
+        removeaff("completelyaurawarped")
+        removeaff("massivelyaurawarped")
+        removeaff("aurawarped")
+        removeaff("moderatelyaurawarped")
+        removeaff("slightlyaurawarped")
+        removeaff("unknownsteam")
+        sk.lostbal_steam()
+      end,
+
+      onstart = function ()
+        send("smoke steam", conf.commandecho)
+      end,
+
+      empty = function ()
+        sk.lostbal_steam()
+        empty.smoke_steam()
+
+      end
+    },
+    aff = {
+      oncompleted = function ()
+        codepaste.remove_aurawarps()
+        addaff(dict.slightlyaurawarped)
+      end,
+    },
+  },
   massivetimewarp = {
     herb = {
       aspriority = 0,
