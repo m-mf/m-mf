@@ -104,7 +104,7 @@ empty.smoke_myrtle = function()
 end
 
 empty.smoke_steam = function()
-  removeaff({"egovice", "manabarbs", "achromaticaura", "powerspikes", "disloyalty", "pacifism", "illuminated", "healthleech", "aeon", "slickness", "massivetimewarp","moderatetimewarp","majortimewarp","minortimewarp","unknownsteam"})
+  removeaff({"egovice", "manabarbs", "achromaticaura", "powerspikes", "disloyalty", "pacifism", "illuminated", "healthleech", "aeon", "slickness", "massivetimewarp","moderatetimewarp","majortimewarp","minortimewarp","unknownsteam", "slightlyaurawarped", "moderatelyaurawarped", "aurawarped", "massivelyaurawarped", "completelyaurawarped"})
 end
 
 empty.applyarnica_head = function()

@@ -312,17 +312,17 @@ codepaste.cleanse_codepaste = function()
 end
 
 codepaste.tempwarps = function()
-  return (not affs.minortimewarp and not affs.slightinsanity
-    and not affs.moderatetimewarp and not affs.moderateinsanity
-    and not affs.majortimewarp and not affs.majorinsanity
-    and not affs.massivetimewarp and not affs.massiveinsanity)
+  return (not affs.minortimewarp and not affs.slightinsanity and not affs.slightlyaurawarped
+    and not affs.moderatetimewarp and not affs.moderateinsanity and not affs.moderatelyaurawarped
+    and not affs.majortimewarp and not affs.majorinsanity and not affs.aurawarped
+    and not affs.massivetimewarp and not affs.massiveinsanity and not affs.massivelyaurawarped and not affs.completelyaurawarped)
 end
 
 codepaste.havetempwarps = function()
-  return (affs.minortimewarp or affs.slightinsanity
-    or affs.moderatetimewarp or affs.moderateinsanity
-    or affs.majortimewarp or affs.majorinsanity
-    or affs.massivetimewarp or affs.massiveinsanity)
+  return (affs.minortimewarp or affs.slightinsanity or affs.slightlyaurawarped
+    or affs.moderatetimewarp or affs.moderateinsanity or affs.moderatelyaurawarped
+    or affs.majortimewarp or affs.majorinsanity or affs.aurawarped
+    or affs.massivetimewarp or affs.massiveinsanity or affs.massivelyaurawarped or affs.completelyaurawarped)
 end
 
 codepaste.dowrithe = function(specific)
@@ -17775,7 +17775,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("smoke steam", conf.commandecho)
+        send("smoke steam warpedaura", conf.commandecho)
       end,
 
       empty = function ()
@@ -17790,6 +17790,11 @@ dict = {
         addaff(dict.completelyaurawarped)
       end,
     },
+    gone = {
+	  oncompleted = function ()
+	    removeaff("completelyaurawarped")
+	  end,
+	  }
   },
   massivelyaurawarped = {
     steam = {
@@ -17810,7 +17815,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("smoke steam", conf.commandecho)
+        send("smoke steam warpedaura", conf.commandecho)
       end,
 
       empty = function ()
@@ -17825,6 +17830,11 @@ dict = {
         addaff(dict.massivelyaurawarped)
       end,
     },
+    gone = {
+	  oncompleted = function ()
+	    removeaff("massivelyaurawarped")
+	  end,
+	}
   },
 
   aurawarped = {
@@ -17862,6 +17872,11 @@ dict = {
         addaff(dict.aurawarped)
       end,
     },
+    gone = {
+	  oncompleted = function ()
+	    removeaff("aurawarped")
+	  end,
+	}
   },
   moderatelyaurawarped = {
     steam = {
@@ -17899,6 +17914,11 @@ dict = {
         addaff(dict.moderatelyaurawarped)
       end,
     },
+    gone = {
+	  oncompleted = function ()
+	    removeaff("moderatelyaurawarped")
+	  end,
+	}
   },
   slightlyaurawarped = {
     steam = {
@@ -17936,6 +17956,11 @@ dict = {
         addaff(dict.slightlyaurawarped)
       end,
     },
+    gone = {
+	  oncompleted = function ()
+	    removeaff("slightlyaurawarped")
+	  end,
+	}
   },
   massivetimewarp = {
     herb = {
