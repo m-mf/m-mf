@@ -497,6 +497,10 @@ prompt_stats = function ()
       vitals.essence or 0, vitals.esteem or 0,
       vitals.reserves or 0
 
+#if skills.healing then
+  stats.empathy = tonumber(vitals.empathy) or 0
+#end
+
   for i,j in pairs(stats) do
     stats[i] = tonumber(j)
   end
