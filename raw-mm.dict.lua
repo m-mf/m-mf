@@ -312,17 +312,17 @@ codepaste.cleanse_codepaste = function()
 end
 
 codepaste.tempwarps = function()
-  return (not affs.minortimewarp and not affs.slightinsanity and not affs.slightlyaurawarped
-    and not affs.moderatetimewarp and not affs.moderateinsanity and not affs.moderatelyaurawarped
-    and not affs.majortimewarp and not affs.majorinsanity and not affs.aurawarped
-    and not affs.massivetimewarp and not affs.massiveinsanity and not affs.massivelyaurawarped and not affs.completelyaurawarped)
+  return (not affs.minortimewarp and not affs.slightinsanity
+    and not affs.moderatetimewarp and not affs.moderateinsanity
+    and not affs.majortimewarp and not affs.majorinsanity
+    and not affs.massivetimewarp and not affs.massiveinsanity)
 end
 
 codepaste.havetempwarps = function()
-  return (affs.minortimewarp or affs.slightinsanity or affs.slightlyaurawarped
-    or affs.moderatetimewarp or affs.moderateinsanity or affs.moderatelyaurawarped
-    or affs.majortimewarp or affs.majorinsanity or affs.aurawarped
-    or affs.massivetimewarp or affs.massiveinsanity or affs.massivelyaurawarped or affs.completelyaurawarped)
+  return (affs.minortimewarp or affs.slightinsanity
+    or affs.moderatetimewarp or affs.moderateinsanity
+    or affs.majortimewarp or affs.majorinsanity
+    or affs.massivetimewarp or affs.massiveinsanity)
 end
 
 codepaste.dowrithe = function(specific)
