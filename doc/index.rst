@@ -193,6 +193,7 @@ Tag                  What it shows
 @mo                  your current momentum (kata users only)
 @esteem              your esteem (requires GMCP)
 @essence             your Demigod/Ascendant essence (requires GMCP)
+@empathy			 your current empathy level (healing users only, requires GMCP)
 @commaessence        same as above, but adds commas to make it visually easier
 @shortessence        essence in short form, with one decimal spot (ie, 1.1m)
 @shortessence2       essence in short form, with two decimal spots (ie, 1.19m)
@@ -225,6 +226,7 @@ Colour               What colour it sets
 ^5                   proper colour for your current endurance
 ^6                   proper colour for your current power
 ^7                   proper colour for your current momentum (kata users only)
+^8					 proper colour for your current empathy (healing users only)
 ^r                   red
 ^R                   dark red
 ^g                   green
@@ -244,8 +246,6 @@ Colour               What colour it sets
 This is the initial first go at it which already replicates all from Aetolia that is relevant. I'm up to new tag / colour suggestions to make this more powerful - so feel free to mail in ideas.
 
 Just as Mudlet and m&mf, the custom prompt was designed with speed in mind and optimized to the max. In practical tests, the speed of it is *very* fast - making it hard to measure because the difference on my laptop isn't too noticable. You can test for yourself though - the S: number bottom-right in Mudlet shows your system lag - how much time *all* your triggers took to process the last line. Hold the enter button down on a blank command line so all you'll be getting is a bunch of prompts, and watch the S: number change. Do that with and without the custom prompt, and you'll probably be convinced that it's fast.
-
-:note: yes, you can't set your power reserves at the moment - Lusternia doesn't give information about it. I'll add it as soon as it does.
 
 Here are some sample prompts for you to get ideas from. Feel free to share your custom prompt so I can add it here: ::
 
