@@ -17775,7 +17775,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("smoke steam", conf.commandecho)
+        send("smoke steam warpedaura", conf.commandecho)
       end,
 
       empty = function ()
@@ -17790,6 +17790,11 @@ dict = {
         addaff(dict.completelyaurawarped)
       end,
     },
+    gone = {
+	  oncompleted = function ()
+	    removeaff("completelyaurawarped")
+	  end,
+	  }
   },
   massivelyaurawarped = {
     steam = {
@@ -17810,7 +17815,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("smoke steam", conf.commandecho)
+        send("smoke steam warpedaura", conf.commandecho)
       end,
 
       empty = function ()
@@ -17825,6 +17830,11 @@ dict = {
         addaff(dict.massivelyaurawarped)
       end,
     },
+    gone = {
+	  oncompleted = function ()
+	    removeaff("massivelyaurawarped")
+	  end,
+	}
   },
 
   aurawarped = {
@@ -17862,6 +17872,11 @@ dict = {
         addaff(dict.aurawarped)
       end,
     },
+    gone = {
+	  oncompleted = function ()
+	    removeaff("aurawarped")
+	  end,
+	}
   },
   moderatelyaurawarped = {
     steam = {
@@ -17899,6 +17914,11 @@ dict = {
         addaff(dict.moderatelyaurawarped)
       end,
     },
+    gone = {
+	  oncompleted = function ()
+	    removeaff("moderatelyaurawarped")
+	  end,
+	}
   },
   slightlyaurawarped = {
     steam = {
@@ -17936,6 +17956,11 @@ dict = {
         addaff(dict.slightlyaurawarped)
       end,
     },
+    gone = {
+	  oncompleted = function ()
+	    removeaff("slightlyaurawarped")
+	  end,
+	}
   },
   massivetimewarp = {
     herb = {

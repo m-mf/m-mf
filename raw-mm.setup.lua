@@ -520,6 +520,11 @@ sk.overhauldata = {
   clotrightshoulder = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   clotlefthip       = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   clotrighthip      = { newbalances = {"wafer"}, oldbalances = {"herb"}},
+  completelyaurawarped = { newbalances = {"steam"}, oldbalances = {"herb"}, replaces = {"aurawarp"}},
+  massivelyaurawarped  = { newbalances = {"steam"}, oldbalances = {"herb"}, replaces = {"aurawarp"}},
+  aurawarped           = { newbalances = {"steam"}, oldbalances = {"herb"}, replaces = {"aurawarp"}},
+  moderatelyaurawarped = { newbalances = {"steam"}, oldbalances = {"herb"}, replaces = {"aurawarp"}},
+  slightlyaurawarped   = { newbalances = {"steam"}, oldbalances = {"herb"}, replaces = {"aurawarp"}},
 }
 sk.overhaulredirects = {}
 
