@@ -133,6 +133,22 @@ cpp.compute_psibal = function()
 end
 #end
 
+#if skills.healing then
+cpp.compute_empathy = function ()
+  return stats.empathy
+end
+
+cpp.compute_empathy_colour = function ()
+  if stats.empathy > 75 then
+    return "<a_darkgreen>"
+  elseif stats.empathy > 25 then
+    return "<a_yellow>"
+  else
+    return "<a_red>"
+  end
+end
+#end
+
 #if skills.kata then
 cpp.compute_momentum = function ()
   if stats.momentum ~= 0 then
@@ -235,6 +251,9 @@ cp.definitions = {
 #if skills.kata then
   ["@mo"]            = "mm.cpp.compute_momentum()",
 #end
+#if skills.healing then
+  ["@emp"]           = "mm.cpp.compute_empathy()",
+#end
   ["^1"]             = "mm.cpp.compute_health_colour()",
   ["^2"]             = "mm.cpp.compute_mana_colour()",
   ["^3"]             = "mm.cpp.compute_ego_colour()",
@@ -243,6 +262,9 @@ cp.definitions = {
   ["^6"]             = "mm.cpp.compute_power_colour()",
 #if skills.kata then
   ["^7"]             = "mm.cpp.compute_momentum_colour()",
+#end
+#if skills.healing then
+  ["^8"]             = "mm.cpp.compute_empathy_colour()",
 #end
   ["^r"]             = "'<a_red>'",
   ["^R"]             = "'<a_darkred>'",
