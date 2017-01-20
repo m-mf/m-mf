@@ -555,7 +555,7 @@ defs_data = phpTable({
   ["domoth major beauty"] = { nodef = true, def = "You are under a Major Blessing of the Domotheos of Beauty."},
   ["domoth minor beauty"] = { nodef = true, def = "You are under a Minor Blessing of the Domotheos of Beauty."},
   ["domoth lesser death"] = { nodef = true },
-  ["domoth lsr chaos"] = { nodef = true, defr = [[^Your (\w+) is under a Lesser Blessing of the Domotheos of Chaos\.$]],
+  ["domoth lsr chaos"] = { nodef = true, defr = [[^Your (\w+) regen is under a Lesser Blessing of the Domotheos of Chaos\.$]],
     ondef = function ()
       if matches[2] == "health" then
         return "(hp)"
@@ -1916,8 +1916,8 @@ understanding\.$]],
 #else
     type = "artifact",
 #end
-    on = {"Your body positively glows with health and vitality.", "You need to be fully healthy in both body and mind before you can call upon your vitality.", "Vitality already sings in your bloodstream.","You cannot call upon your vitality again so soon."},
-    off = {"A surge of rejuvenating energy floods your system, healing your wounds."}},
+    on = {"Your body positively glows with health and vitality.", "Vitality already sings in your bloodstream."},
+    off = {"A surge of rejuvenating energy floods your system, healing your wounds.", "You need to be fully healthy in both body and mind before you can call upon your vitality.","You cannot call upon your vitality again so soon."}},
 #if skills.athletics then
   breathing = { type = "athletics",
     on = "You take a few deep breaths to prepare your body for a marathon workout."},

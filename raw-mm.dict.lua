@@ -23570,7 +23570,7 @@ dict = {
       def = true,
 
       isadvisable = function ()
-        return (((sys.deffing and defdefup[defs.mode].vitality and not defc.vitality) or (conf.keepup and defkeepup[defs.mode].vitality and not defc.vitality)) and (mm.me.activeskills.athletics or mm.me.artifacts.vitality) and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
+        return (((sys.deffing and defdefup[defs.mode].vitality and not defc.vitality) or (conf.keepup and defkeepup[defs.mode].vitality and not defc.vitality)) and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
       end,
 
       oncompleted = function ()
@@ -23746,10 +23746,8 @@ dict = {
       end
     }
   },
-#end
-
-#if not skills.athletics then
-  dict.vitality = {
+#else
+ vitality = {
     physical = {
       balanceful_act = true,
       aspriority = 0,
@@ -23757,7 +23755,7 @@ dict = {
       def = true,
 
       isadvisable = function ()
-        return (((sys.deffing and defdefup[defs.mode].vitality and not defc.vitality) or (conf.keepup and defkeepup[defs.mode].vitality and not defc.vitality)) and mm.me.artifacts.vitality and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
+        return (((sys.deffing and defdefup[defs.mode].vitality and not defc.vitality) or (conf.keepup and defkeepup[defs.mode].vitality and not defc.vitality)) and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
       end,
 
       oncompleted = function ()
@@ -23768,7 +23766,7 @@ dict = {
         send("vitality", conf.commandecho)
       end
     }
-  }
+  },
 #end
 
 #basicdef("respect", "manifest respect")
@@ -25494,7 +25492,6 @@ end)
 
 #if skills.cosmic then
 #basicdef("cloak", "abjure cloak")
-#basicdef("timeslip", "abjure timeslip")
   nimbus = {
     physical = {
       balanceful_act = true,
@@ -25575,10 +25572,7 @@ end)
       end
     }
   },
-#end
-
-#if not skills.cosmic then
-  dict.timeslip = {
+  timeslip = {
     physical = {
       balanceful_act = true,
       aspriority = 0,
@@ -25586,7 +25580,7 @@ end)
       def = true,
 
       isadvisable = function ()
-        return (((sys.deffing and defdefup[defs.mode].timeslip and not defc.timeslip) or (conf.keepup and defkeepup[defs.mode].timeslip and not defc.timeslip)) and mm.me.artifacts.timeslip and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
+        return (((sys.deffing and defdefup[defs.mode].timeslip and not defc.timeslip) or (conf.keepup and defkeepup[defs.mode].timeslip and not defc.timeslip)) and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
       end,
 
       oncompleted = function ()
@@ -25594,10 +25588,14 @@ end)
       end,
 
       onstart = function ()
-        send("timeslip", conf.commandecho)
+        if mm.me.activeskills.cosmic then
+          send("abjure timeslip", conf.commandecho)
+        else
+          send("timeslip", conf.commandecho)
+        end
       end
     }
-  }
+  },
 #end
 
 #if skills.aeonics then
