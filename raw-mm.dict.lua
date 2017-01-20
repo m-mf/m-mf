@@ -401,6 +401,30 @@ codepaste.reckstats = function()
   return stats.currenthealth == stats.maxhealth and stats.currentmana == stats.maxmana and stats.currentego == stats.maxego and stats.currentpower == stats.maxpower
 end
 
+codepaste.needstretch = function()
+ if not defc.limber or not defc.balancing or not defc.falling or not defc.elasticity or not defc.adroitness or not defc.hyperventilate then
+  return true
+ else
+  return false
+ end
+end
+
+codepaste.needoverload = function()
+ if not defc.psisense or not defc.bodydensity or not defc.mindbar or not defc.mindfield or not defc.ironskin or not defc.energycontainment or not defc.gliding then
+  return true
+ else
+  return false
+ end
+end
+
+codepaste.needshadowcloak = function()
+ if not defc.sneak or not defc.bracing or not defc.whisper or not defc.screen then
+  return true
+ else
+  return false
+ end
+end
+
 local wlevel = phpTable(
   {light    = 1},
   {medium   = 423},
@@ -24551,7 +24575,7 @@ stretch = {
       def = true,
 
       isadvisable = function ()
-        return (stats.currentpower >= 5 and ((sys.deffing and defdefup[defs.mode].stretch and not defc.stretch) or (conf.keepup and defkeepup[defs.mode].stretch and not defc.stretch)) and not codepaste.balanceful_defs_codepaste() and not affs.prone ) or false
+        return (stats.currentpower >= 5 and ((sys.deffing and defdefup[defs.mode].stretch and not defc.stretch) or (conf.keepup and defkeepup[defs.mode].stretch and not defc.stretch)) and not codepaste.balanceful_defs_codepaste() and not affs.prone and codepaste.needstretch()) or false
       end,
 
       oncompleted = function ()
@@ -24923,7 +24947,7 @@ shadowcloak = {
       def = true,
 
       isadvisable = function ()
-        return (stats.currentpower >= 5 and ((sys.deffing and defdefup[defs.mode].shadowcloak and not defc.shadowcloak) or (conf.keepup and defkeepup[defs.mode].shadowcloak and not defc.shadowcloak)) and not codepaste.balanceful_defs_codepaste() and not affs.prone ) or false
+        return (stats.currentpower >= 5 and ((sys.deffing and defdefup[defs.mode].shadowcloak and not defc.shadowcloak) or (conf.keepup and defkeepup[defs.mode].shadowcloak and not defc.shadowcloak)) and not codepaste.balanceful_defs_codepaste() and not affs.prone and codepaste.needshadowcloak()) or false
       end,
 
       oncompleted = function ()
@@ -25701,7 +25725,7 @@ end)
       def = true,
 
       isadvisable = function ()
-        return (stats.currentpower >= 5 and ((sys.deffing and defdefup[defs.mode].overload and not defc.overload) or (conf.keepup and defkeepup[defs.mode].overload and not defc.overload)) and not codepaste.balanceful_defs_codepaste() and (bals.super and bals.super ~= "locked")) or false
+        return (stats.currentpower >= 5 and ((sys.deffing and defdefup[defs.mode].overload and not defc.overload) or (conf.keepup and defkeepup[defs.mode].overload and not defc.overload)) and not codepaste.balanceful_defs_codepaste() and (bals.super and bals.super ~= "locked") and codepaste.needoverload()) or false
       end,
 
       oncompleted = function ()
