@@ -517,7 +517,7 @@ defs_data = phpTable({
     off = "Your aura of weapons rebounding disappears."
   },
   quicksilver = { type = "general",
-    on = "Tiny tremors spread through your body as the world seems to slow down."},
+    on = "Tiny tremors spread through your body as the world seems to slow down.", "Quicksilver is already coarsing through your bloodstream."},
   planarbond = { type = "general",
     nodef = true,
     onr = [[^You suddenly feel the mind of \w+ brushing yours, (?:his|her) questing ended as s?he begins to bring you into resonance with the aetherwave of the ship\.$]],
@@ -555,7 +555,7 @@ defs_data = phpTable({
   ["domoth major beauty"] = { nodef = true, def = "You are under a Major Blessing of the Domotheos of Beauty."},
   ["domoth minor beauty"] = { nodef = true, def = "You are under a Minor Blessing of the Domotheos of Beauty."},
   ["domoth lesser death"] = { nodef = true },
-  ["domoth lsr chaos"] = { nodef = true, defr = [[^Your (\w+) is under a Lesser Blessing of the Domotheos of Chaos\.$]],
+  ["domoth lsr chaos"] = { nodef = true, defr = [[^Your (\w+) regen is under a Lesser Blessing of the Domotheos of Chaos\.$]],
     ondef = function ()
       if matches[2] == "health" then
         return "(hp)"
@@ -790,6 +790,8 @@ defs_data = phpTable({
     onr = [[^You infiltrate the channels of \w+\.$]]},
   masquerade = { type = "stealth" },
   deepcover = { type = "stealth" },
+  shadowcloak = { type = "stealth",
+    on = "You sink back into the shadows and start utilising all of your stealthy prowess."},
   screen = { type = "stealth",
     on = {"You shift your belongings around, screening them from prying eyes.", "You are already screening your items!"}},
   mislead = { type = "stealth",
@@ -817,6 +819,8 @@ defs_data = phpTable({
   handstand = { type = "acrobatics",
     on = "You dive dramatically towards the ground, flowing lithely into a graceful handstand that leaves you staring at everything upside-down."},
   hyperactive = { type = "acrobatics" },
+  stretch = { type = "acrobatics",
+    on = "You take yourself through a comprehensive stretching routine, relaxing your muscles, bringing your breathing under control, and engaging your sense of balance."},
   tripleflash = { type = "acrobatics",
     on = "You dance around chaotically, avoiding incoming blows."},
   hyperventilate = { type = "acrobatics",
@@ -1011,7 +1015,7 @@ defs_data = phpTable({
     on = "You touch two fingers to your heart, causing the internal pulse of your body to quicken with every beat of healing energy that thrums through you."},
   depressionaura = { type = "healing",
     on = {"You bow your head and close your eyes, radiating a powerful, healing depression aura around yourself.", "You are already under the effect of a healing depression aura."}},
-$(for _, aura in ipairs({"temperature", "auric", "fractures", "glandular", "senses", "neurosis", "breaks", "choleric", "curses", "muscles", "sanguine", "blood", "melancholic", "phobias", "phlegmatic", "nervous", "mania", "skin"}) do
+$(for _, aura in ipairs({"sensory", "fractures", "neurosis", "choleric","sanguine","phlegmatic","auric","mania"}) do
   _put(string.format([[%s = { type = "healing",
     on = {"You bow your head and close your eyes, radiating a powerful, healing %s aura around yourself.", "You are already under the effect of a healing %s aura."},
     off = "The healing %s aura surrounding you dissipates.",
@@ -1245,11 +1249,16 @@ end)
     tooltip = "Adds poison to a kick." },
 #end
 
+timeslip = { 
+#if skills.cosmic then 
+    type = "cosmic",
+#else
+    type = "artifact",
+#end
+    on = {"Touching upon cosmic probabilities, you weave a net of safety around yourself.","You already have cast a web of safety around yourself."}},
 #if skills.cosmic then
   cloak = { type = "cosmic",
     on = {"Weaving the cosmic threads into a cloak, you settle it upon your shoulders and feel somewhat more protected.","You are already cloaked."}},
-  timeslip = { type = "cosmic",
-    on = {"Touching upon cosmic probabilities, you weave a net of safety around yourself.","You already have cast a web of safety around yourself."}},
   nimbus = { type = "cosmic",
     def = "Cosmic Nimbus (cosmicnimbus) (indefinite).", -- system calls it nimbus, hence why brackets not recognised
     on = {"You are already surrounded with a cosmic nimbus.", "Drawing cosmic dust into a sphere, you slowly let it expand into a nimbus of glittering motes."}},
@@ -1550,7 +1559,7 @@ end)
   fleshwork = {
     type = "transmology",
     def = "Your flesh is prepared for mutations.",
-    on = {"You hold the flesh of lovashi between the palms of you hands and begin to squeeze. As the flesh squirms and separates, you open yourself up and absorb it into your system.", "Your body is already prepared for transformation."}},
+    on = {"You hold the flesh of lovashi between the palms of your hands and begin to squeeze. As the flesh squirms and separates, you open yourself up and absorb it into your system.", "Your body is already prepared for transformation."}},
   channels = { type = "transmology",
     on = {"Your channels are already open.", "You press your hands together and bow your head, concentrating upon opening up the aetheric channels to other planar entities."}},
 #end
@@ -1681,6 +1690,8 @@ understanding\.$]],
   lifedrain = { type = "psychometabolism" },
   pheromones = { type = "psychometabolism",
     on = "You force your glands open and release pheromones invisibly into the air."},
+  overload = { type = "psychometabolism",
+    on = "Harnessing all of your Psychometabolic powers, you flood your body with psionic energy."},
   forcedsymmetry = { type = "psychometabolism",
     def = "Your body is tuned to symetrically spread wounds.",
     on = "You psionically tune your body to spread wounds."},
@@ -1905,8 +1916,8 @@ understanding\.$]],
 #else
     type = "artifact",
 #end
-    on = {"Your body positively glows with health and vitality.", "You need to be fully healthy in both body and mind before you can call upon your vitality.", "Vitality already sings in your bloodstream.","You cannot call upon your vitality again so soon."},
-    off = "A surge of rejuvenating energy floods your system, healing your wounds."},
+    on = {"Your body positively glows with health and vitality.", "Vitality already sings in your bloodstream."},
+    off = {"A surge of rejuvenating energy floods your system, healing your wounds.", "You need to be fully healthy in both body and mind before you can call upon your vitality.","You cannot call upon your vitality again so soon."}},
 #if skills.athletics then
   breathing = { type = "athletics",
     on = "You take a few deep breaths to prepare your body for a marathon workout."},
@@ -1923,7 +1934,8 @@ understanding\.$]],
     on = {"You call upon your inner strength to boost your health regeneration.", "Your regeneration is already boosted."},
     def = "Your regeneration is boosted."},
   surge = { type = "athletics",
-    on = {"You pound your chest with your fists, and bellow fiercely. Your body expands to heroic proportions.", "Your body is already surged to maximum potential."},
+    on = {"You pound your chest with your fists, and bellow fiercely.", "Your body is already surged to maximum potential."},
+    def = "Your essence is surging into your body.",
     off = {"Your body is not under a surge.", "You relax the surge of power through your body, and dwindle to normal proportions."}},
   flex = { type = "athletics", on = "You flex your muscles, which bulge and pop in a spectacular display of your outstanding physique." },
   consciousness = { type = "athletics", def = "You are maintaining consciousness at all times.",
