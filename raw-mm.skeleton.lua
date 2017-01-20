@@ -1629,27 +1629,15 @@ sk.limbnames = {
     if not conf.healingskill then return end
 
     local healdata = pl.OrderedMap {
-      {skin        = {"sunallergy", "pox", "scabies", "firstdegreeburn", "seconddegreeburn", "thirddegreeburn", "fourthdegreeburn"}},
-      {temperature = {"ablaze", "frozen", "shivering"}},
-      -- Healing cannot cure fracturedwindpipe, crushedrightfoot, crushedleftfoot apparently
-      {fractures   = {"fracturedleftarm", "fracturedrightarm", "fracturedskull", "brokenjaw", "brokenrightwrist", "brokenleftwrist", "brokenchest", "brokennose", "snappedrib"}},
-      {glandular   = {"slickness"}},
-      {senses      = {"concussion", "sensitivity", "vertigo", "deaf", "blind"}},
-      {neurosis    = {"impatience", "loneliness", "shyness", "anorexia", "void", "masochism"}},
-      {breaks      = {"crippledrightarm", "crippledleftarm", "crippledleftleg", "crippledrightleg", "brokenjaw", "brokenrightwrist", "brokenleftwrist", "twistedleftarm", "twistedrightarm", "twistedrightleg", "twistedleftleg", "damagedleftarm", "damagedrightarm", "damagedleftleg", "damagedrightleg"}},
-      {choleric    = {"vomiting", "vomitblood", "worms", "hypersomnia", "dysentery"}},
-      {curses      = {"recklessness", "healthleech", "achromaticaura", "powerspikes", "manabarbs", "egovice", "minortimewarp", "moderatetimewarp", "majortimewarp", "massivetimewarp"}},
-      {muscles     = {"paralysis", "rigormortis", "weakness", "dislocatedleftarm ", "dislocatedrightarm", "dislocatedrightleg", "dislocatedleftleg", "gashedcheek", "slicedtongue", "puncturedchest", "missingrightear", "missingleftear", "slicedrightbicep", "slicedleftbicep", "slicedleftthigh", "slicedrightthigh", "openchest", "opengut", "stiffleftarm", "stiffrightarm", "stiffhead", "stiffgut", "stiffchest", "slitthroat"}},
-      {sanguine    = {"haemophilia", "healthleech", "confusion", "furrowedbrow", "scalped"}},
-      {blood       = {"arteryrightarm", "arteryleftarm", "arteryleftleg", "arteryrightleg", "haemophilia", "laceratedrightarm", "laceratedleftarm", "laceratedrightleg", "laceratedleftleg", "clotrighthip", "clotlefthip", "clotrightshoulder", "clotleftshoulder", "relapsing", "slicedforehead"}},
-      {melancholic = {"puncturedlung", "asthma", "dizziness", "vapors", "sensitivity", "blacklung", "shortbreath", "trembling"}},
-      {phobias     = {"agoraphobia", "claustrophobia", "vestiphobia", "hypochondria"}},
-      {phlegmatic  = {"aeon", "powersink", "shyness", "weakness", "void"}},
-      {nervous     = {"clumsiness", "epilepsy", "dizziness", "vapors", "hemiplegylower", "hemiplegyright", "hemiplegyleft", "piercedrightleg", "piercedleftleg", "piercedrightarm", "piercedleftarm", "narcolepsy", "hypersomnia", "daydreaming"}},
-      {depression  = {"addiction", "gluttony"}},
-      {auric       = {"aeon", "pacifism", "peace", "powersink", "justice", "jinx", "succumb"}},
-      {mania       = {"confusion", "dementia", "hallucinating", "void", "paranoia", "stupidity", "scrambledbrain", "slightinsanity", "moderateinsanity",  "majorinsanity", "massiveinsanity"}},
-      {regenerate  = {{burstorgans = "gut"}, {missingrightleg = "legs"}, {missingleftarm = "arms"}, {missingleftleg = "legs"}, {missingrightarm = "arms"}, {eyepeckleft = "head"}, {eyepeckright = "head"}, {mangledleftleg = "legs"}, {mangledleftarm = "arms"}, {mangledrightarm = "arms"}, {mangledrightleg = "legs"}, {crushedchest = "chest"}, {collapsedrightnerve = "arms"}, {collapsedlungs = "chest"}, {collapsedleftnerve = "arms"}, {crackedleftelbow = "arms"}, {crackedrightelbow = "arms"}, {crackedrightkneecap = "legs"}, {crackedleftkneecap = "legs"}, {disembowel = "gut"}, {chestpain = "chest"}, {rupturedstomach = "gut"}, {tendonright = "legs"}, {tendonleft = "legs"}, {concussion = "head"}, {damagedhead = "head"}, {shatteredleftankle = "legs"}, {shatteredrightankle = "legs"}, {shatteredjaw = "head"}, {mutilatedleftarm = "arms"}, {mutilatedrightarm = "arms"}, {mutilatedleftleg = "legs"}, {mutilatedrightleg = "legs"}}}
+      {sensory = {"slickness", "ablaze", "chills", "firstdegreeburn", "seconddegreeburn", "thirddegreeburn", "fourthdegreeburn", "sensitivity", "blindness", "deafness"}},
+      {fractures = {"concussion", "fracturedleftarm", "fracturedrightarm", "fracturedskull", "brokenjaw", "brokenrightwrist", "brokenleftwrist", "brokenchest", "brokennose", "crushedrightfoot", "crushedleftfoot", "crushedwindpipe", "snappedrib"}},
+      {neurosis = {"epilepsy", "anorexia", "confusion", "clumsiness", "minorinsanity", "moderateinsanity", "majorinsanity", "massiveinsanity"}},
+      {choleric = {"vomiting", "asthma", "pox", "sickening", "dysentery", "scabies", "paralysis"}},
+      {sanguine = {"haemophilia", "relapsing", "onevessels", "twovessels", "threevessels", "fourvessels", "thirteenplusvessels", "clotleftshoulder", "clotrightshoulder", "clotleftleg", "clotrightleg"}},
+      {phlegmatic = {"aeon", "paralysis", "rigormortis", "disloyalty", "pacifism", "minortimewarp", "moderatetimewarp", "majortimewarp", "massivetimewarp", "transfixed"}},
+      {auric = {"aeon", "achromaticaura", "healthleech", "powerspikes", "manabarbs", "egovice", "powersap", "illuminated"}},
+      {mania = {"stupidity", "recklessness", "hallucinations", "addiction", "paranoia", "asthma", "insomnia" }},
+      {regenerate = {{burstorgans = "gut"}, {missingrightleg = "legs"}, {missingleftarm = "arms"}, {missingleftleg = "legs"}, {missingrightarm = "arms"}, {eyepeckleft = "head"}, {eyepeckright = "head"}, {mangledleftleg = "legs"}, {mangledleftarm = "arms"}, {mangledrightarm = "arms"}, {mangledrightleg = "legs"}, {crushedchest = "chest"}, {collapsedrightnerve = "arms"}, {collapsedlungs = "chest"}, {collapsedleftnerve = "arms"}, {crackedleftelbow = "arms"}, {crackedrightelbow = "arms"}, {crackedrightkneecap = "legs"}, {crackedleftkneecap = "legs"}, {disembowel = "gut"}, {chestpain = "chest"}, {rupturedstomach = "gut"}, {severedspine = "chest"}, {tendonright = "legs"}, {tendonleft = "legs"}, {concussion = "head"}, {damagedhead = "head"}, {shatteredleftankle = "legs"}, {shatteredrightankle = "legs"}, {shatteredjaw = "head"}}}
     }
     --[[ doesn't cure: leglock, throatlock, severedspine, puncturedaura ]]
 
@@ -1662,7 +1650,7 @@ sk.limbnames = {
 
           if aura == "curses" then
             sk.cursesaffs[aff] = true end
-          if aura == "senses" then
+          if aura == "sensory" then
             sk.sensesaffs[aff] = true end
         elseif type(aff) == "table" then
           sk.healingmap[next(aff)] = {aura = aura, side = select(2, next(aff))}

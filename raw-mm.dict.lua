@@ -2831,7 +2831,7 @@ dict = {
       spriority = 57,
 
       isadvisable = function ()
-        return (not conf.arena and affs.ablaze) or false
+        return false
       end,
 
       oncompleted = function ()
@@ -2859,7 +2859,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (conf.arena and affs.ablaze) or false
+        return affs.ablaze or false
       end,
 
       oncompleted = function ()
@@ -4294,8 +4294,7 @@ dict = {
       spriority = 28,
 
       isadvisable = function ()
-        --return (not conf.arena and affs.fourthdegreeburn) or false
-        return (affs.fourthdegreeburn) or false
+        return false
       end,
 
       oncompleted = function ()
@@ -4326,8 +4325,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        --return (conf.arena and affs.fourthdegreeburn) or false
-        return false
+        return (affs.fourthdegreeburn) or false
       end,
 
       oncompleted = function ()
@@ -4371,8 +4369,7 @@ dict = {
       spriority = 27,
 
       isadvisable = function ()
-        --return (not conf.arena and affs.thirddegreeburn) or false
-        return affs.thirddegreeburn or false
+        return false
       end,
 
       oncompleted = function ()
@@ -4402,8 +4399,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        --return (conf.arena and affs.thirddegreeburn) or false
-        return false
+        return (affs.thirddegreeburn) or false
       end,
 
       oncompleted = function ()
@@ -4447,8 +4443,7 @@ dict = {
       spriority = 26,
 
       isadvisable = function ()
-        --return (not conf.arena and affs.seconddegreeburn) or false
-        return affs.seconddegreeburn or false
+        return false
       end,
 
       oncompleted = function ()
@@ -4478,8 +4473,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        --return (conf.arena and affs.seconddegreeburn) or false
-        return false
+        return (affs.seconddegreeburn) or false
       end,
 
       oncompleted = function ()
@@ -4523,8 +4517,7 @@ dict = {
       spriority = 25,
 
       isadvisable = function ()
-        --return (not conf.arena and affs.firstdegreeburn) or false
-        return affs.firstdegreeburn or false
+        return false
       end,
 
       oncompleted = function ()
@@ -4553,8 +4546,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        --return (conf.arena and affs.firstdegreeburn) or false
-        return false
+        return (affs.firstdegreeburn) or false
       end,
 
       oncompleted = function ()
@@ -18711,35 +18703,31 @@ dict = {
     }
   },
   ectoplasm = {
-    physical = {
-      balanceful_act = true,
-      aspriority = 57,
-      spriority = 283,
+    waitingfor = {
+      customwait = 45,
 
       isadvisable = function ()
-        return (affs.ectoplasm and conf.cleanse and not affs.prone and not codepaste.cleanse_codepaste() and not affs.paralysis and not affs.severedspine and not affs.tangle and not affs.transfixed and not affs.shackled) or false
+        return false
       end,
+
+      onstart = function () end,
 
       oncompleted = function ()
         removeaff("ectoplasm")
-      end,
-
-      empty = function () empty.cleanse() end,
-
-      cleanse = true,
-      onstart = function ()
-        rub_cleanse()
+        make_gnomes_work()
       end
     },
     aff = {
       oncompleted = function ()
         addaff(dict.ectoplasm)
+        if not doingaction ("ectoplasm") then doaction(dict.ectoplasm.waitingfor) end
       end
     },
     gone = {
       oncompleted = function ()
         removeaff("ectoplasm")
-      end
+        killaction (dict.ectoplasm.waitingfor)
+      end,
     }
   },
   incapacitatingallergy = {
@@ -23543,7 +23531,7 @@ dict = {
       def = true,
 
       isadvisable = function ()
-        return (((sys.deffing and defdefup[defs.mode].surge and not defc.surge) or (conf.keepup and defkeepup[defs.mode].surge and not defc.surge)) and not codepaste.balanceful_defs_codepaste() and not affs.prone and mm.stats.currentpower >= 8) or false
+        return (((sys.deffing and defdefup[defs.mode].surge and not defc.surge) or (conf.keepup and defkeepup[defs.mode].surge and not defc.surge)) and not codepaste.balanceful_defs_codepaste() and not affs.prone and stats.currentpower == 10) or false
       end,
 
       oncompleted = function ()
@@ -23551,7 +23539,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("surge on", conf.commandecho)
+        send("surge", conf.commandecho)
       end
     }
   },
@@ -23756,10 +23744,12 @@ dict = {
       onstart = function ()
         send("adrenaline", conf.commandecho)
       end
-    },
+    }
   },
-#elseif not skills.athletics then
-  vitality = {
+#end
+
+#if not skills.athletics then
+  dict.vitality = {
     physical = {
       balanceful_act = true,
       aspriority = 0,
@@ -23778,9 +23768,8 @@ dict = {
         send("vitality", conf.commandecho)
       end
     }
-  },
+  }
 #end
-  
 
 #basicdef("respect", "manifest respect")
   catsluck = {
@@ -24556,6 +24545,31 @@ yellowgenies = {
 #basicdef("hyperventilate", "hyperventilate")
 #basicdef("tripleflash", "tripleflash")
 #basicdef("adroitness", "adroitness")
+stretch = {
+    physical = {
+      balanceful_act = true,
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+        return (stats.currentpower >= 5 and ((sys.deffing and defdefup[defs.mode].stretch and not defc.stretch) or (conf.keepup and defkeepup[defs.mode].stretch and not defc.stretch)) and not codepaste.balanceful_defs_codepaste() and not affs.prone ) or false
+      end,
+
+      oncompleted = function ()
+        defences.got("limber")
+        defences.got("balancing")
+        defences.got("falling")
+        defences.got("elasticity")
+        defences.got("adroitness")
+        defences.got("hyperventilate")
+      end,
+
+      onstart = function ()
+        send("stretch", conf.commandecho)
+      end
+    }
+  },
 #end
 
 #if skills.glamours then
@@ -24903,6 +24917,29 @@ yellowgenies = {
 #basicdef("agility", "stealth agility")
 #basicdef("whisper", "stealth whisper")
 #basicdef("screen", "stealth screen")
+shadowcloak = {
+    physical = {
+      balanceful_act = true,
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+        return (stats.currentpower >= 5 and ((sys.deffing and defdefup[defs.mode].shadowcloak and not defc.shadowcloak) or (conf.keepup and defkeepup[defs.mode].shadowcloak and not defc.shadowcloak)) and not codepaste.balanceful_defs_codepaste() and not affs.prone ) or false
+      end,
+
+      oncompleted = function ()
+        defences.got("sneak")
+        defences.got("bracing")
+        defences.got("whisper")
+        defences.got("screen")
+      end,
+
+      onstart = function ()
+        send("stealth shadowcloak", conf.commandecho)
+      end
+    }
+  },
 #end
 
 #if skills.cosmic then
@@ -25172,7 +25209,7 @@ yellowgenies = {
 #end
 
 $(if skills.healing then
-for _, aura in ipairs({"temperature", "auric", "fractures", "glandular", "senses", "neurosis", "breaks", "choleric", "curses", "muscles", "sanguine", "blood", "melancholic", "phobias", "phlegmatic", "nervous", "mania", "skin"}) do
+for _, aura in ipairs({"sensory", "fractures", "neurosis", "choleric","sanguine","phlegmatic","auric","mania"}) do
   basicdef(aura, "radiate ".. aura)
 end
 
@@ -25540,6 +25577,29 @@ end)
   },
 #end
 
+#if not skills.cosmic then
+  dict.timeslip = {
+    physical = {
+      balanceful_act = true,
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+        return (((sys.deffing and defdefup[defs.mode].timeslip and not defc.timeslip) or (conf.keepup and defkeepup[defs.mode].timeslip and not defc.timeslip)) and mm.me.artifacts.timeslip and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
+      end,
+
+      oncompleted = function ()
+        defences.got("timeslip")
+      end,
+
+      onstart = function ()
+        send("timeslip", conf.commandecho)
+      end
+    }
+  }
+#end
+
 #if skills.aeonics then
 #basicdef("mindclock", "timechant mindclock")
 #basicdef("insight", "timechant insight")
@@ -25567,7 +25627,30 @@ end)
 #end
 
 #if skills.psychometabolism then
-#basicdef("introspection", "introspection")
+  introspection = {
+    physical = {
+      balanceful_act = true,
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+        return (((sys.deffing and defdefup[defs.mode].introspection and not defc.introspection) or (conf.keepup and defkeepup[defs.mode].introspection and not defc.introspection)) and not codepaste.balanceful_defs_codepaste() and ((bals.super and bals.super ~= "locked") or (bals.id and bals.id ~= "locked"))) or false
+      end,
+
+      oncompleted = function ()
+        defences.got("introspection")
+      end,
+
+      onstart = function ()
+        if (bals.super and bals.super ~= "locked") then
+          send("psi super introspection", conf.commandecho)
+        else
+          send("psi id introspection", conf.commandecho)
+        end
+      end
+    }
+  },
   bloodboil = {
     physical = {
       balanceful_act = true,
@@ -25609,6 +25692,32 @@ end)
 
       onstart = function ()
         send("psi sub mindfield on", conf.commandecho)
+      end
+    }
+  },
+  overload = {
+    physical = {
+      balanceful_act = true,
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+        return (stats.currentpower >= 5 and ((sys.deffing and defdefup[defs.mode].overload and not defc.overload) or (conf.keepup and defkeepup[defs.mode].overload and not defc.overload)) and not codepaste.balanceful_defs_codepaste() and (bals.super and bals.super ~= "locked")) or false
+      end,
+
+      oncompleted = function ()
+        defences.got("psisense")
+        defences.got("bodydensity")
+        defences.got("mindbar")
+        defences.got("mindfield")
+        defences.got("ironskin")
+        defences.got("energycontainment")
+        defences.got("gliding")
+      end,
+
+      onstart = function ()
+        send("psi super overload", conf.commandecho)
       end
     }
   },

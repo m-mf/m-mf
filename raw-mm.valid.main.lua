@@ -1017,7 +1017,7 @@ function valid.illuminated_woreoff()
   end
 end
 
-#for _, aff in ipairs({"darkseed", "enfeeble", "timeechoes", "oracle", "succumb", "phantom", "bedevil", "avengingangel", "puncturedaura", "mildallergy", "darkfate", "sightstealer", "illusorywounds", "anesthesia","bentaura"}) do
+#for _, aff in ipairs({"darkseed", "enfeeble", "timeechoes", "oracle", "succumb", "phantom", "bedevil", "avengingangel", "puncturedaura", "mildallergy", "darkfate", "sightstealer", "illusorywounds", "anesthesia","bentaura","ectoplasm"}) do
 function valid.$(aff)_woreoff()
   checkaction(dict.$(aff).waitingfor, true)
   if actions.$(aff)_waitingfor then
@@ -2728,6 +2728,19 @@ function valid.starhymn_recessionaleat()
   end
 end
 
+function valid.starhymn_recessionalsmoke()
+  local getridof = {}
+  if bals_in_use.steam and next(bals_in_use.steam) then
+    for _, action in pairs(bals_in_use.steam) do
+      if action.smokecure then getridof[#getridof+1] = action end
+    end
+  end
+
+  for i = 1, #getridof do
+    killaction(dict[getridof[i].action_name][getridof[i].balance])
+  end
+end
+
 function valid.harmonics_shatterplex()
   -- if conf.aillusion and not (affs.rubycrystal and dict.rubycrystal.count == 7) then
   --   return end
@@ -3635,9 +3648,9 @@ function valid.writhethornlashed()
   end
 end
 
-#for _, aff in ipairs({"ectoplasm", "mud", "sap", "slickness", "deathmark", "gunk", "mucous"}) do
+#for _, aff in ipairs({"mud", "sap", "slickness", "deathmark", "gunk", "mucous"}) do
 function valid.cleanse_cured_$(aff)()
-  local result = checkany(dict.ectoplasm.physical, dict.mud.physical, dict.slickness.physical, dict.sap.physical, dict.gunk.physical, dict.mucous.physical, dict.cleanse.physical)
+  local result = checkany(dict.mud.physical, dict.slickness.physical, dict.sap.physical, dict.gunk.physical, dict.mucous.physical, dict.cleanse.physical)
   if not result then
     -- account for pointcleanse, sanitize
     checkaction(dict.$(aff).physical, true)
@@ -3656,7 +3669,7 @@ end
 #end
 
 function valid.cleanse_clear()
-  local result = checkany(dict.ectoplasm.physical, dict.mud.physical, dict.cleanse.physical, dict.sap.physical, dict.gunk.physical, dict.mucous.physical, dict.cleanse.physical, dict.slickness.physical)
+  local result = checkany(dict.mud.physical, dict.cleanse.physical, dict.sap.physical, dict.gunk.physical, dict.mucous.physical, dict.cleanse.physical, dict.slickness.physical)
   if not result then return end
 
   lifevision.add(actions[result.name].p, "empty")
