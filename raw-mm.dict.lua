@@ -25614,11 +25614,28 @@ end)
       end,
 
       onstart = function ()
-        if mm.me.activeskills.cosmic then
-          send("abjure timeslip", conf.commandecho)
-        else
-          send("timeslip", conf.commandecho)
-        end
+        send("abjure timeslip", conf.commandecho)
+      end
+    }
+  },
+#else
+  timeslip = {
+    physical = {
+      balanceful_act = true,
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+        return (((sys.deffing and defdefup[defs.mode].timeslip and not defc.timeslip) or (conf.keepup and defkeepup[defs.mode].timeslip and not defc.timeslip)) and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
+      end,
+
+      oncompleted = function ()
+        defences.got("timeslip")
+      end,
+
+      onstart = function ()
+        send("timeslip", conf.commandecho)
       end
     }
   },
