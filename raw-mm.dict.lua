@@ -24585,6 +24585,7 @@ stretch = {
         defences.got("elasticity")
         defences.got("adroitness")
         defences.got("hyperventilate")
+        defences.got("stretch")
       end,
 
       onstart = function ()
@@ -24955,6 +24956,7 @@ shadowcloak = {
         defences.got("bracing")
         defences.got("whisper")
         defences.got("screen")
+        defences.got("shadowcloak")
       end,
 
       onstart = function ()
@@ -25736,6 +25738,7 @@ end)
         defences.got("ironskin")
         defences.got("energycontainment")
         defences.got("gliding")
+        defences.got("overload")
       end,
 
       onstart = function ()
