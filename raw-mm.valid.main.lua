@@ -4250,7 +4250,7 @@ end
 
 -- normal ice
 #for _, ice in pairs({
-#ice = {"damagedskull","damagedthroat","collapsedlungs","crushedchest","damagedorgans","internalbleeding","damagedleftarm","mutilatedleftarm","damagedrightarm","mutilatedrightarm","damagedleftleg","mutilatedleftleg","damagedrightleg","mutilatedrightleg"}}) do
+#ice = {"damagedskull","damagedthroat","collapsedlungs","crushedchest","damagedorgans","internalbleeding","damagedleftarm","mutilatedleftarm","damagedrightarm","mutilatedrightarm","damagedleftleg","mutilatedleftleg","damagedrightleg","mutilatedrightleg","firstdegreeburn", "seconddegreeburn", "thirddegreeburn", "fourthdegreeburn", "ablaze"}}) do
 #local checkany_string = ""
 #local temp = {}
 
