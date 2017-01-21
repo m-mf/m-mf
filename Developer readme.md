@@ -1,3 +1,5 @@
+To talk about m&m development - see our discord channel [here](https://discord.gg/NXt9H38)
+
 # Source code layout
 
     bin/                      = preprocessed files + Lua libraries
