@@ -7,8 +7,12 @@ To download the system for use, [see here](https://github.com/m-mf/m-mf/releases
 # Documentation
 Documentation for m&mf can be found [here](http://m-mf.github.io/m-mf/)
 
+m&mf now also has a discord channel to ask questions about the server which can be found [here](https://discord.gg/KGWjGSU)
+
 # Contributing
 To code in the system itself, follow instructions below on how to set it up. See also the [developer readme](Developer readme.md) for more useful information.
+
+See also the discord server for m&mf development [here](https://discord.gg/NXt9H38)
 
 If you're looking for something to do, have a look at the existing [issues/features](https://github.com/m-mf/m-mf/issues) list, and have a [look at the wiki](https://github.com/m-mf/m-mf/wiki) on information about the project.
 

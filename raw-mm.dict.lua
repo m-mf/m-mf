@@ -23586,26 +23586,6 @@ dict = {
       end
     }
   },
-  vitality = {
-    physical = {
-      balanceful_act = true,
-      aspriority = 0,
-      spriority = 0,
-      def = true,
-
-      isadvisable = function ()
-        return (((sys.deffing and defdefup[defs.mode].vitality and not defc.vitality) or (conf.keepup and defkeepup[defs.mode].vitality and not defc.vitality)) and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
-      end,
-
-      oncompleted = function ()
-        defences.got("vitality")
-      end,
-
-      onstart = function ()
-        send("vitality", conf.commandecho)
-      end
-    }
-  },
   resistance = {
     physical = {
       balanceless_act = true,
@@ -23770,10 +23750,13 @@ dict = {
       end
     }
   },
+<<<<<<< HEAD
 #end
 
 #if not skills.athletics then
  artivitality = {
+=======
+  vitality = {
     physical = {
       balanceful_act = true,
       aspriority = 0,
@@ -23781,7 +23764,33 @@ dict = {
       def = true,
 
       isadvisable = function ()
+        return (((sys.deffing and defdefup[defs.mode].vitality and not defc.vitality) or (conf.keepup and defkeepup[defs.mode].vitality and not defc.vitality)) and (mm.me.activeskills.athletics or mm.me.artifacts.vitality) and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
+      end,
+
+      oncompleted = function ()
+        defences.got("vitality")
+      end,
+
+      onstart = function ()
+        send("vitality", conf.commandecho)
+      end
+    }
+  },
+#else
+ vitality = {
+>>>>>>> refs/remotes/m-mf/master
+    physical = {
+      balanceful_act = true,
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+<<<<<<< HEAD
         return (((sys.deffing and defdefup[defs.mode].artivitality and not defc.artivitality) or (conf.keepup and defkeepup[defs.mode].artivitality and not defc.artivitality)) and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
+=======
+        return (((sys.deffing and defdefup[defs.mode].vitality and not defc.vitality) or (conf.keepup and defkeepup[defs.mode].vitality and not defc.vitality)) and mm.me.artifacts.vitality and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
+>>>>>>> refs/remotes/m-mf/master
       end,
 
       oncompleted = function ()
@@ -25608,7 +25617,7 @@ end)
       def = true,
 
       isadvisable = function ()
-        return (((sys.deffing and defdefup[defs.mode].timeslip and not defc.timeslip) or (conf.keepup and defkeepup[defs.mode].timeslip and not defc.timeslip)) and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
+        return (((sys.deffing and defdefup[defs.mode].timeslip and not defc.timeslip) or (conf.keepup and defkeepup[defs.mode].timeslip and not defc.timeslip)) and (mm.me.activeskills.cosmic or mm.me.artifacts.timeslip) and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
       end,
 
       oncompleted = function ()
@@ -25616,7 +25625,11 @@ end)
       end,
 
       onstart = function ()
-        send("abjure timeslip", conf.commandecho)
+        if mm.me.activeskills.cosmic then
+          send("abjure timeslip", conf.commandecho)
+        else
+          send("timeslip", conf.commandecho)
+        end
       end
     }
   },
@@ -25631,7 +25644,11 @@ end)
       def = true,
 
       isadvisable = function ()
+<<<<<<< HEAD
         return (((sys.deffing and defdefup[defs.mode].artitimeslip and not defc.artitimeslip) or (conf.keepup and defkeepup[defs.mode].artitimeslip and not defc.artitimeslip)) and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
+=======
+        return (((sys.deffing and defdefup[defs.mode].timeslip and not defc.timeslip) or (conf.keepup and defkeepup[defs.mode].timeslip and not defc.timeslip)) and mm.me.artifacts.timeslip and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
+>>>>>>> refs/remotes/m-mf/master
       end,
 
       oncompleted = function ()
