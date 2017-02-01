@@ -1249,16 +1249,11 @@ end)
     tooltip = "Adds poison to a kick." },
 #end
 
-timeslip = { 
-#if skills.cosmic then 
-    type = "cosmic",
-#else
-    type = "artifact",
-#end
-    on = {"Touching upon cosmic probabilities, you weave a net of safety around yourself.","You already have cast a web of safety around yourself."}},
 #if skills.cosmic then
   cloak = { type = "cosmic",
     on = {"Weaving the cosmic threads into a cloak, you settle it upon your shoulders and feel somewhat more protected.","You are already cloaked."}},
+  timeslip = { type = "cosmic",
+    on = {"Touching upon cosmic probabilities, you weave a net of safety around yourself.","You already have cast a web of safety around yourself."}},
   nimbus = { type = "cosmic",
     def = "Cosmic Nimbus (cosmicnimbus) (indefinite).", -- system calls it nimbus, hence why brackets not recognised
     on = {"You are already surrounded with a cosmic nimbus.", "Drawing cosmic dust into a sphere, you slowly let it expand into a nimbus of glittering motes."}},
@@ -1266,6 +1261,13 @@ timeslip = {
     def = "Waterwalking (waterwalk) (indefinite).",
     defr = [[^Waterwalking \(waterwalk\) \(\d+ minutes\)\.$]],
     on = {"You pull a cosmic web down around your feet, and you sense that gravity will be your ally when entering water.", "You are already water walking."}},
+#end
+
+#if not skills.cosmic then
+  artitimeslip = {
+    type = "artifact",
+    on = {"Touching upon cosmic probabilities, you weave a net of safety around yourself.","You already have cast a web of safety around yourself."}
+  },
 #end
 
 #if skills.necromancy then
@@ -1910,17 +1912,12 @@ understanding\.$]],
     on = {"You weave a delicate lattice of energy around your body, sheltering your soul from the ravages of the cosmos.", "Your soul is already guarded against the ravages of the cosmos.", "Your inner worm is already guarded against the ravages of the cosmos."}},
 #end
 
-  vitality = { 
-#if skills.athletics then
-    type = "athletics",
-#else
-    type = "artifact",
-#end
-    on = {"Your body positively glows with health and vitality.", "Vitality already sings in your bloodstream."},
-    off = {"A surge of rejuvenating energy floods your system, healing your wounds.", "You need to be fully healthy in both body and mind before you can call upon your vitality.","You cannot call upon your vitality again so soon."}},
 #if skills.athletics then
   breathing = { type = "athletics",
     on = "You take a few deep breaths to prepare your body for a marathon workout."},
+  vitality = { type = "athletics",
+    on = {"Your body positively glows with health and vitality.", "Vitality already sings in your bloodstream."},
+    off = {"A surge of rejuvenating energy floods your system, healing your wounds.", "You need to be fully healthy in both body and mind before you can call upon your vitality.","You cannot call upon your vitality again so soon."}},
   resistance = { type = "athletics", on = "You call aloud and feel an aura of resistance shroud itself silently about you." },
   immunity = { type = "athletics",
     on = {"You close your eyes and grit your teeth, feeling the heat of the blood pumping through your veins.", "Your immune system is already charged."}},
@@ -1948,6 +1945,14 @@ understanding\.$]],
     specialskip = function ()
       return defc.quicksilver
     end
+  },
+#end
+
+#if not skills.athletics then
+  artivitality = {
+    type = "artifact",
+    on = {"Your body positively glows with health and vitality.", "Vitality already sings in your bloodstream."},
+    off = {"A surge of rejuvenating energy floods your system, healing your wounds.", "You need to be fully healthy in both body and mind before you can call upon your vitality.","You cannot call upon your vitality again so soon."}
   },
 #end
 

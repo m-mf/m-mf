@@ -23770,8 +23770,10 @@ dict = {
       end
     }
   },
-#else
- vitality = {
+#end
+
+#if not skills.athletics then
+ artivitality = {
     physical = {
       balanceful_act = true,
       aspriority = 0,
@@ -23779,11 +23781,11 @@ dict = {
       def = true,
 
       isadvisable = function ()
-        return (((sys.deffing and defdefup[defs.mode].vitality and not defc.vitality) or (conf.keepup and defkeepup[defs.mode].vitality and not defc.vitality)) and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
+        return (((sys.deffing and defdefup[defs.mode].artivitality and not defc.artivitality) or (conf.keepup and defkeepup[defs.mode].artivitality and not defc.artivitality)) and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
       end,
 
       oncompleted = function ()
-        defences.got("vitality")
+        defences.got("artivitality")
       end,
 
       onstart = function ()
@@ -25618,8 +25620,10 @@ end)
       end
     }
   },
-#else
-  timeslip = {
+#end
+
+#if not skills.cosmic then
+  artitimeslip = {
     physical = {
       balanceful_act = true,
       aspriority = 0,
@@ -25627,11 +25631,11 @@ end)
       def = true,
 
       isadvisable = function ()
-        return (((sys.deffing and defdefup[defs.mode].timeslip and not defc.timeslip) or (conf.keepup and defkeepup[defs.mode].timeslip and not defc.timeslip)) and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
+        return (((sys.deffing and defdefup[defs.mode].artitimeslip and not defc.artitimeslip) or (conf.keepup and defkeepup[defs.mode].artitimeslip and not defc.artitimeslip)) and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
       end,
 
       oncompleted = function ()
-        defences.got("timeslip")
+        defences.got("artitimeslip")
       end,
 
       onstart = function ()
