@@ -25614,7 +25614,7 @@ end)
       end,
 
       onstart = function ()
-        if mm.me.activeskills.cosmis then
+        if mm.me.activeskills.cosmic then
           send("abjure timeslip", conf.commandecho)
         else
           send("timeslip", conf.commandecho)
