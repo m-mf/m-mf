@@ -1255,7 +1255,7 @@ timeslip = {
 #else
     type = "artifact",
 #end
-    on = {"Touching upon cosmic probabilities, you weave a net of safety around yourself.","You already have cast a web of safety around yourself."}},
+    on = {"You carefully wind the intricate mechanism on the side of a timeslip stop watch and feel time warp and wrap around you in a protective bubble.", "Touching upon cosmic probabilities, you weave a net of safety around yourself.","You already have cast a web of safety around yourself."}},
 #if skills.cosmic then
   cloak = { type = "cosmic",
     on = {"Weaving the cosmic threads into a cloak, you settle it upon your shoulders and feel somewhat more protected.","You are already cloaked."}},
