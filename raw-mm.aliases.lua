@@ -541,11 +541,12 @@ function dv()
 end
 
 function inra()
-  if not sys.enabledgmcp then echof("You need to enable GMCP for this alias to work.") return end
+  --[[if not sys.enabledgmcp then echof("You need to enable GMCP for this alias to work.") return end
 
   sk.inring = true
   sendGMCP("Char.Items.Inv")
-  sendSocket"\n"
+  sendSocket"\n"]]--
+  send("inr everything", false)
 end
 
 function adf()

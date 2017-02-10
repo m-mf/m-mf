@@ -1025,7 +1025,7 @@ end)
 
 #if skills.aeonics then
   mindclock = { type = "aeonics",
-    def = "Your mind's inner clock is synchronised with your body.",
+    def = "Your mind's inner clock has been set to run fast.",
     tooltip = "Chance to avoid aeon effects",
     on = {"You force your mind to synchronise with your body's inner clock.", "Your time clock is already active."}},
   alacrity = { type = "aeonics",
@@ -1073,6 +1073,7 @@ end)
   },
   fortuna = { type = "rituals",
     on = {"You are already reaping the gifts of Fortuna.","The air around you blurs as you chant the ritual of Fortuna. You feel the winds of chance and change pass through you."},
+    off = "You feel your fortune subside.",
     on_only = "That ritual is already in effect.",},
   populus = { type = "rituals",
     on = {"You are already filled with the exuberance of Populus.","You are already filled with the exuberence of Populus.", "Confidence and exuberance fills you as you chant the joyful ritual of Populus."},
@@ -1249,8 +1250,6 @@ end)
     tooltip = "Adds poison to a kick." },
 #end
 
-<<<<<<< HEAD
-=======
 timeslip = { 
 #if skills.cosmic then 
     type = "cosmic",
@@ -1258,12 +1257,9 @@ timeslip = {
     type = "artifact",
 #end
     on = {"You carefully wind the intricate mechanism on the side of a timeslip stop watch and feel time warp and wrap around you in a protective bubble.", "Touching upon cosmic probabilities, you weave a net of safety around yourself.","You already have cast a web of safety around yourself."}},
->>>>>>> refs/remotes/m-mf/master
 #if skills.cosmic then
   cloak = { type = "cosmic",
     on = {"Weaving the cosmic threads into a cloak, you settle it upon your shoulders and feel somewhat more protected.","You are already cloaked."}},
-  timeslip = { type = "cosmic",
-    on = {"Touching upon cosmic probabilities, you weave a net of safety around yourself.","You already have cast a web of safety around yourself."}},
   nimbus = { type = "cosmic",
     def = "Cosmic Nimbus (cosmicnimbus) (indefinite).", -- system calls it nimbus, hence why brackets not recognised
     on = {"You are already surrounded with a cosmic nimbus.", "Drawing cosmic dust into a sphere, you slowly let it expand into a nimbus of glittering motes."}},
@@ -1271,13 +1267,6 @@ timeslip = {
     def = "Waterwalking (waterwalk) (indefinite).",
     defr = [[^Waterwalking \(waterwalk\) \(\d+ minutes\)\.$]],
     on = {"You pull a cosmic web down around your feet, and you sense that gravity will be your ally when entering water.", "You are already water walking."}},
-#end
-
-#if not skills.cosmic then
-  artitimeslip = {
-    type = "artifact",
-    on = {"Touching upon cosmic probabilities, you weave a net of safety around yourself.","You already have cast a web of safety around yourself."}
-  },
 #end
 
 #if skills.necromancy then
@@ -1955,14 +1944,6 @@ understanding\.$]],
     specialskip = function ()
       return defc.quicksilver
     end
-  },
-#end
-
-#if not skills.athletics then
-  artivitality = {
-    type = "artifact",
-    on = {"Your body positively glows with health and vitality.", "Vitality already sings in your bloodstream."},
-    off = {"A surge of rejuvenating energy floods your system, healing your wounds.", "You need to be fully healthy in both body and mind before you can call upon your vitality.","You cannot call upon your vitality again so soon."}
   },
 #end
 
