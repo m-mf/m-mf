@@ -957,6 +957,14 @@ defs_data = phpTable({
     on = {"You tilt your head backwards and draw your arms up, delicately weaving threads of burning illusion into the shape of an all-seeing eye, which you leave floating darkly above your head.", "You already have a burning eye above you."},
     def = "A darkly burning illusory eye floats above your head.",
     off = "With a slow, final blink, the burning eye above your head dissipates with a quiet sizzle."},
+  stalker = { type = "phantasms",
+    on = {"You summon an illusory phantom, and command it to lay in wait for a suitable target.", "You already have a prepared phantasmic stalker."},
+    def = "You have a phantom stalker at the ready.",
+    off = "A shadow passes overhead, and (\w+) shudders violently."},
+  phantasmagoria = { type = "phantasms",
+    on = {"Waggling your fingers in the air before you, you weave together complex strands of phantasmagorical energy until a swarm of phantoms linger heavily in the air before you like a heavy pall. They swarm around you, bound to your energies."},
+    def = "You are surrounded by phantom stalkers.",
+    off = "The phantom stalkers around you suddenly fly away, seeking out their victims."},
 #end
 
 #if skills.elementalism then
