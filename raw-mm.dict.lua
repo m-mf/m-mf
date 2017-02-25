@@ -25172,6 +25172,8 @@ shadowcloak = {
 #if skills.phantasms then
 #basicdef("phantomarmour", "weave phantomarmour")
 #basicdef("burningeye", "weave burningeye")
+#basicdef_withpower("stalker", "weave stalker", 1)
+#basicdef_withpower("phantasmagoria", "weave phantasmagoria", 5)
 #end
 
 #if skills.paradigmatics then
