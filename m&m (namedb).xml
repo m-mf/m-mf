@@ -526,7 +526,7 @@ raiseEvent(&quot;NameDB got new data&quot;)</script>
                     <Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>NameDB qw</name>
                         <script>-- ignore yourself gemmed offplane
-if multimatches[1][1] == &quot;None.&quot; or multimatches[1][1] == &quot;You can not sense a single person&quot; then return end
+if multimatches[1][1] == &quot;None.&quot; or multimatches[1][1] == &quot;You can not sense a single person.&quot; then return end
 
 -- all data is on the previous line
 local data = multimatches[1][1]

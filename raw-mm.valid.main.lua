@@ -876,19 +876,27 @@ function valid.bad_legs()
 end
 
 function valid.symp_damagedleftleg()
-  valid.simpledamagedleftleg()
+  if not affs.mutilatedleftleg then
+   valid.simpledamagedleftleg()
+  end
 end
 
 function valid.symp_damagedrightleg()
-  valid.simpledamagedrightleg()
+  if not affs.mutilatedrightleg then
+    valid.simpledamagedrightleg()
+  end
 end
 
 function valid.symp_damagedleftarm()
-  valid.simpledamagedleftarm()
+  if not affs.mutilatedleftarm then
+    valid.simpledamagedleftarm()
+  end
 end
 
 function valid.symp_damagedrightarm()
-  valid.simpledamagedrightarm()
+  if not affs.mutilatedrightarm then
+    valid.simpledamagedrightarm()
+  end
 end
 
 function valid.symp_crushedwindpipe()
@@ -3380,6 +3388,17 @@ function valid.healed_completely()
 end
 
 function valid.ice_healed_completely()
+
+  if actions.damagedrightleg_ice then
+    removeaff("damagedrightleg")
+  elseif actions.damagedleftleg_ice then
+    removeaff("damagedleftleg")
+  elseif actions.damagedrightarm_ice then
+    removeaff("damagedrightarm")
+  elseif actions.damagedleftarm_ice then
+    removeaff("damagedleftarm")
+  end
+
   local result = checkany(
     dict.lighthead.ice, dict.heavyhead.ice, dict.criticalhead.ice, dict.lightrightarm.ice, dict.heavyrightarm.ice, dict.criticalrightarm.ice, dict.lightleftarm.ice, dict.heavyleftarm.ice, dict.criticalleftarm.ice, dict.lightleftleg.ice, dict.heavyleftleg.ice, dict.criticalleftleg.ice,
     dict.lightrightleg.ice, dict.heavyrightleg.ice, dict.criticalrightleg.ice, dict.lightchest.ice, dict.heavychest.ice, dict.criticalchest.ice, dict.lightgut.ice, dict.heavygut.ice, dict.criticalgut.ice)
@@ -3461,6 +3480,17 @@ function valid.healed_partially()
 end
 
 function valid.ice_healed_partially()
+
+  if actions.damagedrightleg_ice then
+    removeaff("damagedrightleg")
+  elseif actions.damagedleftleg_ice then
+    removeaff("damagedleftleg")
+  elseif actions.damagedrightarm_ice then
+    removeaff("damagedrightarm")
+  elseif actions.damagedleftarm_ice then
+    removeaff("damagedleftarm")
+  end
+
  local result = checkany(
     dict.lighthead.ice, dict.heavyhead.ice, dict.criticalhead.ice, dict.lightrightarm.ice, dict.heavyrightarm.ice, dict.criticalrightarm.ice, dict.lightleftarm.ice, dict.heavyleftarm.ice, dict.criticalleftarm.ice, dict.lightleftleg.ice, dict.heavyleftleg.ice, dict.criticalleftleg.ice, dict.lightrightleg.ice, dict.heavyrightleg.ice, dict.criticalrightleg.ice, dict.lightchest.ice, dict.heavychest.ice, dict.criticalchest.ice, dict.lightgut.ice, dict.heavygut.ice, dict.criticalgut.ice)
 

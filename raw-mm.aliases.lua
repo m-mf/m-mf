@@ -540,12 +540,16 @@ function dv()
   make_gnomes_work()
 end
 
-function inra()
-  if not sys.enabledgmcp then echof("You need to enable GMCP for this alias to work.") return end
-
-  sk.inring = true
-  sendGMCP("Char.Items.Inv")
-  sendSocket"\n"
+function inra(thing)
+  if thing then
+  send(thing .. " everything", false)
+  else
+  send("inr everything", false)
+  if mm.me.activeskills.runes then send("inrb everything", false) end
+  if mm.me.activeskills.tarot then send("ind everything", false) end
+  if mm.me.activeskills.transmology then send("inskin everything", false) end
+  if mm.me.activeskills.harmonics then send("ingr everything", false) end
+  end
 end
 
 function adf()
