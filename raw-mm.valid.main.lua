@@ -2624,6 +2624,12 @@ function valid.ninjakari_ninshi()
   lifevision.add(actions.grapple_aff.p, "ninshi", limb)
 end
 
+function valid.shofangi_logami_head()
+  valid.simpledamagedskull()
+  valid.simpleblind()
+end
+
+
 function valid.ninjakari_ninombhi()
   local name = multimatches[2][2]
   name = string.gsub(name, " ", "")
