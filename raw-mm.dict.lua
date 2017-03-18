@@ -25221,7 +25221,6 @@ end
 basicdef("aurasense", "aurasense on")
 basicdef("healingaura", "radiate health")
 basicdef("quickeningaura", "radiate speed")
-basicdef("depressionaura", "radiate depression")
 end)
 
 #if skills.elementalism then
