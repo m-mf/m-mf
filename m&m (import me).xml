@@ -40526,8 +40526,10 @@ mm.valid.simplebleeding()
                         <string>^\w+ drives two shofas deep into your chest, hooking it in your ribs\.$</string>
                         <string>^With a sudden strike, \w+ skewers you with two nekais in the \w+, holding you in place\.$</string>
                         <string>^\w+ twists your right leg and left leg with (?:his|her) blades, locking them up\.$</string>
+                        <string>^\w+ twists your (?:head|gut|left arm|right arm|left leg|right leg) with (?:his|her) blades, pinning it tightly\.$</string>
                     </regexCodeList>
                     <regexCodePropertyList>
+                        <integer>1</integer>
                         <integer>1</integer>
                         <integer>1</integer>
                         <integer>1</integer>
@@ -51875,8 +51877,7 @@ mm.valid.simpledamagedhead()</script>
                     </Trigger>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Head</name>
-                        <script>mm.valid.simplebrokenjaw()
---mm.addwounds(&quot;monk&quot;, &quot;shofangi_stomp&quot;, &quot;head&quot;)</script>
+                        <script></script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>87</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -51896,8 +51897,7 @@ mm.valid.simpledamagedhead()</script>
                     </Trigger>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Chest</name>
-                        <script>mm.valid.simplesnappedrib()
---mm.addwounds(&quot;monk&quot;, &quot;shofangi_stomp&quot;, &quot;chest&quot;)</script>
+                        <script>mm.valid.simplerigormortis()</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>0</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -51999,8 +51999,7 @@ mm.valid.simpledamagedhead()</script>
                         </regexCodePropertyList>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>Skull</name>
-                            <script>mm.valid.simplefracturedskull()
---mm.addwounds(&quot;monk&quot;, &quot;shofangi_heelslam&quot;, &quot;head&quot;)</script>
+                            <script></script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>99</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -52020,9 +52019,7 @@ mm.valid.simpledamagedhead()</script>
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>Chest</name>
-                            <script>mm.valid.simplebrokenchest()
-mm.valid.simplestun() -- 1s
---mm.addwounds(&quot;monk&quot;, &quot;shofangi_heelslam&quot;, &quot;chest&quot;)</script>
+                            <script></script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>0</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -52042,8 +52039,7 @@ mm.valid.simplestun() -- 1s
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>Right arm</name>
-                            <script>mm.valid.simpledislocatedrightarm()
---mm.addwounds(&quot;monk&quot;, &quot;shofangi_heelslam&quot;, &quot;rightarm&quot;)</script>
+                            <script></script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>0</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -52063,8 +52059,7 @@ mm.valid.simplestun() -- 1s
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>Left arm</name>
-                            <script>mm.valid.simpledislocatedleftarm()
---mm.addwounds(&quot;monk&quot;, &quot;shofangi_heelslam&quot;, &quot;leftarm&quot;)</script>
+                            <script></script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>99</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -52084,8 +52079,7 @@ mm.valid.simplestun() -- 1s
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>Right leg</name>
-                            <script>mm.valid.simpledislocatedrightleg()
---mm.addwounds(&quot;monk&quot;, &quot;shofangi_heelslam&quot;, &quot;rightleg&quot;)</script>
+                            <script></script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>99</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -52105,8 +52099,7 @@ mm.valid.simplestun() -- 1s
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>Left leg</name>
-                            <script>mm.valid.simpledislocatedleftleg()
---mm.addwounds(&quot;monk&quot;, &quot;shofangi_heelslam&quot;, &quot;leftleg&quot;)</script>
+                            <script></script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>0</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -52334,9 +52327,9 @@ mm.valid.simplestun(1)</script>
                         <integer>1</integer>
                     </regexCodePropertyList>
                 </Trigger>
-                <Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>New Trigger</name>
-                    <script></script>
+                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                    <name>bogami leg - stun</name>
+                    <script>mm.valid.simplestun(1)</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -52347,8 +52340,12 @@ mm.valid.simplestun(1)</script>
                     <mSoundFile></mSoundFile>
                     <colorTriggerFgColor>#000000</colorTriggerFgColor>
                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                    <regexCodeList/>
-                    <regexCodePropertyList/>
+                    <regexCodeList>
+                        <string>^\w+ rips (?:his|her) blades out of your (?:left|right) leg and you feel stunned at the loss of blood\.$</string>
+                    </regexCodeList>
+                    <regexCodePropertyList>
+                        <integer>1</integer>
+                    </regexCodePropertyList>
                 </Trigger>
             </TriggerGroup>
             <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
