@@ -777,7 +777,6 @@ prefixwarning = function ()
 end
 
 cnrl.lockdata = {
-  ["arms"] = function () return (affs.missingleftarm and affs.missingrightarm and codepaste.regen_arms()) end,
   ["green a"] = function() return (affs.slitthroat and affs.slickness and (affs.prone or affs.severedspine or affs.paralysis or affs.tangle)) end,
   ["green b"] = function() return (affs.crushedwindpipe and affs.slickness and affs.asthma and (affs.prone or affs.severedspine or affs.paralysis or affs.tangle)) end,
   ["green c"] = function() return (affs.collapsedlungs and affs.crushedwindpipe and affs.slickness and (affs.prone or affs.severedspine or affs.paralysis or affs.tangle)) end,

@@ -8627,6 +8627,31 @@ dict = {
         empty.eat_yarrow()
       end
     },
+    wafer = {
+      aspriority = 0,
+      spriority = 0,
+
+      focus = true,
+
+      isadvisable = function ()
+        return (affs.relapsing and not doingaction "relapsing") or false
+      end,
+
+      oncompleted = function ()
+        removeaff("relapsing")
+        removeaff("unknownwafer")
+        sk.lostbal_wafer()
+      end,
+
+      eatcure = "dust",
+      onstart = function ()
+        focus_aff("relapsing", "dust")
+      end,
+
+      empty = function()
+        empty.eat_wafer()
+      end
+    },
     aff = {
       oncompleted = function ()
         addaff(dict.relapsing)

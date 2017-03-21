@@ -505,6 +505,7 @@ sk.overhauldata = {
   slickness      = { newbalances = {"steam"}, oldbalances = {"herb"}},
   blind          = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   trueblind      = { newbalances = {"wafer"}, oldbalances = {"herb"}},
+  relapsing      = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   deaf           = { newbalances = {"steam"}, oldbalances = {"herb","wafer"}},
   truedeaf          = { newbalances = {"steam"}, oldbalances = {"herb","wafer"}},
   attraction        = { newbalances = {"steam"}, oldbalances = {"herb","wafer"}},
