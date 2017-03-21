@@ -150,6 +150,15 @@ end
 #end
 
 #if skills.kata then
+
+cpp.compute_stance = function ()
+  if stats.stance ~= "[n]" then
+    return stats.stance:upper()
+  end
+
+  return ""
+end
+
 cpp.compute_momentum = function ()
   if stats.momentum ~= 0 then
     return stats.momentum.."mo"
@@ -250,6 +259,7 @@ cp.definitions = {
 #end
 #if skills.kata then
   ["@mo"]            = "mm.cpp.compute_momentum()",
+  ["@stance"]        = "mm.cpp.compute_stance()",
 #end
 #if skills.healing then
   ["@emp"]           = "mm.cpp.compute_empathy()",
