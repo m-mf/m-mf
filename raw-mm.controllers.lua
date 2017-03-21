@@ -597,6 +597,7 @@ prompt_stats = function ()
       end
 
     stats.momentum = tonumber(t.momentum)
+    stats.stance = t.stance
 
     if t.kafe == "1" then defences.got("kafe") else defences.lost("kafe") end
 
