@@ -278,6 +278,7 @@ conf.sacdelay = 0.5 -- delay after which the systems curing should resume in syn
 conf.pindelay = 0.050
 
 conf.bleedamount = 60
+conf.bruiseamount = 60
 conf.manause = 35
 
 conf.bashing = true
