@@ -41,7 +41,7 @@ end
 
 empty.eat_wafer = function()
   sk.lostbal_wafer()
-  removeaff({"paralysis", "haemophilia", "powersap", "scabies", "dysentery", "pox", "vomiting", "rigormortis", "taintsick", "asthma","clotleftshoulder","clotrightshoulder","clotlefthip","clotrighthip","unknownwafer"})
+  removeaff({"paralysis", "haemophilia", "powersap", "scabies", "dysentery", "pox", "vomiting", "rigormortis", "taintsick", "relapsing", "asthma","clotleftshoulder","clotrightshoulder","clotlefthip","clotrighthip","unknownwafer"})
 end
 
 empty.eat_earwort = function()
@@ -209,7 +209,7 @@ empty.noeffect_ice_rightleg = function()
 end
 
 empty.cleanse = function()
-  removeaff({"ectoplasm", "mud", "sap", "slickness", "deathmarkone", "deathmarktwo", "deathmarkthree", "deathmarkfour", "deathmarkfive", "gunk", "mucous"})
+  removeaff({"mud", "sap", "slickness", "deathmarkone", "deathmarktwo", "deathmarkthree", "deathmarkfour", "deathmarkfive", "gunk", "mucous"})
 end
 
 empty.sip_phlegmatic = function()

@@ -143,7 +143,7 @@ check_sip = function(sync_mode)
   if not bals.sip or usingbal("sip") or affs.stun or
     affs.sleep or affs.anorexia or affs.throatlock or
     affs.scarab or affs.slitthroat or affs.inquisition or
-    affs.crushedwindpipe or affs.damagedthroat or affs.crucified or (affs.missingleftarm and affs.missingrightarm) or (affs.mutilatedleftarm and affs.mutilatedrightarm) then
+    affs.crushedwindpipe or affs.damagedthroat or affs.crucified then
       return
   end
 
@@ -220,7 +220,7 @@ check_lucidity = function(sync_mode)
   if not bals.lucidity or usingbal("lucidity") or affs.stun
     or affs.sleep or affs.scarab or affs.slitthroat
     or affs.throatlock or affs.inquisition
-    or affs.crucified or affs.crushedwindpipe or affs.damagedthroat or (affs.mutilatedleftarm and affs.mutilatedrightarm) then
+    or affs.crucified or affs.crushedwindpipe or affs.damagedthroat then
       return
   end
 
@@ -308,7 +308,7 @@ end
 
 -- wafer check
 check_wafer = function(sync_mode)
-  if not bals.wafer or usingbal("wafer") or affs.sleep or affs.stun or sacid or affs.inquisition or affs.crucified or (affs.missingleftarm and affs.missingrightarm) or (conf.aillusion and conf.waitherbai and sk.checking_herb_ai()) or affs.crushedwindpipe or affs.slitthroat or affs.anorexia or affs.throatlock or affs.scarab or affs.darkfate or (affs.mutilatedleftarm and affs.mutilatedrightarm) then
+  if not bals.wafer or usingbal("wafer") or affs.sleep or affs.stun or sacid or affs.inquisition or affs.crucified or (conf.aillusion and conf.waitherbai and sk.checking_herb_ai()) or affs.crushedwindpipe or affs.slitthroat or affs.anorexia or affs.throatlock or affs.scarab or affs.darkfate then
     return
   end
 
@@ -348,7 +348,7 @@ check_allheale = function (sync_mode)
   if not bals.allheale or usingbal("allheale") or not next(affs)
     or affs.sleep or affs.anorexia or affs.scarab or affs.slitthroat
     or affs.throatlock or not conf.allheale or affs.inquisition
-    or affs.stun or (affs.mutilatedleftarm and affs.mutilatedrightarm) then
+    or affs.stun then
       return
   end
 
@@ -384,7 +384,7 @@ check_salve = function(sync_mode)
   -- can we even use salves?
   if not bals.salve or usingbal("salve") or not next(affs) or
     affs.sleep or affs.stun or affs.inquisition or
-    affs.slickness or affs.crucified or (affs.missingleftarm and affs.missingrightarm) or (affs.mutilatedleftarm and affs.mutilatedrightarm) then
+    affs.slickness or affs.crucified then
       return
   end
 
@@ -414,7 +414,7 @@ check_ice = function(sync_mode)
   -- can we even use salves?
   if not bals.ice or usingbal("ice") or not next(affs) or
     affs.sleep or affs.stun or affs.inquisition or
-    affs.slickness or affs.crucified or (affs.missingleftarm and affs.missingrightarm) or (affs.mutilatedleftarm and affs.mutilatedrightarm) then
+    affs.slickness or affs.crucified then
       return
   end
 
@@ -448,7 +448,7 @@ end
 -- sort it, and do the topmost thing.
 check_herb = function(sync_mode)
   -- can we even eat?
-  if not bals.herb or usingbal("herb") or affs.sleep or affs.stun or sacid or affs.inquisition or affs.crucified or (affs.missingleftarm and affs.missingrightarm) or (conf.aillusion and conf.waitherbai and sk.checking_herb_ai()) or (affs.mutilatedleftarm and affs.mutilatedrightarm) then
+  if not bals.herb or usingbal("herb") or affs.sleep or affs.stun or sacid or affs.inquisition or affs.crucified or (conf.aillusion and conf.waitherbai and sk.checking_herb_ai()) then
     return
   end
 
@@ -572,7 +572,7 @@ end
 check_sparkle = function(sync_mode)
   -- can we even eat?
   if not conf.sparkle or usingbal("sparkle") or affs.stun or not bals.sparkle
-    or affs.sleep or affs.inquisition or affs.crucified or affs.darkfate or (affs.mutilatedleftarm and affs.mutilatedrightarm) then
+    or affs.sleep or affs.inquisition or affs.crucified or affs.darkfate then
       return
   end
 
@@ -1008,7 +1008,7 @@ end
 
 function sk.makewarnings()
   sk.warnings = {
-    nomyrtleid = {
+    --[[nomyrtleid = {
       time = 20,
       msg = "Warning: need to use your <31,31,153>myrtle"..getDefaultColor().." pipe and you don't have one!",
     },
@@ -1019,7 +1019,7 @@ function sk.makewarnings()
     nofaeleafid = {
       time = 20,
       msg = "Warning: need to use your <31,31,153>faeleaf"..getDefaultColor().." pipe and you don't have one!",
-    },
+    },]]--
     nosteamid = {
       time = 20,
       msg = "Warning: need to use your <31,31,153>steam"..getDefaultColor().." pipe and you don't have one!",
@@ -1669,7 +1669,7 @@ sk.limbnames = {
 #end
 
 signals.gmcpcharitemslist:connect(function ()
-  if not gmcp.Char.Items.List.location then echof("(GMCP problem) location field is missing from Achaea's response.") return end
+  if not gmcp.Char.Items.List.location then echof("(GMCP problem) location field is missing from Lusternia's response.") return end
   if not sk.inring or gmcp.Char.Items.List.location ~= "inv" then return end
 
   local hadsomething = {}

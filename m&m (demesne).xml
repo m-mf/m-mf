@@ -952,7 +952,7 @@ tempTimer(10, [[echo&quot;\n\n&quot; mm.echof(&quot;Geomancy Pollute damage inco
                         <integer>1</integer>
                     </regexCodePropertyList>
                 </Trigger>
-                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                <Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Flashfire Third</name>
                     <script>dtc.hit(matches[2], &quot;Pyromancer&quot;)
 </script>
@@ -973,7 +973,7 @@ tempTimer(10, [[echo&quot;\n\n&quot; mm.echof(&quot;Geomancy Pollute damage inco
                         <integer>1</integer>
                     </regexCodePropertyList>
                 </Trigger>
-                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                <Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Flashfire Fourth</name>
                     <script>dtc.hit(matches[2], &quot;Pyromancer&quot;)
 </script>
@@ -1120,10 +1120,8 @@ tempTimer(10, [[echo&quot;\n\n&quot; mm.echof(&quot;Pyromancy Inferno damage inc
                         <string>A vine drops down from a tree limb and lashes about your neck, choking you as it cuts deeply into your flesh with its tiny thorns.</string>
                         <string>Flying insects suddenly swarm you, covering you with tiny, painful stings.</string>
                         <string>A bolt of whitest lightning streaks down from the heavens and engulfs you. You writhe and shake in noiseless agony as the pure electricity ripples over your body.</string>
-                        <string>Animated branches from the trees above suddenly reach down and clutch you around the waist, pulling you into their foliage.</string>
                     </regexCodeList>
                     <regexCodePropertyList>
-                        <integer>3</integer>
                         <integer>3</integer>
                         <integer>3</integer>
                         <integer>3</integer>

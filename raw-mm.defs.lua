@@ -1021,8 +1021,6 @@ defs_data = phpTable({
   quickeningaura = { type = "healing",
     off = "Your quickened healing proficiency slows back down.",
     on = "You touch two fingers to your heart, causing the internal pulse of your body to quicken with every beat of healing energy that thrums through you."},
-  depressionaura = { type = "healing",
-    on = {"You bow your head and close your eyes, radiating a powerful, healing depression aura around yourself.", "You are already under the effect of a healing depression aura."}},
 $(for _, aura in ipairs({"sensory", "fractures", "neurosis", "choleric","sanguine","phlegmatic","auric","mania"}) do
   _put(string.format([[%s = { type = "healing",
     on = {"You bow your head and close your eyes, radiating a powerful, healing %s aura around yourself.", "You are already under the effect of a healing %s aura."},

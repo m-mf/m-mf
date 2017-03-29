@@ -278,6 +278,7 @@ conf.sacdelay = 0.5 -- delay after which the systems curing should resume in syn
 conf.pindelay = 0.050
 
 conf.bleedamount = 60
+conf.bruiseamount = 60
 conf.manause = 35
 
 conf.bashing = true
@@ -505,6 +506,7 @@ sk.overhauldata = {
   slickness      = { newbalances = {"steam"}, oldbalances = {"herb"}},
   blind          = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   trueblind      = { newbalances = {"wafer"}, oldbalances = {"herb"}},
+  relapsing      = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   deaf           = { newbalances = {"steam"}, oldbalances = {"herb","wafer"}},
   truedeaf          = { newbalances = {"steam"}, oldbalances = {"herb","wafer"}},
   attraction        = { newbalances = {"steam"}, oldbalances = {"herb","wafer"}},

@@ -339,14 +339,16 @@ function valid.holythroat()
 end
 
 function valid.hasdamagedthroat()
-  if actions.checkdamagedthroat_misc then
-    lifevision.add(actions.checkdamagedthroat_misc.p, "has")
-    return
+  if affs.damagedthroat then return end
+  if not conf.aillusion then
+    valid.simpledamagedthroat()
+  else
+    -- failed for aeon_smoke!
+    local r = findbybals({"sip", "lucidity"})
+    if r then
+      valid.simpledamagedthroat()
+    end
   end
-
-  local r = findbybals("lucidity", "health")
-  if not r then return end
-  lifevision.add(actions.damagedthroat_aff.p)
 end
 
 function valid.proper_collapsedlungs()
@@ -1416,6 +1418,16 @@ function valid.bled()
   checkaction(dict.bleeding.aff, true)
   if actions.bleeding_aff then
     lifevision.add(actions.bleeding_aff.p, nil, amount)
+  end
+end
+
+function valid.bruised()
+  local amount = tonumber(multimatches[2][2])
+  if not (amount >= conf.bruiseamount) then return end
+
+  checkaction(dict.bruising.aff, true)
+  if actions.bruising_aff then
+    lifevision.add(actions.bruising_aff.p, nil, amount)
   end
 end
 
@@ -3163,8 +3175,8 @@ valid.aorta_vessel = valid.telekinesis_vessel
 
 function valid.nekotai_kaiga()
 -- allow a function to be called here
--- for now, randomly add 1 or 3
-  local aff = next_random_vessel(2,5)
+-- for now, randomly add 2 or 3
+  local aff = next_random_vessel(2,3)
 
   checkaction(dict[aff].aff, true)
   lifevision.add(actions[aff .. "_aff"].p)
@@ -3224,6 +3236,24 @@ function valid.nekotai_angknek()
   else
     valid["simplesliced" .. matches[2] .. "bicep"]()
   end
+end
+
+function valid.angknek_new()
+  if matches[4] == "left" then
+   if affs.damagedleftleg then
+    valid.simplestun()
+    valid.simpleprone()
+   else 
+    return
+   end
+  elseif matches[4] == "right" then
+   if affs.damagedrightleg then
+    valid.simplestun()
+    valid.simpleprone()
+   else
+     return
+   end
+ end
 end
 
 function valid.crow_eyepeck()
@@ -3536,6 +3566,16 @@ function valid.apply_ninshi()
   local result = checkany(
     dict.lighthead.sip, dict.mediumhead.sip, dict.heavyhead.sip, dict.criticalhead.sip,
     dict.lightrightarm.sip, dict.mediumrightarm.sip, dict.heavyrightarm.sip, dict.criticalrightarm.sip, dict.lightleftarm.sip, dict.mediumleftarm.sip, dict.heavyleftarm.sip, dict.criticalleftarm.sip, dict.lightleftleg.sip, dict.mediumleftleg.sip, dict.heavyleftleg.sip, dict.criticalleftleg.sip,  dict.lightrightleg.sip, dict.mediumrightleg.sip, dict.heavyrightleg.sip, dict.criticalrightleg.sip, dict.lightchest.sip, dict.mediumchest.sip, dict.heavychest.sip, dict.criticalchest.sip, dict.lightgut.sip, dict.mediumgut.sip, dict.heavygut.sip, dict.criticalgut.sip, dict.numbedhead.sip, dict.numbedchest.sip, dict.numbedgut.sip, dict.numbedleftarm.sip, dict.numbedleftleg.sip, dict.numbedrightarm.sip, dict.numbedrightleg.sip)
+  if not result then return end
+
+  if actions[result.name] then
+    lifevision.add(actions[result.name].p, "ninshi")
+  end
+end
+
+function valid.apply_ninshi_ice()
+  local result = checkany(
+    dict.lighthead.ice, dict.heavyhead.ice, dict.criticalhead.ice, dict.lightrightarm.ice, dict.heavyrightarm.ice, dict.criticalrightarm.ice, dict.lightleftarm.ice, dict.heavyleftarm.ice, dict.criticalleftarm.ice, dict.lightleftleg.ice, dict.heavyleftleg.ice, dict.criticalleftleg.ice, dict.lightrightleg.ice, dict.heavyrightleg.ice, dict.criticalrightleg.ice, dict.lightchest.ice, dict.heavychest.ice, dict.criticalchest.ice, dict.lightgut.ice, dict.heavygut.ice, dict.criticalgut.ice, dict.damagedskull.ice, dict.damagedthroat.ice, dict.collapsedlungs.ice, dict.crushedchest.ice, dict.damagedorgans.ice, dict.internalbleeding.ice, dict.damagedleftarm.ice, dict.mutilatedleftarm.ice, dict.damagedrightarm.ice, dict.mutilatedrightarm.ice, dict.damagedleftleg.ice, dict.mutilatedleftleg.ice, dict.damagedrightleg.ice, dict.mutilatedrightleg.ice, dict.fourthdegreeburn.ice, dict.thirddegreeburn.ice, dict.seconddegreeburn.ice, dict.firstdegreeburn.ice, dict.ablaze.ice)
   if not result then return end
 
   if actions[result.name] then
@@ -4189,7 +4229,7 @@ end
 
 -- wafer nomnoms
 #for _, wafer in pairs({
-#wafer = {"paralysis", "haemophilia", "powersap", "scabies", "dysentery", "pox", "vomiting", "rigormortis", "taintsick", "asthma","clotleftshoulder","clotrightshoulder","clotlefthip","clotrighthip","unknownwafer"},
+#wafer = {"paralysis", "haemophilia", "powersap", "scabies", "dysentery", "pox", "vomiting", "rigormortis", "relapsing", "taintsick", "asthma","clotleftshoulder","clotrightshoulder","clotlefthip","clotrighthip","unknownwafer"},
 #}) do
 #local checkany_string = ""
 #local temp = {}

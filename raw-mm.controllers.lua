@@ -778,7 +778,6 @@ prefixwarning = function ()
 end
 
 cnrl.lockdata = {
-  ["arms"] = function () return (affs.missingleftarm and affs.missingrightarm and codepaste.regen_arms()) end,
   ["green a"] = function() return (affs.slitthroat and affs.slickness and (affs.prone or affs.severedspine or affs.paralysis or affs.tangle)) end,
   ["green b"] = function() return (affs.crushedwindpipe and affs.slickness and affs.asthma and (affs.prone or affs.severedspine or affs.paralysis or affs.tangle)) end,
   ["green c"] = function() return (affs.collapsedlungs and affs.crushedwindpipe and affs.slickness and (affs.prone or affs.severedspine or affs.paralysis or affs.tangle)) end,
@@ -1167,3 +1166,38 @@ signals.connected:connect(function()
     enableTrigger("m&m wound overhaul")
   end
 end)
+
+--[[signals.gmcpcharafflictionsadd:connect(function()
+ local aff = gmcp.Char.Afflictions.Add.name
+
+    cecho("\n<red>got aff: <white>"..aff)
+
+    aff = mm.afftranslation[aff] or aff
+
+    if not (mm.valid["simple"..aff] or mm.valid["affmsg_"..aff]) then
+      mm.echof("(this aff, %s, is missing from m&m's affmessages db - this is a minor thing)", aff)
+      return
+    end
+
+    if (aff == "an unknown ailment" or aff == "an unknown affliction") and mm.knownaff then
+        mm.valid.removeunknownaff()
+    else
+        (mm.valid["affmsg_"..aff] or mm.valid["simple"..aff])()
+    end
+end)]]--
+
+--[[signals.gmcpcharafflictionsremove:connect(function()
+ local aff = "" 
+  if not gmcp.Char.Afflictions.Remove then 
+    return 
+  end
+
+ aff = gmcp.Char.Afflictions.Remove[1]
+
+  if aff == "sprawled" then 
+   aff = "prone" 
+  end
+
+  raiseEvent("m&m lost aff", aff)
+  cecho("\n<green>lost aff:<white>"..aff)
+end)]]--
