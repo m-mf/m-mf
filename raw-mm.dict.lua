@@ -501,27 +501,28 @@ end
 
 function focus_aff(aff, cmd)
 
-  local t = {taintsick = "sickening", illuminated = "luminosity", hallucinating = "hallucinations"}
+  --local t = {taintsick = "sickening", illuminated = "luminosity", hallucinating = "hallucinations"}
+  local t = {sickening = "taintsick", luminosity = "illuminated", hallucinations = "hallucinating"}
   local c_aff = (t[aff] or aff)
 
-  if (sys.sync and conf.aeonfocus) or me.focus[aff] then
+  if (sys.sync and conf.aeonfocus) or me.focus[c_aff] then
     if conf.beastfocus and bals.beast and not affs.disloyalty then
       if cmd == "dust" then
-        eat("dust", "beastfocus", c_aff)
+        eat("dust", "beastfocus", aff)
       else
-        send(cmd.." beastfocus "..c_aff, conf.commandecho)
+        send(cmd.." beastfocus "..aff, conf.commandecho)
       end
-    elseif conf.powerfocus and stats.currentpower >= 1 then
+    elseif conf.powerfocus and stats.currentpower >= 3 then
       if cmd == "dust" then
-        eat("dust", "powerfocus",c_aff)
+        eat("dust", "powerfocus",aff)
       else
-        send(cmd.." powerfocus "..c_aff, conf.commandecho)
+        send(cmd.." powerfocus "..aff, conf.commandecho)
       end
     else
       if cmd == "dust" then
-        eat("dust", "focus",c_aff)
+        eat("dust", "focus",aff)
       else
-        send(cmd.." focus "..c_aff, conf.commandecho)
+        send(cmd.." focus "..aff, conf.commandecho)
       end
     end
     return
@@ -2826,6 +2827,7 @@ dict = {
         removeaff("haemophilia")
         removeaff("unknownwafer")
         sk.lostbal_wafer()
+        valid.simplebleeding()
       end,
 
       eatcure = "dust",
