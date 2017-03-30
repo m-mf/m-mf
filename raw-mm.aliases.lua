@@ -490,7 +490,7 @@ function showfocus()
   resetFormat()
   echo"\n"
 
-  echofn("Using Power Focus:         ")
+  echofn("Using Power Focus (>=" .. conf.powerfocusamt .. "):   ")
   setFgColor(unpack(getDefaultColorNums))
   setUnderline(true)
   echoLink(conf.powerfocus and "enabled" or "disabled", "$(sys).tntf_set('powerfocus', "..(conf.powerfocus and "false" or "true").. ', false); $(sys).showfocus()', (conf.powerfocus and "Disable" or "Enable")..' using power to focus when possible', true)

@@ -512,7 +512,7 @@ function focus_aff(aff, cmd)
       else
         send(cmd.." beastfocus "..aff, conf.commandecho)
       end
-    elseif conf.powerfocus and stats.currentpower >= 3 then
+    elseif conf.powerfocus and stats.currentpower >= conf.powerfocusamt then
       if cmd == "dust" then
         eat("dust", "powerfocus",aff)
       else

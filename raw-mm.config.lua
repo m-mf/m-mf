@@ -627,6 +627,14 @@ config_dict = pl.OrderedMap {
     onset = function () cnrl.update_wait() echof(wait_tbl[conf.lag].m) end,
     installstart = function () conf.lag = 0 end
   }},
+#conf_name = "powerfocusamt"
+  {$(conf_name) = {
+    type = "number",
+    min = 1,
+    max = 10,
+    onset = function () echof("Will powerfocus if we have greater than or equal to %d power.", conf.powerfocusamt) end,
+    installstart = function () conf.powerfocusamt = 3 end,
+  }},
 #conf_name = "unknownfocus"
   {$(conf_name) = {
     type = "number",

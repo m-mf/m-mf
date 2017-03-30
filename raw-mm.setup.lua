@@ -291,6 +291,7 @@ conf.cleanse = false
 conf.beastfocus = false
 conf.aeonfocus = true
 conf.powerfocus = false
+conf.powerfocusamt = 3
 
 conf.commandecho = true
 conf.blockcommands = true
