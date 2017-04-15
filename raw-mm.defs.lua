@@ -795,8 +795,7 @@ defs_data = phpTable({
   screen = { type = "stealth",
     on = {"You shift your belongings around, screening them from prying eyes.", "You are already screening your items!"}},
   mislead = { type = "stealth",
-    onr = [[^You prepare your next movement to mislead to the \w+\.$]],
-    offr = [[^You mislead to the \w+\.$]]},
+    on = {"You prepare to mislead those around you."}},
   sneak = { type = "stealth",
     on = {"You step backwards, sneaking into the cover of the shadows.", "You already are sneaking around."},
     off = {"You step out of the cover of the shadows and cease sneaking around.", "You already aren't sneaking around."},
@@ -2698,7 +2697,7 @@ defences.complete_def({name = "MindBar", def = "You have raised a mental bar to 
 
 defences.complete_def({name = "MindField", def = "You will discharge a psychic lash on those who scry.", tooltip = "Causes damage on scrying."})
 
-defences.complete_def({name = "Mislead", defr = [[^You are preparing to mislead to the \w+\.$]], tooltip = "Next movement will appear to go in the wrong direction."})
+defences.complete_def({name = "Mislead", def = "You are preparing to mislead those around you.", tooltip = "Next movement will appear to go in the wrong direction."})
 
 defences.complete_def({name = "aura", def = "You have the aura of the moon protecting you.", tooltip = "Reduces damage from magical attacks."})
 

@@ -133,7 +133,8 @@ end
 local healthchecks = {
   healhealth = {p = dict.healhealth},
   healmana = {p = dict.healmana},
-  healego = {p = dict.healego}
+  healego = {p = dict.healego},
+  protection = {p = dict.protection}
 }
 
 -- build a table of all the things we need to do with their priority numbers,
@@ -1633,7 +1634,7 @@ sk.limbnames = {
       {fractures = {"concussion", "fracturedleftarm", "fracturedrightarm", "fracturedskull", "brokenjaw", "brokenrightwrist", "brokenleftwrist", "brokenchest", "brokennose", "crushedrightfoot", "crushedleftfoot", "crushedwindpipe", "snappedrib"}},
       {neurosis = {"epilepsy", "anorexia", "confusion", "clumsiness", "minorinsanity", "moderateinsanity", "majorinsanity", "massiveinsanity"}},
       {choleric = {"vomiting", "asthma", "pox", "sickening", "dysentery", "scabies", "paralysis"}},
-      {sanguine = {"haemophilia", "relapsing", "onevessels", "twovessels", "threevessels", "fourvessels", "thirteenplusvessels", "clotleftshoulder", "clotrightshoulder", "clotleftleg", "clotrightleg"}},
+      {sanguine = {"haemophilia", "relapsing", "onevessels", "twovessels", "threevessels", "fourvessels", "thirteenplusvessels", "oneclot", "twoclots", "threeclots", "fourplusclots"}},
       {phlegmatic = {"aeon", "paralysis", "rigormortis", "disloyalty", "pacifism", "minortimewarp", "moderatetimewarp", "majortimewarp", "massivetimewarp", "transfixed"}},
       {auric = {"aeon", "achromaticaura", "healthleech", "powerspikes", "manabarbs", "egovice", "powersap", "illuminated"}},
       {mania = {"stupidity", "recklessness", "hallucinations", "addiction", "paranoia", "asthma", "insomnia" }},
