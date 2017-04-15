@@ -859,6 +859,41 @@ function valid.proper_setvessel()
   valid["diag_"..aff]()
 end
 
+clotslist = {"oneclot","twoclots","threeclots","fourplusclots"}
+
+next_clots = function()
+  for i,v in ipairs(clotslist) do
+    if affs[v] then return clotslist[i+1] or "fourplusclots" end
+  end
+end
+
+previous_clots = function()
+  for i,v in ipairs(clotslist) do
+    if affs[v] then return clotslist[i-1] or nil end
+  end
+end
+
+function valid.proper_clots()
+  local aff = next_clots()
+
+  if not aff then aff = "oneclot" end
+  checkaction(dict[aff].aff, true)
+
+  if actions[aff .. "_aff"] then
+    lifevision.add(actions[aff .. "_aff"].p)
+  end
+end
+
+function valid.proper_setclots()
+  local num = tonumber(matches[2])
+  if not num then return end
+
+  local aff
+
+  if num >= 4 then aff = "fourplusclots" else aff = clotslist[num] end
+  valid["diag_"..aff]()
+end
+
 function valid.symp_badluck()
   if affs.badluck then return end
   if not conf.aillusion then
@@ -1194,8 +1229,8 @@ function valid.wake_done()
 end
 
 function defs.read_protection()
-  if actions.protection_physical then
-    lifevision.add(actions.protection_physical.p)
+  if actions.protection_scroll then
+    lifevision.add(actions.protection_scroll.p)
   end
 end
 
@@ -3039,11 +3074,13 @@ function valid.telekinesis_choke()
   if not conf.aillusion then
     valid.simpledisrupt()
     valid.telekinesis_vessel()
+    valid.proper_clots()
   else
   sk.onprompt_beforeaction_add("telekinesis_choke", function ()
     if affs.blackout then
       valid.simpledisrupt()
       valid.telekinesis_vessel()
+      valid.proper_clots()
     end
   end)
   end
@@ -4229,7 +4266,7 @@ end
 
 -- wafer nomnoms
 #for _, wafer in pairs({
-#wafer = {"paralysis", "haemophilia", "powersap", "scabies", "dysentery", "pox", "vomiting", "rigormortis", "relapsing", "taintsick", "asthma","clotleftshoulder","clotrightshoulder","clotlefthip","clotrighthip","unknownwafer"},
+#wafer = {"paralysis", "haemophilia", "powersap", "scabies", "dysentery", "pox", "vomiting", "rigormortis", "relapsing", "taintsick", "asthma","oneclot","twoclots","threeclots","fourplusclots","unknownwafer"},
 #}) do
 #local checkany_string = ""
 #local temp = {}
@@ -4277,7 +4314,7 @@ end
 
 -- allheale sips
 #for _, allheale in pairs({
-#allheale = {"firstdegreeburn", "seconddegreeburn", "thirddegreeburn", "fourthdegreeburn", "paralysis", "tangle", "roped", "transfixed", "shackled", "inlove", "powersink", "stupidity", "arteryleftarm", "arteryleftleg", "arteryrightarm", "arteryrightleg", "clumsiness", "recklessness", "relapsing", "aeon", "confusion", "slickness", "shyness", "paranoia", "vertigo", "vestiphobia", "scabies", "dizziness", "missingleftear", "missingrightear", "sunallergy", "sensitivity", "hallucinating", "epilepsy", "crotamine", "hypersomnia", "weakness", "dysentery", "vomiting", "hypochondria", "rigormortis", "masochism", "vapors", "asthma", "dementia", "hemiplegyleft", "hemiplegyright", "pox", "opengut", "piercedleftarm", "piercedleftleg", "piercedrightarm", "piercedrightleg", "ablaze", "worms", "gluttony", "justice", "pacifism", "healthleech", "brokenjaw", "fracturedskull", "vomitblood", "fracturedleftarm", "fracturedrightarm", "brokenchest", "brokennose", "agoraphobia", "brokenleftwrist", "brokenrightwrist", "addiction", "haemophilia", "impatience", "disloyalty", "claustrophobia", "peace", "daydreaming", "narcolepsy", "puncturedaura", "puncturedchest", "puncturedlung", "blacklung", "leglock", "omniphobia", "openchest", "slicedleftbicep", "slicedleftthigh", "slicedrightbicep", "slicedrightthigh", "scalped", "illuminated", "clampedleft", "clampedright", "succumb", "mud", "papaxihealth", "papaximana", "papaxiego", "omen", "heretic", "infidel", "bubble", "taintsick", "sap", "treebane", "stars",  "darkmoon", "fear", "blackout", "drunk", "deadening", "loneliness", "dissonance", "darkseed", "gunk", "egovice", "manabarbs", "powerspikes", "achromaticaura", "gashedcheek", "laceratedleftarm", "laceratedleftleg", "laceratedrightarm", "laceratedrightleg", "laceratedunknown", "severedphrenic", "snappedrib", "furrowedbrow", "crushedwindpipe", "afterimage", "earache", "rainbowpattern", "crushedleftfoot", "crushedrightfoot", "slicedtongue", "shortbreath", "dislocatedleftarm", "dislocatedleftleg", "dislocatedrightarm", "dislocatedrightleg", "scrambledbrain", "hemiplegylower", "twistedleftarm", "twistedleftleg", "twistedrightarm", "twistedrightleg", "trembling", "truss", "void", "homeostasis", "bedevil", "aurawarp", "prone", "crippledleftarm", "crippledleftleg", "crippledrightarm", "crippledrightleg", "clotleftshoulder", "clotlefthip", "clotrightshoulder", "clotrighthip", "enfeeble", "stiffhead", "stiffchest", "stiffgut", "stiffrightarm", "stiffleftarm", "insomnia", "shivering", "frozen", "lovepotion", "attraction", "grapple", "numbedhead", "numbedchest", "numbedgut", "numbedleftarm", "numbedleftleg", "numbedrightarm", "numbedrightleg", "batbane", "herbbane", "snakebane", "powersap",  "illusorywounds", "crucified", "disrupt", "stun", "sleep", "jinx", "batbane", "snakebane", "herbbane", "unknownmental", "cloudcoils", "bleeding", "unknownany", "slightinsanity", "moderateinsanity", "majorinsanity", "massiveinsanity", "minortimewarp", "moderatetimewarp", "majortimewarp", "massivetimewarp", "oracle", "anorexia", "collapsedlungs", "avengingangel"}}) do
+#allheale = {"firstdegreeburn", "seconddegreeburn", "thirddegreeburn", "fourthdegreeburn", "paralysis", "tangle", "roped", "transfixed", "shackled", "inlove", "powersink", "stupidity", "arteryleftarm", "arteryleftleg", "arteryrightarm", "arteryrightleg", "clumsiness", "recklessness", "relapsing", "aeon", "confusion", "slickness", "shyness", "paranoia", "vertigo", "vestiphobia", "scabies", "dizziness", "missingleftear", "missingrightear", "sunallergy", "sensitivity", "hallucinating", "epilepsy", "crotamine", "hypersomnia", "weakness", "dysentery", "vomiting", "hypochondria", "rigormortis", "masochism", "vapors", "asthma", "dementia", "hemiplegyleft", "hemiplegyright", "pox", "opengut", "piercedleftarm", "piercedleftleg", "piercedrightarm", "piercedrightleg", "ablaze", "worms", "gluttony", "justice", "pacifism", "healthleech", "brokenjaw", "fracturedskull", "vomitblood", "fracturedleftarm", "fracturedrightarm", "brokenchest", "brokennose", "agoraphobia", "brokenleftwrist", "brokenrightwrist", "addiction", "haemophilia", "impatience", "disloyalty", "claustrophobia", "peace", "daydreaming", "narcolepsy", "puncturedaura", "puncturedchest", "puncturedlung", "blacklung", "leglock", "omniphobia", "openchest", "slicedleftbicep", "slicedleftthigh", "slicedrightbicep", "slicedrightthigh", "scalped", "illuminated", "clampedleft", "clampedright", "succumb", "mud", "papaxihealth", "papaximana", "papaxiego", "omen", "heretic", "infidel", "bubble", "taintsick", "sap", "treebane", "stars",  "darkmoon", "fear", "blackout", "drunk", "deadening", "loneliness", "dissonance", "darkseed", "gunk", "egovice", "manabarbs", "powerspikes", "achromaticaura", "gashedcheek", "laceratedleftarm", "laceratedleftleg", "laceratedrightarm", "laceratedrightleg", "laceratedunknown", "severedphrenic", "snappedrib", "furrowedbrow", "crushedwindpipe", "afterimage", "earache", "rainbowpattern", "crushedleftfoot", "crushedrightfoot", "slicedtongue", "shortbreath", "dislocatedleftarm", "dislocatedleftleg", "dislocatedrightarm", "dislocatedrightleg", "scrambledbrain", "hemiplegylower", "twistedleftarm", "twistedleftleg", "twistedrightarm", "twistedrightleg", "trembling", "truss", "void", "homeostasis", "bedevil", "aurawarp", "prone", "crippledleftarm", "crippledleftleg", "crippledrightarm", "crippledrightleg", "oneclot","twoclots","threeclots","fourplusclots", "enfeeble", "stiffhead", "stiffchest", "stiffgut", "stiffrightarm", "stiffleftarm", "insomnia", "shivering", "frozen", "lovepotion", "attraction", "grapple", "numbedhead", "numbedchest", "numbedgut", "numbedleftarm", "numbedleftleg", "numbedrightarm", "numbedrightleg", "batbane", "herbbane", "snakebane", "powersap",  "illusorywounds", "crucified", "disrupt", "stun", "sleep", "jinx", "batbane", "snakebane", "herbbane", "unknownmental", "cloudcoils", "bleeding", "unknownany", "slightinsanity", "moderateinsanity", "majorinsanity", "massiveinsanity", "minortimewarp", "moderatetimewarp", "majortimewarp", "massivetimewarp", "oracle", "anorexia", "collapsedlungs", "avengingangel"}}) do
 
 #for _, aff in pairs(allheale) do
 function valid.allheale_cured_$(aff)()
@@ -4503,7 +4540,7 @@ function valid.ate_sparkle()
 end
 
 function valid.scroll_healed()
-  local r = checkany(dict.healhealth.scroll, dict.healmana.scroll, dict.healego.scroll)
+  local r = checkany(dict.healhealth.scroll, dict.healmana.scroll, dict.healego.scroll, dict.protection.scroll)
   if not r then return end
 
   herb_cure = true
@@ -4511,7 +4548,7 @@ function valid.scroll_healed()
 end
 
 function valid.scroll_noeffect()
-  local r = checkany(dict.healhealth.scroll, dict.healmana.scroll, dict.healego.scroll)
+  local r = checkany(dict.healhealth.scroll, dict.healmana.scroll, dict.healego.scroll, dict.protection.scroll)
   if not r then return end
 
   herb_cure = true
