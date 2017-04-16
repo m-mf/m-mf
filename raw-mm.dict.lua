@@ -360,6 +360,14 @@ codepaste.remove_vessels = function()
   removeaff({"onevessel", "twovessels", "threevessels", "fourvessels", "fivevessels",  "sixvessels", "sevenvessels", "eightvessels", "ninevessels", "tenvessels",  "elevenvessels", "twelvevessels", "thirteenplusvessels"})
 end
 
+codepaste.clots_codepaste = function()
+  return (not doingaction "oneclot" and not doingaction "twoclots" and not doingaction "threeclots" and not doingaction "fourplusclots")
+end
+
+codepaste.remove_clots = function()
+  removeaff({"oneclot","twoclots","threeclots","fourplusclots"})
+end
+
 codepaste.remove_deathmarks = function()
   removeaff({"deathmarkone", "deathmarktwo", "deathmarkthree", "deathmarkfour", "deathmarkfive"})
 end
@@ -501,27 +509,27 @@ end
 
 function focus_aff(aff, cmd)
 
-  local t = {taintsick = "sickening", illuminated = "luminosity", hallucinating = "hallucinations"}
+  local t = {sickening = "taintsick", luminosity = "illuminated", hallucinations = "hallucinating"}
   local c_aff = (t[aff] or aff)
 
-  if (sys.sync and conf.aeonfocus) or me.focus[aff] then
+  if (sys.sync and conf.aeonfocus) or me.focus[c_aff] then
     if conf.beastfocus and bals.beast and not affs.disloyalty then
       if cmd == "dust" then
-        eat("dust", "beastfocus", c_aff)
+        eat("dust", "beastfocus", aff)
       else
-        send(cmd.." beastfocus "..c_aff, conf.commandecho)
+        send(cmd.." beastfocus "..aff, conf.commandecho)
       end
-    elseif conf.powerfocus and stats.currentpower >= 1 then
+    elseif conf.powerfocus and stats.currentpower >= conf.powerfocusamt then
       if cmd == "dust" then
-        eat("dust", "powerfocus",c_aff)
+        eat("dust", "powerfocus",aff)
       else
-        send(cmd.." powerfocus "..c_aff, conf.commandecho)
+        send(cmd.." powerfocus "..aff, conf.commandecho)
       end
     else
       if cmd == "dust" then
-        eat("dust", "focus",c_aff)
+        eat("dust", "focus",aff)
       else
-        send(cmd.." focus "..c_aff, conf.commandecho)
+        send(cmd.." focus "..aff, conf.commandecho)
       end
     end
     return
@@ -579,7 +587,7 @@ dict = {
       end
     },
     scroll = {
-      aspriority = 3,
+      aspriority = 4,
       spriority = 34,
 
       isadvisable = function ()
@@ -698,7 +706,7 @@ dict = {
       end
     },
     scroll = {
-      aspriority = 2,
+      aspriority = 3,
       spriority = 291,
 
       isadvisable = function ()
@@ -798,7 +806,7 @@ dict = {
       end
     },
     scroll = {
-      aspriority = 1,
+      aspriority = 2,
       spriority = 290,
 
       isadvisable = function ()
@@ -2826,6 +2834,7 @@ dict = {
         removeaff("haemophilia")
         removeaff("unknownwafer")
         sk.lostbal_wafer()
+        valid.simplebleeding()
       end,
 
       eatcure = "dust",
@@ -8401,6 +8410,183 @@ dict = {
       end,
     }
   },
+  fourplusclots = {
+    count = 0,
+    wafer = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.fourplusclots and codepaste.clots_codepaste()) or false
+      end,
+
+      all = function()
+        sk.lostbal_wafer()
+        codepaste.remove_clots()
+      end,
+
+      oncompleted = function ()
+        sk.lostbal_wafer()
+        if affs.fourplusclots and affs.fourplusclots.p.count > 0 then
+         affs.fourplusclots.p.count = affs.fourplusclots.p.count - 1
+        else
+         removeaff("fourplusclots")
+         removeaff("unknownwafer")
+         addaff(dict.threeclots)
+        end
+      end,
+
+      eatcure = "wafer",
+      onstart = function ()
+        eat("wafer")
+      end,
+
+      empty = function()
+        empty.eat_wafer()
+      end
+    },
+    aff = {
+      oncompleted = function ()
+        local count = dict.fourplusclots.count
+        codepaste.remove_clots()
+        addaff(dict.fourplusclots)
+
+        if count then affs.fourplusclots.p.count = count end
+        updateaffcount(dict.fourplusclots)
+      end,
+    },
+    gone = {
+      oncompleted = function ()
+        removeaff("fourplusclots")
+        dict.fourplusclots.count = 0
+      end,
+    }
+  },
+  threeclots = {
+    wafer = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.threeclots and codepaste.clots_codepaste()) or false
+      end,
+
+      all = function()
+        sk.lostbal_wafer()
+        codepaste.remove_clots()
+      end,
+
+      oncompleted = function ()
+        sk.lostbal_wafer()
+         removeaff("threeclots")
+         removeaff("unknownwafer")
+         addaff(dict.twoclots)
+      end,
+
+      eatcure = "wafer",
+      onstart = function ()
+        eat("wafer")
+      end,
+
+      empty = function()
+        empty.eat_wafer()
+      end
+    },
+    aff = {
+      oncompleted = function ()
+        codepaste.remove_clots()
+        addaff(dict.threeclots)
+      end,
+    },
+    gone = {
+      oncompleted = function ()
+        removeaff("threeclots")
+      end,
+    }
+  },
+  twoclots = {
+    wafer = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.twoclots and codepaste.clots_codepaste()) or false
+      end,
+
+      all = function()
+        sk.lostbal_wafer()
+        codepaste.remove_clots()
+      end,
+
+      oncompleted = function ()
+        sk.lostbal_wafer()
+         removeaff("twoclots")
+         removeaff("unknownwafer")
+         addaff(dict.oneclot)
+      end,
+
+      eatcure = "wafer",
+      onstart = function ()
+        eat("wafer")
+      end,
+
+      empty = function()
+        empty.eat_wafer()
+      end
+    },
+    aff = {
+      oncompleted = function ()
+        codepaste.remove_clots()
+        addaff(dict.twoclots)
+      end,
+    },
+    gone = {
+      oncompleted = function ()
+        removeaff("twoclots")
+      end,
+    }
+  },
+  oneclot = {
+    wafer = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function ()
+        return (affs.oneclot and codepaste.clots_codepaste()) or false
+      end,
+
+      all = function()
+        sk.lostbal_wafer()
+        codepaste.remove_clots()
+      end,
+
+      oncompleted = function ()
+        sk.lostbal_wafer()
+        removeaff("oneclot")
+        removeaff("unknownwafer")
+      end,
+
+      eatcure = "wafer",
+      onstart = function ()
+        eat("wafer")
+      end,
+
+      empty = function()
+        empty.eat_wafer()
+      end
+    },
+    aff = {
+      oncompleted = function ()
+        codepaste.remove_clots()
+        addaff(dict.oneclot)
+      end,
+    },
+    gone = {
+      oncompleted = function ()
+        removeaff("oneclot")
+      end,
+    }
+  },
   laceratedleftarm = {
     herb = {
       aspriority = 82,
@@ -8625,6 +8811,31 @@ dict = {
 
       empty = function()
         empty.eat_yarrow()
+      end
+    },
+    wafer = {
+      aspriority = 0,
+      spriority = 0,
+
+      focus = true,
+
+      isadvisable = function ()
+        return (affs.relapsing and not doingaction "relapsing") or false
+      end,
+
+      oncompleted = function ()
+        removeaff("relapsing")
+        removeaff("unknownwafer")
+        sk.lostbal_wafer()
+      end,
+
+      eatcure = "dust",
+      onstart = function ()
+        focus_aff("relapsing", "dust")
+      end,
+
+      empty = function()
+        empty.eat_wafer()
       end
     },
     aff = {
@@ -22318,14 +22529,13 @@ dict = {
     }
   },
   protection = {
-    physical = {
-      aspriority = 0,
+    scroll = {
+      aspriority = 1,
       spriority = 0,
-      balanceful_act = true,
       def = true,
 
       isadvisable = function ()
-        return (((sys.deffing and defdefup[defs.mode].protection and not defc.protection) or (conf.keepup and defkeepup[defs.mode].protection  and not defc.protection)) and not doingaction("waitingforprotection") and not doingaction("protection") and not codepaste.balanceful_defs_codepaste()) or false
+        return (((sys.deffing and defdefup[defs.mode].protection and not defc.protection) or (conf.keepup and defkeepup[defs.mode].protection  and not defc.protection)) and not doingaction("waitingforprotection") and not doingaction("protection")) or false
       end,
 
       oncompleted = function (def)
@@ -22333,8 +22543,12 @@ dict = {
         else
           doaction(dict.waitingforprotection.waitingfor)
         end
+        bals.scroll = false
       end,
 
+      noeffect = function()
+        bals.scroll = false
+      end,
 
       onstart = function ()
         if not conf.magictome then
@@ -22346,11 +22560,12 @@ dict = {
       end,
 
       empty = function ()
-        dict.protection.misc.oncompleted ()
+        dict.protection.scroll.oncompleted ()
       end
     },
   },
   waitingforprotection = {
+    spriority = 0,
     waitingfor = {
       customwait = 5,
 
@@ -24919,6 +25134,7 @@ stretch = {
 #basicdef("agility", "stealth agility")
 #basicdef("whisper", "stealth whisper")
 #basicdef("screen", "stealth screen")
+#basicdef_withpower("mislead", "stealth mislead", 5)
 shadowcloak = {
     physical = {
       balanceful_act = true,
@@ -25221,7 +25437,6 @@ end
 basicdef("aurasense", "aurasense on")
 basicdef("healingaura", "radiate health")
 basicdef("quickeningaura", "radiate speed")
-basicdef("depressionaura", "radiate depression")
 end)
 
 #if skills.elementalism then

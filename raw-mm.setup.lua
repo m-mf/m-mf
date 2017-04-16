@@ -278,6 +278,7 @@ conf.sacdelay = 0.5 -- delay after which the systems curing should resume in syn
 conf.pindelay = 0.050
 
 conf.bleedamount = 60
+conf.bruiseamount = 60
 conf.manause = 35
 
 conf.bashing = true
@@ -290,6 +291,7 @@ conf.cleanse = false
 conf.beastfocus = false
 conf.aeonfocus = true
 conf.powerfocus = false
+conf.powerfocusamt = 3
 
 conf.commandecho = true
 conf.blockcommands = true
@@ -505,6 +507,7 @@ sk.overhauldata = {
   slickness      = { newbalances = {"steam"}, oldbalances = {"herb"}},
   blind          = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   trueblind      = { newbalances = {"wafer"}, oldbalances = {"herb"}},
+  relapsing      = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   deaf           = { newbalances = {"steam"}, oldbalances = {"herb","wafer"}},
   truedeaf          = { newbalances = {"steam"}, oldbalances = {"herb","wafer"}},
   attraction        = { newbalances = {"steam"}, oldbalances = {"herb","wafer"}},
@@ -516,10 +519,10 @@ sk.overhauldata = {
   majorinsanity     = { newbalances = {"lucidity"}, oldbalances = {"herb","focus"}},
   moderateinsanity  = { newbalances = {"lucidity"}, oldbalances = {"herb","focus"}},
   slightinsanity    = { newbalances = {"lucidity"}, oldbalances = {"herb","focus"}},
-  clotleftshoulder  = { newbalances = {"wafer"}, oldbalances = {"herb"}},
-  clotrightshoulder = { newbalances = {"wafer"}, oldbalances = {"herb"}},
-  clotlefthip       = { newbalances = {"wafer"}, oldbalances = {"herb"}},
-  clotrighthip      = { newbalances = {"wafer"}, oldbalances = {"herb"}},
+  oneclot            = { newbalances = {"wafer"}, oldbalances = {"herb"}},
+  twoclots           = { newbalances = {"wafer"}, oldbalances = {"herb"}},
+  threeclots         = { newbalances = {"wafer"}, oldbalances = {"herb"}},
+  fourplusclots      = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   completelyaurawarped = { newbalances = {"steam"}, oldbalances = {"herb"}, replaces = {"aurawarp"}},
   massivelyaurawarped  = { newbalances = {"steam"}, oldbalances = {"herb"}, replaces = {"aurawarp"}},
   aurawarped           = { newbalances = {"steam"}, oldbalances = {"herb"}, replaces = {"aurawarp"}},

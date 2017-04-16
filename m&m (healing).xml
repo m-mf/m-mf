@@ -4708,7 +4708,7 @@ mmheal.succor(&quot;frozen&quot;)</script>
                     </regexCodePropertyList>
                 </Trigger>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>Slight insanity</name>
+                    <name>Slight/Minor insanity</name>
                     <script>mmheal.succor(&quot;slightinsanity&quot;)</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>99</conditonLineDelta>
@@ -4722,13 +4722,15 @@ mmheal.succor(&quot;frozen&quot;)</script>
                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                     <regexCodeList>
                         <string>suffering from a slight case of temporary insanity.</string>
+                        <string>suffering from a minor case of temporary insanity.</string>
                     </regexCodeList>
                     <regexCodePropertyList>
+                        <integer>3</integer>
                         <integer>3</integer>
                     </regexCodePropertyList>
                 </Trigger>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>Moderate insanity</name>
+                    <name>Moderate/Considerable insanity</name>
                     <script>mmheal.succor(&quot;moderateinsanity&quot;)</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>99</conditonLineDelta>
@@ -4742,13 +4744,15 @@ mmheal.succor(&quot;frozen&quot;)</script>
                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                     <regexCodeList>
                         <string>suffering from a moderate case of temporary insanity.</string>
+                        <string>suffering from a considerable case of temporary insanity.</string>
                     </regexCodeList>
                     <regexCodePropertyList>
+                        <integer>3</integer>
                         <integer>3</integer>
                     </regexCodePropertyList>
                 </Trigger>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>Major insanity</name>
+                    <name>Major/Concerning insanity</name>
                     <script>mmheal.succor(&quot;majorinsanity&quot;)</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>99</conditonLineDelta>
@@ -4762,8 +4766,10 @@ mmheal.succor(&quot;frozen&quot;)</script>
                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                     <regexCodeList>
                         <string>suffering from a major case of temporary insanity.</string>
+                        <string>suffering from a concerning case of temporary insanity.</string>
                     </regexCodeList>
                     <regexCodePropertyList>
+                        <integer>3</integer>
                         <integer>3</integer>
                     </regexCodePropertyList>
                 </Trigger>
@@ -4968,7 +4974,7 @@ mmheal.succor(&quot;frozen&quot;)</script>
                     </regexCodePropertyList>
                 </Trigger>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>Major timewarp</name>
+                    <name>Major/Concerning timewarp</name>
                     <script>mmheal.succor(&quot;majortimewarp&quot;)</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>99</conditonLineDelta>
@@ -4982,13 +4988,15 @@ mmheal.succor(&quot;frozen&quot;)</script>
                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                     <regexCodeList>
                         <string>majorly warped in time.</string>
+                        <string>concerningly warped in time.</string>
                     </regexCodeList>
                     <regexCodePropertyList>
+                        <integer>3</integer>
                         <integer>3</integer>
                     </regexCodePropertyList>
                 </Trigger>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>Moderate timewarp</name>
+                    <name>Moderate/Considerable timewarp</name>
                     <script>mmheal.succor(&quot;moderatetimewarp&quot;)</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
@@ -5002,13 +5010,15 @@ mmheal.succor(&quot;frozen&quot;)</script>
                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                     <regexCodeList>
                         <string>moderately warped in time.</string>
+                        <string>considerably warped in time.</string>
                     </regexCodeList>
                     <regexCodePropertyList>
+                        <integer>3</integer>
                         <integer>3</integer>
                     </regexCodePropertyList>
                 </Trigger>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>Minor timewarp</name>
+                    <name>Minor/Mild timewarp</name>
                     <script>mmheal.succor(&quot;minortimewarp&quot;)</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
@@ -5022,8 +5032,10 @@ mmheal.succor(&quot;frozen&quot;)</script>
                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                     <regexCodeList>
                         <string>minorly warped in time.</string>
+                        <string>mildly warped in time.</string>
                     </regexCodeList>
                     <regexCodePropertyList>
+                        <integer>3</integer>
                         <integer>3</integer>
                     </regexCodePropertyList>
                 </Trigger>
@@ -5374,6 +5386,26 @@ mmheal.succorfinished()</script>
                         <integer>4</integer>
                     </regexCodePropertyList>
                 </Trigger>
+                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                    <name>Blood clots</name>
+                    <script>mmheal.succor(matches[2]..&quot;clot&quot;)</script>
+                    <triggerType>0</triggerType>
+                    <conditonLineDelta>0</conditonLineDelta>
+                    <mStayOpen>0</mStayOpen>
+                    <mCommand></mCommand>
+                    <packageName></packageName>
+                    <mFgColor>#ff0000</mFgColor>
+                    <mBgColor>#ffff00</mBgColor>
+                    <mSoundFile></mSoundFile>
+                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                    <regexCodeList>
+                        <string>^afflicted with (\d+) blood clots$</string>
+                    </regexCodeList>
+                    <regexCodePropertyList>
+                        <integer>1</integer>
+                    </regexCodePropertyList>
+                </Trigger>
             </Trigger>
         </TriggerGroup>
     </TriggerPackage>
@@ -5441,7 +5473,7 @@ mmheal.affs = {}</script>
   fractures = {&quot;concussion&quot;, &quot;fracturedleftarm&quot;, &quot;fracturedrightarm&quot;, &quot;fracturedskull&quot;, &quot;brokenjaw&quot;, &quot;brokenrightwrist&quot;, &quot;brokenleftwrist&quot;, &quot;brokenchest&quot;, &quot;brokennose&quot;, &quot;crushedrightfoot&quot;, &quot;crushedleftfoot&quot;, &quot;crushedwindpipe&quot;, &quot;snappedrib&quot;},
   neurosis = {&quot;epilepsy&quot;, &quot;anorexia&quot;, &quot;confusion&quot;, &quot;clumsiness&quot;, &quot;minorinsanity&quot;, &quot;moderateinsanity&quot;, &quot;majorinsanity&quot;, &quot;massiveinsanity&quot;},
   choleric = {&quot;vomiting&quot;, &quot;asthma&quot;, &quot;pox&quot;, &quot;sickening&quot;, &quot;dysentery&quot;, &quot;scabies&quot;, &quot;paralysis&quot;},
-  sanguine = {&quot;haemophilia&quot;, &quot;relapsing&quot;, &quot;onevessels&quot;, &quot;twovessels&quot;, &quot;threevessels&quot;, &quot;fourvessels&quot;, &quot;thirteenplusvessels&quot;, &quot;clotleftshoulder&quot;, &quot;clotrightshoulder&quot;, &quot;clotleftleg&quot;, &quot;clotrightleg&quot;},
+  sanguine = {&quot;haemophilia&quot;, &quot;relapsing&quot;, &quot;onevessels&quot;, &quot;twovessels&quot;, &quot;threevessels&quot;, &quot;fourvessels&quot;, &quot;thirteenplusvessels&quot;, &quot;oneclot&quot;,&quot;twoclots&quot;,&quot;threeclots&quot;,&quot;fourplusclots&quot;},
   phlegmatic = {&quot;aeon&quot;, &quot;paralysis&quot;, &quot;rigormortis&quot;, &quot;disloyalty&quot;, &quot;pacifism&quot;, &quot;minortimewarp&quot;, &quot;moderatetimewarp&quot;, &quot;majortimewarp&quot;, &quot;massivetimewarp&quot;, &quot;transfixed&quot;},
   auric = {&quot;aeon&quot;, &quot;achromaticaura&quot;, &quot;healthleech&quot;, &quot;powerspikes&quot;, &quot;manabarbs&quot;, &quot;egovice&quot;, &quot;powersap&quot;, &quot;illuminated&quot;},
   mania = {&quot;stupidity&quot;, &quot;recklessness&quot;, &quot;hallucinations&quot;, &quot;addiction&quot;, &quot;paranoia&quot;, &quot;asthma&quot;, &quot;insomnia&quot; },
