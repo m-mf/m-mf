@@ -544,6 +544,11 @@ local temp_name_list = {}
 
 for i = 1, #data do
   local name = data[i]
+
+  name = name:gsub(&quot;%&lt;&quot;,&quot;&quot;)
+  name = name:gsub(&quot;%(&quot;,&quot;&quot;)
+  name = name:gsub(&quot;%)&quot;,&quot;&quot;)
+  name = name:gsub(&quot;%&gt;&quot;,&quot;&quot;)
   -- check for guides
   if name:find(&quot;(&quot;, 1, true) then
     local secondname
