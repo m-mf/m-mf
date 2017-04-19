@@ -497,7 +497,7 @@ sk.overhauldata = {
   haemophilia    = { newbalances = {"wafer"}, oldbalances = {"purgative", "herb"}},
   powersap       = { newbalances = {"wafer"}, oldbalances = {"purgative"}},
   scabies        = { newbalances = {"wafer"}, oldbalances = {"salve"}},
-  dysentery      = { newbalances = {"wafer"}, oldbalances = {"purgative"}, replaces = {"worms"}},
+  dysentery      = { newbalances = {"wafer"}, oldbalances = {"purgative"}, replaces = {"worms","blacklung"}},
   pox            = { newbalances = {"wafer"}, oldbalances = {"salve"}, replaces = {"sunallergy"}},
   vomiting       = { newbalances = {"wafer"}, oldbalances = {"purgative"}, replaces = {"vomitblood"}},
   rigormortis    = { newbalances = {"wafer"}, oldbalances = {"herb"}},

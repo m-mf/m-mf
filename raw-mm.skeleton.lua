@@ -412,6 +412,7 @@ end
 
 -- ice check
 check_ice = function(sync_mode)
+
   -- can we even use salves?
   if not bals.ice or usingbal("ice") or not next(affs) or
     affs.sleep or affs.stun or affs.inquisition or
@@ -884,10 +885,9 @@ local function work_slaves_work()
   check_purgative()
   check_lucidity()
   check_steam()
-  check_herb()
   check_wafer()
   check_ice()
-
+  check_herb()
   check_scroll()
   check_sparkle()
   check_misc()
