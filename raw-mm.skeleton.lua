@@ -142,7 +142,7 @@ local healthchecks = {
 check_sip = function(sync_mode)
   -- can we even sip?
   if not bals.sip or usingbal("sip") or affs.stun or
-    affs.sleep or affs.anorexia or affs.throatlock or
+    affs.sleep or affs.throatlock or
     affs.scarab or affs.slitthroat or affs.inquisition or
     affs.crushedwindpipe or affs.damagedthroat or affs.crucified then
       return
@@ -270,8 +270,7 @@ check_steam = function(sync_mode)
   -- can we even smoke?
   if not bals.steam or usingbal("steam") or affs.stun
     or affs.sleep or affs.scarab or affs.inquisition
-    or affs.crucified or affs.asthma or affs.collapsedlungs
-    or affs.pinlegright or affs.pinlegleft or affs.pinlegunknown
+    or affs.crucified or affs.asthma or affs.pinlegright or affs.pinlegleft or affs.pinlegunknown
     then
       return
   end
@@ -348,7 +347,7 @@ check_allheale = function (sync_mode)
   -- can we even sip?
   if not bals.allheale or usingbal("allheale") or not next(affs)
     or affs.sleep or affs.anorexia or affs.scarab or affs.slitthroat
-    or affs.throatlock or not conf.allheale or affs.inquisition
+    or affs.throatlock or not conf.allheale or affs.inquisition or affs.damagedthroat
     or affs.stun then
       return
   end
@@ -788,9 +787,9 @@ function sk.balance_controller()
   if sys.balanceid == sys.balancetick then return end
 
 #if skills.psionics then
-  if not (bals.balance and bals.equilibrium and bals.rightarm and bals.leftarm and bals.super and bals.sub and bals.id) or (affs.webbed or affs.bound or affs.transfixed or affs.roped or affs.impale or affs.paralysis) then return end
+  if not (bals.balance and bals.equilibrium and bals.rightarm and bals.leftarm and bals.super and bals.sub and bals.id) or (affs.webbed or affs.bound or affs.transfixed or affs.roped or affs.impale) then return end
 #else
-  if not (bals.balance and bals.equilibrium and bals.rightarm and bals.leftarm) or (affs.webbed or affs.bound or affs.transfixed or affs.roped or affs.impale or affs.paralysis) then return end
+  if not (bals.balance and bals.equilibrium and bals.rightarm and bals.leftarm) or (affs.webbed or affs.bound or affs.transfixed or affs.roped or affs.impale) then return end
 #end
 
   -- loop through all balanceless functions
@@ -878,6 +877,7 @@ local workload = {check_focus, check_salve, check_sip, check_purgative, check_lu
 -- real functions
 local function work_slaves_work()
   -- in async, ask each bal to do it's action
+ 
   check_focus()
   check_salve()
 
@@ -888,6 +888,7 @@ local function work_slaves_work()
   check_wafer()
   check_ice()
   check_herb()
+ 
   check_scroll()
   check_sparkle()
   check_misc()

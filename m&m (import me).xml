@@ -17717,8 +17717,10 @@ resetFormat()</script>
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
                                 <string>You begin your struggle to escape from the dreamworld.</string>
+                                <string>The sands of the dreaming suddenly lift you up and send you sailing out of the dreamrealm.</string>
                             </regexCodeList>
                             <regexCodePropertyList>
+                                <integer>3</integer>
                                 <integer>3</integer>
                             </regexCodePropertyList>
                         </Trigger>
@@ -25529,8 +25531,10 @@ echo(&quot; (no eating/focusing)&quot;)</script>
                             <string>You do not bleed, my friend.</string>
                             <string>You are neither bleeding nor bruised.</string>
                             <string>You are not bruised, my friend.</string>
+                            <string>You cannot clot anymore due to your hemorrhaging.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                             <integer>3</integer>
                             <integer>3</integer>
@@ -28523,8 +28527,10 @@ mm.valid.simpleopengut()</script>
                         <regexCodeList>
                             <string>You are asleep and can do nothing. WAKE will attempt to wake you.</string>
                             <string>Your exhausted mind can stay awake no longer, and you fall into a deep sleep.</string>
+                            <string>Your attempt to slip between reality and the realm of dreams is interrupted.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
+                            <integer>3</integer>
                             <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
@@ -37908,6 +37914,36 @@ end</script>
                         <integer>3</integer>
                     </regexCodePropertyList>
                 </Trigger>
+                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                    <name>Getting Jacked</name>
+                    <script>mm.givewarning({
+	initialmsg = &quot;You're getting dreamjacked off! Kether/violet weaver or leave area!&quot;,
+	prefixwarning = &quot;getting jacked&quot;,
+	duration = 2
+})</script>
+                    <triggerType>0</triggerType>
+                    <conditonLineDelta>0</conditonLineDelta>
+                    <mStayOpen>0</mStayOpen>
+                    <mCommand></mCommand>
+                    <packageName></packageName>
+                    <mFgColor>#ff0000</mFgColor>
+                    <mBgColor>#ffff00</mBgColor>
+                    <mSoundFile></mSoundFile>
+                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                    <regexCodeList>
+                        <string>You suddenly see the world through a curtain of glittering sand as an invisible thread begins tugging at you from deep within your being.</string>
+                        <string>The tugging within you becomes stronger, and reality starts to fade.</string>
+                        <string>The tugging within you becomes stronger, and reality begins to be replaced by glittering dunes.</string>
+                        <string>The tugging within you pulls you part way out of your body, and the dreamrealm starts rushing towards you.</string>
+                    </regexCodeList>
+                    <regexCodePropertyList>
+                        <integer>3</integer>
+                        <integer>3</integer>
+                        <integer>3</integer>
+                        <integer>3</integer>
+                    </regexCodePropertyList>
+                </Trigger>
             </TriggerGroup>
             <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                 <name>Druidry</name>
@@ -40720,6 +40756,28 @@ mm.valid.proper_prone()</script>
                         <integer>1</integer>
                         <integer>1</integer>
                         <integer>1</integer>
+                        <integer>1</integer>
+                    </regexCodePropertyList>
+                </Trigger>
+                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                    <name>hemorrhaging - temp</name>
+                    <script>mm.valid.hemorrhaging()</script>
+                    <triggerType>0</triggerType>
+                    <conditonLineDelta>0</conditonLineDelta>
+                    <mStayOpen>0</mStayOpen>
+                    <mCommand></mCommand>
+                    <packageName></packageName>
+                    <mFgColor>#ff0000</mFgColor>
+                    <mBgColor>#ffff00</mBgColor>
+                    <mSoundFile></mSoundFile>
+                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                    <regexCodeList>
+                        <string>You have cured all your hemorrhaging.</string>
+                        <string>^You feel something deep within you hemorrhage. You've increased your hemorrhaging by (\d+) for a total of (\d+) hemorrhaging\.$</string>
+                    </regexCodeList>
+                    <regexCodePropertyList>
+                        <integer>3</integer>
                         <integer>1</integer>
                     </regexCodePropertyList>
                 </Trigger>
