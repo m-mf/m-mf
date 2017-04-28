@@ -22575,8 +22575,8 @@ dict = {
         if def then defences.got("protection")
         else
           doaction(dict.waitingforprotection.waitingfor)
+          bals.scroll = false
         end
-        bals.scroll = false
       end,
 
       noeffect = function()

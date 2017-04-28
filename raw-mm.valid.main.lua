@@ -859,17 +859,19 @@ function valid.proper_setvessel()
   valid["diag_"..aff]()
 end
 
-clotslist = {"oneclot","twoclots","threeclots","fourplusclots"}
+
 
 next_clots = function()
+local clotslist = {"oneclot","twoclots","threeclots","fourplusclots"}
   for i,v in ipairs(clotslist) do
     if affs[v] then return clotslist[i+1] or "fourplusclots" end
   end
 end
 
 previous_clots = function()
-  for i,v in ipairs(clotslist) do
-    if affs[v] then return clotslist[i-1] or nil end
+local clotslist1 = {"oneclot","twoclots","threeclots","fourplusclots"}
+  for i,v in ipairs(clotslist1) do
+    if affs[v] then return clotslist1[i-1] or nil end
   end
 end
 
@@ -885,12 +887,13 @@ function valid.proper_clots()
 end
 
 function valid.proper_setclots()
+  local clotslist2 = {"oneclot","twoclots","threeclots","fourplusclots"}
   local num = tonumber(matches[2])
   if not num then return end
 
   local aff
 
-  if num >= 4 then aff = "fourplusclots" else aff = clotslist[num] end
+  if num >= 4 then aff = "fourplusclots" else aff = clotslist2[num] end
   valid["diag_"..aff]()
 end
 
