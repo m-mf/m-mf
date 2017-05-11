@@ -613,6 +613,7 @@ mmi.stopinfluencing()</script>
                 <script>local o = matches[2]
 
 if o == &quot;all&quot; then
+  if matches[3] then mmi.attacktype = matches[3] or nil end
   mmi.startinfluenceroom()
 
 elseif o == &quot;clear&quot; and matches[3] == &quot;uninfluencable&quot; then
@@ -924,7 +925,7 @@ function mmi.doneinfluencing(arg)
 		if mmi.roomnpcs[mmi.target] then mmi.roomnpcs[mmi.target].influenced = true end
 	end
 
-	mmi.target, mmi.influencing, mmi.attacktype = nil, nil, nil
+	mmi.target, mmi.influencing = nil, nil
 	tempLineTrigger(1,1, 'raiseEvent(&quot;mmi done influencing&quot;, arg)')
 end
 
