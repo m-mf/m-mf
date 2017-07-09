@@ -2443,6 +2443,32 @@ dict = {
         removeaff("frozen")
       end
     },
+	wafer = {
+      aspriority = 0,
+      spriority = 0,
+
+      focus = true,
+
+      isadvisable = function ()
+        return (affs.shivering and not doingaction "shivering") or false
+      end,
+
+      oncompleted = function ()
+        removeaff("shivering")
+        removeaff("unknownwafer")
+        sk.lostbal_wafer()
+      end,
+
+      eatcure = "dust",
+      onstart = function ()
+        focus_aff("shivering", "dust")
+        --eat("dust")
+      end,
+
+      empty = function()
+        empty.eat_wafer()
+      end
+    },
     aff = {
       oncompleted = function ()
         addaff(dict.shivering)
@@ -3548,7 +3574,7 @@ dict = {
           sk["forcelight_"..name] = false
         end
       end,
-      
+
       onstart = function ()
         if conf.gagrelight then
           send("light " .. pipes.steam.id, false)
@@ -11621,7 +11647,7 @@ dict = {
     },
     aff = {
       oncompleted = function()
-       if bals.allheale then 
+       if bals.allheale then
         addaff(dict.unknownallheale)
        end
       end,
@@ -11641,7 +11667,7 @@ dict = {
         removeaff("unknownwafer")
         sk.lostbal_wafer()
       end,
-      
+
       eatcure = "dust",
       onstart = function ()
         eat("dust")
