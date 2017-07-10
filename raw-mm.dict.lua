@@ -2420,7 +2420,8 @@ dict = {
       spriority = 169,
 
       isadvisable = function ()
-        return (affs.shivering) or false
+        return false
+        --return (affs.shivering) or false
       end,
 
       oncompleted = function ()
@@ -2487,7 +2488,8 @@ dict = {
       spriority = 168,
 
       isadvisable = function ()
-        return (affs.frozen) or false
+        return false
+        --return (affs.frozen) or false
       end,
 
       oncompleted = function ()
