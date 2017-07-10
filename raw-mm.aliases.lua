@@ -503,7 +503,7 @@ function showfocus()
       t[#t+1] = aff
     end
     local str = "Currently focusing: "
-    str = str + table.concat(t, ", ")
+    str = str .. table.concat(t, ", ")
     echofn(str)
   else
     echofn("Currently not focusing any afflictions.")

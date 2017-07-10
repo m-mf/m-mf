@@ -25,7 +25,7 @@ function basicdef(which, command, balanceless)
         def = true,
 
         isadvisable = function ()
-          return (((sys.deffing and defdefup[defs.mode].]]..which..[[ and not defc.]]..which..[[) or (conf.keepup and defkeepup[defs.mode].]]..which..[[ and not defc.]]..which..[[)) and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone %s) or false
+          return (((sys.deffing and defdefup[defs.mode].]]..which..[[ and not defc.]]..which..[[) or (conf.keepup and defkeepup[defs.mode].]]..which..[[ and not defc.]]..which..[[)) and not codepaste.balanceful_defs_codepaste() and not affs.prone %s) or false
         end,
 
         oncompleted = function ()
@@ -47,7 +47,7 @@ function basicdef(which, command, balanceless)
         def = true,
 
         isadvisable = function ()
-          return (((sys.deffing and defdefup[defs.mode].]]..which..[[ and not defc.]]..which..[[) or (conf.keepup and defkeepup[defs.mode].]]..which..[[ and not defc.]]..which..[[)) and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone %s) or false
+          return (((sys.deffing and defdefup[defs.mode].]]..which..[[ and not defc.]]..which..[[) or (conf.keepup and defkeepup[defs.mode].]]..which..[[ and not defc.]]..which..[[)) and not codepaste.balanceful_defs_codepaste() and not affs.prone %s) or false
         end,
 
         oncompleted = function ()
@@ -80,7 +80,7 @@ function basicdef_withpower(which, command, powercost, balanceless)
         def = true,
 
         isadvisable = function ()
-          return (stats.currentpower >= ]]..powercost..[[ and ((sys.deffing and defdefup[defs.mode].]]..which..[[ and not defc.]]..which..[[) or (conf.keepup and defkeepup[defs.mode].]]..which..[[ and not defc.]]..which..[[)) and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone %s) or false
+          return (stats.currentpower >= ]]..powercost..[[ and ((sys.deffing and defdefup[defs.mode].]]..which..[[ and not defc.]]..which..[[) or (conf.keepup and defkeepup[defs.mode].]]..which..[[ and not defc.]]..which..[[)) and not codepaste.balanceful_defs_codepaste() and not affs.prone %s) or false
         end,
 
         oncompleted = function ()
@@ -102,7 +102,7 @@ function basicdef_withpower(which, command, powercost, balanceless)
         def = true,
 
         isadvisable = function ()
-          return (stats.currentpower >= ]]..powercost..[[ and ((sys.deffing and defdefup[defs.mode].]]..which..[[ and not defc.]]..which..[[) or (conf.keepup and defkeepup[defs.mode].]]..which..[[ and not defc.]]..which..[[)) and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone %s) or false
+          return (stats.currentpower >= ]]..powercost..[[ and ((sys.deffing and defdefup[defs.mode].]]..which..[[ and not defc.]]..which..[[) or (conf.keepup and defkeepup[defs.mode].]]..which..[[ and not defc.]]..which..[[)) and not codepaste.balanceful_defs_codepaste() and not affs.prone %s) or false
         end,
 
         oncompleted = function ()
@@ -2011,7 +2011,7 @@ dict = {
       spriority = 324,
 
       isadvisable = function ()
-        return (affs.aeon and not affs.paralysis and not affs.severedspine and not doingaction("aeon") and mm.bals.balance and mm.bals.equilibrium and mm.me.activeskills.athletics) or false
+        return (affs.aeon and not affs.severedspine and not doingaction("aeon") and mm.bals.balance and mm.bals.equilibrium and mm.me.activeskills.athletics) or false
       end,
 
       onstart = function ()
@@ -2443,6 +2443,32 @@ dict = {
         removeaff("frozen")
       end
     },
+	wafer = {
+      aspriority = 0,
+      spriority = 0,
+
+      focus = true,
+
+      isadvisable = function ()
+        return (affs.shivering and not doingaction "shivering") and not affs.frozen or false
+      end,
+
+      oncompleted = function ()
+        removeaff("shivering")
+        removeaff("unknownwafer")
+        sk.lostbal_wafer()
+      end,
+
+      eatcure = "dust",
+      onstart = function ()
+        focus_aff("shivering", "dust")
+        --eat("dust")
+      end,
+
+      empty = function()
+        empty.eat_wafer()
+      end
+    },
     aff = {
       oncompleted = function ()
         addaff(dict.shivering)
@@ -2482,6 +2508,34 @@ dict = {
       empty = function ()
         sk.lostbal_purgative()
         removeaff("frozen")
+      end
+    },
+	wafer = {
+      aspriority = 0,
+      spriority = 0,
+
+      focus = true,
+
+      isadvisable = function ()
+        return (affs.frozen and not doingaction "frozen") or false
+      end,
+
+      oncompleted = function ()
+        removeaff("frozen")
+        removeaff("unknownwafer")
+        sk.lostbal_wafer()
+		addaff(dict.shivering)
+        defences.lost("fire")
+      end,
+
+      eatcure = "dust",
+      onstart = function ()
+        focus_aff("frozen", "dust")
+        --eat("dust")
+      end,
+
+      empty = function()
+        empty.eat_wafer()
       end
     },
     aff = {
@@ -3227,7 +3281,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (sys.manualdeepheal and not doingaction"deepheal" and not affs.paralysis) or false
+        return (sys.manualdeepheal and not doingaction"deepheal") or false
       end,
 
       oncompleted = function (limb)
@@ -3321,7 +3375,7 @@ dict = {
           and not affs.missingrightleg and not affs.missingleftleg
           and not affs.tendonright and not affs.tendonleft and not affs.tendonunknown
           and not affs.shatteredrightankle and not affs.shatteredleftankle
-          and not affs.paralysis and not affs.severedspine
+          and not affs.severedspine
           and not affs.truss and not affs.roped
           and not (affs.grapple and dict.grapple.fullbody)
           and not affs.hemiplegyleft and not affs.hemiplegyright
@@ -3548,7 +3602,7 @@ dict = {
           sk["forcelight_"..name] = false
         end
       end,
-      
+
       onstart = function ()
         if conf.gagrelight then
           send("light " .. pipes.steam.id, false)
@@ -3675,7 +3729,7 @@ dict = {
       end,
 
       onstart = function ()
-        if bals.balance and bals.equilibrium and bals.rightarm and bals.leftarm and not affs.prone and not affs.paralysis and not affs.severedspine then
+        if bals.balance and bals.equilibrium and bals.rightarm and bals.leftarm and not affs.prone and not affs.severedspine then
           send("stance " .. sp_config.stance_shouldbe, conf.commandecho)
         elseif conf.queuing then
           send("queuestance " .. sp_config.stance_shouldbe, conf.commandecho)
@@ -3767,7 +3821,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (cnrl.checkgreen and conf.cleanse and not doingaction "cleanse" and not doingaction "powercure" and not codepaste.cleanse_codepaste() and (cnrl.lockdata["cleanse a"]() or cnrl.lockdata["cleanse b"]() or cnrl.lockdata["cleanse c"]()) and not affs.paralysis and not affs.severedspine and not affs.prone and not affs.tangle and not affs.transfixed and not affs.shackled) or false
+        return (cnrl.checkgreen and conf.cleanse and not doingaction "cleanse" and not doingaction "powercure" and not codepaste.cleanse_codepaste() and (cnrl.lockdata["cleanse a"]() or cnrl.lockdata["cleanse b"]() or cnrl.lockdata["cleanse c"]()) and not affs.severedspine and not affs.prone and not affs.tangle and not affs.transfixed and not affs.shackled) or false
       end,
 
       oncompleted = function (aff)
@@ -3820,7 +3874,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return ((conf.summer or conf.tipheret) and ((affs.vines and not ignore.vines) or (affs.roped and not ignore.roped) or (affs.shackled and not ignore.shackled) or (affs.truss and not ignore.truss) or (affs.tangle and not ignore.tangle)) and codepaste.writhe() and not affs.paralysis and not affs.severedspine) or false
+        return ((conf.summer or conf.tipheret) and ((affs.vines and not ignore.vines) or (affs.roped and not ignore.roped) or (affs.shackled and not ignore.shackled) or (affs.truss and not ignore.truss) or (affs.tangle and not ignore.tangle)) and codepaste.writhe() and not affs.severedspine) or false
       end,
 
       oncompleted = function ()
@@ -3850,7 +3904,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (affs.bleeding and defc.claw and dict.bleeding.count >= (conf.clawamount or 700) and stats.currentpower >= 1 and not affs.paralysis and not affs.severedspine and not affs.shackled and not doingaction("sheatheclaw")) or false
+        return (affs.bleeding and defc.claw and dict.bleeding.count >= (conf.clawamount or 700) and stats.currentpower >= 1 and not affs.severedspine and not affs.shackled and not doingaction("sheatheclaw")) or false
       end,
 
       oncompleted = function (howmuch)
@@ -11594,6 +11648,39 @@ dict = {
       end,
     },
   },
+  unknownallheale = {
+    allheale = {
+      aspriority = 0,
+      spriority = 0,
+
+      isadvisable = function()
+        return (affs.unknownallheale) or false
+      end,
+
+      oncompleted = function ()
+        if not affs.unknownallheale then return end
+        removeaff("unknownallheale")
+        bals.allheale = false
+      end,
+
+      sipcure = "allheale",
+      onstart = function ()
+        send("sip allheale", conf.commandecho)
+      end,
+
+      empty = function()
+        bals.allheale = false
+        empty.sip_allheale()
+      end,
+    },
+    aff = {
+      oncompleted = function()
+       if bals.allheale then
+        addaff(dict.unknownallheale)
+       end
+      end,
+    },
+  },
   unknownwafer = {
     wafer = {
       aspriority = 0,
@@ -11608,7 +11695,7 @@ dict = {
         removeaff("unknownwafer")
         sk.lostbal_wafer()
       end,
-      
+
       eatcure = "dust",
       onstart = function ()
         eat("dust")
@@ -17287,7 +17374,7 @@ dict = {
         return (affs.pitted and
           not doingaction("curingpitted") and not doingaction("pitted") and
           ((conf.rockclimbing and stats.currentpower >= 3) or
-            (not affs.prone and not affs.paralysis and not affs.severedspine and not affs.crippledleftleg and not affs.crippledrightleg and not affs.mangledleftleg and not affs.mangledrightleg and not affs.missingrightleg and not affs.missingleftleg and not affs.impale and not affs.vines and not affs.transfixed and not affs.clampedleft and not affs.clampedright and not affs.hoisted and not affs.roped and not affs.shackled and not affs.grapple and not affs.truss and not affs.tangle and not affs.crucified and not affs.gore))) or false
+            (not affs.prone and not affs.severedspine and not affs.crippledleftleg and not affs.crippledrightleg and not affs.mangledleftleg and not affs.mangledrightleg and not affs.missingrightleg and not affs.missingleftleg and not affs.impale and not affs.vines and not affs.transfixed and not affs.clampedleft and not affs.clampedright and not affs.hoisted and not affs.roped and not affs.shackled and not affs.grapple and not affs.truss and not affs.tangle and not affs.crucified and not affs.gore))) or false
       end,
 
       oncompleted = function ()
@@ -17295,7 +17382,7 @@ dict = {
       end,
 
       onstart = function ()
-        if ((not conf.alwaysrockclimb or not conf.rockclimbing) and not affs.prone and not affs.paralysis and not affs.severedspine and not affs.crippledleftleg and not affs.crippledrightleg and not affs.mangledleftleg and not affs.mangledrightleg and not affs.missingrightleg and not affs.missingleftleg and not affs.impale and not affs.vines and not affs.transfixed and not affs.clampedleft and not affs.clampedright and not affs.hoisted and not affs.roped and not affs.shackled and not affs.grapple and not affs.truss and not affs.tangle and not affs.crucified and not affs.gore and not affs.unknowncrippledleg) then
+        if ((not conf.alwaysrockclimb or not conf.rockclimbing) and not affs.prone and not affs.severedspine and not affs.crippledleftleg and not affs.crippledrightleg and not affs.mangledleftleg and not affs.mangledrightleg and not affs.missingrightleg and not affs.missingleftleg and not affs.impale and not affs.vines and not affs.transfixed and not affs.clampedleft and not affs.clampedright and not affs.hoisted and not affs.roped and not affs.shackled and not affs.grapple and not affs.truss and not affs.tangle and not affs.crucified and not affs.gore and not affs.unknowncrippledleg) then
             send("climb up", conf.commandecho)
         elseif (conf.rockclimbing and stats.currentpower >= 3) then
             send("climb rocks", conf.commandecho)
@@ -19063,7 +19150,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (affs.deathmarkfive and conf.cleanse and not affs.prone and not codepaste.cleanse_codepaste() and not affs.paralysis and not affs.severedspine and not affs.tangle and not affs.transfixed and not affs.shackled) or false
+        return (affs.deathmarkfive and conf.cleanse and not affs.prone and not codepaste.cleanse_codepaste() and not affs.severedspine and not affs.tangle and not affs.transfixed and not affs.shackled) or false
       end,
 
       oncompleted = function ()
@@ -19097,7 +19184,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (affs.deathmarkfour and conf.cleanse and not affs.prone and not codepaste.cleanse_codepaste() and not affs.paralysis and not affs.severedspine and not affs.tangle and not affs.transfixed and not affs.shackled) or false
+        return (affs.deathmarkfour and conf.cleanse and not affs.prone and not codepaste.cleanse_codepaste() and not affs.severedspine and not affs.tangle and not affs.transfixed and not affs.shackled) or false
       end,
 
       oncompleted = function ()
@@ -19131,7 +19218,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (affs.deathmarkthree and conf.cleanse and not affs.prone and not codepaste.cleanse_codepaste() and not affs.paralysis and not affs.severedspine and not affs.tangle and not affs.transfixed and not affs.shackled) or false
+        return (affs.deathmarkthree and conf.cleanse and not affs.prone and not codepaste.cleanse_codepaste() and not affs.severedspine and not affs.tangle and not affs.transfixed and not affs.shackled) or false
       end,
 
       oncompleted = function ()
@@ -19165,7 +19252,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (affs.deathmarktwo and conf.cleanse and not affs.prone and not codepaste.cleanse_codepaste() and not affs.paralysis and not affs.severedspine and not affs.tangle and not affs.transfixed and not affs.shackled) or false
+        return (affs.deathmarktwo and conf.cleanse and not affs.prone and not codepaste.cleanse_codepaste() and not affs.severedspine and not affs.tangle and not affs.transfixed and not affs.shackled) or false
       end,
 
       oncompleted = function ()
@@ -19199,7 +19286,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (affs.deathmarkone and conf.cleanse and not affs.prone and not codepaste.cleanse_codepaste() and not affs.paralysis and not affs.severedspine and not affs.tangle and not affs.transfixed and not affs.shackled) or false
+        return (affs.deathmarkone and conf.cleanse and not affs.prone and not codepaste.cleanse_codepaste() and not affs.severedspine and not affs.tangle and not affs.transfixed and not affs.shackled) or false
       end,
 
       oncompleted = function ()
@@ -19232,7 +19319,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (affs.gunk and conf.cleanse and not affs.prone and not codepaste.cleanse_codepaste() and not affs.paralysis and not affs.severedspine and not affs.tangle and not affs.transfixed and not affs.shackled) or false
+        return (affs.gunk and conf.cleanse and not affs.prone and not codepaste.cleanse_codepaste() and not affs.severedspine and not affs.tangle and not affs.transfixed and not affs.shackled) or false
       end,
 
       oncompleted = function ()
@@ -19264,7 +19351,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (affs.mucous and conf.cleanse and not affs.prone and not codepaste.cleanse_codepaste() and not affs.paralysis and not affs.severedspine and not affs.tangle and not affs.transfixed and not affs.shackled) or false
+        return (affs.mucous and conf.cleanse and not affs.prone and not codepaste.cleanse_codepaste() and not affs.severedspine and not affs.tangle and not affs.transfixed and not affs.shackled) or false
       end,
 
       oncompleted = function ()
@@ -19296,7 +19383,7 @@ dict = {
       spriority = 234,
 
       isadvisable = function ()
-        return (affs.mud and conf.cleanse and not affs.prone and not codepaste.cleanse_codepaste() and not affs.paralysis and not affs.severedspine and not affs.tangle and not affs.transfixed) or false
+        return (affs.mud and conf.cleanse and not affs.prone and not codepaste.cleanse_codepaste() and not affs.severedspine and not affs.tangle and not affs.transfixed) or false
       end,
 
       oncompleted = function ()
@@ -19330,7 +19417,7 @@ dict = {
       isadvisable = function ()
         -- debugf("sap_physical getting checked...")
         -- debugf("affs.sap %s and conf.cleanse %s and not codepaste.cleanse_codepaste() %s and not affs.prone %s and not affs.paralysis %s and not affs.severedspine %s and not affs.tangle %s and not affs.transfixed %s", tostring(affs.sap), tostring(conf.cleanse), tostring(codepaste.cleanse_codepaste() or 'no value'), tostring(affs.prone), tostring(affs.paralysis), tostring(affs.severedspine), tostring(affs.tangle), tostring(affs.transfixed))
-        return (affs.sap and conf.cleanse and not codepaste.cleanse_codepaste() and not affs.prone and not affs.paralysis and not affs.severedspine and not affs.tangle and not affs.transfixed) or false
+        return (affs.sap and conf.cleanse and not codepaste.cleanse_codepaste() and not affs.prone and not affs.severedspine and not affs.tangle and not affs.transfixed) or false
       end,
 
       oncompleted = function ()
@@ -22278,7 +22365,7 @@ dict = {
       def = true,
 
       isadvisable = function ()
-        return ((sys.deffing and defdefup[defs.mode].fire and not defc.fire) or (conf.keepup and defkeepup[defs.mode].fire and not defc.fire)) or false
+        return ((sys.deffing and defdefup[defs.mode].fire and not defc.fire) or (conf.keepup and defkeepup[defs.mode].fire and not defc.fire)) and not affs.shivering and not affs.frozen or false
       end,
 
       oncompleted = function ()
@@ -22542,8 +22629,8 @@ dict = {
         if def then defences.got("protection")
         else
           doaction(dict.waitingforprotection.waitingfor)
+          bals.scroll = false
         end
-        bals.scroll = false
       end,
 
       noeffect = function()
@@ -22677,7 +22764,7 @@ dict = {
       balanceful_act = true,
 
       isadvisable = function ()
-        return (((sys.deffing and defdefup[defs.mode].quicksilver and not defc.quicksilver) or (conf.keepup and defkeepup[defs.mode].quicksilver  and not defc.quicksilver)) and conf.adrenaline and not doingaction("curingquicksilver") and not doingaction("quicksilver") and not affs.paralysis and not dict.quicksilver.blocked and not sys.manualdefcheck and mm.me.activeskills.athletics and mm.bals.balance and mm.bals.equilibrium) or false
+        return (((sys.deffing and defdefup[defs.mode].quicksilver and not defc.quicksilver) or (conf.keepup and defkeepup[defs.mode].quicksilver  and not defc.quicksilver)) and conf.adrenaline and not doingaction("curingquicksilver") and not doingaction("quicksilver") and not dict.quicksilver.blocked and not sys.manualdefcheck and mm.me.activeskills.athletics and mm.bals.balance and mm.bals.equilibrium) or false
       end,
 
       onstart = function ()
@@ -23949,7 +24036,7 @@ dict = {
       def = true,
 
       isadvisable = function ()
-        return (((sys.deffing and defdefup[defs.mode].adrenaline and not defc.quicksilver) or (conf.keepup and defkeepup[defs.mode].adrenaline and not defc.quicksilver)) and not doingaction("curingquicksilver") and not doingaction("adrenaline") and not doingaction ("quicksilver") and not affs.paralysis and not affs.severedspine and not sys.manualdefcheck) or false
+        return (((sys.deffing and defdefup[defs.mode].adrenaline and not defc.quicksilver) or (conf.keepup and defkeepup[defs.mode].adrenaline and not defc.quicksilver)) and not doingaction("curingquicksilver") and not doingaction("adrenaline") and not doingaction ("quicksilver") and not affs.severedspine and not sys.manualdefcheck) or false
       end,
 
       oncompleted = function ()
@@ -24413,7 +24500,7 @@ wondercornbal = {
         def = true,
 
         isadvisable = function ()
-          return (((sys.deffing and defdefup[defs.mode].wondercornbal and not defc.wondercornbal) or (conf.keepup and defkeepup[defs.mode].wondercornbal and not defc.wondercornbal)) and codepaste.wonderitems("wondercornbal") and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone) or false
+          return (((sys.deffing and defdefup[defs.mode].wondercornbal and not defc.wondercornbal) or (conf.keepup and defkeepup[defs.mode].wondercornbal and not defc.wondercornbal)) and codepaste.wonderitems("wondercornbal") and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
         end,
 
         oncompleted = function ()
@@ -24447,7 +24534,7 @@ wondercornhp = {
         def = true,
 
         isadvisable = function ()
-          return (((sys.deffing and defdefup[defs.mode].wondercornhp and not defc.wondercornhp) or (conf.keepup and defkeepup[defs.mode].wondercornhp and not defc.wondercornhp)) and codepaste.wonderitems("wondercornhp") and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone) or false
+          return (((sys.deffing and defdefup[defs.mode].wondercornhp and not defc.wondercornhp) or (conf.keepup and defkeepup[defs.mode].wondercornhp and not defc.wondercornhp)) and codepaste.wonderitems("wondercornhp") and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
         end,
 
         oncompleted = function ()
@@ -24481,7 +24568,7 @@ wondercornmp = {
         def = true,
 
         isadvisable = function ()
-          return (((sys.deffing and defdefup[defs.mode].wondercornmp and not defc.wondercornmp) or (conf.keepup and defkeepup[defs.mode].wondercornmp and not defc.wondercornmp)) and codepaste.wonderitems("wondercornmp") and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone) or false
+          return (((sys.deffing and defdefup[defs.mode].wondercornmp and not defc.wondercornmp) or (conf.keepup and defkeepup[defs.mode].wondercornmp and not defc.wondercornmp)) and codepaste.wonderitems("wondercornmp") and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
         end,
 
         oncompleted = function ()
@@ -24515,7 +24602,7 @@ wondercornego = {
         def = true,
 
         isadvisable = function ()
-          return (((sys.deffing and defdefup[defs.mode].wondercornego and not defc.wondercornego) or (conf.keepup and defkeepup[defs.mode].wondercornego and not defc.wondercornego)) and codepaste.wonderitems("wondercornego") and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone) or false
+          return (((sys.deffing and defdefup[defs.mode].wondercornego and not defc.wondercornego) or (conf.keepup and defkeepup[defs.mode].wondercornego and not defc.wondercornego)) and codepaste.wonderitems("wondercornego") and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
         end,
 
         oncompleted = function ()
@@ -24549,7 +24636,7 @@ wondercornres = {
         def = true,
 
         isadvisable = function ()
-          return (((sys.deffing and defdefup[defs.mode].wondercornres and not defc.wondercornres) or (conf.keepup and defkeepup[defs.mode].wondercornres and not defc.wondercornres)) and codepaste.wonderitems("wondercornres") and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone) or false
+          return (((sys.deffing and defdefup[defs.mode].wondercornres and not defc.wondercornres) or (conf.keepup and defkeepup[defs.mode].wondercornres and not defc.wondercornres)) and codepaste.wonderitems("wondercornres") and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
         end,
 
         oncompleted = function ()
@@ -24583,7 +24670,7 @@ wondercorndam = {
         def = true,
 
         isadvisable = function ()
-          return (((sys.deffing and defdefup[defs.mode].wondercorndam and not defc.wondercorndam) or (conf.keepup and defkeepup[defs.mode].wondercorndam and not defc.wondercorndam)) and codepaste.wonderitems("wondercorndam") and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone) or false
+          return (((sys.deffing and defdefup[defs.mode].wondercorndam and not defc.wondercorndam) or (conf.keepup and defkeepup[defs.mode].wondercorndam and not defc.wondercorndam)) and codepaste.wonderitems("wondercorndam") and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
         end,
 
         oncompleted = function ()
@@ -24617,7 +24704,7 @@ wondercorneq = {
         def = true,
 
         isadvisable = function ()
-          return (((sys.deffing and defdefup[defs.mode].wondercorneq and not defc.wondercorneq) or (conf.keepup and defkeepup[defs.mode].wondercorneq and not defc.wondercorneq)) and codepaste.wonderitems("wondercorneq") and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone) or false
+          return (((sys.deffing and defdefup[defs.mode].wondercorneq and not defc.wondercorneq) or (conf.keepup and defkeepup[defs.mode].wondercorneq and not defc.wondercorneq)) and codepaste.wonderitems("wondercorneq") and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
         end,
 
         oncompleted = function ()
@@ -24651,7 +24738,7 @@ redgenies = {
         def = true,
 
         isadvisable = function ()
-          return (((sys.deffing and defdefup[defs.mode].redgenies and not defc.redgenies) or (conf.keepup and defkeepup[defs.mode].redgenies and not defc.redgenies)) and codepaste.geniedefs("redgenies") and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone) or false
+          return (((sys.deffing and defdefup[defs.mode].redgenies and not defc.redgenies) or (conf.keepup and defkeepup[defs.mode].redgenies and not defc.redgenies)) and codepaste.geniedefs("redgenies") and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
         end,
 
         oncompleted = function ()
@@ -24681,7 +24768,7 @@ bluegenies = {
         def = true,
 
         isadvisable = function ()
-          return (((sys.deffing and defdefup[defs.mode].bluegenies and not defc.bluegenies) or (conf.keepup and defkeepup[defs.mode].bluegenies and not defc.bluegenies)) and codepaste.geniedefs("bluegenies") and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone) or false
+          return (((sys.deffing and defdefup[defs.mode].bluegenies and not defc.bluegenies) or (conf.keepup and defkeepup[defs.mode].bluegenies and not defc.bluegenies)) and codepaste.geniedefs("bluegenies") and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
         end,
 
         oncompleted = function ()
@@ -24711,7 +24798,7 @@ yellowgenies = {
         def = true,
 
         isadvisable = function ()
-          return (((sys.deffing and defdefup[defs.mode].yellowgenies and not defc.yellowgenies) or (conf.keepup and defkeepup[defs.mode].yellowgenies and not defc.yellowgenies)) and codepaste.geniedefs("yellowgenies") and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone) or false
+          return (((sys.deffing and defdefup[defs.mode].yellowgenies and not defc.yellowgenies) or (conf.keepup and defkeepup[defs.mode].yellowgenies and not defc.yellowgenies)) and codepaste.geniedefs("yellowgenies") and not codepaste.balanceful_defs_codepaste() and not affs.prone) or false
         end,
 
         oncompleted = function ()
@@ -25197,7 +25284,7 @@ shadowcloak = {
         def = true,
 
         isadvisable = function ()
-          return (((sys.deffing and defdefup[defs.mode].weatherguard and not defc.weatherguard) or (conf.keepup and defkeepup[defs.mode].weatherguard and not defc.weatherguard)) and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone and not (gmcp.Room and gmcp.Room.Info and gmcp.Room.Info.details and table.contains(gmcp.Room.Info.details, "indoors"))) or false
+          return (((sys.deffing and defdefup[defs.mode].weatherguard and not defc.weatherguard) or (conf.keepup and defkeepup[defs.mode].weatherguard and not defc.weatherguard)) and not codepaste.balanceful_defs_codepaste() and not affs.prone and not (gmcp.Room and gmcp.Room.Info and gmcp.Room.Info.details and table.contains(gmcp.Room.Info.details, "indoors"))) or false
         end,
 
         oncompleted = function ()
@@ -25418,7 +25505,7 @@ shadowcloak = {
 #basicdef_withpower("warrior", {"outd warrior", "fling warrior at ground"}, 2)
 #basicdef_withpower("starleaper", {"outd starleaper", "fling starleaper at ground"}, 2)
 #basicdef("princess", {"outd princess", "fling princess at ground"})
-#basicdef("teacher", {"outd teacher", "fling teacher at ground"})
+#basicdef("teacher", {"outd teacher", "fling teacher at me"})
 #end
 
 #if skills.wicca then
@@ -25451,7 +25538,7 @@ end)
       def = true,
 
       isadvisable = function ()
-        return (((sys.deffing and defdefup[defs.mode].levitate and not defc.levitate) or (conf.keepup and defkeepup[defs.mode].levitate and not defc.levitate)) and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone ) or false
+        return (((sys.deffing and defdefup[defs.mode].levitate and not defc.levitate) or (conf.keepup and defkeepup[defs.mode].levitate and not defc.levitate)) and not codepaste.balanceful_defs_codepaste() and not affs.prone ) or false
       end,
 
       oncompleted = function ()
@@ -25607,7 +25694,7 @@ end)
       def = true,
 
       isadvisable = function ()
-        return (((sys.deffing and defdefup[defs.mode].perch and not defc.perch) or (conf.keepup and defkeepup[defs.mode].perch and not defc.perch)) and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone and gmcp.Room and gmcp.Room.Info and gmcp.Room.Info.name:starts("In the trees above")) or false
+        return (((sys.deffing and defdefup[defs.mode].perch and not defc.perch) or (conf.keepup and defkeepup[defs.mode].perch and not defc.perch)) and not codepaste.balanceful_defs_codepaste() and not affs.prone and gmcp.Room and gmcp.Room.Info and gmcp.Room.Info.name:starts("In the trees above")) or false
       end,
 
       oncompleted = function ()
@@ -25722,7 +25809,7 @@ end)
       def = true,
 
       isadvisable = function ()
-        return (((sys.deffing and defdefup[defs.mode].nimbus and not defc.nimbus) or (conf.keepup and defkeepup[defs.mode].nimbus and not defc.nimbus)) and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone ) or false
+        return (((sys.deffing and defdefup[defs.mode].nimbus and not defc.nimbus) or (conf.keepup and defkeepup[defs.mode].nimbus and not defc.nimbus)) and not codepaste.balanceful_defs_codepaste() and not affs.prone ) or false
       end,
 
       oncompleted = function ()
@@ -25748,7 +25835,7 @@ end)
       def = true,
 
       isadvisable = function ()
-        return (((sys.deffing and defdefup[defs.mode].deathsight and not defc.deathsight) or (conf.keepup and defkeepup[defs.mode].deathsight and not defc.deathsight)) and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone ) or false
+        return (((sys.deffing and defdefup[defs.mode].deathsight and not defc.deathsight) or (conf.keepup and defkeepup[defs.mode].deathsight and not defc.deathsight)) and not codepaste.balanceful_defs_codepaste() and not affs.prone ) or false
       end,
 
       oncompleted = function ()
@@ -25776,7 +25863,7 @@ end)
       def = true,
 
       isadvisable = function ()
-        return (((sys.deffing and defdefup[defs.mode].waterwalk and not defc.waterwalk) or (conf.keepup and defkeepup[defs.mode].waterwalk and not defc.waterwalk)) and not codepaste.balanceful_defs_codepaste() and not affs.paralysis and not affs.prone ) or false
+        return (((sys.deffing and defdefup[defs.mode].waterwalk and not defc.waterwalk) or (conf.keepup and defkeepup[defs.mode].waterwalk and not defc.waterwalk)) and not codepaste.balanceful_defs_codepaste() and not affs.prone ) or false
       end,
 
       oncompleted = function ()

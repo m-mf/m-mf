@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE MudletPackage>
-<MudletPackage version="1.0">
+<MudletPackage version="1.000">
     <TriggerPackage>
         <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
             <name>NameDB</name>
@@ -52,6 +52,7 @@
                         <script>temp_name_list = {}
 temp_demigod = 0
 ndb.temp_classes_list = {}
+ndb.temp_guilds_list = {}
 
 local lastline = getLines(getLineNumber()-1, getLineNumber())[1]
 
@@ -59,6 +60,8 @@ ndb.temp_cwho = {
   rank = lastline:find(&quot;Rank&quot;),
   position = lastline:find(&quot;Position&quot;),
   ct = lastline:find(&quot;CT&quot;),
+  class = lastline:find(&quot;Class&quot;),
+  offPlane = lastline:find(&quot;OffP&quot;),
 }</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>1</conditonLineDelta>
@@ -89,6 +92,7 @@ ndb.temp_cwho = {
                             <script>local line = line
 
 local name = line:match(&quot;^(%w+)&quot;)
+local class = line:sub(ndb.temp_cwho.class, ndb.temp_cwho.rank-1):trim()
 local rank = line:sub(ndb.temp_cwho.rank, ndb.temp_cwho.position-1):trim()
 local position = line:sub(ndb.temp_cwho.position-1, ndb.temp_cwho.ct-1):trim()
 
@@ -96,34 +100,42 @@ resetFormat()
 
 temp_name_list[#temp_name_list + 1] = {
   name = name,
-  org_rank = ndb.getorgrank(rank),
+  org_rank = ndb.getorgrank(rank) or -1,
   org = ndb.getmyorg()
 }
 
--- if we know their class, add it in
--- the max class name length is 12
 
-local class = ndb.getclass(name)
+--local class = ndb.getclass(name)
+--Adding guilds instead of class. Class is now shown by the game. Adding only a short name because smaller place available now
+--Not adding guild name if name is over 14 characters long as that will take up more space than is available
+
+local guild = ndb.getguild_shortname(name)
 local demigod
 if ndb.isdemigod then demigod = ndb.isdemigod(name) end
 
-local moveback = (#line &gt;= 89 and 5 or 2)
-if class and class ~= &quot;&quot; then
-	moveCursor(ndb.temp_cwho.rank - moveback, getLineNumber())
-	fg(&quot;a_darkwhite&quot;)
-	if demigod then fg(&quot;DarkSlateGrey&quot;) insertText(&quot;(h)&quot;) fg(&quot;a_darkwhite&quot;); temp_demigod = temp_demigod + 1 end
-	insertText(class)
 
+if #name &lt;= 14 and guild ~=&quot;&quot;then 
+	moveCursor(#name, getLineNumber())
+	fg(&quot;DarkSlateGrey&quot;) insertText(string.format([[(%s)]], guild))
+
+	resetFormat()
 	-- delete extra spaces that got shifted over now
-	if selectString((&quot; &quot;):rep(#class + (demigod and 3 or 0)), 1) &gt; 0 then replace(&quot;&quot;) end
-	ndb.temp_classes_list[class] = (ndb.temp_classes_list[class] or 0) + 1
+	if selectSection(#name+#guild+2, #guild+2) then replace(&quot;&quot;) end
+	deselect()
+end 	
 
-elseif demigod then
-	moveCursor(ndb.temp_cwho.rank - moveback, getLineNumber())
-	fg(&quot;DarkSlateGrey&quot;) insertText(&quot;(h)&quot;)
-    temp_demigod = temp_demigod + 1
-	if selectString((&quot; &quot;):rep(3), 1) &gt; 0 then replace(&quot;&quot;) end
-end</script>
+if demigod then moveCursor(ndb.temp_cwho.rank-4, getLineNumber())
+	fg(&quot;DarkSlateGrey&quot;) insertText(&quot;(h)&quot;) temp_demigod = temp_demigod+1
+	resetFormat()
+	if selectSection(ndb.temp_cwho.rank-1, 3) then replace(&quot;&quot;) end
+	deselect()
+end
+
+resetFormat()
+
+guild = ndb.getguild(name)
+ndb.temp_classes_list[class] = (ndb.temp_classes_list[class] or 0) + 1
+ndb.temp_guilds_list[guild] = (ndb.temp_guilds_list[guild] or 0) + 1</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>0</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -163,6 +175,23 @@ if next(ndb.temp_classes_list) then
   mm.itf(&quot;%s present, of those %s %s demigod%s/ascendant%s.\n&quot;, mm.concatand(classes), temp_demigod, (temp_demigod == 1 and 'is a' or 'are'), (temp_demigod == 1 and '' or 's'), (temp_demigod == 1 and '' or 's'))
   moveCursorEnd()
   ndb.temp_classes_list = nil
+end
+
+
+if next(ndb.temp_guilds_list) then
+
+  local guilds = mm.keystolist(ndb.temp_guilds_list)
+  table.sort(guilds)
+
+  for i = 1, #guilds do
+    guilds[i] = ndb.temp_guilds_list[guilds[i]] .. &quot; from &quot; ..guilds[i]:title()
+  end
+
+  moveCursor(0, getLineNumber())
+
+  mm.itf(&quot;%s are on visible planes.\n&quot;,mm.concatand(guilds))
+  moveCursorEnd()
+  ndb.temp_guilds_list = nil
 end
 
 
@@ -223,10 +252,10 @@ raiseEvent(&quot;NameDB got new data&quot;)</script>
                             <name>Get name (gwho)</name>
                             <script>temp_name_list[#temp_name_list + 1] = {
   name = multimatches[1][2],
-  guild = ndb.findfromtable(gmcp.Char.Status.guild, ndb.valid.guilds)
+  guild = rex.match(gmcp.Char.Status.guild, [[^(\w+)]])
 }
 
-temp_name_list[#temp_name_list].class = ndb.valid.guildtoclass[temp_name_list[#temp_name_list].guild]</script>
+</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>0</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -334,7 +363,9 @@ ndb.loadhighlights()</script>
                         <name>Guild members</name>
                         <script>temp_name_list = {}
 
--- this can't be used: no name highlighting in the list done by Lusternia</script>
+-- this can't be used: no name highlighting in the list done by Lusternia
+-- this also has reference to ndb.isvalidclass. Does not work with new guilds. This is not being changed because this option has long been supressed and not been in use.
+</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>0</conditonLineDelta>
                         <mStayOpen>999</mStayOpen>
@@ -360,8 +391,8 @@ if match then
 
   temp_name_list[#temp_name_list + 1] = {
     name = match[1],
-    class = ((matches[2] and ndb.isvalidclass(matches[2])) and matches[2]:lower() or &quot;&quot;),
-    guild = ndb.findfromtable(gmcp.Char.Status.guild, ndb.valid.guilds)
+--    class = ((matches[2] and ndb.isvalidclass(matches[2])) and matches[2]:lower() or &quot;&quot;),
+    guild = rex.match(gmcp.Char.Status.guild, [[^(\w+)]])
   }
 end</script>
                             <triggerType>0</triggerType>
@@ -2135,13 +2166,47 @@ ndb.valid.classes = {
   &quot;aeromancer&quot;, &quot;aquamancer&quot;, &quot;blacktalon&quot;, &quot;cacophonist&quot;, &quot;cantor&quot;, &quot;celestine&quot;, &quot;ebonguard&quot;, &quot;geomancer&quot;, &quot;harbinger&quot;, &quot;hartstone&quot;, &quot;illuminati&quot;, &quot;researcher&quot;, &quot;minstrel&quot;, &quot;moondancer&quot;, &quot;nekotai&quot;, &quot;nihilist&quot;, &quot;ninjakari&quot;, &quot;paladin&quot;, &quot;pyromancer&quot;, &quot;sentinel&quot;, &quot;serenguard&quot;, &quot;shadowdancer&quot;, &quot;shofangi&quot;, &quot;spiritsinger&quot;, &quot;symphonist&quot;, &quot;tahtetso&quot;, &quot;templar&quot;, &quot;ur'guard&quot;,
 }
 ndb.valid.guilds = {
+  &quot;Listeners&quot;, &quot;Sowers&quot;, &quot;Wodewoses&quot;, &quot;Swarm&quot;, &quot;Auguries&quot;, &quot;Thornwatch&quot;, &quot;Archons&quot;, &quot;Ecclesiarchy&quot;, &quot;Sanctifiers&quot;, &quot;Infernals&quot;, &quot;Society&quot;, &quot;Heralds&quot;, &quot;Goonsquad&quot;, &quot;Revelry&quot;, &quot;Seekers&quot;, &quot;Adherents&quot;, &quot;Aerie&quot;, &quot;Consortium &quot;,
+}
+ndb.valid.guildsOLD = {
   &quot;Aeromancers&quot;, &quot;Aquamancers&quot;, &quot;Blacktalon&quot;, &quot;Cacophony&quot;, &quot;Cantors&quot;, &quot;Celestines&quot;, &quot;Ebonguard&quot;, &quot;Geomancers&quot;, &quot;Harbingers&quot;, &quot;Hartstone&quot;, &quot;Illuminati&quot;, &quot;Institute&quot;, &quot;Minstrels&quot;, &quot;Moondancers&quot;, &quot;Nekotai&quot;, &quot;Nihilists&quot;, &quot;Ninjakari&quot;, &quot;Paladins&quot;, &quot;Pyromancers&quot;, &quot;Sentinels&quot;, &quot;Serenguard&quot;, &quot;Shadowdancers&quot;, &quot;Shofangi&quot;, &quot;Spiritsingers&quot;, &quot;Symphonium&quot;, &quot;Tahtetso&quot;, &quot;Templars&quot;, &quot;Ur'Guard&quot;,
 }
 ndb.valid.races = {
-  &quot;human&quot;, &quot;dwarf&quot;, &quot;elfen&quot;, &quot;dracnari&quot;, &quot;faeling&quot;, &quot;furrikin&quot;, &quot;krokani&quot;, &quot;aslaran&quot;, &quot;loboshigaru&quot;, &quot;mugwump&quot;, &quot;merian&quot;, &quot;orclach&quot;, &quot;igasho&quot;, &quot;tae'dae&quot;, &quot;taurian&quot;, &quot;trill&quot;, &quot;viscanti&quot;, &quot;lucidian&quot;, &quot;kephera&quot;, &quot;illithoid&quot;,
+  &quot;human&quot;, &quot;dwarf&quot;, &quot;elfen&quot;, &quot;dracnari&quot;, &quot;faeling&quot;, &quot;furrikin&quot;, &quot;krokani&quot;, &quot;aslaran&quot;, &quot;loboshigaru&quot;, &quot;mugwump&quot;, &quot;merian&quot;, &quot;orclach&quot;, &quot;igasho&quot;, &quot;tae'dae&quot;, &quot;taurian&quot;, &quot;trill&quot;, &quot;viscanti&quot;, &quot;lucidian&quot;, &quot;kephera&quot;, &quot;illithoid&quot;, &quot;gnome&quot;, &quot;fink&quot;, &quot;nagasith&quot;, &quot;sileni&quot;,
 }
 
-ndb.valid.guildtoclass = {
+ndb.valid.guildtoclassOLD = {
+  [&quot;Ur'Guard&quot;]  = &quot;ur'guard&quot;,
+  Aeromancers   = &quot;aeromancer&quot;,
+  Aquamancers   = &quot;aquamancer&quot;,
+  Blacktalon    = &quot;blacktalon&quot;,
+  Cacophony     = &quot;cacophonist&quot;,
+  Cantors       = &quot;cantor&quot;,
+  Celestines    = &quot;celestine&quot;,
+  Ebonguard     = &quot;ebonguard&quot;,
+  Geomancers    = &quot;geomancer&quot;,
+  Harbingers    = &quot;harbinger&quot;,
+  Hartstone     = &quot;hartstone&quot;,
+  Illuminati    = &quot;illuminati&quot;,
+  Institute     = &quot;researcher&quot;,
+  Minstrels     = &quot;minstrel&quot;,
+  Moondancers   = &quot;moondancer&quot;,
+  Nekotai       = &quot;nekotai&quot;,
+  Nihilists     = &quot;nihilist&quot;,
+  Ninjakari     = &quot;ninjakari&quot;,
+  Paladins      = &quot;paladin&quot;,
+  Pyromancers   = &quot;pyromancer&quot;,
+  Sentinels     = &quot;sentinel&quot;,
+  Serenguard    = &quot;serenguard&quot;,
+  Shadowdancers = &quot;shadowdancer&quot;,
+  Shofangi      = &quot;shofangi&quot;,
+  Spiritsingers = &quot;spiritsinger&quot;,
+  Symphonium    = &quot;symphonist&quot;,
+  Tahtetso      = &quot;tahtetso&quot;,
+  Templars      = &quot;templar&quot;,
+}
+
+ndb.valid.classntoclassp = {
   [&quot;Ur'Guard&quot;]  = &quot;ur'guard&quot;,
   Aeromancers   = &quot;aeromancer&quot;,
   Aquamancers   = &quot;aquamancer&quot;,
@@ -2181,6 +2246,27 @@ ndb.valid.orgranks = {
   [6] = {&quot;marquis&quot;, &quot;marquessa&quot;, &quot;earl&quot;, &quot;earless&quot;, &quot;shadow warden&quot;, &quot;dark seneschal&quot;, &quot;forest warden&quot;, &quot;guardian of the seren&quot;, &quot;seneschal&quot;},
 }
 
+ndb.valid.guildtoshort = {
+ Listeners = &quot;List&quot;,
+ Sowers = &quot;Sowe&quot;,
+ Wodewoses = &quot;Wode&quot;,
+ Swarm = &quot;Swa&quot;,
+ Auguries = &quot;Aug&quot;,
+ Thornwatch = &quot;TW&quot;,
+ Archons = &quot;Arch&quot;,
+ Ecclesiarchy = &quot;Eccl&quot;,
+ Sanctifiers = &quot;Sanc&quot;,
+ Infernals = &quot;Inf&quot;,
+ Society = &quot;Soc&quot;,
+ Heralds = &quot;Her&quot;,
+ Goonsquad = &quot;Goon&quot;,
+ Revelry = &quot;Rev&quot;,
+ Seekers = &quot;Seek&quot;,
+ Adherents = &quot;Adh&quot;,
+ Aerie = &quot;Aer&quot;,
+ Consortium  = &quot;Cons&quot;,
+}
+
 function ndb.isvalidorg(which)
   which = which:title()
   return table.contains(ndb.valid.orgs, which) and true or false
@@ -2189,6 +2275,11 @@ end
 function ndb.isvalidclass(which)
   which = which:lower()
   return table.contains(ndb.valid.classes, which) and true or false
+end
+
+function ndb.isvalidguild(which)
+  which = which:lower()
+  return table.contains(ndb.valid.guilds, which) and true or false
 end
 
 function ndb.isvalidrace(which)
@@ -3378,7 +3469,7 @@ end</script>
 
   local guild = t.guild:title()
   local org = t.city:title()
-  local class = ndb.valid.guildtoclass[guild]
+--  local class = ndb.valid.guildtoclass[guild] -- Not anymore possible to determine class from guild
   local title = t.fullname
 
   if ndb_reportnames and ndb_reportnames[name] then
@@ -3652,6 +3743,22 @@ function ndb.getorg(name)
   if not next(r) then return nil, &quot;name not known&quot; end
 
   return r[1].org
+end
+
+function ndb.getguild(name)
+  name = name:title()
+  local r = db:fetch(ndb.db.people, db:eq(ndb.db.people.name, name))
+  if not next(r) then return nil, &quot;name not known&quot; end
+
+  return r[1].guild:lower()
+end
+
+function ndb.getguild_shortname(name)
+  name = name:title()
+  local r = db:fetch(ndb.db.people, db:eq(ndb.db.people.name, name))
+  if not next(r) then return nil, &quot;name not known&quot; end
+
+  return ndb.valid.guildtoshort[r[1].guild:title()]
 end
 
 function ndb.getnotes(name)
