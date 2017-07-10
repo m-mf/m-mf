@@ -2443,32 +2443,6 @@ dict = {
         removeaff("frozen")
       end
     },
-	wafer = {
-      aspriority = 0,
-      spriority = 0,
-
-      focus = true,
-
-      isadvisable = function ()
-        return (affs.shivering and not doingaction "shivering") and not affs.frozen or false
-      end,
-
-      oncompleted = function ()
-        removeaff("shivering")
-        removeaff("unknownwafer")
-        sk.lostbal_wafer()
-      end,
-
-      eatcure = "dust",
-      onstart = function ()
-        focus_aff("shivering", "dust")
-        --eat("dust")
-      end,
-
-      empty = function()
-        empty.eat_wafer()
-      end
-    },
     aff = {
       oncompleted = function ()
         addaff(dict.shivering)
@@ -2508,34 +2482,6 @@ dict = {
       empty = function ()
         sk.lostbal_purgative()
         removeaff("frozen")
-      end
-    },
-	wafer = {
-      aspriority = 0,
-      spriority = 0,
-
-      focus = true,
-
-      isadvisable = function ()
-        return (affs.frozen and not doingaction "frozen") or false
-      end,
-
-      oncompleted = function ()
-        removeaff("frozen")
-        removeaff("unknownwafer")
-        sk.lostbal_wafer()
-		addaff(dict.shivering)
-        defences.lost("fire")
-      end,
-
-      eatcure = "dust",
-      onstart = function ()
-        focus_aff("frozen", "dust")
-        --eat("dust")
-      end,
-
-      empty = function()
-        empty.eat_wafer()
       end
     },
     aff = {
@@ -3602,7 +3548,7 @@ dict = {
           sk["forcelight_"..name] = false
         end
       end,
-
+      
       onstart = function ()
         if conf.gagrelight then
           send("light " .. pipes.steam.id, false)
@@ -11675,7 +11621,7 @@ dict = {
     },
     aff = {
       oncompleted = function()
-       if bals.allheale then
+       if bals.allheale then 
         addaff(dict.unknownallheale)
        end
       end,
@@ -11695,7 +11641,7 @@ dict = {
         removeaff("unknownwafer")
         sk.lostbal_wafer()
       end,
-
+      
       eatcure = "dust",
       onstart = function ()
         eat("dust")
@@ -22365,7 +22311,7 @@ dict = {
       def = true,
 
       isadvisable = function ()
-        return ((sys.deffing and defdefup[defs.mode].fire and not defc.fire) or (conf.keepup and defkeepup[defs.mode].fire and not defc.fire)) and not affs.shivering and not affs.frozen or false
+        return ((sys.deffing and defdefup[defs.mode].fire and not defc.fire) or (conf.keepup and defkeepup[defs.mode].fire and not defc.fire)) or false
       end,
 
       oncompleted = function ()
@@ -25505,7 +25451,7 @@ shadowcloak = {
 #basicdef_withpower("warrior", {"outd warrior", "fling warrior at ground"}, 2)
 #basicdef_withpower("starleaper", {"outd starleaper", "fling starleaper at ground"}, 2)
 #basicdef("princess", {"outd princess", "fling princess at ground"})
-#basicdef("teacher", {"outd teacher", "fling teacher at me"})
+#basicdef("teacher", {"outd teacher", "fling teacher at ground"})
 #end
 
 #if skills.wicca then
