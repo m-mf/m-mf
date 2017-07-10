@@ -1163,7 +1163,7 @@ end
 
 function valid.adrenaline_cured_aeon()
   checkaction(dict.aeon.physical, true)
-  if actions.aeon_physical then 
+  if actions.aeon_physical then
     lifevision.add(actions.aeon_physical.p)
   end
 end
@@ -2025,7 +2025,7 @@ function valid.sip2()
 
   if insanitycheck and isPrompt() then return end]]
   multiple_sip_lines = false
-  if sip_cure then 
+  if sip_cure then
     sip_cure = false
     return
   end
@@ -2212,8 +2212,8 @@ function valid.smoke2()
     end
 
     local r = findbybals{"steam", "herb"}
-    if not r then 
-      return 
+    if not r then
+      return
     end
     -- take in the first action, as it is most likely to be the steam smoke one with overhaul
     lifevision.add(actions[select(2, next(r)).name].p, "empty", "smoked")
@@ -2907,9 +2907,9 @@ end
 
 
 function sk.proper_paralysis()
-  if not pflags.p then 
+  if not pflags.p then
     signals.before_prompt_processing:block(sk.proper_paralysis)
-    return 
+    return
   end
   if (me.prone and not me.lastprone) or mm.affl.sap or mm.affl.aeon then
     valid.simpleparalysis()
@@ -3289,7 +3289,7 @@ function valid.angknek_new()
    if affs.damagedleftleg then
     valid.simplestun()
     valid.simpleprone()
-   else 
+   else
     return
    end
   elseif matches[4] == "right" then
@@ -4137,7 +4137,7 @@ end
 #for _, purgative in pairs({
 #antidote   = {"powersap", "crotamine"},
 #choleric   = {"lovepotion", "hypersomnia", "dysentery", "vomitblood", "worms", "vomiting"},
-#fire       = {"frozen", "shivering"},
+--#fire       = {"frozen", "shivering"},
 #frost      = {"ablaze", "frost"},
 #love       = {"disloyalty"},
 #phlegmatic = {"shyness", "void", "powersink", "aeon", "weakness"},
@@ -4275,7 +4275,7 @@ end
 
 -- wafer nomnoms
 #for _, wafer in pairs({
-#wafer = {"paralysis", "haemophilia", "powersap", "scabies", "dysentery", "pox", "vomiting", "rigormortis", "relapsing", "taintsick", "asthma","oneclot","twoclots","threeclots","fourplusclots","unknownwafer"},
+#wafer = {"paralysis", "haemophilia", "powersap", "scabies", "dysentery", "pox", "vomiting", "rigormortis", "relapsing", "taintsick", "asthma","oneclot","twoclots","threeclots","fourplusclots", "shivering", "frozen", "unknownwafer"},
 #}) do
 #local checkany_string = ""
 #local temp = {}

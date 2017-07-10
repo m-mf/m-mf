@@ -523,6 +523,8 @@ sk.overhauldata = {
   twoclots           = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   threeclots         = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   fourplusclots      = { newbalances = {"wafer"}, oldbalances = {"herb"}},
+  shivering		     = { newbalances = {"wafer"}, oldbalances = {"purgative"}},
+  frozen		     = { newbalances = {"wafer"}, oldbalances = {"purgative"}},
   completelyaurawarped = { newbalances = {"steam"}, oldbalances = {"herb"}, replaces = {"aurawarp"}},
   massivelyaurawarped  = { newbalances = {"steam"}, oldbalances = {"herb"}, replaces = {"aurawarp"}},
   aurawarped           = { newbalances = {"steam"}, oldbalances = {"herb"}, replaces = {"aurawarp"}},

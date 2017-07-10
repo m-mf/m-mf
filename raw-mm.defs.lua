@@ -81,7 +81,7 @@ defs_data = phpTable({
     ondef = function () return matches[2] end,
     defr = [[^You have (\d+) globes of Holy Light entwined with your soul\.$]],
   },
-  frost = { type = "general", def = "You are tempered against fire damage.",
+  frost = { type = "general", def = "Frost Potion (frost) (indefinite).",
     on = "A chill runs over your icy skin.",
     off = "Forks of flame lick against your skin, melting away your protection against fire."},
   nightsight = { type = "general", def = "Your vision is heightened to see in the dark.",
@@ -416,7 +416,7 @@ defs_data = phpTable({
   fire = { type = "general",
     onr = [[^\w+ closes (?:his|her) eyes for a moment and turns towards you, beseeching the sun to shine\. A shaft of warm, golden light falls over you, soothing your body\.$]],
     on = "A feeling of comfortable warmth spreads over you.",
-    def = "Your insides are warmed by a fire potion." },
+    def = "Fire Potion (firepotion) (indefinite)." },
   trueblind = { type = "general" },
   ["regal aura"] = { nodef = true,
     def = "You are surrounded by a regal aura."},
@@ -1255,8 +1255,8 @@ end)
     tooltip = "Adds poison to a kick." },
 #end
 
-timeslip = { 
-#if skills.cosmic then 
+timeslip = {
+#if skills.cosmic then
     type = "cosmic",
 #else
     type = "artifact",
@@ -2557,7 +2557,7 @@ defences.complete_def({name = "FearAura", def = "You are shrouded in veils of ni
 
 defences.complete_def({name = "Fervor", def = "You are filled with an intense religious fervor.", tooltip = "Increases damage against those suffering from inquisition effects."})
 
-defences.complete_def({name = "Fire", def = "Your insides are warmed by a fire potion.", tooltip = "Protection against cold damage."})
+defences.complete_def({name = "Fire", def = "Fire Potion (firepotion) (indefinite).", tooltip = "Protection against cold damage."})
 
 defences.complete_def({name = "Fitness", def = "You are utilising your bodily control to make yourself more fit.", tooltip = "Speeds endurance recovery."})
 
@@ -2571,7 +2571,7 @@ defences.complete_def({name = "ForceField", def = "You have a forcefield protect
 
 defences.complete_def({name = "Fortuna", def = "You are reaping the gifts of Fortuna.", tooltip = "Weighted +1 to a randomly selected stat for one Lusternian day."})
 
-defences.complete_def({name = "Frost", def = "You are tempered against fire damage.", tooltip = "Protection against fire damage."})
+defences.complete_def({name = "Frost", def = "Frost Potion (frost) (indefinite).", tooltip = "Protection against fire damage."})
 
 defences.complete_def({name = "Galvanism", def = "You are more ready to handle electric currents.", tooltip = "Protection against electrical damage."})
 
@@ -2660,7 +2660,7 @@ defences.complete_def({name = "Kite", def = "You are flying a kite.", tooltip = 
 defences.complete_def({name = "Lawyerly", def = "You are carrying yourself with a lawyerly demeanor.", tooltip = "Boosts pettifoggery."})
 
 defences.complete_def({name = "Levitation", def = "Levitation (levitate) (indefinite).",
-  defr = [[^Levitation \(levitate\) \(\d+ minutes\)\.$]], 
+  defr = [[^Levitation \(levitate\) \(\d+ minutes\)\.$]],
   tooltip = "Prevents harm from most falls."})
 defences.complete_def({name = "Levitate", def = "Levitation (levitate) (indefinite).",
   defr = [[^^Levitation \(levitate\) \(\d+ minutes\)\.$]],
@@ -2688,7 +2688,7 @@ defences.complete_def({name = "Masquerade", defr = [[^You are masquerading as \w
 defences.complete_def({name = "Maw", def = "You are wearing a magic maw of burrowing.", tooltip = "Allows burrowing."})
 
 defences.complete_def({name = "Mercy", def = "Mercy Enchantment (mercy) (indefinite).",
-  defr = [[^Mercy Enchantment \(mercy\) \(\d+ minutes\)\.$]], 
+  defr = [[^Mercy Enchantment \(mercy\) \(\d+ minutes\)\.$]],
   tooltip = "Passive health regeneration."})
 
 defences.complete_def({name = "Metawake", def = "You are concentrating on maintaining distance from the dreamworld.", tooltip = "Completely prevents sleep at the cost of a mana drain."})
