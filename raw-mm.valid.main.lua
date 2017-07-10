@@ -4137,7 +4137,7 @@ end
 #for _, purgative in pairs({
 #antidote   = {"powersap", "crotamine"},
 #choleric   = {"lovepotion", "hypersomnia", "dysentery", "vomitblood", "worms", "vomiting"},
---#fire       = {"frozen", "shivering"},
+#--fire       = {"frozen", "shivering"},
 #frost      = {"ablaze", "frost"},
 #love       = {"disloyalty"},
 #phlegmatic = {"shyness", "void", "powersink", "aeon", "weakness"},

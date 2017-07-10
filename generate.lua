@@ -179,8 +179,8 @@ local function dowork(systemfor, release, own)
 
   local result, message
   for _,j in ipairs(files) do
-    result, message = pcall(preprocess, {input = {"raw-".. j ..".lua"}, output = {"bin/".. j ..".lua"}, lookup = tbl})
-    if not result then print("Failed on "..j.."; "..message) return end
+    result, message = preprocess({input = {"raw-".. j ..".lua"}, output = {"bin/".. j ..".lua"}, lookup = tbl})
+    if not result then print("Failed on "..j.."; "..message) os.exit(1) end
   end
 
   tbl.files = files
@@ -194,8 +194,12 @@ local function dowork(systemfor, release, own)
 
   -- compile new m&m
   compile.dowork(tbl.addons)
-  assert(loadfile(cwd.."/bin/m&m")) -- do a compile of the concatinated m&m to
+  result, message = loadfile(cwd.."/bin/m&m") -- do a compile of the concatinated m&m to
                                     -- check the syntax
+  if not result then
+    print(message)
+    os.exit(1)
+  end
 
   -- clear existing addons
   local mm_template = cwd.."/m&m template"
