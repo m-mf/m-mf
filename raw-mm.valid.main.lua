@@ -2376,6 +2376,9 @@ function valid.sip_had_no_effect()
   elseif findbybal("purgative") then
     sip_cure = true
     lifevision.add(actions[findbybal("purgative").name].p, "noeffect")
+  elseif findbybal("lucidity") then
+    sip_cure = true
+    lifevision.add(actions[findbybal("lucidity").name].p, "noeffect")
   elseif doingaction("lovedef") then
     killaction("lovedef")
   end
