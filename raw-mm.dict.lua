@@ -2450,7 +2450,7 @@ dict = {
       focus = true,
 
       isadvisable = function ()
-        return (affs.shivering and not doingaction "shivering") or false
+        return (affs.shivering and not doingaction "shivering") and not affs.frozen or false
       end,
 
       oncompleted = function ()
