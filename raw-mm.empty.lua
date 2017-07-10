@@ -37,6 +37,18 @@ end
 empty.sip_lucidity = function()
   sk.lostbal_lucidity()
   removeaff({"epilepsy", "paranoia", "sensitivity", "confusion", "recklessness", "hallucinating", "clumsiness", "stupidity", "addiction", "anorexia", "massiveinsanity","majorinsanity","moderateinsanity","slightinsanity","unknownlucidity"})
+  if empty.sippedfire then
+    defences.got("fire")
+  end
+  if empty.sippedfrost then
+    defences.got("frost")
+  end
+  if empty.sippedgalvanism then
+    defences.got("galvanism")
+  end
+  empty.sippedfire = nil
+  empty.sippedfrost = nil
+  empty.sippedgalvanism = nil
 end
 
 empty.eat_wafer = function()

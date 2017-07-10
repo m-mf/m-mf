@@ -81,8 +81,9 @@ defs_data = phpTable({
     ondef = function () return matches[2] end,
     defr = [[^You have (\d+) globes of Holy Light entwined with your soul\.$]],
   },
-  frost = { type = "general", def = "Frost Potion (frost) (indefinite).",
-    on = "A chill runs over your icy skin.",
+  frost = { type = "general", 
+    def = "Frost Potion (frost) (indefinite).",
+    on = {"A chill runs over your icy skin.","You are now protected by the frost defence."},
     off = "Forks of flame lick against your skin, melting away your protection against fire."},
   nightsight = { type = "general", def = "Your vision is heightened to see in the dark.",
     on = {"Your vision sharpens with light as you gain night sight.", "Your eyes are already attuned to the shadows of night."}},
@@ -415,13 +416,14 @@ defs_data = phpTable({
   },
   fire = { type = "general",
     onr = [[^\w+ closes (?:his|her) eyes for a moment and turns towards you, beseeching the sun to shine\. A shaft of warm, golden light falls over you, soothing your body\.$]],
-    on = "A feeling of comfortable warmth spreads over you.",
+    on = {"A feeling of comfortable warmth spreads over you.","You are now protected by the firepotion defence."},
     def = "Fire Potion (firepotion) (indefinite)." },
   trueblind = { type = "general" },
   ["regal aura"] = { nodef = true,
     def = "You are surrounded by a regal aura."},
   galvanism = { type = "general",
-    on = "A jolting surge rumbles through your insides."},
+    on = {"A jolting surge rumbles through your insides.","You are now protected by the galvanism defence."},
+    def = "Galvanism Potion (galvanism) (indefinite)."},
   truedeaf = { type = "general", def = "Sounds are heard through your true hearing." },
   kafe = {
     type = "general",
@@ -2573,7 +2575,7 @@ defences.complete_def({name = "Fortuna", def = "You are reaping the gifts of For
 
 defences.complete_def({name = "Frost", def = "Frost Potion (frost) (indefinite).", tooltip = "Protection against fire damage."})
 
-defences.complete_def({name = "Galvanism", def = "You are more ready to handle electric currents.", tooltip = "Protection against electrical damage."})
+defences.complete_def({name = "Galvanism", def = "Galvanism Potion (galvanism) (indefinite).", tooltip = "Protection against electrical damage."})
 
 defences.complete_def({name = "Geburah", def = "You are surrounded by the Geburah Sphere.", tooltip = "Weighted +1 to strength."})
 
