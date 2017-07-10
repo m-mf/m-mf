@@ -5051,28 +5051,6 @@ mm.valid.ice_healed_partially()</script>
                                 <integer>3</integer>
                             </regexCodePropertyList>
                         </Trigger>
-                        <Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                            <name>cured burns</name>
-                            <script>mm.valid.ice_cured_firstdegreeburn()</script>
-                            <triggerType>0</triggerType>
-                            <conditonLineDelta>0</conditonLineDelta>
-                            <mStayOpen>0</mStayOpen>
-                            <mCommand></mCommand>
-                            <packageName></packageName>
-                            <mFgColor>#ff0000</mFgColor>
-                            <mBgColor>#ffff00</mBgColor>
-                            <mSoundFile></mSoundFile>
-                            <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                            <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                            <regexCodeList>
-                                <string>You completely heal your burn damage.</string>
-                                <string>You have cured burns.</string>
-                            </regexCodeList>
-                            <regexCodePropertyList>
-                                <integer>3</integer>
-                                <integer>3</integer>
-                            </regexCodePropertyList>
-                        </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>applyice2</name>
                             <script>mm.valid.applyice2()</script>
@@ -5094,7 +5072,7 @@ mm.valid.ice_healed_partially()</script>
                             </regexCodePropertyList>
                         </Trigger>
                     </TriggerGroup>
-                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>cured new burns</name>
                         <script>mm.valid.ice_cured_firstdegreeburn()</script>
                         <triggerType>0</triggerType>
@@ -5108,12 +5086,10 @@ mm.valid.ice_healed_partially()</script>
                         <colorTriggerFgColor>#000000</colorTriggerFgColor>
                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                         <regexCodeList>
-                            <string>You take out some restorative ice and quickly rub it on your body.</string>
                             <string>You completely heal your burn damage.</string>
                             <string>You have cured burns.</string>
                         </regexCodeList>
                         <regexCodePropertyList>
-                            <integer>3</integer>
                             <integer>3</integer>
                             <integer>3</integer>
                         </regexCodePropertyList>
@@ -28910,7 +28886,7 @@ mm.valid.simplebleeding()</script>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
-                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                    <Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Black lung</name>
                         <script>mm.valid.simpleblacklung()</script>
                         <triggerType>0</triggerType>
@@ -32293,7 +32269,7 @@ mm.valid.proper_prone()</script>
                 </Trigger>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Black lung</name>
-                    <script>mm.valid.simpleblacklung()
+                    <script>mm.valid.simpledysentery()
 
 </script>
                     <triggerType>0</triggerType>
@@ -50479,7 +50455,7 @@ mm.valid.simpledementia()</script>
                 </Trigger>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Ashfall</name>
-                    <script>mm.valid.simpleblacklung()</script>
+                    <script>mm.valid.simpledysentery()</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
@@ -56192,7 +56168,7 @@ end)</script>
                 </Trigger>
                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Hornet</name>
-                    <script>mm.valid.simpleblacklung()</script>
+                    <script>mm.valid.simpledysentery()</script>
                     <triggerType>0</triggerType>
                     <conditonLineDelta>0</conditonLineDelta>
                     <mStayOpen>0</mStayOpen>
