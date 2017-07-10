@@ -2480,8 +2480,10 @@ mm.show_vessels(2)</script>
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
                                 <string>Though still shivering, you are no longer frozen solid.</string>
+                                <string>You have cured frozen.</string>
                             </regexCodeList>
                             <regexCodePropertyList>
+                                <integer>3</integer>
                                 <integer>3</integer>
                             </regexCodePropertyList>
                         </Trigger>
@@ -2500,8 +2502,10 @@ mm.show_vessels(2)</script>
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
                                 <string>Your body warms up and you stop shivering.</string>
+                                <string>You have cured shivering.</string>
                             </regexCodeList>
                             <regexCodePropertyList>
+                                <integer>3</integer>
                                 <integer>3</integer>
                             </regexCodePropertyList>
                         </Trigger>
