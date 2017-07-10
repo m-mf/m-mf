@@ -4275,7 +4275,7 @@ end
 
 -- wafer nomnoms
 #for _, wafer in pairs({
-#wafer = {"paralysis", "haemophilia", "powersap", "scabies", "dysentery", "pox", "vomiting", "rigormortis", "relapsing", "taintsick", "asthma","oneclot","twoclots","threeclots","fourplusclots", "shivering", "unknownwafer"},
+#wafer = {"paralysis", "haemophilia", "powersap", "scabies", "dysentery", "pox", "vomiting", "rigormortis", "relapsing", "taintsick", "asthma","oneclot","twoclots","threeclots","fourplusclots", "shivering", "frozen", "unknownwafer"},
 #}) do
 #local checkany_string = ""
 #local temp = {}
