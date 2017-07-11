@@ -141,6 +141,7 @@ local dict_purgative       = {}
 local dict_sparkleaffs     = {}
 local dict_wafer           = {}
 local dict_steam           = {}
+local dict_lucidity        = {}
 
 local codepaste = {}
 
@@ -2419,7 +2420,8 @@ dict = {
       spriority = 169,
 
       isadvisable = function ()
-        return (affs.shivering) or false
+        return false
+        --return (affs.shivering) or false
       end,
 
       oncompleted = function ()
@@ -2486,7 +2488,8 @@ dict = {
       spriority = 168,
 
       isadvisable = function ()
-        return (affs.frozen) or false
+        return false
+        --return (affs.frozen) or false
       end,
 
       oncompleted = function ()
@@ -2524,7 +2527,7 @@ dict = {
         removeaff("frozen")
         removeaff("unknownwafer")
         sk.lostbal_wafer()
-		addaff(dict.shivering)
+		    addaff(dict.shivering)
         defences.lost("fire")
       end,
 
@@ -22328,13 +22331,47 @@ dict = {
 
   --purgative
   galvanism = {
+    lucidity = {
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+        return ((sys.deffing and defdefup[defs.mode].galvanism and not defc.galvanism) or (conf.keepup and defkeepup[defs.mode].galvanism and not defc.galvanism)) or false
+      end,
+
+      oncompleted = function ()
+        sk.lostbal_lucidity()
+        defences.got("galvanism")
+        empty.sippedgalvanism = nil
+      end,
+
+      noeffect = function()
+        sk.lostbal_lucidity()
+        empty.sippedgalvanism = nil
+      end,
+
+      sipcure = "galvanism",
+
+      onstart = function ()
+        send("sip galvanism", conf.commandecho)
+        empty.sippedgalvanism = true
+      end,
+
+      empty = function ()
+        sk.lostbal_lucidity()
+        defences.got("galvanism")
+        empty.sippedgalvanism = nil
+      end
+    },
     purgative = {
       aspriority = 8,
       spriority = 305,
       def = true,
 
       isadvisable = function ()
-        return ((sys.deffing and defdefup[defs.mode].galvanism and not defc.galvanism) or (conf.keepup and defkeepup[defs.mode].galvanism and not defc.galvanism)) or false
+        return false
+        --return ((sys.deffing and defdefup[defs.mode].galvanism and not defc.galvanism) or (conf.keepup and defkeepup[defs.mode].galvanism and not defc.galvanism)) or false
       end,
 
       oncompleted = function ()
@@ -22359,13 +22396,49 @@ dict = {
     }
   },
   fire = {
+    lucidity = {
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+        return ((sys.deffing and defdefup[defs.mode].fire and not defc.fire) or (conf.keepup and defkeepup[defs.mode].fire and not defc.fire)) and not affs.shivering and not affs.frozen or false
+        end,
+
+      oncompleted = function()
+        sk.lostbal_lucidity()
+        defences.got("fire")
+        empty.sippedfire = nil
+      end,
+
+      noeffect = function()
+        sk.lostbal_lucidity()
+        empty.sippedfire = nil
+      end,
+
+      empty = function()
+        sk.lostbal_lucidity()
+        defences.got("fire")
+        removeaff("frozen")
+        removeaff("shivering")
+        empty.sippedfire = nil
+      end,
+
+      sipcure = "fire",
+
+      onstart = function ()
+        send("sip fire", conf.commandecho)
+        empty.sippedfire = true
+      end
+  },
     purgative = {
       aspriority = 33,
       spriority = 233,
       def = true,
 
       isadvisable = function ()
-        return ((sys.deffing and defdefup[defs.mode].fire and not defc.fire) or (conf.keepup and defkeepup[defs.mode].fire and not defc.fire)) and not affs.shivering and not affs.frozen or false
+        return false
+        --return ((sys.deffing and defdefup[defs.mode].fire and not defc.fire) or (conf.keepup and defkeepup[defs.mode].fire and not defc.fire)) and not affs.shivering and not affs.frozen or false
       end,
 
       oncompleted = function ()
@@ -22398,13 +22471,47 @@ dict = {
     }
   },
   frost = {
+    lucidity = {
+      aspriority = 0,
+      spriority = 0,
+      def = true,
+
+      isadvisable = function ()
+        return ((sys.deffing and defdefup[defs.mode].frost and not defc.frost) or (conf.keepup and defkeepup[defs.mode].frost and not defc.frost)) or false
+      end,
+
+      oncompleted = function ()
+        sk.lostbal_lucidity()
+        defences.got("frost")
+        empty.sippedfrost = nil
+      end,
+
+      noeffect = function()
+        sk.lostbal_lucidity()
+        empty.sippedfrost = nil
+      end,
+
+      sipcure = "frost",
+
+      onstart = function ()
+        send("sip frost", conf.commandecho)
+        empty.sippedfrost = true
+      end,
+
+      empty = function ()
+        sk.lostbal_lucidity()
+        defences.got("frost")
+        empty.sippedfrost = nil
+      end
+    },
     purgative = {
       aspriority = 31,
       spriority = 235,
       def = true,
 
       isadvisable = function ()
-        return ((sys.deffing and defdefup[defs.mode].frost and not defc.frost) or (conf.keepup and defkeepup[defs.mode].frost and not defc.frost)) or false
+        return false
+        --return ((sys.deffing and defdefup[defs.mode].frost and not defc.frost) or (conf.keepup and defkeepup[defs.mode].frost and not defc.frost)) or false
       end,
 
       oncompleted = function ()
@@ -27452,7 +27559,7 @@ local function find_lowest_async(balance)
   return table.maxn(t)+1
 end
 
-local function find_lowest_sync()
+function find_lowest_sync()
   local data = make_sync_prio_table("%s%s")
   local t = {}
 
@@ -27491,6 +27598,7 @@ local function dict_setup()
   dict_sparkleaffs     = {}
   dict_wafer           = {}
   dict_steam           = {}
+  dict_lucidity        = {}
 
   local unassigned_actions      = {}
   local unassigned_sync_actions = {}
@@ -27538,6 +27646,9 @@ local function dict_setup()
 
     if j.steam and j.steam.def then
       dict_steam[i] = {p = dict[i]} end
+
+    if j.lucidity and j.lucidity.def then
+      dict_lucidity[i] = {p = dict[i]} end
 
     if j.sparkle then
       dict_sparkleaffs[i] = {p = dict[i]} end
