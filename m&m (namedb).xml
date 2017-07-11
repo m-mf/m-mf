@@ -109,7 +109,7 @@ temp_name_list[#temp_name_list + 1] = {
 --Adding guilds instead of class. Class is now shown by the game. Adding only a short name because smaller place available now
 --Not adding guild name if name is over 14 characters long as that will take up more space than is available
 
-local guild = ndb.getguild_shortname(name)
+local guild = ndb.getguild_shortname(name) or &quot;None&quot;
 local demigod
 if ndb.isdemigod then demigod = ndb.isdemigod(name) end
 
