@@ -2043,6 +2043,7 @@ send(matches[2]..&quot; enemies&quot;, false)</script>
             <Alias isActive="yes" isFolder="no">
                 <name>ndb alias cheatsheet</name>
                 <script>-- load help data in
+local class = mm.me.class
 if not ndb.help then
 if not lfs.attributes(getMudletHomeDir()..&quot;/&quot;..class..&quot; m&amp;m&quot;) then
   mm.echof(&quot;You don't seem to have installed m&amp;m as a package in the name of \&quot;&quot;..class..&quot; m&amp;m\&quot; - I can't find the ndb help file!&quot;)
