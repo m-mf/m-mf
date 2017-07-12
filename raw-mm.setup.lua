@@ -366,9 +366,9 @@ stats.nextlevel,
 stats.currenthealth, stats.maxhealth,
 stats.currentmana, stats.maxmana,
 stats.currentego, stats.maxego,
-stats.currentpower,
+stats.currentpower, stats.powerreserves,
 stats.currentendurance, stats.maxendurance,
-stats.currentwillpower, stats.maxwillpower = 1,1,1,1,1,1,1,1,1,1,1,1
+stats.currentwillpower, stats.maxwillpower = 1,1,1,1,1,1,1,1,1,1,1,1,1
 
 stats.esteem = 0
 stats.essence = 0

@@ -18791,7 +18791,7 @@ selectCurrentLine() setFgColor(0,170,255) resetFormat()</script>
                             <integer>1</integer>
                         </regexCodePropertyList>
                     </Trigger>
-                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                    <Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Unstanced</name>
                         <script>mm.valid.lost_stance()</script>
                         <triggerType>0</triggerType>
@@ -18813,7 +18813,7 @@ selectCurrentLine() setFgColor(0,170,255) resetFormat()</script>
                             <integer>3</integer>
                         </regexCodePropertyList>
                     </Trigger>
-                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="yes" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                    <Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="yes" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Stanced</name>
                         <script></script>
                         <triggerType>0</triggerType>
@@ -29598,7 +29598,7 @@ end</script>
                             <integer>1</integer>
                         </regexCodePropertyList>
                     </Trigger>
-                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                    <Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Can't stance - broken kneecap</name>
                         <script>if not mm.affl.crackedleftkneecap and not mm.affl.crackedrightkneecap then
   mm.valid.kneecap_stance()
@@ -33831,7 +33831,7 @@ mm.valid.proper_fear()</script>
                         <integer>3</integer>
                     </regexCodePropertyList>
                 </Trigger>
-                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                <Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                     <name>Lost fire</name>
                     <script>mm.defs.lost_frost()</script>
                     <triggerType>0</triggerType>
@@ -56881,7 +56881,7 @@ end</script>
                     <packageName></packageName>
                     <regex>^mmsp nextprio (\w+)$</regex>
                 </Alias>
-                <Alias isActive="yes" isFolder="no">
+                <Alias isActive="no" isFolder="no">
                     <name>Set stance action level for a limb</name>
                     <script>mm.sp.setstancelevel(matches[2], matches[3], true)</script>
                     <command></command>
@@ -56902,14 +56902,14 @@ end</script>
                     <packageName></packageName>
                     <regex>^mmsp parrystrat (.+)$</regex>
                 </Alias>
-                <Alias isActive="yes" isFolder="no">
+                <Alias isActive="no" isFolder="no">
                     <name>Set the stance strategy</name>
                     <script>mm.sp.setstance(matches[2], true)</script>
                     <command></command>
                     <packageName></packageName>
                     <regex>^mmsp stancestrat (.+)$</regex>
                 </Alias>
-                <Alias isActive="yes" isFolder="no">
+                <Alias isActive="no" isFolder="no">
                     <name>Set the default stance</name>
                     <script>mm.sp.defaultstance(matches[2], true)</script>
                     <command></command>
@@ -57005,7 +57005,7 @@ end</script>
                 <packageName></packageName>
                 <regex>^mm ?save$</regex>
             </Alias>
-            <Alias isActive="yes" isFolder="no">
+            <Alias isActive="no" isFolder="no">
                 <name>m&amp;m Deepheal</name>
                 <script>  local t = {
     h = &quot;head&quot;,
