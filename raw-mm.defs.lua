@@ -3675,7 +3675,7 @@ local function show_defs(tbl, linkcommand, cmdname)
   local underline = setUnderline; _G.setUnderline = function () end
 
   show_em(nil, defences.def_types.general)
-  show_em("Artifact\\Curio", defences.def_types.artifact)
+  show_em("artifact", defences.def_types.artifact)
 
   for j,k in pairs(defences.def_types) do
     if j ~= "general" and j ~= "artifact" then show_em (j, k) end
