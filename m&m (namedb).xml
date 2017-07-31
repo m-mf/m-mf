@@ -216,6 +216,26 @@ raiseEvent(&quot;NameDB got new data&quot;)</script>
                                 <integer>2</integer>
                             </regexCodePropertyList>
                         </Trigger>
+                        <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                            <name>Moar!!!</name>
+                            <script>send(&quot;more&quot;)</script>
+                            <triggerType>0</triggerType>
+                            <conditonLineDelta>0</conditonLineDelta>
+                            <mStayOpen>0</mStayOpen>
+                            <mCommand></mCommand>
+                            <packageName></packageName>
+                            <mFgColor>#ff0000</mFgColor>
+                            <mBgColor>#ffff00</mBgColor>
+                            <mSoundFile></mSoundFile>
+                            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                            <regexCodeList>
+                                <string>Type MORE</string>
+                            </regexCodeList>
+                            <regexCodePropertyList>
+                                <integer>2</integer>
+                            </regexCodePropertyList>
+                        </Trigger>
                     </Trigger>
                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>NameDB gwho</name>
