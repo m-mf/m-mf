@@ -691,12 +691,15 @@ function install.checkcombat()
   local t = _G.gmcp.Char.Skills.List
   if t.group ~= "combat" then return end
 
+  config.set("stanceskill", "none", false)
+	--[[
     for _, k in ipairs{"vitals", "upper", "middle", "lower", "head", "chest", "gut", "arms", "right", "left", "legs"} do
     if contains(t.list, k:title()) then
       config.set("stanceskill", k, false)
       break
     end
-  end
+	end
+	]]--
 
   installclear("stance")
 end

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE MudletPackage>
-<MudletPackage version="1.000">
+<MudletPackage version="1.001">
     <TriggerPackage>
         <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
             <name>NameDB</name>
@@ -109,7 +109,7 @@ temp_name_list[#temp_name_list + 1] = {
 --Adding guilds instead of class. Class is now shown by the game. Adding only a short name because smaller place available now
 --Not adding guild name if name is over 14 characters long as that will take up more space than is available
 
-local guild = ndb.getguild_shortname(name)
+local guild = ndb.getguild_shortname(name) or &quot;None&quot;
 local demigod
 if ndb.isdemigod then demigod = ndb.isdemigod(name) end
 
@@ -211,6 +211,26 @@ raiseEvent(&quot;NameDB got new data&quot;)</script>
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
                                 <string>Currently, there</string>
+                            </regexCodeList>
+                            <regexCodePropertyList>
+                                <integer>2</integer>
+                            </regexCodePropertyList>
+                        </Trigger>
+                        <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                            <name>Moar!!!</name>
+                            <script>send(&quot;more&quot;)</script>
+                            <triggerType>0</triggerType>
+                            <conditonLineDelta>0</conditonLineDelta>
+                            <mStayOpen>0</mStayOpen>
+                            <mCommand></mCommand>
+                            <packageName></packageName>
+                            <mFgColor>#ff0000</mFgColor>
+                            <mBgColor>#ffff00</mBgColor>
+                            <mSoundFile></mSoundFile>
+                            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                            <regexCodeList>
+                                <string>Type MORE</string>
                             </regexCodeList>
                             <regexCodePropertyList>
                                 <integer>2</integer>
@@ -2043,6 +2063,7 @@ send(matches[2]..&quot; enemies&quot;, false)</script>
             <Alias isActive="yes" isFolder="no">
                 <name>ndb alias cheatsheet</name>
                 <script>-- load help data in
+local class = mm.me.class
 if not ndb.help then
 if not lfs.attributes(getMudletHomeDir()..&quot;/&quot;..class..&quot; m&amp;m&quot;) then
   mm.echof(&quot;You don't seem to have installed m&amp;m as a package in the name of \&quot;&quot;..class..&quot; m&amp;m\&quot; - I can't find the ndb help file!&quot;)

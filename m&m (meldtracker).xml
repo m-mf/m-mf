@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE MudletPackage>
-<MudletPackage version="1.0">
+<MudletPackage version="1.001">
     <TriggerPackage>
         <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
             <name>m&amp;m Meld Tracker</name>
@@ -44,8 +44,10 @@ end</script>
                     <string>You sweep the air with your hand, allowing your spirit to merge with the clouds around you, becoming one with the location.</string>
                     <string>This room is already melded into your demesne.</string>
                     <string>You clap your hands and allow yourself to merge with the burning heat around you.</string>
+                    <string>You kneel down and touch your forehead to the earth, then whisper the names of power and binding. A deep emerald glow ripples across the ground and you become one with the land.</string>
                 </regexCodeList>
                 <regexCodePropertyList>
+                    <integer>3</integer>
                     <integer>3</integer>
                     <integer>3</integer>
                     <integer>3</integer>

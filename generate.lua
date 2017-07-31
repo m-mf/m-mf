@@ -48,6 +48,7 @@ local defaultaddons = {
   blacktalon = {"meldtracker", "carriontracker"},
   geomancer  = "meldtracker",
   pyromancer = "meldtracker",
+  hartstone  = "meldtracker",
 }
 
 io.input(cwd.."/classlist.lua")
