@@ -18793,7 +18793,7 @@ selectCurrentLine() setFgColor(0,170,255) resetFormat()</script>
                     </Trigger>
                     <Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>Unstanced</name>
-                        <script>mm.valid.lost_stance()</script>
+                        <script>--mm.valid.lost_stance()</script>
                         <triggerType>0</triggerType>
                         <conditonLineDelta>99</conditonLineDelta>
                         <mStayOpen>0</mStayOpen>
@@ -18836,7 +18836,7 @@ selectCurrentLine() setFgColor(0,170,255) resetFormat()</script>
                         </regexCodePropertyList>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>legs</name>
-                            <script>mm.valid.stance_legs()</script>
+                            <script>--mm.valid.stance_legs()</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>99</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -18856,7 +18856,7 @@ selectCurrentLine() setFgColor(0,170,255) resetFormat()</script>
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>left</name>
-                            <script>mm.valid.stance_left()</script>
+                            <script>--mm.valid.stance_left()</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>99</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -18876,7 +18876,7 @@ selectCurrentLine() setFgColor(0,170,255) resetFormat()</script>
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>right</name>
-                            <script>mm.valid.stance_right()</script>
+                            <script>--mm.valid.stance_right()</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>0</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -18896,7 +18896,7 @@ selectCurrentLine() setFgColor(0,170,255) resetFormat()</script>
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>arms</name>
-                            <script>mm.valid.stance_arms()</script>
+                            <script>--mm.valid.stance_arms()</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>99</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -18916,7 +18916,7 @@ selectCurrentLine() setFgColor(0,170,255) resetFormat()</script>
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>gut</name>
-                            <script>mm.valid.stance_gut()</script>
+                            <script>--mm.valid.stance_gut()</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>0</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -18936,7 +18936,7 @@ selectCurrentLine() setFgColor(0,170,255) resetFormat()</script>
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>chest</name>
-                            <script>mm.valid.stance_chest()</script>
+                            <script>--mm.valid.stance_chest()</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>0</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -18956,7 +18956,7 @@ selectCurrentLine() setFgColor(0,170,255) resetFormat()</script>
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>head</name>
-                            <script>mm.valid.stance_head()</script>
+                            <script>--mm.valid.stance_head()</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>0</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -18976,7 +18976,7 @@ selectCurrentLine() setFgColor(0,170,255) resetFormat()</script>
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>lower</name>
-                            <script>mm.valid.stance_lower()</script>
+                            <script>--mm.valid.stance_lower()</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>99</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -18996,7 +18996,7 @@ selectCurrentLine() setFgColor(0,170,255) resetFormat()</script>
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>middle</name>
-                            <script>mm.valid.stance_middle()</script>
+                            <script>--mm.valid.stance_middle()</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>99</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -19016,7 +19016,7 @@ selectCurrentLine() setFgColor(0,170,255) resetFormat()</script>
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>upper</name>
-                            <script>mm.valid.stance_upper()</script>
+                            <script>--mm.valid.stance_upper()</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>99</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -19036,7 +19036,7 @@ selectCurrentLine() setFgColor(0,170,255) resetFormat()</script>
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>vitals</name>
-                            <script>mm.valid.stance_vitals()</script>
+                            <script>--mm.valid.stance_vitals()</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>0</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
