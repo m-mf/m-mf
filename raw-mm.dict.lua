@@ -3824,7 +3824,7 @@ dict = {
       spriority = 0,
 
       isadvisable = function ()
-        return (cnrl.checkgreen and conf.cleanse and not doingaction "cleanse" and not doingaction "powercure" and not codepaste.cleanse_codepaste() and (cnrl.lockdata["cleanse a"]() or cnrl.lockdata["cleanse b"]() or cnrl.lockdata["cleanse c"]()) and not affs.severedspine and not affs.prone and not affs.tangle and not affs.transfixed and not affs.shackled) or false
+        return (cnrl.checkgreen and conf.cleanse and not doingaction "cleanse" and not doingaction "powercure" and not codepaste.cleanse_codepaste() and (cnrl.lockdata["cleanse a"]() or cnrl.lockdata["cleanse b"]() or cnrl.lockdata["cleanse c"]() or cnrl.lockdata["cleanse d"]()) and not affs.severedspine and not affs.prone and not affs.tangle and not affs.transfixed and not affs.shackled) or false
       end,
 
       oncompleted = function (aff)
