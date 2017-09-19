@@ -785,6 +785,7 @@ cnrl.lockdata = {
   ["cleanse a"] = function() return (affs.slitthroat and affs.slickness and not affs.prone and not affs.severedspine and not affs.paralysis and not affs.tangle) end,
   ["cleanse b"] = function() return (affs.crushedwindpipe and affs.slickness and affs.asthma and not affs.prone and not affs.severedspine and not affs.paralysis and not affs.tangle) end,
   ["cleanse c"] = function() return (affs.collapsedlungs and affs.crushedwindpipe and affs.slickness) end,
+  ["cleanse d"] = function() return (affs.asthma and affs.anorexia and affs.slickness and affs.damagedthroat) end,
   ["slow"] = function () return (affs.concussion and affs.aeon) end,
   ["hemi"] = function () return (affs.hemiplegyright and affs.hemiplegyleft) end
 }
