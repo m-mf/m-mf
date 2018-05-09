@@ -515,7 +515,7 @@ defs_data = phpTable({
   mercy = { 
     type = "enchantment", 
     on = "A ray of purple light suddenly spotlights you.",
-    def = "So this is vitality! Mercy restores your health."
+    def = "So this is vitality! Mercy restores your health.",
     defr = [[^Mercy Enchantment \(mercy\) \(?:(indefinite|\d+ minutes)\)\.$]],
    },
   rebounding = {
