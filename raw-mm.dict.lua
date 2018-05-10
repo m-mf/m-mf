@@ -21475,7 +21475,7 @@ dict = {
       end,
 
       onstart = function ()
-        send("say", false)
+        send("smoke steam", false)
       end
     },
     aff = {
