@@ -1,0 +1,139 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>m&amp;mf People Tracker &#8212; m&amp;mf docs</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="m&amp;mf NameDB" href="namedb.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="namedb.html" title="m&amp;mf NameDB"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">m&amp;mf docs</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="m-mf-people-tracker">
+<h1>m&amp;mf People Tracker<a class="headerlink" href="#m-mf-people-tracker" title="Permalink to this headline">¶</a></h1>
+<p>Just use any of the people-locating methods - scent, window - it’ll plot people on your map.</p>
+<p>You can disable it or easily change color of labels in it’s <strong>mmconfig2</strong> menu entry, along with the font size of labels.</p>
+<p>The script works in tandem with the <a class="reference external" href="http://wiki.mudlet.org/w/IRE_mapping_script#Download">Mudlet Mapper script</a>, and thus the latest version is required - or <strong>12.5.10 at minimum</strong>!</p>
+<ul class="simple">
+<li>if it’s not possible to tell where exactly a person is, like when they’re in a room with a non-unique name, then it’ll put identifiers into all rooms that match and only put the list of people in the right-most room. This seems the best way to deal with this problem so far, but if you have better ideas let me know</li>
+</ul>
+<div class="section" id="comprehensive-guide-to-setting-this-up">
+<h2>Comprehensive guide to setting this up<a class="headerlink" href="#comprehensive-guide-to-setting-this-up" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><strong>Get the map open</strong> - press the Map button in Mudlet or <em>Toolbox → Show map</em> to spawn it. If you’d always like the map showing, <a class="reference external" href="http://wiki.mudlet.org/w/Mudlet_Mapper">this script</a> will help you do that. Don’t worry if the map doens’t track you / says invalid position or etc right now.</li>
+<li><strong>Get the mapper script</strong> - <a class="reference external" href="http://wiki.mudlet.org/w/IRE_mapping_script">go here</a> and install this script. If you already have it, remove it and install it - it is updated very often. After you install it, reconnect - that way it will know you’re connected to Lusternia, and not another game.</li>
+<li><strong>Get the map</strong> - after you reconnected, opening the map should automatically download the map from the game - and you’ll be set.</li>
+</ol>
+<div class="section" id="aliases">
+<h3>Aliases<a class="headerlink" href="#aliases" title="Permalink to this headline">¶</a></h3>
+<dl class="glossary docutils">
+<dt id="term-mmconfig2">mmconfig2</dt>
+<dd>See its options - enable/disable, change color or font size.</dd>
+<dt id="term-mmconfig-labelsize-font-size">mmconfig labelsize &lt;font size&gt;</dt>
+<dd>Sets the size of the labels to use on the map. Default size is 10.</dd>
+<dt id="term-mmconfig-clearlabels-yep-nope">mmconfig clearlabels yep/nope</dt>
+<dd>When enabled, this will automatically clear all labels on the map that are surrounded with () - so the ones that the peopletracker put on - when you move into a new area.</dd>
+<dt id="term-mmconfig-labelcolor-color">mmconfig labelcolor &lt;color&gt;</dt>
+<dd>Allows you to choose the color of peopletrackers labels on the map.</dd>
+<dt id="term-mmconfig-labelsfont-font-size">mmconfig labelsfont &lt;font size&gt;</dt>
+<dd>Sets the font size of the labels on the map.</dd>
+<dt id="term-gotop">gotop</dt>
+<dd>Walks over to where your target (as defined by the ‘target’ variable) was known to be last.</dd>
+<dt id="term-gotop-person">gotop &lt;person&gt;</dt>
+<dd>Walks over to where the person was known to be last.</dd>
+<dt id="term-mstop">mstop</dt>
+<dd>stops walking from goto and gotop.</dd>
+<dt id="term-class-locating-ability-like-scent-or-window">&lt;class locating ability, like scent or window&gt;</dt>
+<dd>Plots that invididual on the map as you locate them.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">m&amp;mf People Tracker</a><ul>
+<li><a class="reference internal" href="#comprehensive-guide-to-setting-this-up">Comprehensive guide to setting this up</a><ul>
+<li><a class="reference internal" href="#aliases">Aliases</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="namedb.html"
+                        title="previous chapter">m&amp;mf NameDB</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/peopletracker.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="namedb.html" title="m&amp;mf NameDB"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">m&amp;mf docs</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, Vadim Peretokin.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

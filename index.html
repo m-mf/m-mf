@@ -1,0 +1,2098 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>m&amp;mf 47 documentation :) &#8212; m&amp;mf docs</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="m&amp;mf Healing others" href="healing.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="healing.html" title="m&amp;mf Healing others"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">m&amp;mf docs</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="m-mf-release-documentation">
+<h1>m&amp;mf 47 documentation :)<a class="headerlink" href="#m-mf-release-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="addons-documentation">
+<h2>Addons documentation<a class="headerlink" href="#addons-documentation" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="healing.html">m&amp;mf Healing others</a></li>
+<li class="toctree-l1"><a class="reference internal" href="influencer.html">m&amp;mf Influencer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namedb.html">m&amp;mf NameDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="peopletracker.html">m&amp;mf People Tracker</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="contents">
+<h1>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+<div class="section" id="basics-of-the-system">
+<h1>Basics of the system<a class="headerlink" href="#basics-of-the-system" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-this-system">
+<h2>What is this system?<a class="headerlink" href="#what-is-this-system" title="Permalink to this headline">¶</a></h2>
+<p>This system is what was previously called m&amp;m, which is no longer available. m&amp;mf is the free, open-source and community-supported version of m&amp;m.</p>
+</div>
+<div class="section" id="installing">
+<h2>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h2>
+<p>Download the system you want to use. If you use classflexing, the Allclass system will enable everything but it has it’s kinks. If you plan on sticking to one class, the class system will be the one you download. DO NOT EXTRACT THE SYSTEM. After downloading, open Mudlet and your profile and open the Package Manager. Click install and select the .zip system that you downloaded. It will ask you to select where the m&amp;m file is, you’ll want to choose where your profile folder is saved as the file will be there.</p>
+<p>If you run into issues with installing it by the .zip, you can try extracting it and importing the .xml files individually.</p>
+<p>To install the system, use the <strong>mminstall</strong> command. This’ll have the system run auto-configuration first - where it’ll detect and enable skills that you have. After that, it’ll ask you preference questions about the basic and essential options. Feel free to take your time to ask someone else as to what should you set an option to (like for sipping health). The installation otherwise is fairly painless - and you can always change any option you’d like later with the same command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">warning:</th><td class="field-body">Just a heads up, <strong>m&amp;mf</strong> needs to be loaded <em>before</em> you login to Lusternia. So when doing the installation, import it first, make sure GMCP is on in Mudlet settings, then login.</td>
+</tr>
+</tbody>
+</table>
+<p>After you’ve finished the installation, it’s best to <em>mmsave</em> and restart Mudlet so the system is loaded fresh with all the settings.</p>
+<p>Enjoy!</p>
+</div>
+<div class="section" id="using-the-system">
+<h2>Using the system<a class="headerlink" href="#using-the-system" title="Permalink to this headline">¶</a></h2>
+<p>The system cures any ailments you get for you automatically - nothing needs to be turned on. Of course, the system won’t cure if it’s paused, but while it is, it’ll still track all afflictions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">you want to use theh <strong>dv</strong> alias to have the system diagnose, <strong>df</strong> to check your defences and <strong>wf</strong> to check your wounds. This will have the system both recognize the output, and also has the feature of the aliases being usable at any time - the system will do the action asap for you.</td>
+</tr>
+</tbody>
+</table>
+<p>To pause or unpause the system, you can use the <strong>pp</strong> alias - using it alone will act as a toggle, but you can also do <em>pp on</em> and <em>pp off</em>. If you’d like to have the system to allow you to sleep peacefully, you should pause it as well.</p>
+<p>To enable anti-illusion in the system, you can do <strong>tn ai</strong> or <strong>tn anti-illusion</strong>. When you no longer need it, you can do <strong>tf ai</strong> (having anti-illusion on means the system will at times will do checks on afflictions before curing them; this is slower than just curing them right away).</p>
+<p>If you’re lagging a lot, and the system is double-doing actions because of that and etc, you can set the <em>mmconfig lag #</em> option to help alleviate that. Do set it back to 0 when you’re allright, though. You can also view what options have you currently set with <em>mmconfig</em> and <em>mmconfig2</em> aliases.</p>
+<p>To get a better grasp of the system, I’d recommend that you participate in some combat arena events - free-for-alls, wargames, etc - so you’ll have a little bit better idea of what to do when a real fight comes. You should also read up on the aeon/sap/choke curing and practice with the two modes of it in the arena - since it’s something new and you’ll want to at least have a basic idea of what’s going on.</p>
+<p>That’s about it! Do make sure that you have all the curatives necessary on you and you should be just fine. Take time to look through the available options and aliases as well to acquaint yourself with the system.</p>
+</div>
+<div class="section" id="using-defences">
+<h2>Using defences<a class="headerlink" href="#using-defences" title="Permalink to this headline">¶</a></h2>
+<p>The system organizes defences around defence modes, in which you can have it put up different defences. The process of putting them up is also in two stages: <em>defup</em> and <em>keepup</em>.</p>
+<p>When you first switch to a defence mode using <em>mmdefs &lt;mode&gt;</em>, defup will put up all of the defences that are on its list. Remember that you can tell defup to put up different defences in different modes - that is the difference in modes. After defup is done, the system will say <em>Ready for combat!</em>, and defup will be done - it’ll care no more about your defences. Instead, keepup takes over. Keepups job, as the name implies, is to make sure its defences always stay up - if one goes down for any reason, it’ll put it back up. Keepup can also be disabled or enabled for convenience with <em>tf keepup</em>, <em>tn keepup</em>.</p>
+<p>To add/remove defences to defup or keepup, you can use <em>mmdefup &lt;defence&gt;</em> and <em>mmkeep &lt;defence&gt;</em>. You can also create new defence modes with <em>mmcreate defmode &lt;new mode name&gt;</em>.</p>
+<p>To view your current defup list, you can use <strong>mmshow defup</strong>, and to view your current keepup list, <strong>mmshow keepup</strong>. A green X by a defence means that it’s on enabled, a deep blue m by a defence means that it’s enabled, and the defence also has a small mana drain. A bright M by a defence means that it’s enabled and has a large mana drain.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">keepup works in a special manner with selfishness - if it’s off keepup, keepup will then do generosity for you. This allows you to use <em>mmkeep selfishness</em> or <em>sl</em> to toggle selfishness.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="adjusting-defence-menus">
+<h3>Adjusting defence menus<a class="headerlink" href="#adjusting-defence-menus" title="Permalink to this headline">¶</a></h3>
+<p>If you’d like to hide certain defences or groups from showing in the (huge) list, use the <em>mmshow hidelist</em> alias and click on - or + beside defences, or even entire skillsets, to hide or show them.</p>
+</div>
+</div>
+<div class="section" id="using-the-do-dofree-system">
+<h2>Using the <em>do / dofree</em> system<a class="headerlink" href="#using-the-do-dofree-system" title="Permalink to this headline">¶</a></h2>
+<p>The system includes a very nice feature to assist you in everyday tasks - the <em>do</em> queue. It allows you to queue actions (that take balance or equilibrium to do) to be done as soon as possible.</p>
+<p>Using it is simple, the syntax is - <code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">&lt;action&gt;</span></code>. If you already have both balance and equilibrium, then the system will do your action at once - otherwise, it’ll do it as soon as you regain both balance and equilibrium. If you ask it to do multiple actions, then it’ll do them properly, one action per balance/eq regain.</p>
+<p>If you’d like the system to do multiple actions _per_ one balance/eq regain - for example, your bashing attacks uses two arms instead of one balance - then you can use the <strong>$</strong> sign to separate commands - ie, <code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">swing</span> <span class="pre">rat$swing</span> <span class="pre">rat</span></code> will swing the rat twice at once.</p>
+<p>The really useful feature of do is the <cite>dor</cite> alias. It allows you to repeat an action indefinitely - does it on every balance/eq regain. To use it, you can use <em>dor &lt;action&gt;</em> to start it, and <em>dor</em> or <em>dor off</em> to disable it. For example, <em>dor kick rat</em> will kick the rat forever! This, as you might’ve noticed, is useful in bashing and an example <strong>F2</strong> keybinding is provided to show how to make use of it. You are reponsible for using it, though - don’t do anything that is against the rules of Lusternia.</p>
+<p>Note that you can also use your own aliases as actions - ie if your bashing alias is <strong>dd</strong>, then <strong>dor dd</strong> will work.</p>
+<p>Other aliases provided with do are <em>dofirst</em>, <em>undo</em>, <em>undoall</em>, and <em>mmshow do</em>.</p>
+<p>Along with <em>do</em>, a <em>dofree</em> system is also provided - it’s for actions that require balance/equilibrium, but don’t take it. Aliases for it are similar - <em>dofree</em>, <em>dofreefirst</em>, <em>undofree</em> and <em>undoallfree</em>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">monks and warriors should have <em>config prompt armbalance on</em> for m&amp;mf to track your armbalance properly.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ignoring-curing-things">
+<h2>Ignoring curing things<a class="headerlink" href="#ignoring-curing-things" title="Permalink to this headline">¶</a></h2>
+<p><em>m&amp;mf</em> has a feature that allows you to ignore curing afflictions - this can come in handy handy in many situations; such as ignoring clumsiness for testing, or ignoring an affliction that you get frequently while bashing but don’t want to waste curatives on.</p>
+<p>To view a list of all things you can ignore, you can use the <em>mmshow ignorelist</em> alias. Warning, the list is big! While some afflictions are self-explanatory, some names require a bit of explanation:</p>
+<p>lovers -  lust. Requires rejecting the person(s) to cure.
+lovepotion - the potion that’ll make you fall in love with others or vice versa. If you added the lovedef on defup or keepup, then this ‘affliction’ will be treated as good and won’t be cured.</p>
+<p>To ignore an affliction, you can do <em>mmignore &lt;affliction&gt;</em>. It acts as a toggle - so doing it again will remove it from the list.</p>
+<p>Lastly, you can use <em>mmshow ignore</em> to view all items you’ve set to ignore.</p>
+</div>
+<div class="section" id="on-affliction-locks">
+<h2>On affliction locks<a class="headerlink" href="#on-affliction-locks" title="Permalink to this headline">¶</a></h2>
+<p>The system has features to both warn you when you become locked via certain afflictions, and cure the said locks - either usage of the cleanse enchantment/skill, or a powercure (Lowmagic Green/Highmagic Gedulah).</p>
+<p>To enable cleanse lock curing, you do <em>mmconfig cleanse yep*</em>, and to enable powercure curing, <strong>mmconfig &lt;green or gedulah&gt; yep</strong>.</p>
+<p>Warnings are done automatically for you on the prompt, and are specially coloured so they don’t get in your face too much but are still clearly visible. They’re appended after the prompt, before the commands are shown, so they’re static in the position as well.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="9%" />
+<col width="81%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Lock name</th>
+<th class="head">Cure</th>
+<th class="head">Afflictions needed</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>arms</td>
+<td>(none)</td>
+<td>missingleftarm, missingrightarm</td>
+</tr>
+<tr class="row-odd"><td>cleanse a</td>
+<td>cleanse</td>
+<td>slickness, slitthroat</td>
+</tr>
+<tr class="row-even"><td>cleanse b</td>
+<td>cleanse</td>
+<td>slickness, asthma, crushedwindpipe</td>
+</tr>
+<tr class="row-odd"><td>green a</td>
+<td>powercure</td>
+<td>slickness, slitthroat, and prone or paralyzed or bound in some way</td>
+</tr>
+<tr class="row-even"><td>green b</td>
+<td>powercure</td>
+<td>slickness, asthma, crushedwindpipe, and prone or paralyzed or bound in some way</td>
+</tr>
+<tr class="row-odd"><td>slow</td>
+<td>powercure</td>
+<td>aeon, concussion</td>
+</tr>
+<tr class="row-even"><td>venom</td>
+<td>focus</td>
+<td>anorexia, asthma and slickness</td>
+</tr>
+<tr class="row-odd"><td>hemi</td>
+<td>smoke</td>
+<td>hemiplegyright, hemiplegyleft</td>
+</tr>
+</tbody>
+</table>
+<p>On the scripting side, the <em>mm.me.locks</em> table holds all current affliction locks you’ve got (as a key-value table), and <em>m&amp;m got lock</em>, <em>m&amp;m lost lock</em> events are raised whenever you gain/lose the affliction locks.</p>
+</div>
+<div class="section" id="choke-aeon-and-sap-curing">
+<h2>Choke, aeon and sap curing<a class="headerlink" href="#choke-aeon-and-sap-curing" title="Permalink to this headline">¶</a></h2>
+<p>One of the most powerful features of <strong>m&amp;mf</strong> is perfect choke curing. By that, it is implied that the system can do everything - cure (apply salves, outr if necessary and eat herbs, smoke, drink, writhe), keepup defences and etc while in aeon, sap or choke. First two of course have been prioritized to be cured as soon as possible.</p>
+<p>Now, there is the problem of you doing stuff while in aeon/sap/choke - anything you do would disrupt the previous command, and if the system is, for example, trying to cure you - commands will be getting in the way and it’ll have to keep restarting and etc. Sometimes you can do a command accidentally, when you didn’t even mean to disrupt anything, or sometimes you <em>want</em> to override what the system is doing - for example, curing you while all you really want to do is tumble away.</p>
+<p>That’s why the system offers two modes for aeon/sap/choke curing. First one is where if the system is trying to do something, and you (or your scripts) do something as well, it will <em>deny</em> that command - so that it does not get sent, and does not disrupt what the system is doing. The second mode is where your commands will <em>override</em> what the system is doing - so it will let your commands through, and resume doing stuff after they go through.</p>
+<p>The option to change this is <em>mmconfig blockcommands</em> - and a shortcut alias of <em>tsc</em> is also provided to toggle this quickly in combat.</p>
+<p>Which mode is best to use is up to you - if you aren’t an experienced combatant yet, then you might want to keep command denying on so you don’t get in the systems way of curing. Experienced combatants on the other hand might want to enable command overrides so they can fight offensively in choke, and pause sending commands themselves to let the system cure up important afflictions when necessary.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">while in choke curing, aeon or sap the system will prefix an (a) to the prompt. It’s just a subtle way to let you know of the situation you’re in. Additionally, the a will be red if the system is currently doing something, or will be green if you’re currently overriding the system, or will be blue if neither you nor the system are doing anything.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">tip:</th><td class="field-body">you can always create aliases with different names for system aliases that you find hard to remember and just copy/paste the script they do.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">tip:</th><td class="field-body">if you’d like to issue a command while blockcommands is on, while keeping blockcommands enabled the the max amount of time - you could alias to do this: <em>mm.config.set(“blockcommands”, “off”) send(“my command”) mm.config.set(“blockcommands”, “on”)</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="herb-precaching">
+<h2>Herb precaching<a class="headerlink" href="#herb-precaching" title="Permalink to this headline">¶</a></h2>
+<p>Another great feature <strong>m&amp;mf</strong> offers you is herb precahing - keeping a certain amount of a herb out in your inventory at all times. This is very useful for two reasons - firstly, m&amp;mf will then be able to eat the herb and then outr it when necessary instead of outr and eat, and this’ll shave off sometimes very important miliseconds on an affliction getting cured. Secondly, m&amp;mf won’t have to outr the herb and be able to eat it right away if you already have it in aeon/choke/sap.</p>
+<p>To setup herb precaching, do <strong>mmsetup pc</strong>. Click on the + besides a herb to increase the amount, - to decrease. Herb precaching preferences are also specific to a defence mode - so you can have some on precache in your combat mode, and less or none in your bashing or normal.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">tip:</th><td class="field-body">if you’d like to stop precaching, you can switch to the <em>empty</em> defences mode - <em>mmdefs empty</em>! (provided you don’t fill the empty defence mode with any herbs)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="changing-colour-highlights">
+<h2>Changing colour highlights<a class="headerlink" href="#changing-colour-highlights" title="Permalink to this headline">¶</a></h2>
+<p><strong>m&amp;mf</strong> does some basic highlights on your balances recovery and passive healing. You can change the highlighting as you wish without worrying - it won’t affect the system. Just create triggers for the things you’d like to highlight <em>after</em> the <em>m&amp;mf</em> triggers folder, enable highlight option, and pick your colour(s).</p>
+</div>
+<div class="section" id="setting-a-custom-prompt">
+<h2>Setting a custom prompt<a class="headerlink" href="#setting-a-custom-prompt" title="Permalink to this headline">¶</a></h2>
+<p>Since Lusternia won’t be implementing custom prompts like Aetolia allows you to, I’ve implemented the option in <strong>m&amp;mf</strong>. Setting it is rather easy - no coding is required, and it follows the Aetolia style as well.</p>
+<p>You can set a custom prompt with the <em>mmconfig customprompt &lt;line&gt;</em> command.</p>
+<p>To disable it, you can do <em>mmconfig customprompt off</em>, and to enable it back, <em>mmconfig customprompt on</em>. If you’d like to see what line did you set your custom prompt to be, you can check <em>mmconfig2</em> and click on ‘view’.</p>
+<p>What goes inside the <em>&lt;line&gt;</em> is how you build your prompt - with tags and colurs. Tags start with the &#64; symbol, colours start with the ^ symbol - and to apply a colour to a tag, you use it before the tag. Available tags are:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Tag</th>
+<th class="head">What it shows</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&#64;health</td>
+<td>your current health</td>
+</tr>
+<tr class="row-odd"><td>&#64;mana</td>
+<td>your current mana</td>
+</tr>
+<tr class="row-even"><td>&#64;ego</td>
+<td>your current ego</td>
+</tr>
+<tr class="row-odd"><td>&#64;willpower</td>
+<td>your current willpower</td>
+</tr>
+<tr class="row-even"><td>&#64;endurance</td>
+<td>your current endurance</td>
+</tr>
+<tr class="row-odd"><td>&#64;power</td>
+<td>your current power</td>
+</tr>
+<tr class="row-even"><td>&#64;reserves</td>
+<td>your current power reserves</td>
+</tr>
+<tr class="row-odd"><td>&#64;maxhealth</td>
+<td>your maximum health</td>
+</tr>
+<tr class="row-even"><td>&#64;maxmana</td>
+<td>your maximum mana</td>
+</tr>
+<tr class="row-odd"><td>&#64;maxego</td>
+<td>your maximum ego</td>
+</tr>
+<tr class="row-even"><td>&#64;maxwillpower</td>
+<td>your maximum willpower</td>
+</tr>
+<tr class="row-odd"><td>&#64;maxendurance</td>
+<td>your maximum endurance</td>
+</tr>
+<tr class="row-even"><td>&#64;%health</td>
+<td>your current health in percent</td>
+</tr>
+<tr class="row-odd"><td>&#64;%mana</td>
+<td>your current mana in percent</td>
+</tr>
+<tr class="row-even"><td>&#64;%ego</td>
+<td>your current ego in percent</td>
+</tr>
+<tr class="row-odd"><td>&#64;%willpower</td>
+<td>your current willpower in percent</td>
+</tr>
+<tr class="row-even"><td>&#64;%endurance</td>
+<td>your current endurance in percent</td>
+</tr>
+<tr class="row-odd"><td>&#64;mo</td>
+<td>your current momentum (kata users only)</td>
+</tr>
+<tr class="row-even"><td>&#64;esteem</td>
+<td>your esteem (requires GMCP)</td>
+</tr>
+<tr class="row-odd"><td>&#64;essence</td>
+<td>your Demigod/Ascendant essence (requires GMCP)</td>
+</tr>
+<tr class="row-even"><td>&#64;empathy</td>
+<td>your current empathy level (healing users only, requires GMCP)</td>
+</tr>
+<tr class="row-odd"><td>&#64;commaessence</td>
+<td>same as above, but adds commas to make it visually easier</td>
+</tr>
+<tr class="row-even"><td>&#64;shortessence</td>
+<td>essence in short form, with one decimal spot (ie, 1.1m)</td>
+</tr>
+<tr class="row-odd"><td>&#64;shortessence2</td>
+<td>essence in short form, with two decimal spots (ie, 1.19m)</td>
+</tr>
+<tr class="row-even"><td>&#64;%xp</td>
+<td>how much percent in xp have you attained in this level</td>
+</tr>
+<tr class="row-odd"><td>&#64;-%xp</td>
+<td>how much percent in xp do you need until the next level</td>
+</tr>
+<tr class="row-even"><td>&#64;defs</td>
+<td>defences if you have them - blind, deaf, kafe, rebounding</td>
+</tr>
+<tr class="row-odd"><td>&#64;eqbal</td>
+<td>balance/equilibrium if you have them</td>
+</tr>
+<tr class="row-even"><td>&#64;prone</td>
+<td>a small ‘p’ if you are prone</td>
+</tr>
+<tr class="row-odd"><td>&#64;Prone</td>
+<td>a big ‘P’ if you are prone</td>
+</tr>
+<tr class="row-even"><td>&#64;armbal</td>
+<td>right/left arm balances if you have them - requires that <em>config prompt armbalance on</em> is enabled</td>
+</tr>
+<tr class="row-odd"><td>&#64;psibal</td>
+<td>psionics balances if you have them (psionics users only)</td>
+</tr>
+<tr class="row-even"><td>&#64;timestamp</td>
+<td>the current timestamp, in hh:mm:ss.zzz format</td>
+</tr>
+<tr class="row-odd"><td>&#64;diffhealth</td>
+<td>shows the difference in health since the last prompt</td>
+</tr>
+<tr class="row-even"><td>&#64;diffmana</td>
+<td>shows the difference in mana since the last prompt</td>
+</tr>
+<tr class="row-odd"><td>&#64;(diffhealth)</td>
+<td>like diffhealth, but adds () when there’s a change</td>
+</tr>
+<tr class="row-even"><td>&#64;(diffmana)</td>
+<td>like diffmana, but adds () when there’s a change</td>
+</tr>
+<tr class="row-odd"><td>&#64;[diffhealth]</td>
+<td>like diffhealth, but adds [] when there’s a change</td>
+</tr>
+<tr class="row-even"><td>&#64;[diffmana]</td>
+<td>like diffmana, but adds [] when there’s a change</td>
+</tr>
+</tbody>
+</table>
+<p>Available colours are:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Colour</th>
+<th class="head">What colour it sets</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>^1</td>
+<td>proper colour for your current health (green if ok, yellow if wounded, red if badly wounded)</td>
+</tr>
+<tr class="row-odd"><td>^2</td>
+<td>proper colour for your current mana</td>
+</tr>
+<tr class="row-even"><td>^3</td>
+<td>proper colour for your current ego</td>
+</tr>
+<tr class="row-odd"><td>^4</td>
+<td>proper colour for your current willpower</td>
+</tr>
+<tr class="row-even"><td>^5</td>
+<td>proper colour for your current endurance</td>
+</tr>
+<tr class="row-odd"><td>^6</td>
+<td>proper colour for your current power</td>
+</tr>
+<tr class="row-even"><td>^7</td>
+<td>proper colour for your current momentum (kata users only)</td>
+</tr>
+<tr class="row-odd"><td>^8</td>
+<td>proper colour for your current empathy (healing users only)</td>
+</tr>
+<tr class="row-even"><td>^r</td>
+<td>red</td>
+</tr>
+<tr class="row-odd"><td>^R</td>
+<td>dark red</td>
+</tr>
+<tr class="row-even"><td>^g</td>
+<td>green</td>
+</tr>
+<tr class="row-odd"><td>^G</td>
+<td>dark green</td>
+</tr>
+<tr class="row-even"><td>^y</td>
+<td>yellow</td>
+</tr>
+<tr class="row-odd"><td>^Y</td>
+<td>dark yellow</td>
+</tr>
+<tr class="row-even"><td>^b</td>
+<td>blue</td>
+</tr>
+<tr class="row-odd"><td>^B</td>
+<td>dark blue</td>
+</tr>
+<tr class="row-even"><td>^m</td>
+<td>magenta</td>
+</tr>
+<tr class="row-odd"><td>^M</td>
+<td>dark magenta</td>
+</tr>
+<tr class="row-even"><td>^c</td>
+<td>cyan</td>
+</tr>
+<tr class="row-odd"><td>^C</td>
+<td>dark cyan</td>
+</tr>
+<tr class="row-even"><td>^w</td>
+<td>white</td>
+</tr>
+<tr class="row-odd"><td>^W</td>
+<td>dark white</td>
+</tr>
+</tbody>
+</table>
+<p>This is the initial first go at it which already replicates all from Aetolia that is relevant. I’m up to new tag / colour suggestions to make this more powerful - so feel free to mail in ideas.</p>
+<p>Just as Mudlet and m&amp;mf, the custom prompt was designed with speed in mind and optimized to the max. In practical tests, the speed of it is <em>very</em> fast - making it hard to measure because the difference on my laptop isn’t too noticable. You can test for yourself though - the S: number bottom-right in Mudlet shows your system lag - how much time <em>all</em> your triggers took to process the last line. Hold the enter button down on a blank command line so all you’ll be getting is a bunch of prompts, and watch the S: number change. Do that with and without the custom prompt, and you’ll probably be convinced that it’s fast.</p>
+<p>Here are some sample prompts for you to get ideas from. Feel free to share your custom prompt so I can add it here:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span>^1@healthh, ^2@manam|@%mana%, ^3@%egoe%, ^6@powerp, ^G@%willpowerw%, @%endurancee%, @eqbal @defs-
+5050h, 6600m|100%, 100g%, 10p, 100w%, 100e%, ex dbk-
+
+^r[^gH:^1@health^r|^gM:^2@mana^r|^gE:^3@ego^r|^gEnd:^5@%endurance%^r|^gWill:^4@%willpower%^r] [^gP:^6@power^r] [^w@defs ^w@eqbal^r]
+[H:2985|M:2865|E:2694|End:100%|Will:100%] [P:10] [ ex]
+
+^r(^1@health^w|^1@%health^r), ^b(^2@mana^w|^2@%mana^b), ^g(^3@ego^w|^3@%ego^g), ^C(^4@%willpower^C), ^c(^5@%endurance^c), ^6@powerp ^w(^w@%xp|@-%xp^w%) (@eqbal@defs@psibal^w)-
+(5869|119), (7104|116), (8588|126), (100), (100), 10p (89|11%) (exdksSi)-
+
+-- remove @mo if you aren&#39;t a monk
+ ^G&lt; ^y@mo^G[@eqbal@armbal]^6[@power] ^G| ^1[@health|@%healthh] ^2[@mana|@%manam] ^3[@%egoe] ^G| ^4[@%willpowerwi]^5[@%enduranceen] ^G| [@%xp%][@defs].&quot;
+</pre></div>
+</div>
+<div class="section" id="adding-custom-tags-and-colours">
+<h3>Adding custom tags and colours<a class="headerlink" href="#adding-custom-tags-and-colours" title="Permalink to this headline">¶</a></h3>
+<p>You can also define your own custom tags (that run functions or display a variable) or colours for use in the custom prompt. Doing so is easy, and here are a fre examples:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- define a custom tag ^magenta that inserts the magenta colour</span>
+<span class="n">mm</span><span class="p">.</span><span class="n">adddefinition</span><span class="p">(</span><span class="s2">&quot;^xmagenta&quot;</span><span class="p">,</span> <span class="s2">&quot;&#39;&lt;magenta&gt;&#39;&quot;</span><span class="p">)</span>
+
+<span class="c1">-- define a custom tag that displays the value of a variable, &#39;target&#39;</span>
+<span class="n">mm</span><span class="p">.</span><span class="n">adddefinition</span><span class="p">(</span><span class="s2">&quot;@target&quot;</span><span class="p">,</span> <span class="s2">&quot;target&quot;</span><span class="p">)</span>
+
+<span class="c1">-- or define a a tag that runs a function, gets the result from it and inserts it.</span>
+<span class="n">mm</span><span class="p">.</span><span class="n">adddefinition</span><span class="p">(</span><span class="s2">&quot;@myfunction&quot;</span><span class="p">,</span> <span class="s2">&quot;myfunction()&quot;</span><span class="p">)</span>
+
+<span class="c1">-- returns the value of the &#39;target&#39; variable in red, or &#39;no target&#39; in green if it&#39;s not set</span>
+<span class="kr">function</span> <span class="nf">myfunction</span><span class="p">()</span>
+  <span class="kr">if</span> <span class="n">target</span> <span class="kr">then</span> <span class="kr">return</span> <span class="s2">&quot;&lt;red&gt;&quot;</span><span class="o">..</span><span class="n">target</span> <span class="kr">else</span> <span class="kr">return</span> <span class="s2">&quot;&lt;green&gt;no target&quot;</span> <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="c1">-- or define a tag that inserts the timestamp</span>
+<span class="n">mm</span><span class="p">.</span><span class="n">adddefinition</span><span class="p">(</span><span class="s2">&quot;@timestamp&quot;</span><span class="p">,</span> <span class="s2">&quot;getTime(true, &#39;hh:mm:ss.zzz&#39;)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>From these examples you can derive some rules:</p>
+<ul class="simple">
+<li>tags should not ‘nest’ within each other - declaring a colour tag of ^magenta wouldn’t work since we already have ^m and that one would ‘steal’ it</li>
+<li>colour tags should have the colour name (you can see possible color names by running the showColors() function) inside “’&lt;name here&gt;’”</li>
+<li>tags that just point to variables should just have the variable name in quotes</li>
+<li>tags that point to functions should have the function name with two brackets in quotes</li>
+<li>note: if you’d like the function not to insert any text, then return “”</li>
+<li>tags can really start with anything and aren’t limited to ^ or &#64;, but it’ll be easier for you to keep the tradition</li>
+</ul>
+<p>Tags are not saved upon a profile restart, so you’d want your scripts declaring the necessary tags on startup. If you’d like to change a tag you made previously, then you can just call the functiona again and it will over-write it. Do note that it will also allow you to overwrite the default m&amp;mf tags - you normally shouldn’t do that, but if you do it by accident, they will be restored on a profile restart.</p>
+</div>
+</div>
+<div class="section" id="what-to-do-if-you-have-a-problem">
+<h2>What to do if you have a problem?<a class="headerlink" href="#what-to-do-if-you-have-a-problem" title="Permalink to this headline">¶</a></h2>
+<p>Copy/paste the problem parts that you saw in the game and email to me.</p>
+<p>Then, try checking diagnose if it’s affliction related, or <em>def</em> if it’s defences-related. For afflictions, if you’re still having a problem - try <em>mmreset affs</em> (or <em>mmreseta</em> for short).</p>
+<p>If it’s a problem with missing lines, send me an email with them and they’ll be added.</p>
+</div>
+<div class="section" id="updating-the-system">
+<h2>Updating the system<a class="headerlink" href="#updating-the-system" title="Permalink to this headline">¶</a></h2>
+<ol class="loweralpha simple">
+<li>delete m&amp;mf in Mudlets Package Manager</li>
+<li>download new m&amp;mf zip</li>
+<li>install new m&amp;mf zip itself</li>
+</ol>
+<p>Don’t worry, your personal settings won’t be lost. You can also delete the zip after you’ve installed it, it’s not needed anymore.</p>
+<p>It’s OK to get several names listed in the package manager when you install it - those are addons. When you uninstall m&amp;mf, they’ll all get uninstalled at once as well.</p>
+</div>
+<div class="section" id="getting-help">
+<h2>Getting help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h2>
+<p>Feel free to ask questions about m&amp;mf either in the m&amp;mf clan or a knowledgeable friend!</p>
+</div>
+<div class="section" id="submitting-ideas">
+<h2>Submitting ideas<a class="headerlink" href="#submitting-ideas" title="Permalink to this headline">¶</a></h2>
+<p>Please email them in! I’m always looking to improve things for the better and appreciate other views. Also mention if you’d like to avoid being credited in the changelog, or list the name of the character to credit if you have multiple.</p>
+<p>Thanks! :)</p>
+</div>
+<div class="section" id="mmconfig-options">
+<h2>mmconfig options<a class="headerlink" href="#mmconfig-options" title="Permalink to this headline">¶</a></h2>
+<dl class="glossary docutils">
+<dt id="term-adrenaline">adrenaline</dt>
+<dd>Will cause athletics users to only use adrenaline for the quicksilver defense.</dd>
+<dt id="term-aeonfocus">aeonfocus</dt>
+<dd>specifies if afflictions being cured in slowcuring mode will be focused.</dd>
+<dt id="term-aeonprios">aeonprios</dt>
+<dd>sets a user definied slowcuring priority list optimized for aeon</dd>
+<dt id="term-allheale">allheale</dt>
+<dd>specifies whenever the system should make use of allheale to cure affs or not. Currently, it only makes use of it for blackout. You can disable this if you don’t have any allheale potion so the system won’t spam trying to use it.</dd>
+<dt id="term-alwaysrockclimb">alwaysrockclimb</dt>
+<dd>specifies whenever the system should try to save power in combat by climbing normally if it can (and rock climbing only when there are things hindering you) or just outright always rock climbing. Hidden afflictions can slow down rock climbing if the system tries to normally climb first, so if those are an issue and power isn’t, you can make the call.</dd>
+<dt id="term-arena">arena</dt>
+<dd>specifies if system should work as if you’re in the arena or not.</dd>
+<dt id="term-assumestats">assumestats</dt>
+<dd>sets the % of health, mana, and ego which the system will assume you have when afflicted with blackout or recklessness (and thus your real stats are unknown).</dd>
+<dt id="term-attemptearlystun">attemptearlystun</dt>
+<dd>Will attempt to start curing before stun wears off in slowcuring for more effective curing. Considers truetime defence.</dd>
+<dt id="term-autoarena">autoarena</dt>
+<dd>turns on arena mode when entering an arena and turns it off upon exiting the arena</dd>
+<dt id="term-autohide">autohide</dt>
+<dd>Automatically hides inactive skillsets and shows active skillsets on deflist (runs off gmcp.Char.Skills.Groups event)</dd>
+<dt id="term-autorecharge">autorecharge</dt>
+<dd>specifies whenever the system should automatically recharge healing/protection scrolls after using them (make sure you have an energy cube with enough charges for this to work).</dd>
+<dt id="term-autoreject">autoreject</dt>
+<dd>can be ‘whitelist’, ‘blacklist’, ‘on’ of ‘off’. Setting this to on or off enables or disables autoreject. Setting it to ‘whitelist’ means that names on the lust list (mmshow lustlist) are the ones that will <em>not</em> be autorejected, while everyone else will be. Setting it to ‘blacklist’ means that nobody except names on the lustlist will be autorejected. To add/remove names to the lustlist, see the <em>lustlist</em> option.</dd>
+<dt id="term-autorewield">autorewield</dt>
+<dd>enables auto-rewielding of items that get forcefully unwielded - so if a weapon gets knocked out of your hand, m&amp;mf will rewield it for you, but won’t if you unwield it yourself, willingly. Requires GMCP being enabled in Mudlet settings (that requires Mudlet 2.0+).</dd>
+<dt id="term-autowounds">autowounds</dt>
+<dd>has the system automatically check your wounds after a specific number of warrior hits, so tracking is more accurate. Wounds checking is gagged when the system does it automatically, so that you aren’t spammed. This is set at 3 by default for Healers and at 10 for non-Healers.</dd>
+<dt id="term-beastfocus">beastfocus</dt>
+<dd>specifies if system should attempt to use beastfocus before regular focus. Will automatically turn off if beast isn’t present and it’s on.</dd>
+<dt id="term-blindherb">blindherb</dt>
+<dd>sets which herb the system should use to cure blindness. Can be faeleaf or myrtle (default is faeleaf).</dd>
+<dt id="term-blockcommands">blockcommands</dt>
+<dd>toggles whenever the system will deny your commands if it’s currently doing something in slow curing mode, or your commands override what the system is currently doing.</dd>
+<dt id="term-bloodboil">bloodboil</dt>
+<dd>(psychometabolism only) has the system ignore bleeding, instead letting bloodboil take care of it if the defence is up and you’re above half ego.</dd>
+<dt id="term-ccto">ccto</dt>
+<dd><p class="first">adjusts where do the <a class="reference internal" href="#term-cc"><span class="xref std std-term">cc alias</span></a> and the <a class="reference internal" href="#mm-cc-function"><span class="std std-ref">mm.cc()</span></a> function report information to. You can set it to a variety of different options:</p>
+<blockquote class="last">
+<div><ul class="simple">
+<li><em>pt</em> - will report to the party channels.</li>
+<li><em>clt</em> - will report to the currently selected clan.</li>
+<li><em>tell person</em> - will be telling to that selected person.</li>
+<li><em>ot</em> - will be reporting on the Order channel.</li>
+<li><em>team</em> - will be reporting to the team channel (in the arena).</li>
+<li><em>short clan name</em> - will be reporting to that specific clan - you can see the short name of a clan by doing <em>clans</em>, the short name is in the dark-yellow brackets.</li>
+<li><em>echo</em> - will be echoing things back to you, and not telling anyone else.</li>
+</ul>
+</div></blockquote>
+</dd>
+<dt id="term-changestype">changestype</dt>
+<dd><p class="first">sets the display showchanges option, when enabled, will use. Possible options are:</p>
+<blockquote class="last">
+<div><ul class="simple">
+<li><em>full</em> - default, shows just the exact amount of health/mana that was lost/gained, ie - ‘# Health’</li>
+<li><em>short</em> - same as full, though in a more consise format ‘#h’</li>
+<li><em>fullpercent</em> - uses a format similar to full, but also shows the amount as a % of your relative max</li>
+<li><em>shortpercent</em> - uses a format similar to short, but also shows the amount as a % of your relative max</li>
+</ul>
+</div></blockquote>
+</dd>
+<dt id="term-cleanse">cleanse</dt>
+<dd>specifies whenever the system should make use of the cleanse effect (so enchantment or skill) or not. The system currently makes use of it to get out of slickness-related locks, cure sap, and anything else that requires cleanse.</dd>
+<dt id="term-clot">clot</dt>
+<dd>lets the system know it can make use of the clotting skill to stop bleeding when you’re above the allowed mana level. The system will make use of chervil otherwise if it can’t.</dd>
+<dt id="term-coltsfootid">coltsfootid</dt>
+<dd>sets the pipe ID to use for the coltsfoot pipe. Normally you wouldn’t need to use this, as the system can auto-assign IDs from the <em>pipelist</em> command - but if you don’t have it, you can use this option.</dd>
+<dt id="term-commandecho">commandecho</dt>
+<dd>with this enabled, the system will echo the commands that it’s doing on the main screen.</dd>
+<dt id="term-commandechotype">commandechotype</dt>
+<dd>you can specify whenever the system should use <strong>plain</strong> or <strong>fancy</strong> command echos. Plain are the default Mudlet ones - one per line with the default color for them. Fancy ones are compressed into one line for better clarity and less spam.</dd>
+<dt id="term-customprompt">customprompt</dt>
+<dd>see <em>Setting a custom prompt</em> on how to setup your custom prompt with this.</dd>
+<dt id="term-deafherb">deafherb</dt>
+<dd>sets which herb the system should use to cure deafness. Can be earwort or myrtle (default is myrtle).</dd>
+<dt id="term-doubledo">doubledo</dt>
+<dd>enables repeating of actions while afflicted with stupidity or void - so the system will do something not once, but twice at once.</dd>
+<dt id="term-echotype">echotype</dt>
+<dd>sets the style of the systems echos. See <em>mmsetup colours</em> for a list of available options.</dd>
+<dt id="term-egouse">egouse</dt>
+<dd>(psychometabolism only) sets the % of max ego above which, if you have the bloodboil defence up and bloodboil option enabled, the system will not clot but let bloodboil cure the bleeding. If you’re below this amount, it’ll cure bleeding.</dd>
+<dt id="term-enchantments">enchantments</dt>
+<dd>toggles whenever to use rituals/cosmic skills or their charge-based enchantment equivalents instead.</dd>
+<dt id="term-eventaffs">eventaffs</dt>
+<dd>advanced option - this will have the system raise Mudlet events for when you receive or loss an affliction. The event names are <em>m&amp;m got aff</em> and <em>m&amp;m lost aff</em>, and the name of the affliction is passed as an argument. The events are raised after the <em>mm.affl</em> table is adjusted, so it’s safe to operate on it in your event handlers.</dd>
+<dt id="term-faeleafid">faeleafid</dt>
+<dd>sets the pipe ID to use for the faeleaf pipe. Normally you wouldn’t need to use this, as the system can auto-assign IDs from the <em>pipelist</em> command - but if you don’t have it, you can use this option.</dd>
+<dt id="term-focus">focus</dt>
+<dd>Adds/Removes an affliction to the focus table. Afflictions in the table will always be focused.</dd>
+<dt id="term-focusbody">focusbody</dt>
+<dd>(Deprecated - turn it off) - lets the system know if you have the Focus Body skill in Discipline so it can use it to cure.</dd>
+<dt id="term-focusmind">focusmind</dt>
+<dd>(Deprecated - turn it off) - lets the system know if you have the Focus Mind skill. If you don’t have it, the system will just make use of normal (herbs, salves, etc.) cures for mental afflictions.</dd>
+<dt id="term-focusspirit">focusspirit</dt>
+<dd>(Deprecated - turn it off) - lets the system know if you have the Focus Spirit ability or whenever it should use it to cure.</dd>
+<dt id="term-gagbreath">gagbreath</dt>
+<dd>toggles whenever the system should gag (hide) breating or not. It will completely gag it - commands to put it up will not be shown, and you holding breath and exhaling will be completely gagged as well - so you will see no extra spam, at all.</dd>
+<dt id="term-gagclot">gagclot</dt>
+<dd>toggles whenever the system should gag (hide) clotting or not. This is typically quite spammy, so it’s a convenience to have this enabled.</dd>
+<dt id="term-gagrelight">gagrelight</dt>
+<dd>toggles whenever the system should gag (hide) pipe relighting or not.</dd>
+<dt id="term-gedulah">gedulah</dt>
+<dd>(highmagic only) sets whenever the system should automatically invoke gedulah to cure powercure locks.</dd>
+<dt id="term-geniesall">geniesall</dt>
+<dd>Will use the ‘curio collection activate genies’ command to put up all the genies, removing spam.</dd>
+<dt id="term-gmcpvitals">gmcpvitals</dt>
+<dd>sets m&amp;mf to pull stats information from Char.Vitals - this means that it won’t spam when deffing up locked in modules and will track balance/eq in blackout, among other things.</dd>
+<dt id="term-green">green</dt>
+<dd>(lowmagic only) sets whenever the system should automatically invoke green to cure powercure locks.</dd>
+<dt id="term-healingskill">healingskill</dt>
+<dd>sets the highest ailment type that you can cure with, so the system knows which afflictions can you cure. ie, if you’re Transcendent, you’d set it to <em>regenerate</em>.</dd>
+<dt id="term-hook">hook</dt>
+<dd>(cavaliers only) enables the use of the <a class="reference external" href="https://sites.google.com/site/xieltalnara/Cavalier">Cavalier Hook</a> skill when parrying.</dd>
+<dt id="term-insomnia">insomnia</dt>
+<dd>with this enabled, the system will make use the Insomnia skill in Discipline when mana levels permit for the insomnia defence. Otherwise, it’ll use merbloom for the effect.</dd>
+<dt id="term-lag">lag</dt>
+<dd>lets the system known if you’re lagging or not - you want to use this option when you see the system double-doing command and wasting things too often. 0 is default, ie not lagging, and the number goes up to 3.</dd>
+<dt id="term-loadsap">loadsap</dt>
+<dd>Will import your sapprios list upon being afflicted by sap and your aeonprios list upon curing sap.</dd>
+<dt id="term-lustlist">lustlist</dt>
+<dd>adds or removes a name to the lust list. See autoreject option on how will m&amp;mf deal with the names on it.</dd>
+<dt id="term-manause">manause</dt>
+<dd>sets the % below which the system should <em>not</em> use mana. ie, setting it to 30% will have the system not use insomnia, focus mind and etc. if you’re at 29% of total maximum mana but revert to normal cures.</dd>
+<dt id="term-myrtleid">myrtleid</dt>
+<dd>sets the pipe ID to use for the myrtle pipe. Normally you wouldn’t need to use this, as the system can auto-assign IDs from the <em>pipelist</em> command - but if you don’t have it, you can use this option.</dd>
+<dt id="term-org">org</dt>
+<dd>sets the name of the city/commune you’re in (this is needed for org-specific defences).</dd>
+<dt id="term-parry">parry</dt>
+<dd>lets the system know whenever you have parry or not so it can make use of it.</dd>
+<dt id="term-powerfocus">powerfocus</dt>
+<dd>specifies if the system should use powerfocus when focusing on afflictions.</dd>
+<dt id="term-preclot">preclot</dt>
+<dd>toggles whenever the system should preclot - that is, start clotting when you receive bleeding but before you take damage from bleeding. Doing so will save you from some bleeding damage, at the cost of a bigger willpower usage in the long term.</dd>
+<dt id="term-queuing">queuing</dt>
+<dd>lets the system know if you have Queuing in Combat. With this enabled, the system will make use of queueing and use normal stancing otherwise.</dd>
+<dt id="term-relight">relight</dt>
+<dd>toggles whenever the system should automatically relight pipes that go out. While it doesn’t cause extra spam while lighting them, having the 3 messages appear every once in a while can get annoying - so there’s an option. Note though - if the system needs to use a smoke cure, and you have pipe relighting off, it <strong>will</strong> relight that pipe regardless to cure. But don’t rely on keeping your pipes unlit in combat; do enable the option if you’re going fighting.</dd>
+<dt id="term-repeatcmd">repeatcmd</dt>
+<dd>additionally repeats all system commands x times (so repeatcmd 1 will do everything twice, repeatcmd 2 will do everything thrice). Useful for when you’re drunk or really insane.</dd>
+<dt id="term-rockclimbing">rockclimbing</dt>
+<dd>sets whenever you have the rockclimbing skill or not - if you do, the system will make use of it when normal climbing out of a pit can’t work.</dd>
+<dt id="term-sapprios">sapprios</dt>
+<dd>used to load a user definied slowcuring priority list optimized for sap curing</dd>
+<dt id="term-screeleft">screeleft</dt>
+<dd>(nekotai only) sets the poison to use for the screeleft defence.</dd>
+<dt id="term-screeright">screeright</dt>
+<dd>(nekotai only) sets the poison to use for the screeleft defence.</dd>
+<dt id="term-scroll">scroll</dt>
+<dd>lets the system know if it should make use of the Healing Scroll for replentishing health, mana or ego when you fall below the set scroll % for the specific stats.</dd>
+<dt id="term-scrollego">scrollego</dt>
+<dd>sets the % of ego at which the system will read a Scroll of Healing should you go below it.</dd>
+<dt id="term-scrollhealth">scrollhealth</dt>
+<dd>sets the % of health at which the system will read a Scroll of Healing should you go below it.</dd>
+<dt id="term-scrollid">scrollid</dt>
+<dd>sets the ID of your Scroll of Healing. You can find it out by doing <em>ii scroll</em>.</dd>
+<dt id="term-scrollmana">scrollmana</dt>
+<dd>sets the % of mana at which the system will read a Scroll of Healing should you go below it.</dd>
+<dt id="term-secondarysparkle">secondarysparkle</dt>
+<dd>toggles whenever the system uses sparkleberry or the herb that currently gives the sparkle effect for sparkle usage. Do not turn this on (or turn this off if on) when the Nature Domoth Crown is not in effect, since the effect does not work then.</dd>
+<dt id="term-showchanges">showchanges</dt>
+<dd>sets whenever the system will show your health/mana/ego gain or loss on the prompt.</dd>
+<dt id="term-sipego">sipego</dt>
+<dd>sets the % of ego below which the system will sip bromide.</dd>
+<dt id="term-siphealth">siphealth</dt>
+<dd>sets the % of health below which the system will sip health.</dd>
+<dt id="term-sipmana">sipmana</dt>
+<dd>sets the % of mana below which the system will sip mana.</dd>
+<dt id="term-soap">soap</dt>
+<dd>sets whenever the system will use the artefact soap or the cleanse enchantment/spell for curing.</dd>
+<dt id="term-sparkle">sparkle</dt>
+<dd>toggles whenever the system should use sparkle for healing your health/mana/ego should you fall below the specified levels.</dd>
+<dt id="term-sparkleego">sparkleego</dt>
+<dd>sets the % of ego below which the system will eat sparkle.</dd>
+<dt id="term-sparklehealth">sparklehealth</dt>
+<dd>sets the % of health below which the system will eat sparkle.</dd>
+<dt id="term-sparkleherb">sparkleherb</dt>
+<dd>sets which herb is available to be used for the sparkle effect. You need to enable secondarysparkle if you actually want the system to use this herb over sparkleberry.</dd>
+<dt id="term-sparklemana">sparklemana</dt>
+<dd>sets the % of mana below which the system will eat sparkle.</dd>
+<dt id="term-stanceskill">stanceskill</dt>
+<dd>sets the maximum available stance skill in Combat that you have.</dd>
+<dt id="term-steamid">steamid</dt>
+<dd>sets the pipe ID to use for the soothing steam pipe. Normally you wouldn’t need to use this, as the system can auto-assign IDs from the <em>pipelist</em> command - but if you don’t have it, you can use this option.</dd>
+<dt id="term-summer">summer</dt>
+<dd>(lowmagic only) with this enabled, the system will make use of summer whenever you get vines, roped, shackled, truss, or tangle and you have both balance and equilibrium.</dd>
+<dt id="term-tipheret">tipheret</dt>
+<dd>(highmagic only) see above, this is a summer equivalent.</dd>
+<dt id="term-unknownany">unknownany</dt>
+<dd>sets the amount of unkown afflictions will the system let you have before it diagnoses to find out what they are.</dd>
+<dt id="term-unknownfocus">unknownfocus</dt>
+<dd>sets the amount of unknown, but focusable affliction the system will let you have before it diagnoses. It will use focus mind meanwhile to cure them meanwhile, but if the amount goes over this limit, it’ll diagnose.</dd>
+<dt id="term-usehealing">usehealing</dt>
+<dd>can be either <em>full</em>, <em>partial</em> or <em>none</em> (default is <em>none</em>). <em>full</em> means that Healing will be mainly used for curing - and normal curing will only be used for afflictions that Healing can’t cure, or when you’re below the mana limit. <em>partial</em> means that normal curing will be used for everything, but supplemented with Healing whenever possible. <em>none</em> means that Healing won’t be used at all.</dd>
+<dt id="term-vitaemode">vitaemode</dt>
+<dd>sets the defences mode into which the system should go into after hitting vitae or being insta-rezzed in any other way. By default, this is set to <em>empty</em> so that you aren’t screwed into dying again while redeffing. You might, however, want to improve this for yourself by creating a defence mode that has kafe and other basic herb or balance-less essentials and set vitaemode to it - so in a raid situation, you get cloak up right away and don’t get killed again, but aren’t sitting there in the room forever redeffing.</dd>
+<dt id="term-waitherbai">waitherbai</dt>
+<dd>if any-illusion is enabled, this will have the system not eat herbs while confirming suspicious illusions (slickness).</dd>
+<dt id="term-warningtype">warningtype</dt>
+<dd>can be either <em>all</em>, <em>prompt</em> or <em>none</em> (default is <em>all</em>). This is about instakill warnings - with all, then the warning will be prefixed on every line while it’s in effect. With prompt, it will only be prefixed to prompt lines - and none will have it not prefix anything.</dd>
+<dt id="term-wonderall">wonderall</dt>
+<dd>Will use the singular ‘wondercorn activate all’ to put up all the wondercorn defences, removing spam.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="advanced-usage">
+<h1>Advanced usage<a class="headerlink" href="#advanced-usage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="scripting-with-it">
+<h2>Scripting with it<a class="headerlink" href="#scripting-with-it" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="afflictions">
+<h3>Afflictions<a class="headerlink" href="#afflictions" title="Permalink to this headline">¶</a></h3>
+<p>The system provides a lot of functions for direct use in your own combat/personal metasystem, and those are described in the m&amp;mf API.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">tip:</th><td class="field-body">A lot of functions take a <em>echoback</em> argument - it’s a boolean value that lets the function know whenever it should echo the results of its work or not.</td>
+</tr>
+</tbody>
+</table>
+<p>To check whenever you have a specific affliction, you can check it against the <em>mm.affl</em> table - ie, <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">not</span> <span class="pre">mm.affl.paralysis</span> <span class="pre">then</span> <span class="pre">...</span> <span class="pre">end</span></code>. You can find out the name of all afflictions by checking the <em>mmshow ignorelist</em>. Additionally, if the affliction can has some numeric value attached to it - like how much are you bleeding - then the <strong>mm.affl.&lt;affliction&gt;.count</strong> will be available that has the number (ie, <strong>mm.affl.bleeding.count</strong>).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">that the <code class="docutils literal notranslate"><span class="pre">mm.affl</span></code> table is read-only - modifying it won’t have effect on the system affliction tracking.</td>
+</tr>
+</tbody>
+</table>
+<p>For easier scripting, you can also ask the system to raise events for you when you receive or lose an affliction with the <em>eventaffs</em> option - so your own combat system can react to you receiving/losing afflictions, without having to make triggers for everything yourself and simply by relying on existing m&amp;mf ones. The system raises two events with this enabled - <strong>m&amp;m got aff</strong> and <strong>m&amp;m lost aff</strong> with the first argument being the affliction name. Several examples are provided in the <em>m&amp;m/Examples</em> script folder for you to look at as well.</p>
+<div class="section" id="checking-how-long-have-you-had-an-aff">
+<h4>Checking how long have you had an aff<a class="headerlink" href="#checking-how-long-have-you-had-an-aff" title="Permalink to this headline">¶</a></h4>
+<p>m&amp;mf keeps track of how long an affliction has been on you - and you can enable to see that with <em>mmconfig showafftimes</em>. You can also make use of this in your scripts - in a UI, for example, that lists your current afflictions.</p>
+<p>To check how long a particular aff has been on you, use this:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">getStopWatchTime</span><span class="p">(</span><span class="n">mm</span><span class="p">.</span><span class="n">affl</span><span class="p">.</span><span class="o">&lt;</span><span class="n">affliction</span><span class="o">&gt;</span><span class="p">.</span><span class="n">sw</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will tell you in seconds, with up to a thousandths of a second, how long have you had an aff for.</p>
+<p>Using this in a UI, you’d probably want to setup a Mudlet Timer to update your affliction lists - because while updating your affs on every prompt might have been okay, if you want to add the times in there, you’d obviously need to update your list more often if you want the times to stay relevant.</p>
+<p>Some strategies for dealing with this could be…</p>
+<blockquote>
+<div><ul class="simple">
+<li>set a global timer for 1s - this means your times will have 1s precision, so you’d want to round the time you display to the nearest second - <strong>math.round(getStopWatchTime(mm.affl.&lt;affliction&gt;.sw))</strong></li>
+<li>set a global timer for 100ms - this’ll tick 10 times a second. You’d want to round the time you display to one decimal point - <strong>string.format(“%.1f”, getStopWatchTime(mm.affl.illness.sw))</strong> will do it.</li>
+</ul>
+</div></blockquote>
+<p>Here’s a little example to show you affs you’ve got with times:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">cecho</span><span class="p">(</span><span class="s2">&quot;&lt;red&gt;Affs:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="kr">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">aff</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">mm</span><span class="p">.</span><span class="n">affl</span><span class="p">)</span> <span class="kr">do</span>
+  <span class="n">echo</span><span class="p">(</span><span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;%-10s (%.1f)</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">getStopWatchTime</span><span class="p">(</span><span class="n">aff</span><span class="p">.</span><span class="n">sw</span><span class="p">)))</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+<p>Change the echoes to redirect into a miniconsole, stick that code into a 100ms timer like so, and you’ll have something that updates pretty well.)</p>
+<img alt="_images/updating-aff-counts.png" class="align-center" src="_images/updating-aff-counts.png" />
+</div>
+</div>
+<div class="section" id="balances">
+<h3>Balances<a class="headerlink" href="#balances" title="Permalink to this headline">¶</a></h3>
+<p>To check whenever you have a certain balance, you can check it against the <em>mm.bals</em> table - like so:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">if</span> <span class="n">mm</span><span class="p">.</span><span class="n">bals</span><span class="p">.</span><span class="n">balance</span> <span class="ow">and</span> <span class="n">mm</span><span class="p">.</span><span class="n">bals</span><span class="p">.</span><span class="n">equilibrium</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">mm</span><span class="p">.</span><span class="n">affl</span><span class="p">.</span><span class="n">prone</span> <span class="kr">then</span>
+  <span class="n">dostuff</span><span class="p">()</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+<p>You can find the names of all balances by checking <em>mmshowb</em> or doing <code class="docutils literal notranslate"><span class="pre">display(mm.bals)</span></code>. Note that while the <em>mm.bals</em> table is modifyable and changes will take effect in the system, there really shouldn’t be any cases where you’d need to mess with it.</p>
+</div>
+<div class="section" id="defences">
+<h3>Defences<a class="headerlink" href="#defences" title="Permalink to this headline">¶</a></h3>
+<p>Your current defences are available in the <em>mm.defc</em> table. Checking if you have a defence is similar to balances:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">if</span> <span class="n">mm</span><span class="p">.</span><span class="n">defc</span><span class="p">.</span><span class="n">nightkiss</span> <span class="kr">then</span>
+  <span class="n">send</span><span class="p">(</span><span class="s2">&quot;nightkiss thing&quot;</span><span class="p">)</span>
+<span class="kr">else</span>
+  <span class="n">send</span><span class="p">(</span><span class="s2">&quot;nature curse thing&quot;</span><span class="p">)</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">technical note - defences are stored in key-value format, with the defence name being the key, and the value a boolean. If you don’t have a defence, it either won’t exist in the table, or be set to false - so using <em>not mm.defc…</em> is best.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="stats">
+<h3>Stats<a class="headerlink" href="#stats" title="Permalink to this headline">¶</a></h3>
+<p>To check your current stats (health, mana, power, etc) you can look in the <em>mm.stats</em> table, for example:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">if</span> <span class="n">mm</span><span class="p">.</span><span class="n">stats</span><span class="p">.</span><span class="n">currentpower</span> <span class="o">&gt;=</span> <span class="mi">8</span> <span class="kr">then</span>
+  <span class="n">send</span><span class="p">(</span><span class="s2">&quot;toadcurse enemy&quot;</span><span class="p">)</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+<p>You can do <code class="docutils literal notranslate"><span class="pre">display(mm.stats)</span></code> to see all the available stats. Like balances, changing this table will affect the system, but there should be no reason to do so.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">the system also fills mm.stats.momentum for Kata users.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">note:</th><td class="field-body">esteem and Demigod/Ascendant essence are only available with GMCP enabled.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="inventory-rift">
+<h3>Inventory / rift<a class="headerlink" href="#inventory-rift" title="Permalink to this headline">¶</a></h3>
+<p>The system tracks the herb contents of your rifts and inventories (for pre-caching and eating optimization purposes).</p>
+<p>You can make use of this data by accessing the <em>mm.me.riftcontents</em> and <em>mm.me.invcontents</em> tables - the key is the herb, and the value is the amount of the herb that’s present (if none is present, then the amount is 0).</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- check if we have at least one earwort in inv or not:</span>
+<span class="kr">if</span> <span class="n">mm</span><span class="p">.</span><span class="n">me</span><span class="p">.</span><span class="n">invcontents</span><span class="p">.</span><span class="n">earwort</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="kr">then</span>
+  <span class="n">echo</span><span class="p">(</span><span class="s2">&quot;Got some earwort in the inventory!&quot;</span><span class="p">)</span>
+<span class="kr">else</span>
+  <span class="n">echo</span><span class="p">(</span><span class="s2">&quot;Don&#39;t have any earwort in the inventory.&quot;</span><span class="p">)</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="lust-list">
+<h3>Lust list<a class="headerlink" href="#lust-list" title="Permalink to this headline">¶</a></h3>
+<p>If you’d like to have access to the lust list in your triggers, then it is available via <em>mm.me.lustlist</em>. The lustlist mode is available via <em>mm.conf.autoreject</em> - which can be ‘black’ or ‘white’.</p>
+<p>For example, if you’d like to check if a name was on it, you could do:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- in a trigger, check if the captured name is on our lust list</span>
+<span class="kr">if</span> <span class="n">mm</span><span class="p">.</span><span class="n">me</span><span class="p">.</span><span class="n">lustlist</span><span class="p">[</span><span class="n">matches</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span> <span class="kr">then</span>
+        <span class="n">mm</span><span class="p">.</span><span class="n">echof</span><span class="p">(</span><span class="s2">&quot;%s is on our list! murder them!&quot;</span><span class="p">,</span> <span class="n">matches</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="kr">else</span>
+        <span class="n">mm</span><span class="p">.</span><span class="n">echof</span><span class="p">(</span><span class="s2">&quot;Looks like %s is pretty innocent.&quot;</span><span class="p">,</span> <span class="n">matches</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="other-misc-things-in-mm-me">
+<h3>Other misc things in mm.me<a class="headerlink" href="#other-misc-things-in-mm-me" title="Permalink to this headline">¶</a></h3>
+<p>As you might’ve noticed, mm.me contains a handful of data available for your scripting. To see what’s all available in it, you can do display(mm.me) in an alias - currently it also stores your name, class and skills, rift and inventory herb contents, wielded items, lustlist, and the do &amp; dofree queues.</p>
+<p><em>mm.me</em> also stores mm.me.healthchange, mm.me.manachange, and mm.me.egochange - the differences in h/m/e stats from the last prompt.</p>
+</div>
+</div>
+<div class="section" id="locks">
+<h2>Locks<a class="headerlink" href="#locks" title="Permalink to this headline">¶</a></h2>
+<p>m&amp;mf makes the current affliction locks you have available in the <em>mm.me.locks</em> key-value table.</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- check if you have no locks</span>
+<span class="kr">if</span> <span class="ow">not</span> <span class="nb">next</span><span class="p">(</span><span class="n">mm</span><span class="p">.</span><span class="n">me</span><span class="p">.</span><span class="n">locks</span><span class="p">)</span> <span class="kr">then</span> <span class="n">mm</span><span class="p">.</span><span class="n">echof</span><span class="p">(</span><span class="s2">&quot;not locked!&quot;</span><span class="p">)</span> <span class="kr">end</span>
+
+<span class="c1">-- echo all locks</span>
+<span class="kr">if</span> <span class="nb">next</span><span class="p">(</span><span class="n">mm</span><span class="p">.</span><span class="n">me</span><span class="p">.</span><span class="n">locks</span><span class="p">)</span> <span class="kr">then</span> <span class="n">mm</span><span class="p">.</span><span class="n">echof</span><span class="p">(</span><span class="s2">&quot;locks: %s&quot;</span><span class="p">,</span> <span class="n">mm</span><span class="p">.</span><span class="n">oneconcat</span><span class="p">(</span><span class="n">mm</span><span class="p">.</span><span class="n">me</span><span class="p">.</span><span class="n">locks</span><span class="p">))</span> <span class="kr">end</span>
+
+<span class="c1">-- check for a specific one</span>
+<span class="kr">if</span> <span class="n">mm</span><span class="p">.</span><span class="n">me</span><span class="p">.</span><span class="n">locks</span><span class="p">[</span><span class="s2">&quot;green a&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">mm</span><span class="p">.</span><span class="n">me</span><span class="p">.</span><span class="n">locks</span><span class="p">[</span><span class="s2">&quot;green b&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">mm</span><span class="p">.</span><span class="n">me</span><span class="p">.</span><span class="n">locks</span><span class="p">[</span><span class="s2">&quot;green c&quot;</span><span class="p">]</span> <span class="kr">then</span> <span class="n">mm</span><span class="p">.</span><span class="n">echof</span><span class="p">(</span><span class="s2">&quot;Greenlocked!&quot;</span><span class="p">)</span> <span class="kr">end</span>
+</pre></div>
+</div>
+<div class="section" id="configuration-options">
+<h3>Configuration options<a class="headerlink" href="#configuration-options" title="Permalink to this headline">¶</a></h3>
+<p>All of the systems configuration options are available in the <em>mm.conf</em> table for reading purposes (for example, you might want to check the value of <em>mm.conf.paused</em> in your scripts). If you’d like to set the options, it’s recommended that you use the <em>mm.config.set()</em> function as it will make sure your values make sense.</p>
+</div>
+</div>
+<div class="section" id="events-raised-by-the-system">
+<h2>Events raised by the system<a class="headerlink" href="#events-raised-by-the-system" title="Permalink to this headline">¶</a></h2>
+<p>The system raises several Mudlet events to help you trigger on reliably.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="4%" />
+<col width="89%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Event name</th>
+<th class="head">Arguments</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>m&amp;m lost aff</td>
+<td>aff name</td>
+<td>requires <em>mmconfig eventaffs</em> to be enabled. Raised whenever you’re cured of an affliction, affliction name being the single argument.</td>
+</tr>
+<tr class="row-odd"><td>m&amp;m got aff</td>
+<td>aff name</td>
+<td>requires <em>mmconfig eventaffs</em> to be enabled. Raised whenever you become afflicted, affliction name is included as an argument.</td>
+</tr>
+<tr class="row-even"><td>m&amp;m before the prompt</td>
+<td>(none)</td>
+<td>raised right before the system starts processing information ont the prompt - useful for having the last chance to use <em>mm.ignore_illusion</em> or benchmark system performance</td>
+</tr>
+<tr class="row-odd"><td>m&amp;m done with prompt</td>
+<td>(none)</td>
+<td>raised whenever the system is done with processing prompt information - this means that the <em>mm.stats</em> table has been updated and is realiable to be used.</td>
+</tr>
+<tr class="row-even"><td>m&amp;m balanceful ready</td>
+<td>(none)</td>
+<td>raised whenever the balanceful function queue is available (after it has been made or reset). It’s recommended to use mm.addbalanceful on this event (since you can’t really guarantee whenever your script or m&amp;mf are loaded first in the users profile).</td>
+</tr>
+<tr class="row-odd"><td>m&amp;m balanceless ready</td>
+<td>(none)</td>
+<td>raised whenever the balanceless function queue is available (after it has been made or reset). It’s recommended to use mm.addbalanceless on this event (since you can’t really guarantee whenever your script or m&amp;mf are loaded first in the users profile).</td>
+</tr>
+<tr class="row-even"><td>m&amp;m done defup</td>
+<td>defs mode</td>
+<td>raised whenever the defup is done (and you see the ‘Ready for combat!’ message). The argument given is the defences mode that you’re in.</td>
+</tr>
+<tr class="row-odd"><td>m&amp;m system loaded</td>
+<td>&#160;</td>
+<td>raised after the system has loaded - so you can use the systems functions (balanceful/balanceless, creating your UI, and so on) - without worrying of your script being run first</td>
+</tr>
+<tr class="row-even"><td>m&amp;m onshow</td>
+<td>&#160;</td>
+<td>raised when the ‘mmshow’ is used - you can use this to add your echoes to it</td>
+</tr>
+<tr class="row-odd"><td>m&amp;m got lock</td>
+<td>aff lock</td>
+<td>raised whenever you get a particular affliction lock</td>
+</tr>
+<tr class="row-even"><td>m&amp;m lost lock</td>
+<td>aff lock</td>
+<td>raised whenever you cure a particular affliction lock</td>
+</tr>
+<tr class="row-odd"><td>m&amp;m got def</td>
+<td>defence</td>
+<td>raised when you obtain a defence</td>
+</tr>
+<tr class="row-even"><td>m&amp;m lost def</td>
+<td>defence</td>
+<td>raised when you lose a defence</td>
+</tr>
+<tr class="row-odd"><td>m&amp;m redirected aff</td>
+<td>from, to</td>
+<td>raised when an affliction is redirected to another one in Overhaul mode. For example, with paranoia in Overhaul mode, vertigo would be getting redirected to be paranoia</td>
+</tr>
+<tr class="row-even"><td>m&amp;m add skill</td>
+<td>skillset</td>
+<td>raised whenever you activate a previously inactive skillset. Useful for classflexing.</td>
+</tr>
+<tr class="row-odd"><td>m&amp;m remove skill</td>
+<td>skillset</td>
+<td>raised whenever you inactivate or forget a previously active skillset. Useful for classflexing.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="scripting-to-do-things-on-the-prompt">
+<h2>Scripting to do things on the prompt<a class="headerlink" href="#scripting-to-do-things-on-the-prompt" title="Permalink to this headline">¶</a></h2>
+<p>Often times you’d like to do something on the prompt - update your labels, script some action or etc. while using information provided by the system. Since Mudlet has the feature of matching triggers in the visual order they are in, you can ensure your trigger is always run after m&amp;mf has updated values by placing it below the m&amp;mf group.</p>
+<p>This isn’t perfect though as it presents two complications - a) whenever you update m&amp;mf, it’s trigger folder will be last - ie, you’ll have to move it’s folder above yours again, and b) it’s another trigger to match the prompt when m&amp;mf already matches it.</p>
+<p>To solve both of these things, you can instead use the <em>m&amp;m done with prompt</em> event that the system raises to ‘trigger’ on the prompt. While Mudlet events are described in the Mudlet manual, the short rundown to create a handler is like so:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li>create a new Script</li>
+<li>put <code class="docutils literal notranslate"><span class="pre">m&amp;m</span> <span class="pre">done</span> <span class="pre">with</span> <span class="pre">prompt</span></code> into the <em>Add User Defined Event Handler</em> box and press enter</li>
+<li>create a function in the script that will do your stuff</li>
+<li>give the script itself the same name as the function name</li>
+</ul>
+</td></tr></table>
+<p>Then you can do whatever you’d like to do in the function. If you don’t know the syntax for how to create a function, it’s <a class="reference external" href="http://www.lua.org/manual/5.1/manual.html#2.5.9">described in the Lua manual</a>, and the basic format is like so:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span>function *my function name*()
+  *stuff I want to do in my function*
+end
+
+-- example:
+function foo()
+  echo(&quot;hi!&quot;)
+end
+
+-- now doing:
+foo()
+
+-- will run the function, and the function will echo *hi!*
+</pre></div>
+</div>
+<img alt="_images/prompt-example.png" class="align-center" src="_images/prompt-example.png" />
+</div>
+<div class="section" id="scripting-to-do-actions-on-balance-eq">
+<h2>Scripting to do actions on balance/eq<a class="headerlink" href="#scripting-to-do-actions-on-balance-eq" title="Permalink to this headline">¶</a></h2>
+<p>While the system already offers a do queue that’s easy to use in simple aliases or just the command input lint, it also offers a more “proper scripting friendly” way of easily using the balance queue, not having to track balance/equilibrium, and not interfering with the systems actions.</p>
+<p>How it works is so - you give m&amp;mf a function that you want to be done when you get balance/equilibrium back, and the system will run the function for you. So inside that function, you can decide whenever you need to send some command or not - which is better than queueing a command for the next balance/equilibrium regain since the conditions can change in the mean time.</p>
+<p>There are two types of functions m&amp;mf accepts - one that require balance/equilibrium but <strong>do not use any</strong>, and one that require balance/equilibrium and do use either of them.</p>
+<p>To add a balanceless function, you can use <code class="docutils literal notranslate"><span class="pre">mm.addbalanceless(name,</span> <span class="pre">function)</span></code> - name is a unique name for the function (this will make re-updating it easy) and function is your action function</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">myfunction</span> <span class="p">()</span>
+  <span class="n">send</span><span class="p">(</span><span class="s2">&quot;say i&#39;m going to say hi every balance I get!&quot;</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="n">mm</span><span class="p">.</span><span class="n">addbalanceless</span><span class="p">(</span><span class="s2">&quot;my sample function&quot;</span><span class="p">,</span> <span class="n">myfunction</span><span class="p">)</span>
+
+<span class="c1">-- or even this would work:</span>
+<span class="n">mm</span><span class="p">.</span><span class="n">addbalanceless</span><span class="p">(</span><span class="s2">&quot;my sample function&quot;</span><span class="p">,</span> <span class="kr">function</span> <span class="p">()</span> <span class="n">send</span><span class="p">(</span><span class="s2">&quot;say i&#39;m going to say hi every balance I get!&quot;</span><span class="p">)</span> <span class="kr">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Updating your function is easy - running mm.addbalanceless again with the same name will replace the old function with the new one for you.</p>
+<p>The mm.clearbalanceless() function is also available to remove all balanceless functions from the queue and serves as a way to ‘start over’ after you modify a function that’s in the queue already.</p>
+<p>The balanceful queue has a similar function for you to use - <em>mm.addbalanceful(name, function)</em>. It is, however different in the sense that if your function <strong>has to</strong> return either a boolean value of <em>true</em>, or a <em>number</em>, if your function did an action. If you want m&amp;mf to wait a custom amount of seconds before re-trying your action in case it failed, then return a number - otherwise return true if you did send a command:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">myfunction</span><span class="p">()</span>
+  <span class="kr">if</span> <span class="n">i_should_kick</span> <span class="kr">then</span>
+    <span class="n">send</span><span class="p">(</span><span class="s2">&quot;kick weevil&quot;</span><span class="p">)</span>
+    <span class="kr">return</span> <span class="kc">true</span>
+  <span class="kr">elseif</span> <span class="n">i_should_punch</span> <span class="kr">then</span>
+    <span class="n">send</span><span class="p">(</span><span class="s2">&quot;punch weevil&quot;</span><span class="p">)</span>
+    <span class="kr">return</span> <span class="mf">1.4</span> <span class="c1">--set a custom timeout to 1.4s - if in 1.4s we didn&#39;t punch, the function will be run again for us</span>
+  <span class="kr">end</span>
+
+  <span class="kr">return</span> <span class="kc">false</span>
+<span class="kr">end</span>
+
+<span class="n">mm</span><span class="p">.</span><span class="n">addbalanceful</span><span class="p">(</span><span class="s2">&quot;my sample function&quot;</span><span class="p">,</span> <span class="n">myfunction</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You have the <code class="docutils literal notranslate"><span class="pre">mm.clearbalanceful()</span></code> function as well to clear the balanceful queue of m&amp;mf.</p>
+<p>You may run into a case where you change a condition that one of your balanceless or balanceful relies on, and thus need to re-run your function(s) again to check against the new conditions. You don’t want to call your function(s) directly because that’d mean you would need to check all the relevant balances, deafeating the purpose of this all - so instead, you can use the <em>mm.work_gnomes_work()</em> function - it’ll call all functions again if you have the balances.</p>
+<p>Lastly, there is a problem of using mm.addbalanceful / mm.addbalanceless functions to begin with in your scripts <em>after</em> m&amp;mf is loaded (otherwise the functions won’t exist!). One way to make certain that m&amp;mf is loaded first is by moving the m&amp;mf Scripts folder above your own script. That, however, is rather clumsy - and you can avoid it by hooking onto the two Mudlet events m&amp;mf raises for you: <strong>m&amp;m balanceless ready</strong> and <strong>m&amp;m balanceful ready</strong>. Using mm.addbalanceful / mm.addbalanceless on these events will guarantee the functions exist first, and makes sure your functions are re-added when the queues are cleared.</p>
+</div>
+<div class="section" id="handling-do-dofree-queues-manually">
+<h2>Handling do/dofree queues manually<a class="headerlink" href="#handling-do-dofree-queues-manually" title="Permalink to this headline">¶</a></h2>
+<p>The system makes use of <code class="docutils literal notranslate"><span class="pre">mm.me.dofreequeue</span></code> for keeping track of dofree items and <code class="docutils literal notranslate"><span class="pre">mm.me.doqueue</span></code> for keeping track of do items. You may modify the tables as you wish - read from them, insert and remove values and the system will go by them. Additionally. <code class="docutils literal notranslate"><span class="pre">mm.me.doqueue.repeating</span></code> can be toggled to be <cite>true</cite> or <cite>false</cite> to have the first item in the queue be repeated indefinitely.</p>
+</div>
+<div class="section" id="ignoring-afflictions-cures">
+<h2>Ignoring afflictions/cures<a class="headerlink" href="#ignoring-afflictions-cures" title="Permalink to this headline">¶</a></h2>
+<p>You can have the system ignore an affliction by registering it in the <strong>mm.ignore</strong> table - for example, by doing <code class="docutils literal notranslate"><span class="pre">mm.ignore.clumsiness</span> <span class="pre">=</span> <span class="pre">true</span></code>. You’d do <code class="docutils literal notranslate"><span class="pre">mm.ignore.clumsiness</span> <span class="pre">=</span> <span class="pre">nil</span></code> to remove it. This can be useful for a variety of things - either being able to test with clumsiness on, having the system ignore useless afflictions in bashing, or having it ignore cures that you don’t have the ingridients to cure.</p>
+<p>In the future, it’ll also allow you to be more specific about ignoring things - ie don’t ignore an affliction wholly, but only a certain balance cure for it, if there’s demand for that.</p>
+</div>
+<div class="section" id="managing-your-own-priorities">
+<h2>Managing your own priorities<a class="headerlink" href="#managing-your-own-priorities" title="Permalink to this headline">¶</a></h2>
+<p>One of the many nice new things <strong>m&amp;mf</strong> brings to the table is very customizable curing priorities. You can re-prioritize afflictions on the fly, or make whole lists of them that you can switch depending on who are you fighting, or even share your lists with others.</p>
+<p>The current priority lists can be seen by using the <strong>mmshowprios &lt;balance&gt;</strong> alias or the <em>mm.printorder</em> function. There are six of them, divided by balances - herb (eating+smoking), focus (body+mind+spirit), salve, purgative, sip, balance (for things that require having both balance and eq to do), plus a special choke/aeon/sap mode one (it’ll be most commonly called as slow curing mode, but it applies to aeon and sap as well). There is a seventh one called misc as well for all general actions, but they typically don’t make sense to prioritize (except when in slow curing mode - but as stated above, that has its own priority queue). Priorities are sorted in descending order - so the <strong>higher</strong> the number of a cure is, the more important it is.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">you want to keep aeon/sap cures high in the slow curing mode priority queue so the system will try to cure those as soon as possible. If you put them lower, it will cure more important afflictions before curing aeon/sap (if you have them) - which certainly isn’t efficient.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">tip:</th><td class="field-body">you may want to use priority list to help prioritize wounds curing against warriors/monks - warriors depend on wounds for afflictions, while monks don’t (they do however increase their damage with wounds).</td>
+</tr>
+</tbody>
+</table>
+<p>There are two ways to change the priority of an affliction - either by changing it singularly, or by loading a whole new list of priorities. Let’s start with the first method for the sake of easier experimentation.</p>
+<p>The m&amp;mf function for swapping priorities is <em>mm.prio_swap</em>. You can use it in two ways - either to swap an affliction with another, or to set/swap it with one at a given priority number::</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- swap paranoia with masochism.</span>
+<span class="c1">-- we pass &#39;true&#39; at the end to make it seem like it came from an alias, so we&#39;ll get an echo about it working.</span>
+<span class="n">mm</span><span class="p">.</span><span class="n">prio_swap</span><span class="p">(</span><span class="s2">&quot;paranoia&quot;</span><span class="p">,</span> <span class="s2">&quot;herb&quot;</span><span class="p">,</span> <span class="s2">&quot;masochism&quot;</span><span class="p">,</span> <span class="s2">&quot;herb&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+
+<span class="c1">-- swap paranoia with whatever aff has a priority of 400, or set it to 400 if none is there.</span>
+<span class="c1">-- no &#39;true&#39; at the end means we won&#39;t ever get an echo from it; ideal for scripting.</span>
+<span class="n">mm</span><span class="p">.</span><span class="n">prio_swap</span><span class="p">(</span><span class="s2">&quot;paranoia&quot;</span><span class="p">,</span> <span class="s2">&quot;herb&quot;</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <strong>mmswap</strong> alias is also provided so you can play around with this easier, although you’ll most likely find that writing custom aliases for the swaps you’ll want to do to be more efficient.</p>
+<p>There are two functions provided that help you tell what is the current priority of something - <em>mm.prio.getnumber(what, balance)</em> and <em>mm.prio.getaction(number, balance)</em>. The first you can use to find out what number an affliction/defence is in a balance, and second you can use to find out what affliction/defence is in a given number.</p>
+<p>For example, if you wanted to swap two things temporarily, you could do:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- swap truedeaf to the top of the queue (or so) temporarily</span>
+<span class="kd">local</span> <span class="n">old_truehearing_prio</span> <span class="o">=</span> <span class="n">mm</span><span class="p">.</span><span class="n">prio</span><span class="p">.</span><span class="n">getnumber</span><span class="p">(</span><span class="s2">&quot;truedeaf&quot;</span><span class="p">,</span> <span class="s2">&quot;herb&quot;</span><span class="p">)</span>
+<span class="n">mm</span><span class="p">.</span><span class="n">prio_swap</span><span class="p">(</span><span class="s2">&quot;truedeaf&quot;</span><span class="p">,</span> <span class="s2">&quot;herb&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1">-- now it&#39;s pretty high up, if not the first even in herb balance... lets swap it back 10s after</span>
+<span class="n">tempTimer</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="kr">function</span> <span class="p">()</span>
+  <span class="n">mm</span><span class="p">.</span><span class="n">prio_swap</span><span class="p">(</span><span class="s2">&quot;truedeaf&quot;</span><span class="p">,</span> <span class="s2">&quot;herb&quot;</span><span class="p">,</span> <span class="n">old_truehearing_prio</span><span class="p">)</span>
+<span class="kr">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To move an individual priority up or down in the list, you can use <code class="docutils literal notranslate"><span class="pre">mm.prio.insert(action,</span> <span class="pre">balance,</span> <span class="pre">number)</span></code>. This will appropriately bump the rest of priorities down as necessary to make room. This function works for all balances but the slowcuring one at the moment.</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- move paranoia herb cure to the 30th spot, bumping down whatever was the 29, and everything else below it as necessary</span>
+<span class="n">mm</span><span class="p">.</span><span class="n">prio</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;paranoia&quot;</span><span class="p">,</span> <span class="s2">&quot;herb&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The other, more long-term way to set priorities is to create whole lists of them that you can load via importing or exporting. You can share the files with others as well!</p>
+<p>To export your priorities, you can use the <em>mm.prio.export (name, options, echoback)</em> function or the <em>mm exportprio &lt;name&gt; [&lt;options&gt;]ww</em> alias. <em>name</em> is the name you’d like to give to the priority list, <em>options</em> is a list of balances for it to export that you can selectively provide. If you don’t provide it, it’ll export all priorities.</p>
+<p>When you export a priority with the <em>echoback</em> arg enabled, it’ll also tell you where it saved the file - it’ll be somewhere in your m&amp;mf config folder. If you’d like to share this file with someone else, you can just send it to them, have them place it in their m&amp;mf config folder (not the system one, but one that is inside their Mudlet profile) and import it in.</p>
+<p>Once exported, you can also edit all priorities within that file by opening it in a text editor (ie Notepad++, Geany, etc. Notepad and Wordpad that come with Windows might have problems displaying the linebreaks properly). If a priority for a balance has no ‘holes’ in it - then afflictions will be displayed in descending order, without a number attached to them (you can attach one if you’d like though). If there are holes, then after the first hole, afflictions will be displayed with their explicit priority number listed in front. Be sure to preserve the syntax of the file - my recommendation would be to just copy/paste things about in it and change the priority numbers if any.</p>
+<p>To import the priority list, you can use the <em>mm.prio.import(name, echoback, report_errors)</em> function or the <em>mm importprio &lt;name&gt;</em> alias. The <em>report_errors</em> argument of the function will, as the name suggests, report any errors it gets from when loading the file instead of supressing them by defaul (you could introduce an error by accident when modifying the priorities).</p>
+<p>To view the list of priorities that you can load, you can use the <em>mm listprios</em> alias or the <em>mm.prio.list()</em> function.</p>
+</div>
+<div class="section" id="more-fine-grained-control-of-the-system">
+<h2>More fine-grained control of the system<a class="headerlink" href="#more-fine-grained-control-of-the-system" title="Permalink to this headline">¶</a></h2>
+<p>Several points about controlling the system more precisely if you’d like to…</p>
+<div class="section" id="adding-your-own-affliction-triggers">
+<h3>Adding your own affliction triggers<a class="headerlink" href="#adding-your-own-affliction-triggers" title="Permalink to this headline">¶</a></h3>
+<p>There are two ways of telling a system that an aff came in a trigger: <code class="docutils literal notranslate"><span class="pre">mm.valid.proper_&lt;aff&gt;()</span></code> and <code class="docutils literal notranslate"><span class="pre">mm.valid.simple&lt;aff&gt;()</span></code>. If the first function exists for that aff, then it should be used - otherwise, use the second (the differences between them is that <em>proper_</em> does some checks later in case the aff can be avoided, ie prone and and acrobatics balancing). An easy idiom for this can be like so:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">mm</span><span class="p">.</span><span class="n">valid</span><span class="p">.</span><span class="n">proper_</span><span class="o">&lt;</span><span class="n">aff</span><span class="o">&gt;</span> <span class="ow">or</span> <span class="n">mm</span><span class="p">.</span><span class="n">valid</span><span class="p">.</span><span class="n">simple</span><span class="o">&lt;</span><span class="n">aff</span><span class="o">&gt;</span><span class="p">)()</span>
+
+<span class="c1">-- for example:</span>
+
+<span class="p">(</span><span class="n">mm</span><span class="p">.</span><span class="n">valid</span><span class="p">.</span><span class="n">proper_prone</span> <span class="ow">or</span> <span class="n">mm</span><span class="p">.</span><span class="n">valid</span><span class="p">.</span><span class="n">simpleprone</span><span class="p">)()</span>
+<span class="p">(</span><span class="n">mm</span><span class="p">.</span><span class="n">valid</span><span class="p">.</span><span class="n">proper_crippledleftleg</span> <span class="ow">or</span> <span class="n">mm</span><span class="p">.</span><span class="n">valid</span><span class="p">.</span><span class="n">simplecrippledleftleg</span><span class="p">)()</span>
+</pre></div>
+</div>
+<p>Using this would also future-proof your code to use the <em>proper_</em> function in case it is introduced.</p>
+<p>You can also see the list of possible afflictions with <em>mmshow afflist</em> - afflictions that have a <em>proper_</em> function will have <em>pr</em> suffixed to them. If you’re on a recent enough version of Mudlet, then you’ll be able to click on them to see the function you’ll need to use as well.</p>
+</div>
+<div class="section" id="working-with-balances">
+<h3>Working with balances<a class="headerlink" href="#working-with-balances" title="Permalink to this headline">¶</a></h3>
+<p>All balances are stored in the <code class="docutils literal notranslate"><span class="pre">mm.bals</span></code> table as key-value pairs. A balance is set to <em>false</em> if you don’t have it, <em>true</em> if you do, or <em>unset</em> if it is unknown (for example, arm balances when they aren’t showing on the prompt).</p>
+<p>You can read and change the values in the table and the system will respect them. Do note that though that the system tracks balances from the prompt already.</p>
+</div>
+<div class="section" id="adding-removing-afflictions">
+<span id="adding-removing-affs-manual"></span><h3>Adding/removing afflictions<a class="headerlink" href="#adding-removing-afflictions" title="Permalink to this headline">¶</a></h3>
+<p>If you’d like to add an affliction right away, you can use <code class="docutils literal notranslate"><span class="pre">mm.addaff(&quot;&lt;aff&gt;&quot;)</span></code>. This will return <em>true</em> if it was added, and <em>false</em> if you already have it. This will bypass anti-illusion, so calling this on in a trigger with the illusion message after will still add the aff.</p>
+<p>To remove an affliction right away, use <code class="docutils literal notranslate"><span class="pre">mm.removeaff(&quot;&lt;aff&gt;&quot;)</span></code>. This will return <em>true</em> if the affliction was removed, or <em>false</em> if you didn’t have it to begin with.</p>
+<p>See <em>mmshow ignorelist</em> for the list of affliction names.</p>
+</div>
+</div>
+<div class="section" id="customizing-anti-illusion">
+<h2>Customizing anti-illusion<a class="headerlink" href="#customizing-anti-illusion" title="Permalink to this headline">¶</a></h2>
+<p>m&amp;mf has extensive anti-illusion that can be enabled with <em>tn a</em>. It tracks all actions and cures it does, so illusions alleging that it did something that that didn’t happen won’t do anything. Additionally, it double-checks certain rather important afflictions that you really did obtain them before curing them.</p>
+<p>Still though, there at times when you’d like to customize the anti-illusion for yourself. Doing so is simple - just call <cite>mm.ignore_illusion()</cite> on a line that you consider an illusion, and the system will ignore it. This works with single-line as well as multi-line triggers.</p>
+</div>
+<div class="section" id="doing-your-own-stance-parry-calculations">
+<h2>Doing your own stance/parry calculations<a class="headerlink" href="#doing-your-own-stance-parry-calculations" title="Permalink to this headline">¶</a></h2>
+<p>Another nice feature of m&amp;mf is that it allows you to easily use your own, custom parry/stance functions for calculating parry / set what should be stanced, and the system will take care of making it happening.</p>
+<div class="section" id="parry">
+<h3>Parry<a class="headerlink" href="#parry" title="Permalink to this headline">¶</a></h3>
+<p>To set a custom parry function, set it to <em>mm.sp_config.parry</em> - and make sure it takes a table as an argument, like so:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">my_custom_parry_maths</span><span class="p">(</span><span class="n">tbl</span><span class="p">)</span>
+  <span class="n">display</span><span class="p">(</span><span class="n">tbl</span><span class="p">)</span>
+<span class="kr">end</span>
+<span class="n">mm</span><span class="p">.</span><span class="n">sp_config</span><span class="p">.</span><span class="n">parry</span> <span class="o">=</span> <span class="n">my_custom_parry_maths</span>
+
+<span class="c1">-- or...</span>
+<span class="n">mm</span><span class="p">.</span><span class="n">sp_config</span><span class="p">.</span><span class="n">parry</span> <span class="o">=</span> <span class="kr">function</span> <span class="p">(</span><span class="n">tbl</span><span class="p">)</span>
+  <span class="n">display</span><span class="p">(</span><span class="n">tbl</span><span class="p">)</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+<p>The table given will be a key-value table in the format of limb = #, where # is the wound damage amount that the limb is over the parry level. If the limb damage isn’t over the parry level (which is mm.sp_config.parry_actionlevel and mm.sp_config.stance_actionlevel), then it won’t be included. For example, if your head wounds level is at 275, and your head wounds are at 1000, then head = 725. If you’d like to get all the actual amounts each time in the table, then simply set all limb levels at zero.</p>
+<p>Once you do the math of how much parry should go to each limb, set the values of <em>all</em> limbs in mm.sp_config.parry_shouldbe table (in the format of limb = #, or 0 if it should be so). ie:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">mm</span><span class="p">.</span><span class="n">sp_config</span><span class="p">.</span><span class="n">parry</span> <span class="o">=</span> <span class="kr">function</span> <span class="p">(</span><span class="n">tbl</span><span class="p">)</span>
+  <span class="c1">-- as an example, show our wound levels</span>
+  <span class="n">display</span><span class="p">(</span><span class="n">tbl</span><span class="p">)</span>
+
+  <span class="n">mm</span><span class="p">.</span><span class="n">sp_config</span><span class="p">.</span><span class="n">parry_shouldbe</span><span class="p">.</span><span class="n">head</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">mm</span><span class="p">.</span><span class="n">sp_config</span><span class="p">.</span><span class="n">parry_shouldbe</span><span class="p">.</span><span class="n">chest</span> <span class="o">=</span> <span class="mi">25</span>
+  <span class="n">mm</span><span class="p">.</span><span class="n">sp_config</span><span class="p">.</span><span class="n">parry_shouldbe</span><span class="p">.</span><span class="n">gut</span> <span class="o">=</span> <span class="mi">25</span>
+  <span class="n">mm</span><span class="p">.</span><span class="n">sp_config</span><span class="p">.</span><span class="n">parry_shouldbe</span><span class="p">.</span><span class="n">rightarm</span> <span class="o">=</span> <span class="mi">25</span>
+  <span class="n">mm</span><span class="p">.</span><span class="n">sp_config</span><span class="p">.</span><span class="n">parry_shouldbe</span><span class="p">.</span><span class="n">leftarm</span> <span class="o">=</span> <span class="mi">25</span>
+  <span class="n">mm</span><span class="p">.</span><span class="n">sp_config</span><span class="p">.</span><span class="n">parry_shouldbe</span><span class="p">.</span><span class="n">leftleg</span> <span class="o">=</span> <span class="mi">25</span>
+  <span class="n">mm</span><span class="p">.</span><span class="n">sp_config</span><span class="p">.</span><span class="n">parry_shouldbe</span><span class="p">.</span><span class="n">rightleg</span> <span class="o">=</span> <span class="mi">0</span>
+
+  <span class="c1">-- or...</span>
+  <span class="n">mm</span><span class="p">.</span><span class="n">sp_config</span><span class="p">.</span><span class="n">parry_shouldbe</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">head</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">chest</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span> <span class="n">gut</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span>
+    <span class="n">rightarm</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span> <span class="n">leftarm</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span> <span class="n">rightleg</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">leftleg</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="p">}</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="stance">
+<h3>Stance<a class="headerlink" href="#stance" title="Permalink to this headline">¶</a></h3>
+<p>The situation with stance is similar - set <em>mm.sp_config.stance</em> to be your own custom function, and it’ll be passed a table that has all the wounds-affected limbs in it. The result of what should be stanced should be set in <em>mm.stance_shouldbe</em> as a string.</p>
+<p>You can also check the <em>mm.sp_config.stance_skills</em> list to make sure the person does have that stance skill.</p>
+</div>
+</div>
+<div class="section" id="customizing-wound-damage-tracking">
+<h2>Customizing wound damage tracking<a class="headerlink" href="#customizing-wound-damage-tracking" title="Permalink to this headline">¶</a></h2>
+<p>You can customize the systems wound level tracking from hits by setting your own or adjusting values in the <em>mm.wounds_data</em> table. It’s best that you copy the whole table, or parts that you’ll be customizing, into a separate script of it’s own that is <em>after</em> m&amp;mf’s script - such that your customizations will stay through updates.</p>
+<p>The table has two components - monks and knights, and inside each are the definitions of how much damage does a specific skill does. The value can either be a set static one, or a function that returns how much damage is done. <em>mm.addwounds</em> accepts any number of additional parameters at the end of it, so if you’d like, that can be passed onto the calculating function in the <em>mm.wounds_data</em> table.</p>
+<p>Note that not all attacks by default are separated out in the table - if you’ll be doing quality improvements on the capture triggers, please do share them so it’s easier to deal with in updates.</p>
+</div>
+</div>
+<div class="section" id="alias-list">
+<h1>Alias list<a class="headerlink" href="#alias-list" title="Permalink to this headline">¶</a></h1>
+<dl class="glossary docutils">
+<dt id="term-pp">pp</dt>
+<dd>toggles pause/unpause in the system. You can also use <em>pp on</em> and <em>pp off</em> to set the status explicitly.</dd>
+<dt id="term-df">df</dt>
+<dd>has the system check ‘def’ for you as soon as possible.</dd>
+<dt id="term-dv">dv</dt>
+<dd>has the system check diagnose for you as soon as possible.</dd>
+<dt id="term-wf">wf</dt>
+<dd>has the system check wounds for you as soon as possible.</dd>
+<dt id="term-sl">sl</dt>
+<dd>toggles selfishness upkeep or removal; shortcut for <em>mmkeep selfishness</em>.</dd>
+<dt id="term-ss">ss</dt>
+<dd>toggles rebounding upkeep; shortcut for <em>mmkeep rebounding</em>.</dd>
+<dt id="term-hh">hh</dt>
+<dd>shortcut alias for toggling sipping priority between health, mana and ego. You can also use it as <em>hh health</em>, <em>hh mana</em> or <em>hh ego</em> to set the priority. If you specify a vital to prioritize, it will keep the existing order between the other two vitals.</dd>
+<dt id="term-cc">cc</dt>
+<dd>announces text on a channel (pt, clt, etc.) as specified by <a class="reference internal" href="#term-ccto"><span class="xref std std-term">mmconfig ccto</span></a>. This can be useful to learn to use instead of <em>sqt</em> since then you could change ccto to report on any clan or party and still use one short and quick alias for communicating with a group in a raid.</dd>
+<dt id="term-shh">shh</dt>
+<dd>shortcut alias for toggling the health priority as the first one in aeon/sap/choke curing. Doing it again will set health priority back to normal.</dd>
+<dt id="term-tn">tn</dt>
+<dd>turns things on in the system - currently anti-illusion and keepup.</dd>
+<dt id="term-tf">tf</dt>
+<dd>turns things that can be turned on off. See above.</dd>
+<dt id="term-inra">inra</dt>
+<dd>rifts all groupable items. This requires GMCP to be on, and it uses groupable, not riftable items because Lusternia doesn’t transmit the information unlike other IREs. Generally though, groupable items are riftable.</dd>
+<dt id="term-do-action">do &lt;action&gt;</dt>
+<dd>adds an action that requries balance/equilibrium to do, and takes one of them, to the do queue - so the system will do it asap for you.</dd>
+<dt id="term-103">do# &lt;action&gt;</dt>
+<dd>does an action a certain number of times only.</dd>
+<dt id="term-dor">dor</dt>
+<dd>toggles repeat of the first action in do.</dd>
+<dt id="term-dor-action">dor &lt;action&gt;</dt>
+<dd>adds an action on the top of the do queue and enables infinite repeat of it.</dd>
+<dt id="term-dofirst-action">dofirst &lt;action&gt;</dt>
+<dd>adds a action to the top of the do queue (to be done first).</dd>
+<dt id="term-dofree-action">dofree &lt;action&gt;</dt>
+<dd>adds an action that requires balance/equilibrium to do but does not take either of them. The system will do all queued dofree actions asap.</dd>
+<dt id="term-dofreefirst-action">dofreefirst &lt;action&gt;</dt>
+<dd>adds an action to the top of the dofree queue (to be done first).</dd>
+<dt id="term-undo">undo</dt>
+<dd>removes one action from the top of the do queue.</dd>
+<dt id="term-undoall">undoall</dt>
+<dd>removes all actions from the do queue.</dd>
+<dt id="term-undofree">undofree</dt>
+<dd>removes one action from the top of the dofree queue.</dd>
+<dt id="term-undoallfree">undoallfree</dt>
+<dd>removes all actions from the dofree queue.</dd>
+<dt id="term-vaeon">vaeon</dt>
+<dd>for use only in cases when you’ve gotten aeon, and the system hasn’t realized that you did - using this alias will let it know.</dd>
+<dt id="term-p-h-t-g-rl-ll-ra-la">p(h|t|g|rl|ll|ra|la)</dt>
+<dd>(for use in manual parry mode) sets which limb should be parried (ie, ‘ph’ will parry head, ‘pra’ will parry the right arm).</dd>
+<dt id="term-cll">cll</dt>
+<dd>a quick toggle for the mmconfig clot option (use clot skill or chervil for bleeding).</dd>
+<dt id="term-mss">mss</dt>
+<dd>a quick toggle for the mmconfig sparkle option (make use of sparkle effect or not).</dd>
+<dt id="term-msa">msa</dt>
+<dd>a quick toggle for the mmconfig secondarysparkle option (make use of sparkleberry or a herb that provides the effect).</dd>
+<dt id="term-mdd">mdd</dt>
+<dd>a quick toggle for the mmconfig scroll option (make use of a Healing scroll or not).</dd>
+<dt id="term-trk">trk</dt>
+<dd>a quick toggle for the mmconfig showchanges option (display health/mana/ego gain/loss on prompt or not).</dd>
+<dt id="term-tsc">tsc</dt>
+<dd>a quick toggle for the mmconfig blockcommands option (let the system deny your commands if it’s doing something, or allow your commands to override the systems).</dd>
+<dt id="term-121">ss</dt>
+<dd>a quick toggle for the mmkeep rebounding option (keep rebounding up or not).</dd>
+<dt id="term-122">sl</dt>
+<dd>a quick toggle for the mmkeep selfishness option (keep selfishness up, or not and strip it).</dd>
+<dt id="term-br">br</dt>
+<dd>a quick toggle for the mmkeep breath option (keep the breathing defence up or not).</dd>
+<dt id="term-th">th</dt>
+<dd>a quick toggle for the mmkeep truedeaf option (keep the truehearing defence up or not).</dd>
+<dt id="term-rfl">rfl</dt>
+<dd>toggles reflect mode - the system will make sure you’re reflected! (requires reflect skill) You can also use <em>rfl on/off</em>.</dd>
+<dt id="term-mminstall">mminstall</dt>
+<dd>starts the installation of the system.</dd>
+<dt id="term-mmdocs">mmdocs</dt>
+<dd>opens up the m&amp;mf documentation in your browser</dd>
+<dt id="term-mmsetup-pc">mmsetup pc</dt>
+<dd>shows the current configuration of the herb precache system, for the current defences mode you’re in. You can adjusts the amounts by clicking on + or - beside the herb.</dd>
+<dt id="term-mmsetup-colours">mmsetup colours</dt>
+<dd>displays a list of available colour echos you can have, and a way to pick one by clicking on it.</dd>
+<dt id="term-mmshow">mmshow</dt>
+<dd>shows general information about the system - what defence mode are you in, if the system is currently in defup - what defence is it waiting on, whenever anti-illusion and keepup are enabled/disabled.</dd>
+<dt id="term-mmshowa-or-mmshow-affs">mmshowa or mmshow affs</dt>
+<dd>shows which afflictions you currently have.</dd>
+<dt id="term-mmshowb-or-mmshow-bals">mmshowb or mmshow bals</dt>
+<dd>shows which balances you currently have - green means you have it, regular means you don’t.</dd>
+<dt id="term-mmshowd-or-mmshow-defs">mmshowd or mmshow defs</dt>
+<dd>shows which defences the system thinks you currently have. You also hover your mouse over a defence name to see it’s description, and click on it to be taken to the Lusternia wiki page for it.</dd>
+<dt id="term-mmshowp-or-mmshow-precache">mmshowp or mmshow precache</dt>
+<dd>shows the current herb precache setup and allows you to adjust it.</dd>
+<dt id="term-mmshow-defup">mmshow defup</dt>
+<dd>shows the defup defences for the mode you’re currently in. If you’d like to view them for another mode, you can pause the system, switch, see, and go back.</dd>
+<dt id="term-mmshow-keepup">mmshow keepup</dt>
+<dd>shows the keepup defences for the mode you’re currently in.</dd>
+<dt id="term-mmshowh-or-mmshow-hidelist">mmshowh or mmshow hidelist</dt>
+<dd>shows the list of defences / groups which are currently shown or not. To toggle whenever a defence or a group of defences should be shown or not in defence lists, click on the + or - sign beside it.</dd>
+<dt id="term-mmshow-ignorelist">mmshow ignorelist</dt>
+<dd>shows a list of all things - defences and afflictions - that you can ignore.</dd>
+<dt id="term-mmshow-afflist">mmshow afflist</dt>
+<dd>shows a list of affliction names used by the system. <em>pr</em> besides a name means that affliction has a <em>mm.valid.proper_&lt;affliction&gt;()</em> function, which should be used instead of the usual <em>mm.valid.simple&lt;affliction&gt;()</em>. If you’re on a recent enough version of Mudlet, then you can click on the affliction to get the text for the function. See <em>Adding your own triggers</em> for more.</dd>
+<dt id="term-mmshowo-or-mmshow-overhaul">mmshowo or mmshow overhaul</dt>
+<dd>shows a list of afflictions that can be toggled between Overhaul and old curing modes. Greyed out and unclickable afflictions are those that the game and m&amp;mf haven’t implemented Overhaul cures yet for. White and clickable afflictions are those that the game and m&amp;mf have implemented Overhaul curing for, but isn’t enabled for use in m&amp;mf - click on the affliction to enable Overhaul curing. Light green afflictions are those in Overhaul cure mode, and dark green afflictions are those that are implicitly in Overhaul cure mode, due to other afflictions replacing them.</dd>
+<dt id="term-mmconfig">mmconfig</dt>
+<dd>displays what are general options of the system are set to.</dd>
+<dt id="term-mmconfig2">mmconfig2</dt>
+<dd>displays more advanced options of the system, plus pipe status.</dd>
+<dt id="term-mmconfig-option-value">mmconfig &lt;option&gt; &lt;value&gt;</dt>
+<dd>sets a given option to a given value. See <strong>mmconfig options</strong> in this document for the list of available ones, or do <em>mmconfig list</em> in-game. Note that the value is optional if it’s just an on/off option - if you don’t give it a value, it’ll act as a toggle (ie mmconfig clot will turn clot on/off).</dd>
+<dt id="term-mmconfig-list">mmconfig list</dt>
+<dd>displays a lost of configurable options in the system.</dd>
+<dt id="term-mmdefs-mode">mmdefs <em>&lt;mode&gt;</em></dt>
+<dd>does into the specified defence mode (to see which ones are available, use mshow). This’ll also have defup start putting up defup defences for that mode - and keepup ones after defup is done, if keepup is on.</dd>
+<dt id="term-mmdefup-defence-on-off">mmdefup <em>&lt;defence&gt;</em> [on/off]</dt>
+<dd>adds/removes a defence to the defup mode for the current defence.</dd>
+<dt id="term-mmkeep-defence-on-off">mmkeep <em>&lt;defence&gt;</em> [on/off]</dt>
+<dd>adds/remove a defence to the keepup list. Note that keepup can also be enabled/disabled as a feature, and it won’t put defences up when it’s disabled.</dd>
+<dt id="term-mmcreate-defmode-name">mmcreate defmode <em>&lt;name&gt;</em></dt>
+<dd>creates a new fences mode with the given name. You may wish to have more than the default basic/combat ones in order to specialize for situations (ie when you’re out bashing, raiding orgA, raiding orgB, etc.)</dd>
+<dt id="term-mmrename-defmode-current-name-new-name">mmrename defmode <em>&lt;current name&gt; &lt;new name&gt;</em></dt>
+<dd>renames an existing defmode to the new name.</dd>
+<dt id="term-mmdelete-defmode-current-name-new-name">mmdelete defmode <em>&lt;current name&gt; &lt;new name&gt;</em></dt>
+<dd>deletes an existing defmode. You can’t delete a defmode you’re currently in though, so switch first if you want to delete the current one.</dd>
+<dt id="term-mmreseta-or-mmreset-affs">mmreseta or mmreset affs</dt>
+<dd><p class="first">resets all afflictions the system thinks it has, to be used in a case where diagnose doesn’t fix the issue.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">this should only be used in extreme cases when something is wrong with the system, and any cases that lead the system to such a state should be fixed - so please report them.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt id="term-mmshowprios-balance">mmshowprios <em>&lt;balance&gt;</em></dt>
+<dd>shows the current priority lists for a particular balance. Possible balances are: herb, focus, salve, purgative, sip, balance, misc and slowcuring. The misc balance is for all things that work on their own balances and typically don’t make sense to prioritize. slowcuring is referred to choke/aeon/sap curing - where since you can only be doing one thing at a time, all cures are placed into one priority and you can change them about as you wish.</dd>
+<dt id="term-mmcleargaps-balance">mmcleargaps <em>&lt;balance&gt;</em></dt>
+<dd>clears all gaps for priority numbers of a given balance by compacting them. Use ‘slowcuring’ as the balance name for the slow curing priorities.</dd>
+<dt id="term-mmexportprio-prio-name-select-balances-to-export">mmexportprio &lt;prio name&gt; [&lt;select balances to export&gt;]</dt>
+<dd>exports balance prios to a given file name. By default, it’ll export prios of all balances - but if you’d like, you can also tell it to export only select ones (ie, <em>mmexportprio mystuff</em> will export all balances, but <em>mmexportprio myselff sip, salve</em> will only export sip and salve ones in it). The file will be saved in the m&amp;mf/prios folder (use <em>mm listprios</em> to see the exact path)</dd>
+<dt id="term-mmimportprio-name">mmimportprio [&lt;name&gt;]</dt>
+<dd>imports a prio list with the given name (it should be located in the m&amp;mf/prios system folder). If you don’t give it a name, it’ll spawn a file picker dialog for you, so you can locate the file for it.</dd>
+<dt id="term-mm-listprios">mm listprios</dt>
+<dd>lists all priorities that are stored in the m&amp;mf/prios folder, and also lists the actual location of the said folder.</dd>
+<dt id="term-mmswap-aff-name-you-d-like-to-be-more-important-balance-aff-name-you-d-like-to-swap-it-with-balance">mmswap &lt;aff name you’d like to be more important&gt; &lt;balance&gt; &lt;aff name you’d like to swap it with&gt; &lt;balance&gt;</dt>
+<dd>swaps the two things, such that the first one now has the higher priority. For example, <em>mmswap asthma salve pox salve</em> will make sure that the salve cure for asthma has higher priority than pox. This isn’t a toggle - doing it multiple times won’t switch it back and forth.</dd>
+<dt id="term-mmswap-aff-name-balance-priority-number">mmswap &lt;aff name&gt; &lt;balance&gt; &lt;priority number&gt;</dt>
+<dd>swaps the cure on the given balance with another at a given number. ie, <em>mmswap asthma salve 30</em> will set the salve cure for asthma at priority number 30 (and if anything was there previously, it’ll be set to what asthma was).</dd>
+<dt id="term-mmset-aff-name-balance-priority-number">mmset &lt;aff name&gt; &lt;balance&gt; &lt;priority number&gt;</dt>
+<dd>sets the cure on the given balance to be on the given number. ie, <code class="docutils literal notranslate"><span class="pre">mmset</span> <span class="pre">lightpipes</span> <span class="pre">physical</span> <span class="pre">5</span></code> will set the action for lightpipes at priority number 5 - and if anything was there previously, it will be shuffled down to make space. For the aeon/retardation curing, use <code class="docutils literal notranslate"><span class="pre">mmset</span> <span class="pre">lightpipes_physical</span> <span class="pre">slowcuring</span> <span class="pre">5</span></code> instead.</dd>
+<dt id="term-mmsetup-sp">mmsetup sp</dt>
+<dd>starts the setup of the stance/parry system.</dd>
+<dt id="term-mmsp-nextprio-limb">mmsp nextprio &lt;limb&gt;</dt>
+<dd>sets the next limb in priority for the stance/parry setup.</dd>
+<dt id="term-mmsp-stancelevel-limb-amount">mmsp stancelevel &lt;limb&gt; &lt;amount&gt;</dt>
+<dd>sets the amount of wound damage for a particular limb for stance. If that limb gets above the specified wound amount, stance will consider it when deciding what to stance.</dd>
+<dt id="term-mmsp-parrylevel-limb-amount">mmsp parrylevel &lt;limb&gt; &lt;amount&gt;</dt>
+<dd>sets the amount of wound damage for a particular limb for parry. If that limb gets above the specified wound amount, parry will consider it when deciding what to parry.</dd>
+<dt id="term-mmsp-parrystrat-strategy-name">mmsp parrystrat &lt;strategy name&gt;</dt>
+<dd>sets the parry strategy that the system should use.</dd>
+<dt id="term-mmsp-stancestrat-strategy-name">mmsp stancestrat &lt;strategy name&gt;</dt>
+<dd>sets the stance strategy that the system should use.</dd>
+<dt id="term-mmsp-defaultstance-stance">mmsp defaultstance &lt;stance&gt;</dt>
+<dd>sets the default stance that the system should use (when you login).</dd>
+<dt id="term-mmsp-show">mmsp show</dt>
+<dd>shows system information on all about stance/parry.</dd>
+<dt id="term-mmversion">mmversion</dt>
+<dd>shows the systems version.</dd>
+<dt id="term-mmsave">mmsave</dt>
+<dd>manually saves system settings. The system saves all settings when you do ‘quit’ (it’s triggered to the message), however if you wish to disconnect without quitting first, this would be the alias to use to get the system to save everything.</dd>
+<dt id="term-mmshow-lustlist">mmshow lustlist</dt>
+<dd>shows the list of names that are on the lustlist - names that we’re either avoiding rejecting or only rejecting, bashed on your autoreject option.</dd>
+<dt id="term-whoi">whoi</dt>
+<dd>checks the who list for you, even when you’re off prime. Does not show people hidden with gems. If you have the enemy highlighter script, it’ll also divide the names into enemies and non-enemies.</dd>
+<dt id="term-va">va</dt>
+<dd>toggles riding keepup on/off - shortcut for <em>mmkeep riding</em></dd>
+<dt id="term-va-on-off">va (on|off)</dt>
+<dd>explicitly enables or disables riding. If you’d like to use this in an alias/trigger/script, use <em>mm.defs.keepup(“riding”, “on”)</em> or <em>off</em>.</dd>
+</dl>
+</div>
+<div class="section" id="common-questions">
+<h1>Common questions<a class="headerlink" href="#common-questions" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p class="first">Why does the system apply mending twice sometimes while bashing?</p>
+<blockquote>
+<div><p>If you’ll carefully read the line(s) on which it does that, you’ll notice that it doesn’t say <em>which</em> limb was crippled - thus the system applies to both just to make sure all possibilities are covered.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="m-mf-api">
+<h1>m&amp;mf API<a class="headerlink" href="#m-mf-api" title="Permalink to this headline">¶</a></h1>
+<dl class="glossary docutils">
+<dt id="term-mm-bals">mm.bals {}</dt>
+<dd>A key-value table of balances - <em>true</em> if you have a balance, <em>false</em> if you don’t, and <em>unset</em> if known (assumed true).</dd>
+<dt id="term-mm-ignore">mm.ignore {}</dt>
+<dd><p class="first">A key-value table of afflictions which m&amp;mf will be ignoring in curing. You can see the list of possible affliction names with <strong>mmshow ignorelist</strong>, and values can be stored as any true/false value.</p>
+<div class="last highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- make prone be ignored from a script:</span>
+<span class="n">mm</span><span class="p">.</span><span class="n">ignore</span><span class="p">.</span><span class="n">prone</span> <span class="o">=</span> <span class="kc">true</span>
+
+<span class="c1">-- make prone not be ignored:</span>
+<span class="n">mm</span><span class="p">.</span><span class="n">ignore</span><span class="p">.</span><span class="n">prone</span> <span class="o">=</span> <span class="kc">false</span>
+</pre></div>
+</div>
+</dd>
+<dt id="term-mm-me-locks">mm.me.locks {}</dt>
+<dd>A key-value table of the current affliction locks you have - in the format of &lt;afflock&gt; = true.</dd>
+<dt id="term-mm-me-lustlist">mm.me.lustlist {}</dt>
+<dd>A key-value table of names which m&amp;mf will be ignoring in auto-rejection. Values can be stored as any true value.</dd>
+<dt id="term-mm-overhaul">mm.overhaul {}</dt>
+<dd>A read-only key-value table listing which afflictions are enabled for Overhaul curing. If an affliction is being replaced by another, it will show up as well with a string mentioning which affliction is replacing it.</dd>
+</dl>
+<dl class="function">
+<dt id="mm.app">
+<code class="descclassname">mm.</code><code class="descname">app</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mm.app" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggles whenever the system is paused.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">mm.</code><code class="descname">app</code><span class="sig-paren">(</span><em>true or false</em><span class="sig-paren">)</span></dt>
+<dd><p>Explicitly sets if the system should be paused or unpaused.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.can_usemana">
+<code class="descclassname">mm.</code><code class="descname">can_usemana</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mm.can_usemana" title="Permalink to this definition">¶</a></dt>
+<dd><p>checks whenever your current mana is above the manause limit. <strong>Returns:</strong> boolean <cite>true</cite> or <cite>false</cite>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.inslowcuringmode">
+<code class="descclassname">mm.</code><code class="descname">inslowcuringmode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mm.inslowcuringmode" title="Permalink to this definition">¶</a></dt>
+<dd><p>checks whenever you’re in the slow curing mode (aeon/choke/sap) or not. <strong>Returns:</strong> boolean <cite>true</cite> or <cite>false</cite>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.doadd">
+<code class="descclassname">mm.</code><code class="descname">doadd</code><span class="sig-paren">(</span><em>what</em>, <em>echoback</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.doadd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds <em>what</em> to the end of the do queue (so it should require both balance/equilibrium and use one of them). You can split actions inside <em>what</em> with the $ sign, and it’s executed as a command input - so this can be an alias or just text to send directly to the MUD. Can work as a drop-in replacement to the <em>send(what)</em> function.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.doaddfree">
+<code class="descclassname">mm.</code><code class="descname">doaddfree</code><span class="sig-paren">(</span><em>what</em>, <em>echoback</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.doaddfree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds <em>what</em> to the end of the dofree queue (requires balance/equilibrium, takes none). See <em>mm.doadd</em> on the specifics.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.dofirst">
+<code class="descclassname">mm.</code><code class="descname">dofirst</code><span class="sig-paren">(</span><em>what</em>, <em>echoback</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.dofirst" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds <em>what</em> to the start of the do queue.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.dofreefirst">
+<code class="descclassname">mm.</code><code class="descname">dofreefirst</code><span class="sig-paren">(</span><em>what</em>, <em>echoback</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.dofreefirst" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds <em>what</em> to the start of the dofree queue.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.dor">
+<code class="descclassname">mm.</code><code class="descname">dor</code><span class="sig-paren">(</span><em>nil</em>, <em>echoback</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.dor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggles the do-repeat mode of the do queue - when enabled, it’ll repeat the first action in the do queue indefinitely.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">mm.</code><code class="descname">dor</code><span class="sig-paren">(</span><em>&quot;off&quot;</em>, <em>echoback</em><span class="sig-paren">)</span></dt>
+<dd><p>Disables the do-repeat mode of the do queue.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">mm.</code><code class="descname">dor</code><span class="sig-paren">(</span><em>what</em>, <em>echoback</em><span class="sig-paren">)</span></dt>
+<dd><p>Adds <em>what</em> to the top of the do queue, and enables the do-repeat mode.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.doshow">
+<code class="descclassname">mm.</code><code class="descname">doshow</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mm.doshow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays all actions that are in the do, dofree queues and whenever do-repeat mode is enabled.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.undo">
+<code class="descclassname">mm.</code><code class="descname">undo</code><span class="sig-paren">(</span><em>what</em>, <em>echoback</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.undo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes one action from the top of the do queue if <em>what</em> is not provided, or removes <em>what</em> if it’s provided and is in the queue.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.undoall">
+<code class="descclassname">mm.</code><code class="descname">undoall</code><span class="sig-paren">(</span><em>echoback</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.undoall" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes one action from the top of the dofree queue.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.undofree">
+<code class="descclassname">mm.</code><code class="descname">undofree</code><span class="sig-paren">(</span><em>echoback</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.undofree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears the do queue completely.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.undoallfree">
+<code class="descclassname">mm.</code><code class="descname">undoallfree</code><span class="sig-paren">(</span><em>echoback</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.undoallfree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears the dofree queue completely.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.donext">
+<code class="descclassname">mm.</code><code class="descname">donext</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mm.donext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Has the system do the next thing in the do queue right away. This function is mostly useful for when you’ve used the do queue on an action that didn’t take any balance or equilibrium as expected - you can trigger it to ‘’mm.donext()’’ and the do queue will go again.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.showprecache">
+<code class="descclassname">mm.</code><code class="descname">showprecache</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mm.showprecache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays the herb precache setup along with the buttons to edit it.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.setprecache">
+<code class="descclassname">mm.</code><code class="descname">setprecache</code><span class="sig-paren">(</span><em>herb</em>, <em>amount</em>, <em>flag</em>, <em>echoback</em>, <em>show_list</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.setprecache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the precache amount for a given herb. <strong>herb</strong> is the short name of the herb you’d like to set it add, <strong>flag</strong> is what you’d like to do - can be <em>add</em>, <em>set</em> or <em>subtract</em> and <strong>amount</strong> is what you’d like the flag to operate with. <strong>show_list</strong> will have the function re-display the whole list after the amount is set.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.echof">
+<code class="descclassname">mm.</code><code class="descname">echof</code><span class="sig-paren">(</span><em>what</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.echof" title="Permalink to this definition">¶</a></dt>
+<dd><p>Echos given text with the systems function, and accepts the same conventions as <a class="reference external" href="http://www.lua.org/manual/5.1/manual.html#pdf-string.format">string.format</a> does. ie:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">mm</span><span class="p">.</span><span class="n">echof</span><span class="p">(</span><span class="s2">&quot;hello, #%d:&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.echofn">
+<code class="descclassname">mm.</code><code class="descname">echofn</code><span class="sig-paren">(</span><em>what</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.echofn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Same as mm.echof(), but does not auto-add a “n” at the end, so you can ‘’echo()’’ or ‘’echoLink()’’ things after it.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.reset.affs">
+<code class="descclassname">mm.reset.</code><code class="descname">affs</code><span class="sig-paren">(</span><em>echoback</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.reset.affs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets all system afflictions. Should never need to be used under normal circumstances; if it does happen then most likely something needs reporting and fixing.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.reset.defs">
+<code class="descclassname">mm.reset.</code><code class="descname">defs</code><span class="sig-paren">(</span><em>echoback</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.reset.defs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets all your current defences.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.dv">
+<code class="descclassname">mm.</code><code class="descname">dv</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mm.dv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Has the system check (and sync) <em>diagnose</em> as soon as possible.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.awf">
+<code class="descclassname">mm.</code><code class="descname">awf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mm.awf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Has the system check (and sync) your wounds status as soon as possible.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.adf">
+<code class="descclassname">mm.</code><code class="descname">adf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mm.adf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Has the system check (and sync) your defences list from the game.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.addbalanceful">
+<code class="descclassname">mm.</code><code class="descname">addbalanceful</code><span class="sig-paren">(</span><em>name</em>, <em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.addbalanceful" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds the given function to the balanceful system queue - so it is executed whenever you regain both balance/equilibrium. See <em>Scripting to do actions on balance/eq</em> on usage. <em>name</em> should be a unique name for the function <em>func</em> is the function itself.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.addbalanceless">
+<code class="descclassname">mm.</code><code class="descname">addbalanceless</code><span class="sig-paren">(</span><em>name</em>, <em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.addbalanceless" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a given function to the balanceless system queue.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.clearbalanceful">
+<code class="descclassname">mm.</code><code class="descname">clearbalanceful</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mm.clearbalanceful" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears the balanceful queue completely, and raises the ‘m&amp;m balanceful ready’ Mudlet event.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.clearbalanceless">
+<code class="descclassname">mm.</code><code class="descname">clearbalanceless</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mm.clearbalanceless" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears the balanceless queue completely, and raises the ‘m&amp;m balanceless ready’ Mudlet event.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.removebalanceful">
+<code class="descclassname">mm.</code><code class="descname">removebalanceful</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.removebalanceful" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the function associated with the name from the balanceful queue.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.removebalanceless">
+<code class="descclassname">mm.</code><code class="descname">removebalanceless</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.removebalanceless" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the function associated with the name from the balanceless queue.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.togglesip">
+<code class="descclassname">mm.</code><code class="descname">togglesip</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mm.togglesip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggles whenever health or mana should have higher priority.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">mm.</code><code class="descname">togglesip</code><span class="sig-paren">(</span><em>&quot;health&quot; or &quot;mana&quot;</em><span class="sig-paren">)</span></dt>
+<dd><p>Sets which one should have higher priority explicitly.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.prio_makefirst">
+<code class="descclassname">mm.</code><code class="descname">prio_makefirst</code><span class="sig-paren">(</span><em>action</em>, <em>balance</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.prio_makefirst" title="Permalink to this definition">¶</a></dt>
+<dd><p>This will swap something to be the most important one in sap-aeon-choke mode. Useful for, lets say, healing your health - typically you’d want to be curing affs before sipping, but if you’re low, you could use this to quickly have the system heal up a bit. <em>action</em> is the action to modify, <em>balance</em> the balance of an action to modify.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.prio_undofirst">
+<code class="descclassname">mm.</code><code class="descname">prio_undofirst</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mm.prio_undofirst" title="Permalink to this definition">¶</a></dt>
+<dd><p>Undoes the first action in slow curing mode to what it was before.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.sp_setparry">
+<code class="descclassname">mm.</code><code class="descname">sp_setparry</code><span class="sig-paren">(</span><em>what</em>, <em>echoback</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.sp_setparry" title="Permalink to this definition">¶</a></dt>
+<dd><p>If parry is in the manual mode, this will set the parry to be 100% at the given limb. <em>what</em> can be h, c, g, rl, ll, ra, or la which correspond to the given limb.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.show_keepup">
+<code class="descclassname">mm.</code><code class="descname">show_keepup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mm.show_keepup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays the keepup defences list for the current mode.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.show_defup">
+<code class="descclassname">mm.</code><code class="descname">show_defup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mm.show_defup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays the defup defences list for the current mode.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.ashow">
+<code class="descclassname">mm.</code><code class="descname">ashow</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mm.ashow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays general options of the system (tn/tf ones).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.aconfig">
+<code class="descclassname">mm.</code><code class="descname">aconfig</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mm.aconfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays the general configuration of the system (mmconfig ones).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.aconfig2">
+<code class="descclassname">mm.</code><code class="descname">aconfig2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mm.aconfig2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays more advanced configuration of the system, and pipe statuses (mmconfig ones).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.create_defmode">
+<code class="descclassname">mm.</code><code class="descname">create_defmode</code><span class="sig-paren">(</span><em>defencemode</em>, <em>echoback</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.create_defmode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new defences mode with the given name.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.defs.switch">
+<code class="descclassname">mm.defs.</code><code class="descname">switch</code><span class="sig-paren">(</span><em>defence</em>, <em>echoback</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.defs.switch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Switches to the given defence mode, and starts the defup procedure.</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- switch to the empty mode on-demand</span>
+<span class="n">mm</span><span class="p">.</span><span class="n">defs</span><span class="p">.</span><span class="n">switch</span><span class="p">(</span><span class="s2">&quot;empty&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<span class="target" id="mm-defs-defup"></span><dl class="function">
+<dt id="mm.defs.defup">
+<code class="descclassname">mm.defs.</code><code class="descname">defup</code><span class="sig-paren">(</span><em>defence</em>, <em>status</em>, <em>defencemode</em>, <em>echoback</em>, <em>showmenu</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.defs.defup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds/removes a defence to defup.</p>
+<ul>
+<li><p class="first"><em>defence</em> if the defence you’d like to add/remove, see <em>mmshow defup</em> for a list of available ones.</p>
+</li>
+<li><p class="first"><em>status</em> is where you specify whenever you’d like to add or remove it: if you pass it <em>nil</em>, it’ll toggle it. Otherwise, giving it true/false, or “on”/”off” or something similar will set it explicitly.</p>
+</li>
+<li><p class="first"><em>defencemode</em> optinal, it’s the defence mode you’d like to add/remove the defence in: if you give it <em>nil</em>, it’ll be the current one, otherwise pick an available one from the defence modes list in <em>mmshow</em>.</p>
+</li>
+<li><p class="first"><em>echoback</em> is optional, a true/false to show the message mentioning whenever a defence was removed or added.</p>
+</li>
+<li><p class="first"><em>showmenu</em> is optional, a true/false to show the whole mmdefup menu.</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- toggles blacktea defup in the current mode, showing no message</span>
+<span class="n">mm</span><span class="p">.</span><span class="n">defs</span><span class="p">.</span><span class="n">defup</span><span class="p">(</span><span class="s2">&quot;blacktea&quot;</span><span class="p">)</span>
+
+<span class="c1">-- explicitly turns on blacktea defup in the current mode, showing no msg</span>
+<span class="n">mm</span><span class="p">.</span><span class="n">defs</span><span class="p">.</span><span class="n">defup</span><span class="p">(</span><span class="s2">&quot;blacktea&quot;</span><span class="p">,</span> <span class="s2">&quot;yep&quot;</span><span class="p">)</span>
+
+<span class="c1">-- explicitly turns on blacktea defup in the current mode, showing a msg that it&#39;s on</span>
+<span class="n">mm</span><span class="p">.</span><span class="n">defs</span><span class="p">.</span><span class="n">defup</span><span class="p">(</span><span class="s2">&quot;blacktea&quot;</span><span class="p">,</span> <span class="s2">&quot;yep&quot;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+
+<span class="c1">-- explicitly turns blacktea defup off in the basic mode, with a msg</span>
+<span class="n">mm</span><span class="p">.</span><span class="n">defs</span><span class="p">.</span><span class="n">defup</span><span class="p">(</span><span class="s2">&quot;blacktea&quot;</span><span class="p">,</span> <span class="s2">&quot;nope&quot;</span><span class="p">,</span> <span class="s2">&quot;basic&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+
+<span class="c1">-- you can also check first and disable only if you have the defence on keepup</span>
+<span class="kr">if</span> <span class="n">mm</span><span class="p">.</span><span class="n">defkeepup</span><span class="p">[</span><span class="n">mm</span><span class="p">.</span><span class="n">defs</span><span class="p">.</span><span class="n">mode</span><span class="p">].</span><span class="n">rebounding</span> <span class="kr">then</span>
+  <span class="n">mm</span><span class="p">.</span><span class="n">defs</span><span class="p">.</span><span class="n">keepup</span><span class="p">(</span><span class="s2">&quot;rebounding&quot;</span><span class="p">,</span> <span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Note:</th><td class="field-body">You can check if a defence is on keepup in the current mode with <code class="docutils literal notranslate"><span class="pre">mm.defkeepup[mm.defs.mode].&lt;def&gt;</span></code>, ie to see if quicksilver is on keepup right now - <code class="docutils literal notranslate"><span class="pre">mm.defkeepup[mm.defs.mode].quicksilver</span></code>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.defs.keepup">
+<code class="descclassname">mm.defs.</code><code class="descname">keepup</code><span class="sig-paren">(</span><em>defence</em>, <em>status</em>, <em>defencemode</em>, <em>echoback</em>, <em>showmenu</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.defs.keepup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds/removes a defence to defup, with the arguments all the same as <a class="reference internal" href="#mm-defs-defup"><span class="std std-ref">mm.defs.defup()</span></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.delete_defmode">
+<code class="descclassname">mm.</code><code class="descname">delete_defmode</code><span class="sig-paren">(</span><em>which</em>, <em>echoback</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.delete_defmode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the given defence mode.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.rename_defmode">
+<code class="descclassname">mm.</code><code class="descname">rename_defmode</code><span class="sig-paren">(</span><em>which</em>, <em>newname</em>, <em>echoback</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.rename_defmode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renames a defence mode to the new name.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.printorder">
+<code class="descclassname">mm.</code><code class="descname">printorder</code><span class="sig-paren">(</span><em>balance</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.printorder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays the priority order for the given balance. The higher the action is, the more important it is and will be done sooner than the ones below it. Possible balances are “herb”, “salve”, “sip”, “scroll”,  “purgative”, “physical”, “focus”, “sparkle”, and “misc”.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.printordersync">
+<code class="descclassname">mm.</code><code class="descname">printordersync</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mm.printordersync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays the priority order for the slow curing mode.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.ignorelist">
+<code class="descclassname">mm.</code><code class="descname">ignorelist</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mm.ignorelist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays a list of all the possible things you can have the system ignore (by setting a key in the <em>mm.ignore</em> table to true).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.showaffs">
+<code class="descclassname">mm.</code><code class="descname">showaffs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mm.showaffs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays all your current afflictions.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.showbals">
+<code class="descclassname">mm.</code><code class="descname">showbals</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mm.showbals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays the status of all your current balances (if the balance is in green, that means you have it).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.show_current_defs">
+<code class="descclassname">mm.</code><code class="descname">show_current_defs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mm.show_current_defs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays the status of all your current defences.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.prio.insert">
+<code class="descclassname">mm.prio.</code><code class="descname">insert</code><span class="sig-paren">(</span><em>action</em>, <em>balance</em>, <em>number</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.prio.insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inserts a priority at a given position. If there is nothing at the new position, then it simply inserts and leaves a hole in the previous position. If there already is something in the new position, then it will take the priority out of its old spot, move items up to clear the gap created, and then insert the priority at the location, shifting items down as necessary. As a result of this, the item at the old location will move one up (because it has to - to clear the gap), your item will get inserted, and the rest of items will be below it. As a result of this, if you’re inserting something at a position to be above an item, insert at itemposition+1.</p>
+<blockquote>
+<div>– move paranoia herb cure to the 30th spot, bumping down whatever was the 29, and everything else below it as necessary
+mm.prio.insert(“paranoia”, “herb”, 30)</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.prio_swap">
+<code class="descclassname">mm.</code><code class="descname">prio_swap</code><span class="sig-paren">(</span><em>what</em>, <em>balance</em>, <em>arg2</em>, <em>nil</em>, <em>echoback</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.prio_swap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Swaps action <em>what</em> with the balance of <em>balance</em> with the action that has a priority number of <em>arg2</em>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">mm.</code><code class="descname">prio_swap</code><span class="sig-paren">(</span><em>what</em>, <em>balance</em>, <em>arg2</em>, <em>arg3</em>, <em>echoback</em><span class="sig-paren">)</span></dt>
+<dd><p>Swaps action <em>what</em> with the balance of <em>balance</em> with the action <em>arg2</em> that has a balance of <em>arg3</em>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.prio_slowswap">
+<code class="descclassname">mm.</code><code class="descname">prio_slowswap</code><span class="sig-paren">(</span><em>what</em>, <em>whatwith</em>, <em>echoback</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.prio_slowswap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Swaps action <em>what</em> (should be in the format of action_balance, ie <em>healhealth_sip</em>) with <em>whatwith</em>, which should be in a similar format.</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- swap health sipping with cleanse</span>
+<span class="n">mm</span><span class="p">.</span><span class="n">prio_slowswap</span><span class="p">(</span><span class="s2">&quot;healhealth_sip&quot;</span><span class="p">,</span> <span class="s2">&quot;cleanse_physical&quot;</span><span class="p">)</span>
+
+<span class="c1">-- or swap health sipping with to number of a priority</span>
+<span class="n">mm</span><span class="p">.</span><span class="n">prio_slowswap</span><span class="p">(</span><span class="s2">&quot;healhealth_sip&quot;</span><span class="p">,</span> <span class="mi">34</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.asave">
+<code class="descclassname">mm.</code><code class="descname">asave</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mm.asave" title="Permalink to this definition">¶</a></dt>
+<dd><p>Has the system save all settings.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.givewarning">
+<code class="descclassname">mm.</code><code class="descname">givewarning</code><span class="sig-paren">(</span><em>tbl</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.givewarning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Has the system give a noticable warning to the user. <em>tbl</em> is a key-value table that accepts <em>initialmsg</em>, <em>prefixwarning</em>, <em>duration</em> and <em>startin</em> values. <em>prefixwarning</em>, will prefix a warning to the prompt or all lines (if the mmconfig warningtype option is set). <em>duration</em> determines how long should the warning be prefixed for (if you don’t give a value, default is 4 seconds). <em>startin</em> is the time the prefixing should start in (defaults to 0). ie:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- this will give just a one-time warning</span>
+<span class="n">mm</span><span class="p">.</span><span class="n">givewarning</span><span class="p">({</span>
+  <span class="n">initialmsg</span> <span class="o">=</span> <span class="s2">&quot;You&#39;re getting hungry! Get some food NOW.&quot;</span>
+<span class="p">})</span>
+
+<span class="c1">-- this will give an initial warning, and after one second, prefix &#39;Bob chasming you&#39; to the prompt or all lines for 5 seconds (or do nothing if warningtype is off)</span>
+<span class="n">mm</span><span class="p">.</span><span class="n">givewarning</span><span class="p">({</span>
+  <span class="n">initialmsg</span> <span class="o">=</span> <span class="s2">&quot;Bob is still chasming you! Hinder, blind, or run.&quot;</span><span class="p">,</span>
+  <span class="n">prefixwarning</span> <span class="o">=</span> <span class="s2">&quot;Bob chasming you&quot;</span><span class="p">,</span>
+  <span class="n">startin</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="n">duration</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.config.set">
+<code class="descclassname">mm.config.</code><code class="descname">set</code><span class="sig-paren">(</span><em>option</em>, <em>value</em>, <em>echoback</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.config.set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the option <em>option</em> to the value of <em>value</em>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.prio.cleargaps">
+<code class="descclassname">mm.prio.</code><code class="descname">cleargaps</code><span class="sig-paren">(</span><em>balance</em>, <em>echoback</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.prio.cleargaps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears and gaps in the given balance (balance name can also be “slowcuring” for the slow curing mode). For example, if one action has a number of 1 and another of 2, they’ll become 1 and 2, respectively.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.prio.import">
+<code class="descclassname">mm.prio.</code><code class="descname">import</code><span class="sig-paren">(</span><em>name</em>, <em>echoback</em>, <em>report_errors</em>, <em>use_default</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.prio.import" title="Permalink to this definition">¶</a></dt>
+<dd><p>Imports a priority <em>name</em>. <em>report_errors</em> is whenever errors during importing should be reported or not, <em>use_default</em> means it’ll import the default, embedded system priorities.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.prio.export">
+<code class="descclassname">mm.prio.</code><code class="descname">export</code><span class="sig-paren">(</span><em>name</em>, <em>nil</em>, <em>echoback</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.prio.export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exports all priority balances to a priority list of the given <em>name</em>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">mm.prio.</code><code class="descname">export</code><span class="sig-paren">(</span><em>name</em>, <em>options</em>, <em>echoback</em><span class="sig-paren">)</span></dt>
+<dd><p>Exports selective balances as specified by <em>options</em> - which is a list table of all the balances that should be included in the export (use “slowcuring” for the slow curing mode priority list).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.prio.usedefault">
+<code class="descclassname">mm.prio.</code><code class="descname">usedefault</code><span class="sig-paren">(</span><em>echoback</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.prio.usedefault" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the system priorities to the default ones that come with the system.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.prio.getnumber">
+<code class="descclassname">mm.prio.</code><code class="descname">getnumber</code><span class="sig-paren">(</span><em>what</em>, <em>balance</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.prio.getnumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number a given item is in a balance. Helpful if you want to switch some things temporarily.</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- example:</span>
+<span class="n">display</span><span class="p">(</span><span class="n">mm</span><span class="p">.</span><span class="n">prio</span><span class="p">.</span><span class="n">getnumber</span><span class="p">(</span><span class="s2">&quot;asthma&quot;</span><span class="p">,</span> <span class="s2">&quot;salve&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.prio.getaction">
+<code class="descclassname">mm.prio.</code><code class="descname">getaction</code><span class="sig-paren">(</span><em>number</em>, <em>balance</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.prio.getaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the affliction / defence that is at the given number in the balance.</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- example:</span>
+<span class="n">display</span><span class="p">(</span><span class="n">mm</span><span class="p">.</span><span class="n">prio</span><span class="p">.</span><span class="n">getaction</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="s2">&quot;herb&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.ignoreskill">
+<code class="descclassname">mm.</code><code class="descname">ignoreskill</code><span class="sig-paren">(</span><em>skill</em>, <em>newstatus</em>, <em>echoback</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.ignoreskill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets whenever a skill or a skillgroup shouldn’t be displayed in defence lists (this is what mmshow hidelist uses).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.ignore_illusion">
+<code class="descclassname">mm.</code><code class="descname">ignore_illusion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mm.ignore_illusion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ignores the current paragraph as an illusion so the doesn’t act on it. This means that all lines since the last prompt until the next prompt will be ignored.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.addwounds">
+<code class="descclassname">mm.</code><code class="descname">addwounds</code><span class="sig-paren">(</span><em>class</em>, <em>attack</em>, <em>where</em>, <em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.addwounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a corresponding amount of wound damage on a given limb.</p>
+<ul class="simple">
+<li><strong>class</strong> is the name of the <cite>mm.woundsdata[]</cite> table you’d like to use</li>
+<li><strong>attack</strong> is the name of the key (which can be either a number, or a function that returns a number) you’d like to use from <cite>mm.woundsdata[class]</cite></li>
+<li><strong>where</strong> is the name of the limb as a string, or a table with limb names, where the damage should be applied to</li>
+<li><strong>…</strong> is an optional amount of arguments that’ll be passed onto the calculating function in <cite>mm.woundsdata[class][attack]</cite>, if any.</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.addaff">
+<code class="descclassname">mm.</code><code class="descname">addaff</code><span class="sig-paren">(</span><em>aff</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.addaff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lets the system know that you have an affliction right away. See <a class="reference internal" href="#adding-removing-affs-manual"><span class="std std-ref">Adding/removing afflictions</span></a> for use.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.removeaff">
+<code class="descclassname">mm.</code><code class="descname">removeaff</code><span class="sig-paren">(</span><em>aff</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.removeaff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the affliction from the list of affs you currently have right away.  See <a class="reference internal" href="#adding-removing-affs-manual"><span class="std std-ref">Adding/removing afflictions</span></a> for use.</p>
+</dd></dl>
+
+<span class="target" id="mm-cc-function"></span><dl class="function">
+<dt id="mm.cc">
+<code class="descclassname">mm.</code><code class="descname">cc</code><span class="sig-paren">(</span><em>text_to_say</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.cc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this function to announce things on a communication channel (clan, party, etc). Where the function will say things can be configured with <a class="reference internal" href="#term-ccto"><span class="xref std std-term">vconfig ccto</span></a>, and it’s usefulness comes in the fact that it won’t do anything if the system is paused or you have aeon/retardation - so you can safely use mm.cc() in your triggers without adding conditions to them. It’s also convenient to use because you can adjust where it goes with vconfig ccto - without needing to redo all your triggers or fiddle with variables. The equivalent <a class="reference internal" href="#term-cc"><span class="xref std std-term">cc</span></a> alias also uses this function.</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span>-- example from a trigger
+(begin of line) The end of your cudgel forms a noxious, dripping burl and you point it at
+(regex) ^The end of your cudgel forms a noxious, dripping burl and you point it at (\w+)\. The burl pops and ruptures, sending a swirling mass of wasps forth to the (\w+)\.$
+
+if mm.isEnemy(multimatches[2][2]) then -- mm.isEnemy will be available soon
+  mm.cc(&quot;LoS %s %s&quot;, multimatches[2][2], multimatches[2][3])
+end
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.prompttrigger">
+<code class="descclassname">mm.</code><code class="descname">prompttrigger</code><span class="sig-paren">(</span><em>name</em>, <em>function</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.prompttrigger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a function to be run for you on the prompt. The function will only be run once on the next prompt. If you use this multiple times before the prompt with the same name, then only the latest function will be executed - which makes this quite a boon in certain cases.</p>
+<p>You might find this useful to work with when you can’t exactly do the standard Mudlet paradigm of open gate / close gate with a prompt trigger, because the gate-opener line might be variable, or all the lines are the same and etc. Using this, you can easily defer the processing until the prompt happens.</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">mindnet_entered</span> <span class="o">=</span> <span class="n">mindnet_entered</span> <span class="ow">or</span> <span class="p">{}</span>
+<span class="n">mindnet_entered</span><span class="p">[</span><span class="o">#</span><span class="n">mindnet_entered</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">matches</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="c1">-- gets called only once, so a group entering does not spam</span>
+<span class="n">mm</span><span class="p">.</span><span class="n">prompttrigger</span><span class="p">(</span><span class="s2">&quot;mindnet entered&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+  <span class="n">send</span><span class="p">(</span><span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;pt %s (%d) ENTERED %s!&quot;</span><span class="p">,</span> <span class="n">mm</span><span class="p">.</span><span class="n">concatand</span><span class="p">(</span><span class="n">mindnet_entered</span><span class="p">),</span> <span class="o">#</span><span class="n">mindnet_entered</span><span class="p">,</span> <span class="n">gmcp</span><span class="p">.</span><span class="n">Room</span><span class="p">.</span><span class="n">Info</span><span class="p">.</span><span class="n">area</span><span class="p">))</span>
+
+  <span class="n">mindnet_entered</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="kr">end</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">mm.</code><code class="descname">prompttrigger</code><span class="sig-paren">(</span><em>name</em>, <em>nil</em><span class="sig-paren">)</span></dt>
+<dd><p>Clears a prompt trigger function of that name (so it will not run on the next prompt).</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- nothing will actually happen</span>
+<span class="n">mm</span><span class="p">.</span><span class="n">prompttrigger</span><span class="p">(</span><span class="s2">&quot;mindnet entered&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span> <span class="n">mm</span><span class="p">.</span><span class="n">echof</span><span class="p">(</span><span class="s2">&quot;hi!&quot;</span><span class="p">)</span> <span class="kr">end</span><span class="p">)</span>
+<span class="n">mm</span><span class="p">.</span><span class="n">prompttrigger</span><span class="p">(</span><span class="s2">&quot;mindnet entered&quot;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.enableoverhaul">
+<code class="descclassname">mm.</code><code class="descname">enableoverhaul</code><span class="sig-paren">(</span><em>affliction</em>, <em>echoback</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.enableoverhaul" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets an affliction to be cured using Overhaul curing.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mm.disableoverhaul">
+<code class="descclassname">mm.</code><code class="descname">disableoverhaul</code><span class="sig-paren">(</span><em>affliction</em>, <em>echoback</em><span class="sig-paren">)</span><a class="headerlink" href="#mm.disableoverhaul" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disables an affliction from being cured using Overhaul curing and reverts to using old cures instead.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">m&amp;mf 47 documentation :)</a><ul>
+<li><a class="reference internal" href="#addons-documentation">Addons documentation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#contents">Contents</a></li>
+<li><a class="reference internal" href="#basics-of-the-system">Basics of the system</a><ul>
+<li><a class="reference internal" href="#what-is-this-system">What is this system?</a></li>
+<li><a class="reference internal" href="#installing">Installing</a></li>
+<li><a class="reference internal" href="#using-the-system">Using the system</a></li>
+<li><a class="reference internal" href="#using-defences">Using defences</a><ul>
+<li><a class="reference internal" href="#adjusting-defence-menus">Adjusting defence menus</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-the-do-dofree-system">Using the <em>do / dofree</em> system</a></li>
+<li><a class="reference internal" href="#ignoring-curing-things">Ignoring curing things</a></li>
+<li><a class="reference internal" href="#on-affliction-locks">On affliction locks</a></li>
+<li><a class="reference internal" href="#choke-aeon-and-sap-curing">Choke, aeon and sap curing</a></li>
+<li><a class="reference internal" href="#herb-precaching">Herb precaching</a></li>
+<li><a class="reference internal" href="#changing-colour-highlights">Changing colour highlights</a></li>
+<li><a class="reference internal" href="#setting-a-custom-prompt">Setting a custom prompt</a><ul>
+<li><a class="reference internal" href="#adding-custom-tags-and-colours">Adding custom tags and colours</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#what-to-do-if-you-have-a-problem">What to do if you have a problem?</a></li>
+<li><a class="reference internal" href="#updating-the-system">Updating the system</a></li>
+<li><a class="reference internal" href="#getting-help">Getting help</a></li>
+<li><a class="reference internal" href="#submitting-ideas">Submitting ideas</a></li>
+<li><a class="reference internal" href="#mmconfig-options">mmconfig options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#advanced-usage">Advanced usage</a><ul>
+<li><a class="reference internal" href="#scripting-with-it">Scripting with it</a><ul>
+<li><a class="reference internal" href="#afflictions">Afflictions</a><ul>
+<li><a class="reference internal" href="#checking-how-long-have-you-had-an-aff">Checking how long have you had an aff</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#balances">Balances</a></li>
+<li><a class="reference internal" href="#defences">Defences</a></li>
+<li><a class="reference internal" href="#stats">Stats</a></li>
+<li><a class="reference internal" href="#inventory-rift">Inventory / rift</a></li>
+<li><a class="reference internal" href="#lust-list">Lust list</a></li>
+<li><a class="reference internal" href="#other-misc-things-in-mm-me">Other misc things in mm.me</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#locks">Locks</a><ul>
+<li><a class="reference internal" href="#configuration-options">Configuration options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#events-raised-by-the-system">Events raised by the system</a></li>
+<li><a class="reference internal" href="#scripting-to-do-things-on-the-prompt">Scripting to do things on the prompt</a></li>
+<li><a class="reference internal" href="#scripting-to-do-actions-on-balance-eq">Scripting to do actions on balance/eq</a></li>
+<li><a class="reference internal" href="#handling-do-dofree-queues-manually">Handling do/dofree queues manually</a></li>
+<li><a class="reference internal" href="#ignoring-afflictions-cures">Ignoring afflictions/cures</a></li>
+<li><a class="reference internal" href="#managing-your-own-priorities">Managing your own priorities</a></li>
+<li><a class="reference internal" href="#more-fine-grained-control-of-the-system">More fine-grained control of the system</a><ul>
+<li><a class="reference internal" href="#adding-your-own-affliction-triggers">Adding your own affliction triggers</a></li>
+<li><a class="reference internal" href="#working-with-balances">Working with balances</a></li>
+<li><a class="reference internal" href="#adding-removing-afflictions">Adding/removing afflictions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#customizing-anti-illusion">Customizing anti-illusion</a></li>
+<li><a class="reference internal" href="#doing-your-own-stance-parry-calculations">Doing your own stance/parry calculations</a><ul>
+<li><a class="reference internal" href="#parry">Parry</a></li>
+<li><a class="reference internal" href="#stance">Stance</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#customizing-wound-damage-tracking">Customizing wound damage tracking</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#alias-list">Alias list</a></li>
+<li><a class="reference internal" href="#common-questions">Common questions</a></li>
+<li><a class="reference internal" href="#m-mf-api">m&amp;mf API</a></li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="healing.html"
+                        title="next chapter">m&amp;mf Healing others</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="healing.html" title="m&amp;mf Healing others"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">m&amp;mf docs</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, Vadim Peretokin.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>
