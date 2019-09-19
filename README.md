@@ -34,13 +34,13 @@ Note: Uninstall maynot be necessary if you are using a separate new profile for 
 1. Open the command-line and navigate to the m&mf folder, and run:
 
        On Ubuntu:
-       ./generate.lua -o &lt;your class&gt;
+       ./generate.lua -o <your class>
 
        In Windows:
-       generate.lua -o &lt;your class&gt;
+       generate.lua -o <your class>
        
        On OSX:
-       lua5.1 generate.lua -o &lt;your class&gt;
+       lua5.1 generate.lua -o <your class>
 
 
 1. Replace &lt;m&mf Git location&gt; with the path to the XML files, and then run this command in Mudlet.
