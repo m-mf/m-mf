@@ -601,7 +601,7 @@ prompt_stats = function ()
 
     if t.kafe == "1" then defences.got("kafe") else defences.lost("kafe") end
 
-    if t.mount ~= "nothing" then defences.got("riding") else defences.lost("riding") end
+    if t.mount ~= "0" then defences.got("riding") else defences.lost("riding") end
 
 #if skills.psionics then
     if t.psisuper == "-1" then
