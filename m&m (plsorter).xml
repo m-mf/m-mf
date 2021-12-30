@@ -1,74 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE MudletPackage>
 <MudletPackage version="1.001">
-    <TriggerPackage>
-        <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-            <name>m&amp;m Plist Sorter</name>
-            <script></script>
-            <triggerType>0</triggerType>
-            <conditonLineDelta>0</conditonLineDelta>
-            <mStayOpen>0</mStayOpen>
-            <mCommand></mCommand>
-            <packageName></packageName>
-            <mFgColor>#ff0000</mFgColor>
-            <mBgColor>#ffff00</mBgColor>
-            <mSoundFile></mSoundFile>
-            <colorTriggerFgColor>#000000</colorTriggerFgColor>
-            <colorTriggerBgColor>#000000</colorTriggerBgColor>
-            <regexCodeList/>
-            <regexCodePropertyList/>
-            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                <name>m&amp;m Capture plist</name>
-                <script>mm.pls_capture()</script>
-                <triggerType>0</triggerType>
-                <conditonLineDelta>2</conditonLineDelta>
-                <mStayOpen>999</mStayOpen>
-                <mCommand></mCommand>
-                <packageName></packageName>
-                <mFgColor>#ff0000</mFgColor>
-                <mBgColor>#ffff00</mBgColor>
-                <mSoundFile></mSoundFile>
-                <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                <regexCodeList>
-                    <string>*******************************************************************************</string>
-                    <string>Id       Container                      Contents                   Sips  Months </string>
-                    <string>-------------------------------------------------------------------------------</string>
-                </regexCodeList>
-                <regexCodePropertyList>
-                    <integer>2</integer>
-                    <integer>3</integer>
-                    <integer>2</integer>
-                </regexCodePropertyList>
-                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>m&amp;m Capture plist stop</name>
-                    <script>setTriggerStayOpen(&quot;m&amp;m Capture plist&quot;, 0)
+	<TriggerPackage>
+		<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+			<name>m&amp;m Plist Sorter</name>
+			<script></script>
+			<triggerType>0</triggerType>
+			<conditonLineDelta>0</conditonLineDelta>
+			<mStayOpen>0</mStayOpen>
+			<mCommand></mCommand>
+			<packageName></packageName>
+			<mFgColor>#ff0000</mFgColor>
+			<mBgColor>#ffff00</mBgColor>
+			<mSoundFile></mSoundFile>
+			<colorTriggerFgColor>#000000</colorTriggerFgColor>
+			<colorTriggerBgColor>#000000</colorTriggerBgColor>
+			<regexCodeList />
+			<regexCodePropertyList />
+			<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+				<name>m&amp;m Capture plist</name>
+				<script>mm.pls_capture()</script>
+				<triggerType>0</triggerType>
+				<conditonLineDelta>2</conditonLineDelta>
+				<mStayOpen>999</mStayOpen>
+				<mCommand></mCommand>
+				<packageName></packageName>
+				<mFgColor>#ff0000</mFgColor>
+				<mBgColor>#ffff00</mBgColor>
+				<mSoundFile></mSoundFile>
+				<colorTriggerFgColor>#000000</colorTriggerFgColor>
+				<colorTriggerBgColor>#000000</colorTriggerBgColor>
+				<regexCodeList>
+					<string>*******************************************************************************</string>
+					<string>Id       Container                      Contents                   Sips  Months </string>
+					<string>-------------------------------------------------------------------------------</string>
+				</regexCodeList>
+				<regexCodePropertyList>
+					<integer>2</integer>
+					<integer>3</integer>
+					<integer>2</integer>
+				</regexCodePropertyList>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>m&amp;m Capture plist stop</name>
+					<script>setTriggerStayOpen("m&amp;m Capture plist", 0)
 
 mm.pls_captured()</script>
-                    <triggerType>0</triggerType>
-                    <conditonLineDelta>0</conditonLineDelta>
-                    <mStayOpen>0</mStayOpen>
-                    <mCommand></mCommand>
-                    <packageName></packageName>
-                    <mFgColor>#ff0000</mFgColor>
-                    <mBgColor>#ffff00</mBgColor>
-                    <mSoundFile></mSoundFile>
-                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                    <regexCodeList>
-                        <string>Total Containers:</string>
-                    </regexCodeList>
-                    <regexCodePropertyList>
-                        <integer>2</integer>
-                    </regexCodePropertyList>
-                </Trigger>
-                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>elist/elist2 vial</name>
-                    <script>local vialid = tonumber(matches[2])
-local potion = line:sub(41):match(&quot;([a-z ]+)&quot;):match(&quot;^%s*(.-)%s*$&quot;)
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>Total Containers:</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>2</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>elist/elist2 vial</name>
+					<script>local vialid = tonumber(matches[2])
+local potion = line:sub(41):match("([a-z ]+)"):match("^%s*(.-)%s*$")
 local sips = tonumber(matches[3])
-local months = tonumber(matches[4]) or &quot;arty&quot;
-local category = mm.pls_categories[potion] or &quot;unknown&quot;
+local months = tonumber(matches[4]) or "arty"
+local category = mm.pls_categories[potion] or "unknown"
 
 mm.pls_vials[vialid] = {months = months, potion = potion, sips = sips}
 mm.pls_potions[category] = mm.pls_potions[category] or {}
@@ -76,174 +76,174 @@ mm.pls_potions[category][potion] = mm.pls_potions[category][potion] or {sips = 0
 mm.pls_potions[category][potion].sips = mm.pls_potions[category][potion].sips + sips
 mm.pls_potions[category][potion].vials = mm.pls_potions[category][potion].vials + 1
 
-if type(months) == &quot;number&quot; and months &lt;= mm.conf.decaytime then
+if type(months) == "number" and months &lt;= mm.conf.decaytime then
   mm.pls_potions[category][potion].decays = mm.pls_potions[category][potion].decays + 1
 end
 
 mm.pls_knownstuff[potion] = mm.pls_knownstuff[potion] or 2</script>
-                    <triggerType>0</triggerType>
-                    <conditonLineDelta>3</conditonLineDelta>
-                    <mStayOpen>0</mStayOpen>
-                    <mCommand></mCommand>
-                    <packageName></packageName>
-                    <mFgColor>#ff0000</mFgColor>
-                    <mBgColor>#ffff00</mBgColor>
-                    <mSoundFile></mSoundFile>
-                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                    <regexCodeList>
-                        <string>^(\d+).+?(\d+)\s+(\d+|(?:\*))$</string>
-                    </regexCodeList>
-                    <regexCodePropertyList>
-                        <integer>1</integer>
-                    </regexCodePropertyList>
-                </Trigger>
-                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>Auto-moar</name>
-                    <script></script>
-                    <triggerType>0</triggerType>
-                    <conditonLineDelta>0</conditonLineDelta>
-                    <mStayOpen>0</mStayOpen>
-                    <mCommand>more</mCommand>
-                    <packageName></packageName>
-                    <mFgColor>#ff0000</mFgColor>
-                    <mBgColor>#ffff00</mBgColor>
-                    <mSoundFile></mSoundFile>
-                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                    <regexCodeList>
-                        <string>Type MORE to continue reading.</string>
-                    </regexCodeList>
-                    <regexCodePropertyList>
-                        <integer>2</integer>
-                    </regexCodePropertyList>
-                </Trigger>
-            </Trigger>
-        </TriggerGroup>
-    </TriggerPackage>
-    <TimerPackage/>
-    <AliasPackage>
-        <AliasGroup isActive="yes" isFolder="yes">
-            <name>m&amp;m Plist Sorter</name>
-            <script></script>
-            <command></command>
-            <packageName></packageName>
-            <regex></regex>
-            <Alias isActive="yes" isFolder="no">
-                <name>Dispose of decays</name>
-                <script>mm.pls_dispose(matches[2])</script>
-                <command></command>
-                <packageName></packageName>
-                <regex>^dispose of decays by: (.+)$</regex>
-            </Alias>
-        </AliasGroup>
-    </AliasPackage>
-    <ActionPackage/>
-    <ScriptPackage>
-        <ScriptGroup isActive="yes" isFolder="yes">
-            <name>m&amp;m Plist Sorter</name>
-            <packageName></packageName>
-            <script>-- fill the data in here as necessary!
+					<triggerType>0</triggerType>
+					<conditonLineDelta>3</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>^(\d+).+?(\d+)\s+(\d+|(?:\*))$</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>1</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Auto-moar</name>
+					<script></script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand>more</mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>Type MORE to continue reading.</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>2</integer>
+					</regexCodePropertyList>
+				</Trigger>
+			</Trigger>
+		</TriggerGroup>
+	</TriggerPackage>
+	<TimerPackage />
+	<AliasPackage>
+		<AliasGroup isActive="yes" isFolder="yes">
+			<name>m&amp;m Plist Sorter</name>
+			<script></script>
+			<command></command>
+			<packageName></packageName>
+			<regex></regex>
+			<Alias isActive="yes" isFolder="no">
+				<name>Dispose of decays</name>
+				<script>mm.pls_dispose(matches[2])</script>
+				<command></command>
+				<packageName></packageName>
+				<regex>^dispose of decays by: (.+)$</regex>
+			</Alias>
+		</AliasGroup>
+	</AliasPackage>
+	<ActionPackage />
+	<ScriptPackage>
+		<ScriptGroup isActive="yes" isFolder="yes">
+			<name>m&amp;m Plist Sorter</name>
+			<packageName></packageName>
+			<script>-- fill the data in here as necessary!
 mm.pls_categories = {
-	[&quot;oil of preservation&quot;]     = &quot;oil&quot;,
-	[&quot;oil of sharpness&quot;]        = &quot;oil&quot;,
-	[&quot;oil of invisibility&quot;]     = &quot;oil&quot;,
-	[&quot;dragonsblood oil&quot;]        = &quot;perfume&quot;,
-	[&quot;vanilla oil&quot;]             = &quot;perfume&quot;,
-	[&quot;jasmine oil&quot;]             = &quot;perfume&quot;,
-	[&quot;musk oil&quot;]                = &quot;perfume&quot;,
-	[&quot;sandalwood oil&quot;]          = &quot;perfume&quot;,
-	[&quot;a regeneration salve&quot;]    = &quot;salve&quot;,
-	[&quot;a mending salve&quot;]         = &quot;salve&quot;,
-	[&quot;liniment salve&quot;]          = &quot;salve&quot;,
-	[&quot;a potion of healing&quot;]     = &quot;potion&quot;,
-	[&quot;a potion of bromides&quot;]    = &quot;potion&quot;,
-	[&quot;a potion of mana&quot;]        = &quot;potion&quot;,
-	[&quot;a potion of fire&quot;]        = &quot;potion&quot;,
-	[&quot;a potion of frost&quot;]       = &quot;potion&quot;,
-	[&quot;a love potion&quot;]           = &quot;potion&quot;,
-	[&quot;quicksilver&quot;]             = &quot;potion&quot;,
-	[&quot;elixir vitae&quot;]            = &quot;potion&quot;,
-	[&quot;an antidote potion&quot;]      = &quot;potion&quot;,
-	[&quot;a potion of allheale&quot;]    = &quot;potion&quot;,
-	[&quot;a potion of galvanism&quot;]   = &quot;potion&quot;,
-	[&quot;a melancholic purgative&quot;] = &quot;purgative&quot;,
-	[&quot;a phlegmatic purgative&quot;]  = &quot;purgative&quot;,
-	[&quot;a sanguine purgative&quot;]    = &quot;purgative&quot;,
-	[&quot;a choleric purgative&quot;]    = &quot;purgative&quot;,
-    [&quot;lucidity slush&quot;]          = &quot;potion&quot;,
-	[&quot;the poison ibululu&quot;]      = &quot;poison&quot;,
-	[&quot;the poison niricol&quot;]      = &quot;poison&quot;,
-	[&quot;the poison pyrotoxin&quot;]    = &quot;poison&quot;,
-	[&quot;the poison saxitin&quot;]      = &quot;poison&quot;,
-	[&quot;the poison inyoka&quot;]       = &quot;poison&quot;,
-	[&quot;the poison botulinum&quot;]    = &quot;poison&quot;,
-	[&quot;the poison escozul&quot;]      = &quot;poison&quot;,
-	[&quot;the poison chansu&quot;]       = &quot;poison&quot;,
-	[&quot;the poison mantakaya&quot;]    = &quot;poison&quot;,
-	[&quot;the poison dendroxin&quot;]    = &quot;poison&quot;,
-	[&quot;the poison contortrin&quot;]   = &quot;poison&quot;,
-	[&quot;the poison mactans&quot;]      = &quot;poison&quot;,
-	[&quot;the poison tetrodin&quot;]     = &quot;poison&quot;,
-	[&quot;the poison charybdon&quot;]    = &quot;poison&quot;,
-	[&quot;the poison aleutian&quot;]     = &quot;poison&quot;,
-	[&quot;the poison calcise&quot;]      = &quot;poison&quot;,
-	[&quot;the poison senso&quot;]        = &quot;poison&quot;,
-	[&quot;the poison mellitin&quot;]     = &quot;poison&quot;,
-	[&quot;the poison haemotox&quot;]     = &quot;poison&quot;,
-	[&quot;the poison crotamine&quot;]    = &quot;poison&quot;,
-	[&quot;the poison anerod&quot;]       = &quot;poison&quot;,
-	[&quot;the poison dulak&quot;]        = &quot;poison&quot;,
-	[&quot;oolong tea&quot;]              = &quot;tea&quot;,
-	[&quot;white tea&quot;]               = &quot;tea&quot;,
-	[&quot;green tea&quot;]               = &quot;tea&quot;,
-	[&quot;black tea&quot;]               = &quot;tea&quot;,
-	[&quot;nightsweats&quot;]             = &quot;extra&quot;,
-	[&quot;moonwater&quot;]               = &quot;extra&quot;,
-	[&quot;glowing ink&quot;]             = &quot;extra&quot;,
-	[&quot;magical sulfur&quot;]          = &quot;extra&quot;,
-	[&quot;magical salt&quot;]            = &quot;extra&quot;,
-    [&quot;elixir vitae&quot;]            = &quot;extra&quot;,
-	[&quot;empty&quot;]                   = &quot;empty&quot;,
+	["oil of preservation"]     = "oil",
+	["oil of sharpness"]        = "oil",
+	["oil of invisibility"]     = "oil",
+	["dragonsblood oil"]        = "perfume",
+	["vanilla oil"]             = "perfume",
+	["jasmine oil"]             = "perfume",
+	["musk oil"]                = "perfume",
+	["sandalwood oil"]          = "perfume",
+	["a regeneration salve"]    = "salve",
+	["a mending salve"]         = "salve",
+	["liniment salve"]          = "salve",
+	["a potion of healing"]     = "potion",
+	["a potion of bromides"]    = "potion",
+	["a potion of mana"]        = "potion",
+	["a potion of fire"]        = "potion",
+	["a potion of frost"]       = "potion",
+	["a love potion"]           = "potion",
+	["quicksilver"]             = "potion",
+	["elixir vitae"]            = "potion",
+	["an antidote potion"]      = "potion",
+	["a potion of allheale"]    = "potion",
+	["a potion of galvanism"]   = "potion",
+	["a melancholic purgative"] = "purgative",
+	["a phlegmatic purgative"]  = "purgative",
+	["a sanguine purgative"]    = "purgative",
+	["a choleric purgative"]    = "purgative",
+    ["lucidity slush"]          = "potion",
+	["the poison ibululu"]      = "poison",
+	["the poison niricol"]      = "poison",
+	["the poison pyrotoxin"]    = "poison",
+	["the poison saxitin"]      = "poison",
+	["the poison inyoka"]       = "poison",
+	["the poison botulinum"]    = "poison",
+	["the poison escozul"]      = "poison",
+	["the poison chansu"]       = "poison",
+	["the poison mantakaya"]    = "poison",
+	["the poison dendroxin"]    = "poison",
+	["the poison contortrin"]   = "poison",
+	["the poison mactans"]      = "poison",
+	["the poison tetrodin"]     = "poison",
+	["the poison charybdon"]    = "poison",
+	["the poison aleutian"]     = "poison",
+	["the poison calcise"]      = "poison",
+	["the poison senso"]        = "poison",
+	["the poison mellitin"]     = "poison",
+	["the poison haemotox"]     = "poison",
+	["the poison crotamine"]    = "poison",
+	["the poison anerod"]       = "poison",
+	["the poison dulak"]        = "poison",
+	["oolong tea"]              = "tea",
+	["white tea"]               = "tea",
+	["green tea"]               = "tea",
+	["black tea"]               = "tea",
+	["nightsweats"]             = "extra",
+	["moonwater"]               = "extra",
+	["glowing ink"]             = "extra",
+	["magical sulfur"]          = "extra",
+	["magical salt"]            = "extra",
+    ["elixir vitae"]            = "extra",
+	["empty"]                   = "empty",
 }
 mm.pls_shortnames = {
-	mana         = &quot;a potion of mana&quot;,
-	regeneration = &quot;a regeneration salve&quot;,
-	choleric     = &quot;a choleric purgative&quot;,
-	mending      = &quot;a mending salve&quot;,
-	bromides     = &quot;a potion of bromides&quot;,
-	frost        = &quot;a potion of frost&quot;,
-	antidote     = &quot;an antidote potion&quot;,
-	fire         = &quot;a potion of fire&quot;,
-	lovepotion   = &quot;a love potion&quot;,
-	phlegmatic   = &quot;a phlegmatic purgative&quot;,
-	quicksilver  = &quot;quicksilver&quot;,
-	allheale     = &quot;a potion of allheale&quot;,
-	health       = &quot;a potion of healing&quot;,
-	salt         = &quot;magical salt&quot;,
-	ink          = &quot;glowing ink&quot;,
-	nightsweats  = &quot;nightsweats&quot;,
-	holywater    = &quot;holywater&quot;,
-	moonwater    = &quot;moonwater&quot;,
-	unholywater  = &quot;unholywater&quot;,
-	sulfur       = &quot;magical sulfur&quot;,
-	greentea     = &quot;green tea&quot;,
-	sanguine     = &quot;a sanguine purgative&quot;,
-	melancholic  = &quot;a melancholic purgative&quot;,
-	liniment     = &quot;liniment&quot;,
-	galvanism    = &quot;a potion of galvanism&quot;,
-	empty        = &quot;empty&quot;,
-    lucidity     = &quot;lucidity slush&quot;,
+	mana         = "a potion of mana",
+	regeneration = "a regeneration salve",
+	choleric     = "a choleric purgative",
+	mending      = "a mending salve",
+	bromides     = "a potion of bromides",
+	frost        = "a potion of frost",
+	antidote     = "an antidote potion",
+	fire         = "a potion of fire",
+	lovepotion   = "a love potion",
+	phlegmatic   = "a phlegmatic purgative",
+	quicksilver  = "quicksilver",
+	allheale     = "a potion of allheale",
+	health       = "a potion of healing",
+	salt         = "magical salt",
+	ink          = "glowing ink",
+	nightsweats  = "nightsweats",
+	holywater    = "holywater",
+	moonwater    = "moonwater",
+	unholywater  = "unholywater",
+	sulfur       = "magical sulfur",
+	greentea     = "green tea",
+	sanguine     = "a sanguine purgative",
+	melancholic  = "a melancholic purgative",
+	liniment     = "liniment",
+	galvanism    = "a potion of galvanism",
+	empty        = "empty",
+    lucidity     = "lucidity slush",
 }
 
 -- script data, don't edit below this line!
 mm.pls_shortnamesr = {}
 if mm.pls_shortnames then for k,v in pairs(mm.pls_shortnames) do mm.pls_shortnamesr[v] = k end end</script>
-            <eventHandlerList/>
-        </ScriptGroup>
-    </ScriptPackage>
-    <KeyPackage/>
-    <HelpPackage>
-        <helpURL></helpURL>
-    </HelpPackage>
+			<eventHandlerList />
+		</ScriptGroup>
+	</ScriptPackage>
+	<KeyPackage />
+	<HelpPackage>
+		<helpURL></helpURL>
+	</HelpPackage>
 </MudletPackage>

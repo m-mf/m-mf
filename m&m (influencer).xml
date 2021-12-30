@@ -1,643 +1,643 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE MudletPackage>
 <MudletPackage version="1.001">
-    <TriggerPackage>
-        <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-            <name>m&amp;m Influencing Addon</name>
-            <script></script>
-            <triggerType>0</triggerType>
-            <conditonLineDelta>0</conditonLineDelta>
-            <mStayOpen>0</mStayOpen>
-            <mCommand></mCommand>
-            <packageName></packageName>
-            <mFgColor>#ff0000</mFgColor>
-            <mBgColor>#ffff00</mBgColor>
-            <mSoundFile></mSoundFile>
-            <colorTriggerFgColor>#000000</colorTriggerFgColor>
-            <colorTriggerBgColor>#000000</colorTriggerBgColor>
-            <regexCodeList/>
-            <regexCodePropertyList/>
-            <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                <name>Influence</name>
-                <script></script>
-                <triggerType>0</triggerType>
-                <conditonLineDelta>79</conditonLineDelta>
-                <mStayOpen>0</mStayOpen>
-                <mCommand></mCommand>
-                <packageName></packageName>
-                <mFgColor>#ff0000</mFgColor>
-                <mBgColor>#ffff00</mBgColor>
-                <mSoundFile></mSoundFile>
-                <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                <regexCodeList/>
-                <regexCodePropertyList/>
-                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>Just influenced - gag it</name>
-                    <script>mm.deleteAllP()
+	<TriggerPackage>
+		<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+			<name>m&amp;m Influencing Addon</name>
+			<script></script>
+			<triggerType>0</triggerType>
+			<conditonLineDelta>0</conditonLineDelta>
+			<mStayOpen>0</mStayOpen>
+			<mCommand></mCommand>
+			<packageName></packageName>
+			<mFgColor>#ff0000</mFgColor>
+			<mBgColor>#ffff00</mBgColor>
+			<mSoundFile></mSoundFile>
+			<colorTriggerFgColor>#000000</colorTriggerFgColor>
+			<colorTriggerBgColor>#000000</colorTriggerBgColor>
+			<regexCodeList />
+			<regexCodePropertyList />
+			<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+				<name>Influence</name>
+				<script></script>
+				<triggerType>0</triggerType>
+				<conditonLineDelta>79</conditonLineDelta>
+				<mStayOpen>0</mStayOpen>
+				<mCommand></mCommand>
+				<packageName></packageName>
+				<mFgColor>#ff0000</mFgColor>
+				<mBgColor>#ffff00</mBgColor>
+				<mSoundFile></mSoundFile>
+				<colorTriggerFgColor>#000000</colorTriggerFgColor>
+				<colorTriggerBgColor>#000000</colorTriggerBgColor>
+				<regexCodeList />
+				<regexCodePropertyList />
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Just influenced - gag it</name>
+					<script>mm.deleteAllP()
 
 if mmi.influence_gag then return end
 
-mmi.influence_gag = (tempExactMatchTrigger or tempTrigger)(&quot;You have recovered equilibrium.&quot;, [[
+mmi.influence_gag = (tempExactMatchTrigger or tempTrigger)("You have recovered equilibrium.", [[
 	mm.deleteLineP()
 	killTrigger(mmi.influence_gag)
 	mmi.influence_gag = nil
 ]])</script>
-                    <triggerType>0</triggerType>
-                    <conditonLineDelta>0</conditonLineDelta>
-                    <mStayOpen>0</mStayOpen>
-                    <mCommand></mCommand>
-                    <packageName></packageName>
-                    <mFgColor>#ff0000</mFgColor>
-                    <mBgColor>#ffff00</mBgColor>
-                    <mSoundFile></mSoundFile>
-                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                    <regexCodeList>
-                        <string>You sing the praises</string>
-                        <string>You confide</string>
-                        <string>You compliment</string>
-                    </regexCodeList>
-                    <regexCodePropertyList>
-                        <integer>2</integer>
-                        <integer>2</integer>
-                        <integer>2</integer>
-                    </regexCodePropertyList>
-                </Trigger>
-                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>Completed</name>
-                    <script></script>
-                    <triggerType>0</triggerType>
-                    <conditonLineDelta>1</conditonLineDelta>
-                    <mStayOpen>1</mStayOpen>
-                    <mCommand></mCommand>
-                    <packageName></packageName>
-                    <mFgColor>#ff0000</mFgColor>
-                    <mBgColor>#ffff00</mBgColor>
-                    <mSoundFile></mSoundFile>
-                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                    <regexCodeList>
-                        <string>You</string>
-                        <string>With a wink and a nudge, </string>
-                        <string>Ooohing and ahhhing</string>
-                        <string>Sniggering cruelly,</string>
-                        <string>Showing no mercy,</string>
-                        <string>Smoothing back your hair</string>
-                        <string>You pull</string>
-                        <string>Smiling encouragingly</string>
-                        <string>Explaining</string>
-                        <string>Keeping up</string>
-                        <string>Explaining your abject poverty</string>
-                        <string>Keeping up a non-stop patter, you</string>
-                        <string>With great sincerity, you whisper</string>
-                    </regexCodeList>
-                    <regexCodePropertyList>
-                        <integer>2</integer>
-                        <integer>2</integer>
-                        <integer>2</integer>
-                        <integer>2</integer>
-                        <integer>2</integer>
-                        <integer>2</integer>
-                        <integer>2</integer>
-                        <integer>2</integer>
-                        <integer>2</integer>
-                        <integer>2</integer>
-                        <integer>2</integer>
-                        <integer>2</integer>
-                        <integer>2</integer>
-                    </regexCodePropertyList>
-                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                        <name>completed</name>
-                        <script>mmi.doneinfluencing()
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>You sing the praises</string>
+						<string>You confide</string>
+						<string>You compliment</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>2</integer>
+						<integer>2</integer>
+						<integer>2</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Completed</name>
+					<script></script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>1</conditonLineDelta>
+					<mStayOpen>1</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>You</string>
+						<string>With a wink and a nudge, </string>
+						<string>Ooohing and ahhhing</string>
+						<string>Sniggering cruelly,</string>
+						<string>Showing no mercy,</string>
+						<string>Smoothing back your hair</string>
+						<string>You pull</string>
+						<string>Smiling encouragingly</string>
+						<string>Explaining</string>
+						<string>Keeping up</string>
+						<string>Explaining your abject poverty</string>
+						<string>Keeping up a non-stop patter, you</string>
+						<string>With great sincerity, you whisper</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>2</integer>
+						<integer>2</integer>
+						<integer>2</integer>
+						<integer>2</integer>
+						<integer>2</integer>
+						<integer>2</integer>
+						<integer>2</integer>
+						<integer>2</integer>
+						<integer>2</integer>
+						<integer>2</integer>
+						<integer>2</integer>
+						<integer>2</integer>
+						<integer>2</integer>
+					</regexCodePropertyList>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>completed</name>
+						<script>mmi.doneinfluencing()
 
 selectString(line, 1) setFgColor(85, 0, 0) setBgColor(85, 170, 255) resetFormat()
 
 
-tempTimer(0, function () mm.echof(&quot;Done influencing this denizen.&quot;) end)
+tempTimer(0, function () mm.echof("Done influencing this denizen.") end)
 
 if mm.conf.figurine ~= 0 and tonumber(gmcp.Char.Vitals.esteem) &gt; 0 then
-  send(&quot;imbue &quot;..mm.conf.figurine..&quot; with &quot; ..gmcp.Char.Vitals.esteem.. &quot; esteem&quot;, false)
+  send("imbue "..mm.conf.figurine.." with " ..gmcp.Char.Vitals.esteem.. " esteem", false)
 end</script>
-                        <triggerType>0</triggerType>
-                        <conditonLineDelta>0</conditonLineDelta>
-                        <mStayOpen>0</mStayOpen>
-                        <mCommand></mCommand>
-                        <packageName></packageName>
-                        <mFgColor>#550000</mFgColor>
-                        <mBgColor>#55aaff</mBgColor>
-                        <mSoundFile></mSoundFile>
-                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                        <regexCodeList>
-                            <string>is so caught up in admiring</string>
-                            <string>vigorously agrees with you</string>
-                            <string>grabs you by the shoulders and demands to know if you are one of 'them'</string>
-                            <string>brushes you off, apparently too tired to engage you in any meaningful dialogue.</string>
-                            <string>knees and worships the very ground you walk on!</string>
-                            <string>wraps an arm around you, declaring you to be the truest of friends.</string>
-                            <string>is nothing but a pathetic fraud.</string>
-                            <string>doesn't even seem to notice you, as she is lost thinking of her best friend.</string>
-                            <string>doesn't even seem to notice you, as he is lost thinking of his best friend.</string>
-                            <string>friendship with you.</string>
-                            <string>after all!</string>
-                            <string>Actually, I am seriously considering</string>
-                            <string>That sounds interesting, but I'm already considering</string>
-                            <string>considered giving so much away, and pays you no attention</string>
-                            <string>looking for something to give you.</string>
-                            <string>on the head, not hearing a word you say.</string>
-                            <string>pays little attention to you and mutters about whether he should have been so trusting to others.</string>
-                            <string>pays little attention to you and mutters about whether she should have been so trusting to others.</string>
-                            <string>sighs dramatically and searches</string>
-                            <string>Perhaps we can talk about it later?</string>
-                            <string>temples in frustration</string>
-                        </regexCodeList>
-                        <regexCodePropertyList>
-                            <integer>0</integer>
-                            <integer>0</integer>
-                            <integer>0</integer>
-                            <integer>0</integer>
-                            <integer>0</integer>
-                            <integer>0</integer>
-                            <integer>0</integer>
-                            <integer>0</integer>
-                            <integer>0</integer>
-                            <integer>0</integer>
-                            <integer>0</integer>
-                            <integer>0</integer>
-                            <integer>0</integer>
-                            <integer>0</integer>
-                            <integer>0</integer>
-                            <integer>0</integer>
-                            <integer>0</integer>
-                            <integer>0</integer>
-                            <integer>0</integer>
-                            <integer>0</integer>
-                            <integer>0</integer>
-                        </regexCodePropertyList>
-                    </Trigger>
-                </Trigger>
-                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>Undead &amp; we can't influence</name>
-                    <script>mmi.doneinfluencing&quot;undead&quot;</script>
-                    <triggerType>0</triggerType>
-                    <conditonLineDelta>99</conditonLineDelta>
-                    <mStayOpen>0</mStayOpen>
-                    <mCommand></mCommand>
-                    <packageName></packageName>
-                    <mFgColor>#ff0000</mFgColor>
-                    <mBgColor>#ffff00</mBgColor>
-                    <mSoundFile></mSoundFile>
-                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                    <regexCodeList>
-                        <string>You have no influence with the undead.</string>
-                    </regexCodeList>
-                    <regexCodePropertyList>
-                        <integer>3</integer>
-                    </regexCodePropertyList>
-                </Trigger>
-                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>Not here</name>
-                    <script>mmi.doneinfluencing&quot;not here&quot;</script>
-                    <triggerType>0</triggerType>
-                    <conditonLineDelta>99</conditonLineDelta>
-                    <mStayOpen>0</mStayOpen>
-                    <mCommand></mCommand>
-                    <packageName></packageName>
-                    <mFgColor>#ff0000</mFgColor>
-                    <mBgColor>#ffff00</mBgColor>
-                    <mSoundFile></mSoundFile>
-                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                    <regexCodeList>
-                        <string>I do not recognize anything called that here.</string>
-                        <string>Nothing can be seen here by that name.</string>
-                        <string>You detect nothing here by that name.</string>
-                        <string>Ahh, I am truly sorry, but I do not see anyone by that name here.</string>
-                        <string>You cannot see that being here.</string>
-                        <string>Your shattered ego is too weak to engage in influencing others.</string>
-                    </regexCodeList>
-                    <regexCodePropertyList>
-                        <integer>3</integer>
-                        <integer>3</integer>
-                        <integer>3</integer>
-                        <integer>3</integer>
-                        <integer>3</integer>
-                        <integer>3</integer>
-                    </regexCodePropertyList>
-                </Trigger>
-                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>Uninfluencable</name>
-                    <script>mmi.doneinfluencing&quot;uninfluencable&quot;</script>
-                    <triggerType>0</triggerType>
-                    <conditonLineDelta>0</conditonLineDelta>
-                    <mStayOpen>0</mStayOpen>
-                    <mCommand></mCommand>
-                    <packageName></packageName>
-                    <mFgColor>#ff0000</mFgColor>
-                    <mBgColor>#ffff00</mBgColor>
-                    <mSoundFile></mSoundFile>
-                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                    <regexCodeList>
-                        <string>You cannot influence the inanimate!</string>
-                        <string>You are unable to communicate with animals.</string>
-                        <string>You may only influence sentient beings.</string>
-                        <string>smiles at you condescendingly and pats your head\.$</string>
-                        <string>ignores you, his mind distracted by more important matters\.$</string>
-                        <string>snorts derisively and rebuffs your attention\.$</string>
-                        <string>snorts in derision at you and shoves you away\.$</string>
-                        <string>tickles you, obviously amused by your antics\.$</string>
-                    </regexCodeList>
-                    <regexCodePropertyList>
-                        <integer>3</integer>
-                        <integer>3</integer>
-                        <integer>3</integer>
-                        <integer>1</integer>
-                        <integer>1</integer>
-                        <integer>1</integer>
-                        <integer>1</integer>
-                        <integer>1</integer>
-                    </regexCodePropertyList>
-                </Trigger>
-            </TriggerGroup>
-            <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                <name>Room check</name>
-                <script></script>
-                <triggerType>0</triggerType>
-                <conditonLineDelta>0</conditonLineDelta>
-                <mStayOpen>0</mStayOpen>
-                <mCommand></mCommand>
-                <packageName></packageName>
-                <mFgColor>#ff0000</mFgColor>
-                <mBgColor>#ffff00</mBgColor>
-                <mSoundFile></mSoundFile>
-                <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                <regexCodeList/>
-                <regexCodePropertyList/>
-                <Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>Empty influence</name>
-                    <script>disableTrigger(&quot;Capture something&quot;)
-disableTrigger(&quot;Empty influence&quot;)
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#550000</mFgColor>
+						<mBgColor>#55aaff</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>is so caught up in admiring</string>
+							<string>vigorously agrees with you</string>
+							<string>grabs you by the shoulders and demands to know if you are one of 'them'</string>
+							<string>brushes you off, apparently too tired to engage you in any meaningful dialogue.</string>
+							<string>knees and worships the very ground you walk on!</string>
+							<string>wraps an arm around you, declaring you to be the truest of friends.</string>
+							<string>is nothing but a pathetic fraud.</string>
+							<string>doesn't even seem to notice you, as she is lost thinking of her best friend.</string>
+							<string>doesn't even seem to notice you, as he is lost thinking of his best friend.</string>
+							<string>friendship with you.</string>
+							<string>after all!</string>
+							<string>Actually, I am seriously considering</string>
+							<string>That sounds interesting, but I'm already considering</string>
+							<string>considered giving so much away, and pays you no attention</string>
+							<string>looking for something to give you.</string>
+							<string>on the head, not hearing a word you say.</string>
+							<string>pays little attention to you and mutters about whether he should have been so trusting to others.</string>
+							<string>pays little attention to you and mutters about whether she should have been so trusting to others.</string>
+							<string>sighs dramatically and searches</string>
+							<string>Perhaps we can talk about it later?</string>
+							<string>temples in frustration</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>0</integer>
+							<integer>0</integer>
+							<integer>0</integer>
+							<integer>0</integer>
+							<integer>0</integer>
+							<integer>0</integer>
+							<integer>0</integer>
+							<integer>0</integer>
+							<integer>0</integer>
+							<integer>0</integer>
+							<integer>0</integer>
+							<integer>0</integer>
+							<integer>0</integer>
+							<integer>0</integer>
+							<integer>0</integer>
+							<integer>0</integer>
+							<integer>0</integer>
+							<integer>0</integer>
+							<integer>0</integer>
+							<integer>0</integer>
+							<integer>0</integer>
+						</regexCodePropertyList>
+					</Trigger>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Undead &amp; we can't influence</name>
+					<script>mmi.doneinfluencing"undead"</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>99</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>You have no influence with the undead.</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>3</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Not here</name>
+					<script>mmi.doneinfluencing"not here"</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>99</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>I do not recognize anything called that here.</string>
+						<string>Nothing can be seen here by that name.</string>
+						<string>You detect nothing here by that name.</string>
+						<string>Ahh, I am truly sorry, but I do not see anyone by that name here.</string>
+						<string>You cannot see that being here.</string>
+						<string>Your shattered ego is too weak to engage in influencing others.</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>3</integer>
+						<integer>3</integer>
+						<integer>3</integer>
+						<integer>3</integer>
+						<integer>3</integer>
+						<integer>3</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Uninfluencable</name>
+					<script>mmi.doneinfluencing"uninfluencable"</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>You cannot influence the inanimate!</string>
+						<string>You are unable to communicate with animals.</string>
+						<string>You may only influence sentient beings.</string>
+						<string>smiles at you condescendingly and pats your head\.$</string>
+						<string>ignores you, his mind distracted by more important matters\.$</string>
+						<string>snorts derisively and rebuffs your attention\.$</string>
+						<string>snorts in derision at you and shoves you away\.$</string>
+						<string>tickles you, obviously amused by your antics\.$</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>3</integer>
+						<integer>3</integer>
+						<integer>3</integer>
+						<integer>1</integer>
+						<integer>1</integer>
+						<integer>1</integer>
+						<integer>1</integer>
+						<integer>1</integer>
+					</regexCodePropertyList>
+				</Trigger>
+			</TriggerGroup>
+			<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+				<name>Room check</name>
+				<script></script>
+				<triggerType>0</triggerType>
+				<conditonLineDelta>0</conditonLineDelta>
+				<mStayOpen>0</mStayOpen>
+				<mCommand></mCommand>
+				<packageName></packageName>
+				<mFgColor>#ff0000</mFgColor>
+				<mBgColor>#ffff00</mBgColor>
+				<mSoundFile></mSoundFile>
+				<colorTriggerFgColor>#000000</colorTriggerFgColor>
+				<colorTriggerBgColor>#000000</colorTriggerBgColor>
+				<regexCodeList />
+				<regexCodePropertyList />
+				<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Empty influence</name>
+					<script>disableTrigger("Capture something")
+disableTrigger("Empty influence")
 mmi.finishedcapture()</script>
-                    <triggerType>0</triggerType>
-                    <conditonLineDelta>99</conditonLineDelta>
-                    <mStayOpen>0</mStayOpen>
-                    <mCommand></mCommand>
-                    <packageName></packageName>
-                    <mFgColor>#ff0000</mFgColor>
-                    <mBgColor>#ffff00</mBgColor>
-                    <mSoundFile></mSoundFile>
-                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                    <regexCodeList>
-                        <string>Number of objects: 0</string>
-                    </regexCodeList>
-                    <regexCodePropertyList>
-                        <integer>3</integer>
-                    </regexCodePropertyList>
-                </Trigger>
-                <Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>mmi Something</name>
-                    <script>enableTrigger(&quot;Capture something&quot;)
-enableTrigger(&quot;Empty influence&quot;)
-disableTrigger(&quot;mmi Something&quot;)</script>
-                    <triggerType>0</triggerType>
-                    <conditonLineDelta>0</conditonLineDelta>
-                    <mStayOpen>0</mStayOpen>
-                    <mCommand></mCommand>
-                    <packageName></packageName>
-                    <mFgColor>#ff0000</mFgColor>
-                    <mBgColor>#ffff00</mBgColor>
-                    <mSoundFile></mSoundFile>
-                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                    <regexCodeList>
-                        <string>&quot;</string>
-                    </regexCodeList>
-                    <regexCodePropertyList>
-                        <integer>2</integer>
-                    </regexCodePropertyList>
-                </Trigger>
-                <TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>Capture something</name>
-                    <script></script>
-                    <triggerType>0</triggerType>
-                    <conditonLineDelta>99</conditonLineDelta>
-                    <mStayOpen>0</mStayOpen>
-                    <mCommand></mCommand>
-                    <packageName></packageName>
-                    <mFgColor>#ff0000</mFgColor>
-                    <mBgColor>#ffff00</mBgColor>
-                    <mSoundFile></mSoundFile>
-                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                    <regexCodeList/>
-                    <regexCodePropertyList/>
-                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                        <name>Item</name>
-                        <script>mmi.addnpc()</script>
-                        <triggerType>0</triggerType>
-                        <conditonLineDelta>0</conditonLineDelta>
-                        <mStayOpen>0</mStayOpen>
-                        <mCommand></mCommand>
-                        <packageName></packageName>
-                        <mFgColor>#ff0000</mFgColor>
-                        <mBgColor>#ffff00</mBgColor>
-                        <mSoundFile></mSoundFile>
-                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                        <regexCodeList>
-                            <string>^&quot;([A-Za-z']+)([0-9]+)&quot; +(.+)$</string>
-                        </regexCodeList>
-                        <regexCodePropertyList>
-                            <integer>1</integer>
-                        </regexCodePropertyList>
-                    </Trigger>
-                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                        <name>End</name>
-                        <script>disableTrigger(&quot;Capture something&quot;)
-disableTrigger(&quot;Empty influence&quot;)
-local debug = require&quot;debug&quot;
+					<triggerType>0</triggerType>
+					<conditonLineDelta>99</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>Number of objects: 0</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>3</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>mmi Something</name>
+					<script>enableTrigger("Capture something")
+enableTrigger("Empty influence")
+disableTrigger("mmi Something")</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>"</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>2</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Capture something</name>
+					<script></script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>99</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList />
+					<regexCodePropertyList />
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Item</name>
+						<script>mmi.addnpc()</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^"([A-Za-z']+)([0-9]+)" +(.+)$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>End</name>
+						<script>disableTrigger("Capture something")
+disableTrigger("Empty influence")
+local debug = require"debug"
 local s,m = xpcall(mmi.finishedcapture, debug.traceback)
 if not s then display(m) end</script>
-                        <triggerType>0</triggerType>
-                        <conditonLineDelta>0</conditonLineDelta>
-                        <mStayOpen>0</mStayOpen>
-                        <mCommand></mCommand>
-                        <packageName></packageName>
-                        <mFgColor>#ff0000</mFgColor>
-                        <mBgColor>#ffff00</mBgColor>
-                        <mSoundFile></mSoundFile>
-                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                        <regexCodeList>
-                            <string>Number of objects:</string>
-                            <string>return isPrompt()</string>
-                        </regexCodeList>
-                        <regexCodePropertyList>
-                            <integer>2</integer>
-                            <integer>4</integer>
-                        </regexCodePropertyList>
-                    </Trigger>
-                </TriggerGroup>
-            </TriggerGroup>
-            <TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                <name>mmi Analysis</name>
-                <script></script>
-                <triggerType>0</triggerType>
-                <conditonLineDelta>0</conditonLineDelta>
-                <mStayOpen>0</mStayOpen>
-                <mCommand></mCommand>
-                <packageName></packageName>
-                <mFgColor>#ff0000</mFgColor>
-                <mBgColor>#ffff00</mBgColor>
-                <mSoundFile></mSoundFile>
-                <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                <regexCodeList/>
-                <regexCodePropertyList/>
-                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>Influenced</name>
-                    <script>-- Ordering of this trigger matters!
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>Number of objects:</string>
+							<string>return isPrompt()</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>2</integer>
+							<integer>4</integer>
+						</regexCodePropertyList>
+					</Trigger>
+				</TriggerGroup>
+			</TriggerGroup>
+			<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+				<name>mmi Analysis</name>
+				<script></script>
+				<triggerType>0</triggerType>
+				<conditonLineDelta>0</conditonLineDelta>
+				<mStayOpen>0</mStayOpen>
+				<mCommand></mCommand>
+				<packageName></packageName>
+				<mFgColor>#ff0000</mFgColor>
+				<mBgColor>#ffff00</mBgColor>
+				<mSoundFile></mSoundFile>
+				<colorTriggerFgColor>#000000</colorTriggerFgColor>
+				<colorTriggerBgColor>#000000</colorTriggerBgColor>
+				<regexCodeList />
+				<regexCodePropertyList />
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Influenced</name>
+					<script>-- Ordering of this trigger matters!
 mmi.analysis_says_influenced()</script>
-                    <triggerType>0</triggerType>
-                    <conditonLineDelta>0</conditonLineDelta>
-                    <mStayOpen>0</mStayOpen>
-                    <mCommand></mCommand>
-                    <packageName></packageName>
-                    <mFgColor>#ff0000</mFgColor>
-                    <mBgColor>#ffff00</mBgColor>
-                    <mSoundFile></mSoundFile>
-                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                    <regexCodeList>
-                        <string>has an inflated sense of</string>
-                    </regexCodeList>
-                    <regexCodePropertyList>
-                        <integer>0</integer>
-                    </regexCodePropertyList>
-                </Trigger>
-                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>brave</name>
-                    <script>mmi.analysisresult&quot;brave&quot;</script>
-                    <triggerType>0</triggerType>
-                    <conditonLineDelta>99</conditonLineDelta>
-                    <mStayOpen>0</mStayOpen>
-                    <mCommand></mCommand>
-                    <packageName></packageName>
-                    <mFgColor>#ff0000</mFgColor>
-                    <mBgColor>#ffff00</mBgColor>
-                    <mSoundFile></mSoundFile>
-                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                    <regexCodeList>
-                        <string>has a brave soul</string>
-                    </regexCodeList>
-                    <regexCodePropertyList>
-                        <integer>0</integer>
-                    </regexCodePropertyList>
-                </Trigger>
-                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>sensuous</name>
-                    <script>mmi.analysisresult&quot;sensuous&quot;</script>
-                    <triggerType>0</triggerType>
-                    <conditonLineDelta>0</conditonLineDelta>
-                    <mStayOpen>0</mStayOpen>
-                    <mCommand></mCommand>
-                    <packageName></packageName>
-                    <mFgColor>#ff0000</mFgColor>
-                    <mBgColor>#ffff00</mBgColor>
-                    <mSoundFile></mSoundFile>
-                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                    <regexCodeList>
-                        <string>enjoys an extremely sensuous disposition</string>
-                    </regexCodeList>
-                    <regexCodePropertyList>
-                        <integer>0</integer>
-                    </regexCodePropertyList>
-                </Trigger>
-                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>intimidating</name>
-                    <script>mmi.analysisresult&quot;intimidating&quot;</script>
-                    <triggerType>0</triggerType>
-                    <conditonLineDelta>0</conditonLineDelta>
-                    <mStayOpen>0</mStayOpen>
-                    <mCommand></mCommand>
-                    <packageName></packageName>
-                    <mFgColor>#ff0000</mFgColor>
-                    <mBgColor>#ffff00</mBgColor>
-                    <mSoundFile></mSoundFile>
-                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                    <regexCodeList>
-                        <string>possesses an intimidating demeanor</string>
-                    </regexCodeList>
-                    <regexCodePropertyList>
-                        <integer>0</integer>
-                    </regexCodePropertyList>
-                </Trigger>
-                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>greedy</name>
-                    <script>mmi.analysisresult&quot;greedy&quot;</script>
-                    <triggerType>0</triggerType>
-                    <conditonLineDelta>0</conditonLineDelta>
-                    <mStayOpen>0</mStayOpen>
-                    <mCommand></mCommand>
-                    <packageName></packageName>
-                    <mFgColor>#ff0000</mFgColor>
-                    <mBgColor>#ffff00</mBgColor>
-                    <mSoundFile></mSoundFile>
-                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                    <regexCodeList>
-                        <string>is a greedy bugger</string>
-                    </regexCodeList>
-                    <regexCodePropertyList>
-                        <integer>0</integer>
-                    </regexCodePropertyList>
-                </Trigger>
-                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>friendly</name>
-                    <script>mmi.analysisresult&quot;brave&quot;</script>
-                    <triggerType>0</triggerType>
-                    <conditonLineDelta>99</conditonLineDelta>
-                    <mStayOpen>0</mStayOpen>
-                    <mCommand></mCommand>
-                    <packageName></packageName>
-                    <mFgColor>#ff0000</mFgColor>
-                    <mBgColor>#ffff00</mBgColor>
-                    <mSoundFile></mSoundFile>
-                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                    <regexCodeList>
-                        <string>displays a friendly disposition</string>
-                    </regexCodeList>
-                    <regexCodePropertyList>
-                        <integer>0</integer>
-                    </regexCodePropertyList>
-                </Trigger>
-                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>Not here</name>
-                    <script>mmi.analysisresult&quot;nothere&quot;</script>
-                    <triggerType>0</triggerType>
-                    <conditonLineDelta>0</conditonLineDelta>
-                    <mStayOpen>0</mStayOpen>
-                    <mCommand></mCommand>
-                    <packageName></packageName>
-                    <mFgColor>#ff0000</mFgColor>
-                    <mBgColor>#ffff00</mBgColor>
-                    <mSoundFile></mSoundFile>
-                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                    <regexCodeList>
-                        <string>I do not recognize anything called that here.</string>
-                        <string>Nothing can be seen here by that name.</string>
-                        <string>You detect nothing here by that name.</string>
-                        <string>Ahh, I am truly sorry, but I do not see anyone by that name here.</string>
-                        <string>You cannot see that being here.</string>
-                    </regexCodeList>
-                    <regexCodePropertyList>
-                        <integer>3</integer>
-                        <integer>3</integer>
-                        <integer>3</integer>
-                        <integer>3</integer>
-                        <integer>3</integer>
-                    </regexCodePropertyList>
-                </Trigger>
-                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                    <name>Not influencable</name>
-                    <script>mmi.analysisresult&quot;not influencable&quot;</script>
-                    <triggerType>0</triggerType>
-                    <conditonLineDelta>0</conditonLineDelta>
-                    <mStayOpen>0</mStayOpen>
-                    <mCommand></mCommand>
-                    <packageName></packageName>
-                    <mFgColor>#ff0000</mFgColor>
-                    <mBgColor>#ffff00</mBgColor>
-                    <mSoundFile></mSoundFile>
-                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                    <regexCodeList>
-                        <string>^The strength of .+'s personality makes (?:her|him) impossible to analyze\.$</string>
-                        <string>Don't you think it's a bit absurd trying to analyze </string>
-                    </regexCodeList>
-                    <regexCodePropertyList>
-                        <integer>1</integer>
-                        <integer>2</integer>
-                    </regexCodePropertyList>
-                </Trigger>
-            </TriggerGroup>
-        </TriggerGroup>
-    </TriggerPackage>
-    <TimerPackage/>
-    <AliasPackage>
-        <AliasGroup isActive="yes" isFolder="yes">
-            <name>m&amp;m Influencing Addon</name>
-            <script></script>
-            <command></command>
-            <packageName></packageName>
-            <regex></regex>
-            <Alias isActive="yes" isFolder="no">
-                <name>Manually influence a denizen with type</name>
-                <script>if matches[2] == &quot;seduce&quot; then matches[2] = &quot;seduction&quot; end
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>has an inflated sense of</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>0</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>brave</name>
+					<script>mmi.analysisresult"brave"</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>99</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>has a brave soul</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>0</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>sensuous</name>
+					<script>mmi.analysisresult"sensuous"</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>enjoys an extremely sensuous disposition</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>0</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>intimidating</name>
+					<script>mmi.analysisresult"intimidating"</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>possesses an intimidating demeanor</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>0</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>greedy</name>
+					<script>mmi.analysisresult"greedy"</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>is a greedy bugger</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>0</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>friendly</name>
+					<script>mmi.analysisresult"brave"</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>99</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>displays a friendly disposition</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>0</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Not here</name>
+					<script>mmi.analysisresult"nothere"</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>I do not recognize anything called that here.</string>
+						<string>Nothing can be seen here by that name.</string>
+						<string>You detect nothing here by that name.</string>
+						<string>Ahh, I am truly sorry, but I do not see anyone by that name here.</string>
+						<string>You cannot see that being here.</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>3</integer>
+						<integer>3</integer>
+						<integer>3</integer>
+						<integer>3</integer>
+						<integer>3</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Not influencable</name>
+					<script>mmi.analysisresult"not influencable"</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>^The strength of .+'s personality makes (?:her|him) impossible to analyze\.$</string>
+						<string>Don't you think it's a bit absurd trying to analyze </string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>1</integer>
+						<integer>2</integer>
+					</regexCodePropertyList>
+				</Trigger>
+			</TriggerGroup>
+		</TriggerGroup>
+	</TriggerPackage>
+	<TimerPackage />
+	<AliasPackage>
+		<AliasGroup isActive="yes" isFolder="yes">
+			<name>m&amp;m Influencing Addon</name>
+			<script></script>
+			<command></command>
+			<packageName></packageName>
+			<regex></regex>
+			<Alias isActive="yes" isFolder="no">
+				<name>Manually influence a denizen with type</name>
+				<script>if matches[2] == "seduce" then matches[2] = "seduction" end
 
 mmi.influence(matches[3], matches[2])</script>
-                <command></command>
-                <packageName></packageName>
-                <regex>^(empower|paranoia|weaken|charity|village|seduction|seduce|amnesty) (.+)$</regex>
-            </Alias>
-            <Alias isActive="yes" isFolder="no">
-                <name>Stop influencing a particular denizen</name>
-                <script>--[[ usage:
+				<command></command>
+				<packageName></packageName>
+				<regex>^(empower|paranoia|weaken|charity|village|seduction|seduce|amnesty) (.+)$</regex>
+			</Alias>
+			<Alias isActive="yes" isFolder="no">
+				<name>Stop influencing a particular denizen</name>
+				<script>--[[ usage:
 	inf stop
   ]]
 
 mmi.stopinfluencing()</script>
-                <command></command>
-                <packageName></packageName>
-                <regex>^inf stop$</regex>
-            </Alias>
-            <Alias isActive="yes" isFolder="no">
-                <name>^inf stopall$</name>
-                <script>mmi.stopinfluenceroom()</script>
-                <command></command>
-                <packageName></packageName>
-                <regex>^inf stopall$</regex>
-            </Alias>
-            <Alias isActive="yes" isFolder="no">
-                <name>Influence all</name>
-                <script>local o = matches[2]
+				<command></command>
+				<packageName></packageName>
+				<regex>^inf stop$</regex>
+			</Alias>
+			<Alias isActive="yes" isFolder="no">
+				<name>^inf stopall$</name>
+				<script>mmi.stopinfluenceroom()</script>
+				<command></command>
+				<packageName></packageName>
+				<regex>^inf stopall$</regex>
+			</Alias>
+			<Alias isActive="yes" isFolder="no">
+				<name>Influence all</name>
+				<script>local o = matches[2]
 
-if o == &quot;all&quot; then
+if o == "all" then
   if matches[3] then mmi.attacktype = matches[3] or nil end
   mmi.startinfluenceroom()
 
-elseif o == &quot;clear&quot; and matches[3] == &quot;uninfluencable&quot; then
+elseif o == "clear" and matches[3] == "uninfluencable" then
   local r = db:delete(mmi.db.uninfluencable, true)
-  if not r then mm.echof(&quot;Cleared uninfluencable db okay.&quot;)
-  else mm.echof(&quot;Couldn't clear uninfluencable db - %s&quot;, tostring(r))
+  if not r then mm.echof("Cleared uninfluencable db okay.")
+  else mm.echof("Couldn't clear uninfluencable db - %s", tostring(r))
   end
 
 elseif o and matches[3] then
   mmi.influence(o, matches[3])
 
 end</script>
-                <command></command>
-                <packageName></packageName>
-                <regex>^inf (\w+) ?(\w+)?$</regex>
-            </Alias>
-        </AliasGroup>
-    </AliasPackage>
-    <ActionPackage/>
-    <ScriptPackage>
-        <ScriptGroup isActive="yes" isFolder="yes">
-            <name>m&amp;m Influencing Addon</name>
-            <packageName></packageName>
-            <script>mmi = mmi or {}
+				<command></command>
+				<packageName></packageName>
+				<regex>^inf (\w+) ?(\w+)?$</regex>
+			</Alias>
+		</AliasGroup>
+	</AliasPackage>
+	<ActionPackage />
+	<ScriptPackage>
+		<ScriptGroup isActive="yes" isFolder="yes">
+			<name>m&amp;m Influencing Addon</name>
+			<packageName></packageName>
+			<script>mmi = mmi or {}
 
 mmi.conf = mmi.conf or {}
 mmi.conf.influenceundead = false
@@ -652,66 +652,66 @@ mmi.target, mmi.influencing, mmi.attacktype = nil, nil, nil
 mmi.influenceroom = nil
 
 mmi.disps = {
-  friendly = &quot;charity&quot;,
-  greedy = &quot;weaken&quot;,
-  brave = &quot;empower&quot;,
-  sensuous = &quot;seduction&quot;,
-  intimidating = &quot;paranoia&quot;,
+  friendly = "charity",
+  greedy = "weaken",
+  brave = "empower",
+  sensuous = "seduction",
+  intimidating = "paranoia",
 }
 
 mmi.guards = {
 	-- Mag
-	&quot;an Ur'Guard Grand Marshal&quot;,
+	"an Ur'Guard Grand Marshal",
 
 	-- Glom
-	&quot;an illithoid scourge&quot;,
-	&quot;a dark nighthag&quot;,
-	&quot;a shadowlord widowrider&quot;,
-	&quot;a Daughter of Darkness&quot;,
-	&quot;a Daughter of Night&quot;,
+	"an illithoid scourge",
+	"a dark nighthag",
+	"a shadowlord widowrider",
+	"a Daughter of Darkness",
+	"a Daughter of Night",
 
 	-- Serenwilde
-	&quot;a moon maiden&quot;,
-	&quot;a frost hag&quot;,
-	&quot;a centaur hunter&quot;,
-	&quot;a kephera warder&quot;,
+	"a moon maiden",
+	"a frost hag",
+	"a centaur hunter",
+	"a kephera warder",
 
 	-- Hallifax
-	&quot;a Sentinel Deputy Commissar&quot;,
-	&quot;a Guardian of the Dodecahedron&quot;,
+	"a Sentinel Deputy Commissar",
+	"a Guardian of the Dodecahedron",
 
 	-- New Celest
-	&quot;an archon of Eternal Light&quot;,
-	&quot;a cavalier of the Light&quot;,
-	&quot;a Kusala of the Tahtetso&quot;,
-	&quot;a Zetetic of the Tahtetso&quot;,
+	"an archon of Eternal Light",
+	"a cavalier of the Light",
+	"a Kusala of the Tahtetso",
+	"a Zetetic of the Tahtetso",
 }</script>
-            <eventHandlerList/>
-            <Script isActive="yes" isFolder="no">
-                <name>db</name>
-                <packageName></packageName>
-                <script>db:create(&quot;mmInfluenceDB&quot;, {
+			<eventHandlerList />
+			<Script isActive="yes" isFolder="no">
+				<name>db</name>
+				<packageName></packageName>
+				<script>db:create("mmInfluenceDB", {
 	mobs = {
-		name = &quot;&quot;,
-		id = &quot;&quot;,
-		longname = &quot;&quot;,
-		areaname = &quot;&quot;,
-		disposition = &quot;&quot;,
+		name = "",
+		id = "",
+		longname = "",
+		areaname = "",
+		disposition = "",
 		roomid = 0,
 		undead = 0,
 		guard = 0,
 
-	    _unique = {&quot;id&quot;},
-       _violations = &quot;REPLACE&quot;
+	    _unique = {"id"},
+       _violations = "REPLACE"
 	},
 	uninfluencable = {
-		name = &quot;&quot;,
-		_unique = {&quot;name&quot;},
-		_violations = &quot;IGNORE&quot;
+		name = "",
+		_unique = {"name"},
+		_violations = "IGNORE"
 	}
 })
 
-mmi.db = db:get_database(&quot;mmInfluenceDB&quot;)
+mmi.db = db:get_database("mmInfluenceDB")
 
 function mmi.updatenpc(data)
 	assert(type(data) == 'table')
@@ -722,18 +722,18 @@ function mmi.updatenonnpc(data)
 	assert(type(data) == 'table')
 	db:merge_unique(mmi.db.uninfluencable, data)
 end</script>
-                <eventHandlerList/>
-            </Script>
-            <Script isActive="yes" isFolder="no">
-                <name>room tracking</name>
-                <packageName></packageName>
-                <script>function mmi.currentarea()
+				<eventHandlerList />
+			</Script>
+			<Script isActive="yes" isFolder="no">
+				<name>room tracking</name>
+				<packageName></packageName>
+				<script>function mmi.currentarea()
 	if atcp.RoomArea then
 		return atcp.RoomArea
 	elseif gmcp and gmcp.Room and gmcp.Room.Info and gmcp.Room.Info.area
 		then return gmcp.Room.Info.area
 	else
-		return &quot;&quot; end
+		return "" end
 end
 
 function mmi.analyze(what)
@@ -741,10 +741,10 @@ function mmi.analyze(what)
 	if mmi.analyzetarget then return end
 
 	mmi.analyzetarget = what
-	mm.doadd(&quot;analyze &quot;..mmi.analyzetarget)
+	mm.doadd("analyze "..mmi.analyzetarget)
 
-	enableTrigger(&quot;mmi Analysis&quot;)
-	mmi.analysistimer = tempTimer(5, function() disableTrigger(&quot;mmi Analysis&quot;); mmi.analyzetarget = nil end)
+	enableTrigger("mmi Analysis")
+	mmi.analysistimer = tempTimer(5, function() disableTrigger("mmi Analysis"); mmi.analyzetarget = nil end)
 end
 
 function mmi.analysis_says_influenced()
@@ -761,10 +761,10 @@ function mmi.analysisresult(disposition)
 
 	-- update our in-room table
 	if mmi.roomnpcs[mmi.analyzetarget] then
-		if disposition == &quot;not influencable&quot; then
+		if disposition == "not influencable" then
 			mmi.roomnpcs[mmi.analyzetarget].influencable = false
-		elseif disposition == &quot;nothere&quot; then
-			mmi.roomnpcs[mmi.analyzetarget].ishere = &quot;unknown&quot;
+		elseif disposition == "nothere" then
+			mmi.roomnpcs[mmi.analyzetarget].ishere = "unknown"
 		else
 			mmi.roomnpcs[mmi.analyzetarget].disposition = disposition
 		end
@@ -772,9 +772,9 @@ function mmi.analysisresult(disposition)
 
 	mmi.analyzetarget = nil
 	killTimer(mmi.analysistimer)
-	disableTrigger(&quot;mmi Analysis&quot;)
+	disableTrigger("mmi Analysis")
 
-	raiseEvent(&quot;mmi analyzed target&quot;)
+	raiseEvent("mmi analyzed target")
 end
 
 local capturing
@@ -782,11 +782,11 @@ function mmi.whoishere()
 	if capturing then return end
 	mmi.roomnpcs = {}
 
-	sendAll(&quot;config pagelength 250&quot;, &quot;ih&quot;, &quot;config pagelength 40&quot;)
+	sendAll("config pagelength 250", "ih", "config pagelength 40")
 
-	enableTrigger(&quot;mmi Something&quot;)
+	enableTrigger("mmi Something")
 	if capturing then killTimer(capturing) end
-	capturing = tempTimer(5+getNetworkLatency(), function() disableTrigger(&quot;mmi Something&quot;) capturing = false end)
+	capturing = tempTimer(5+getNetworkLatency(), function() disableTrigger("mmi Something") capturing = false end)
 end
 
 function mmi.addnpc()
@@ -808,7 +808,7 @@ function mmi.finishedcapture()
 	-- fill in what we know from influencable db
 	local r = db:fetch(mmi.db.mobs, db:in_(mmi.db.mobs.id, mobids))
 	for _, t in ipairs(r) do
-		mmi.roomnpcs[t.id].disposition = (t.disposition ~= &quot;&quot; and t.disposition or false)
+		mmi.roomnpcs[t.id].disposition = (t.disposition ~= "" and t.disposition or false)
 		mmi.roomnpcs[t.id].undead = (t.undead == 1 and true or false)
 		mmi.roomnpcs[t.id].guard = (t.guard == 1 and true or false)
 	end
@@ -827,62 +827,62 @@ function mmi.finishedcapture()
 	-- guards are empower only, so set them all to brave
 	for id, t in pairs(mmi.roomnpcs) do
 		if table.contains(mmi.guards, t.longname) then
-			t.disposition = &quot;brave&quot;; t.guard = true
+			t.disposition = "brave"; t.guard = true
 		end
 	end
 
 	-- delete groups, uninfluencable and just litters db
 	local delete = {}
 	for id, t in pairs(mmi.roomnpcs) do
-		if string.find(t.longname, &quot;^a group of&quot;) then
+		if string.find(t.longname, "^a group of") then
 			delete[#delete+1] = id
 		end
 	end
 
 	for _, id in ipairs(delete) do	mmi.roomnpcs[id] = nil end
 
-	raiseEvent(&quot;mmi finished capture&quot;)
+	raiseEvent("mmi finished capture")
 end</script>
-                <eventHandlerList/>
-            </Script>
-            <Script isActive="yes" isFolder="no">
-                <name>main</name>
-                <packageName></packageName>
-                <script>local attacks, types = {
-	begging = &quot;charity&quot;,
-	rumours = &quot;paranoia&quot;,
-	teasing = &quot;weaken&quot;,
-	compliments = &quot;empower&quot;,
-	flattery = &quot;seduction&quot;,
-	supplication = &quot;charity&quot;,
-	distrust = &quot;paranoia&quot;,
-	mockery = &quot;weaken&quot;,
-	admiration = &quot;empower&quot;,
-	charm = &quot;seduction&quot;,
-	wheedling = &quot;charity&quot;,
-	conspiracies = &quot;paranoia&quot;,
-	derision = &quot;weaken&quot;,
-	praise = &quot;empower&quot;,
-	beguiling = &quot;seduction&quot;,
-	amnesty = &quot;amnesty&quot;
+				<eventHandlerList />
+			</Script>
+			<Script isActive="yes" isFolder="no">
+				<name>main</name>
+				<packageName></packageName>
+				<script>local attacks, types = {
+	begging = "charity",
+	rumours = "paranoia",
+	teasing = "weaken",
+	compliments = "empower",
+	flattery = "seduction",
+	supplication = "charity",
+	distrust = "paranoia",
+	mockery = "weaken",
+	admiration = "empower",
+	charm = "seduction",
+	wheedling = "charity",
+	conspiracies = "paranoia",
+	derision = "weaken",
+	praise = "empower",
+	beguiling = "seduction",
+	amnesty = "amnesty"
 }, {}
 
 -- auto-setup org-specific attacks as well
 if mm and mm.conf and mm.conf.org then
-  if mm.conf.org == &quot;Glomdoring&quot; then
-	attacks.manipulation = &quot;village&quot;
-	attacks.trickery = &quot;village&quot;
-	attacks.intrigue = &quot;village&quot;
-  elseif mm.conf.org == &quot;Magnagora&quot; then
-    attacks.shock, attacks.awe, attacks.brainwash = &quot;village&quot;, &quot;village&quot;, &quot;village&quot;
-  elseif mm.conf.org == &quot;Serenwilde&quot; then
-    attacks.lectures, attacks.recitation, attacks.oration = &quot;village&quot;, &quot;village&quot;, &quot;village&quot;
-  elseif mm.conf.org == &quot;Celest&quot; then
-    attacks.proselytizing, attacks.preaching, attacks.evangelizing = &quot;village&quot;, &quot;village&quot;, &quot;village&quot;
-  elseif mm.conf.org == &quot;Hallifax&quot; then
-    attacks.accordance, attacks.collaboration, attacks.assimilation = &quot;village&quot;, &quot;village&quot;, &quot;village&quot;
-  elseif mm.conf.org == &quot;Gaudiguch&quot; then
-    attacks.liberty, attacks.freedom, attacks.revolution = &quot;village&quot;, &quot;village&quot;, &quot;village&quot;
+  if mm.conf.org == "Glomdoring" then
+	attacks.manipulation = "village"
+	attacks.trickery = "village"
+	attacks.intrigue = "village"
+  elseif mm.conf.org == "Magnagora" then
+    attacks.shock, attacks.awe, attacks.brainwash = "village", "village", "village"
+  elseif mm.conf.org == "Serenwilde" then
+    attacks.lectures, attacks.recitation, attacks.oration = "village", "village", "village"
+  elseif mm.conf.org == "Celest" then
+    attacks.proselytizing, attacks.preaching, attacks.evangelizing = "village", "village", "village"
+  elseif mm.conf.org == "Hallifax" then
+    attacks.accordance, attacks.collaboration, attacks.assimilation = "village", "village", "village"
+  elseif mm.conf.org == "Gaudiguch" then
+    attacks.liberty, attacks.freedom, attacks.revolution = "village", "village", "village"
   end
 end
 
@@ -898,76 +898,76 @@ end
 -- this function will automatically use the attacks possible
 function mmi.influence(target, type)
 	if not target then
-		mm.echof(&quot;Whom do you wish to influence?&quot;); return; end
+		mm.echof("Whom do you wish to influence?"); return; end
 	if not type then
-		mm.echof(&quot;What type of attack should we use on the %s?&quot;, target); return; end
+		mm.echof("What type of attack should we use on the %s?", target); return; end
 	if not types[type] then
-		mm.echof(&quot;We don't know any %s attacks :(&quot;, type); return; end
+		mm.echof("We don't know any %s attacks :(", type); return; end
 
 	mmi.target = target
 	mmi.influencing = true
 	mmi.attacktype = type
 
-	raiseEvent(&quot;mmi started influencing&quot;, target, type)
+	raiseEvent("mmi started influencing", target, type)
 end
 
 function mmi.doneinfluencing(arg)
 	if not mmi.influencing then return end
 
-	if arg == &quot;undead&quot; then -- nope, can't influence - undead
+	if arg == "undead" then -- nope, can't influence - undead
 		if mmi.roomnpcs[mmi.target] then mmi.roomnpcs[mmi.target].undead = true end
 		mmi.conf.influenceundead = false
-	elseif arg == &quot;uninfluencable&quot; then
+	elseif arg == "uninfluencable" then
 		if mmi.roomnpcs[mmi.target] then mmi.roomnpcs[mmi.target].influencable = false end
-	elseif arg == &quot;not here&quot; then
+	elseif arg == "not here" then
 		if mmi.roomnpcs[mmi.target] then mmi.roomnpcs[mmi.target] = nil end
 	elseif mmi.target and mmi.roomnpcs[mmi.target] then -- influenced in room
 		if mmi.roomnpcs[mmi.target] then mmi.roomnpcs[mmi.target].influenced = true end
 	end
 
 	mmi.target, mmi.influencing = nil, nil
-	tempLineTrigger(1,1, 'raiseEvent(&quot;mmi done influencing&quot;, arg)')
+	tempLineTrigger(1,1, 'raiseEvent("mmi done influencing", arg)')
 end
 
 function mmi.stopinfluencing()
-	mm.echof(&quot;Stopped influencing %s.&quot;, (mmi.target and mmi.target or &quot;nothing&quot;))
+	mm.echof("Stopped influencing %s.", (mmi.target and mmi.target or "nothing"))
 	mmi.target, mmi.influencing, mmi.attacktype = nil, nil, nil
-	raiseEvent(&quot;mmi stopped influencing&quot;)
+	raiseEvent("mmi stopped influencing")
 end
 
 function mmi.doinfluencing()
 	if not mmi.influencing or not mm.bals.balance or not mm.bals.equilibrium then return end
 
-	send(string.format(&quot;influence %s with %s&quot;, mmi.target, types[mmi.attacktype][math.random(1, #types[mmi.attacktype])]), false)
+	send(string.format("influence %s with %s", mmi.target, types[mmi.attacktype][math.random(1, #types[mmi.attacktype])]), false)
 
 	return true
 end
 
-mm.addbalanceful(&quot;mmi.doinfluencing&quot;, mmi.doinfluencing)</script>
-                <eventHandlerList/>
-                <Script isActive="yes" isFolder="no">
-                    <name>mmi_think</name>
-                    <packageName></packageName>
-                    <script>-- main func that decides what should be influenced or analyzed
+mm.addbalanceful("mmi.doinfluencing", mmi.doinfluencing)</script>
+				<eventHandlerList />
+				<Script isActive="yes" isFolder="no">
+					<name>mmi_think</name>
+					<packageName></packageName>
+					<script>-- main func that decides what should be influenced or analyzed
 function mmi_think()
 	if not mmi.influenceroom then return end
 
 	for id, t in pairs(mmi.roomnpcs) do
-		if t.influencable and not t.influenced and not t.ishere == &quot;unknown&quot; and not t.disposition then
+		if t.influencable and not t.influenced and not t.ishere == "unknown" and not t.disposition then
 			mmi.analyze(id)
 			return
 		elseif t.influencable and not t.influenced and not (t.undead and not mmi.conf.influenceundead) then
 			-- we may also influence to check if the thing is present in the room
 			-- convert disposition to attack type &amp; send it away to be influenced
-			mmi.influence(id, (mmi.disps[t.disposition] or &quot;empower&quot;))
+			mmi.influence(id, (mmi.disps[t.disposition] or "empower"))
 			return
 		end
 	end
 
 	mmi.influenceroom = false
-	tempTimer(0, function () mm.echof(&quot;Done influencing the whole room.&quot;) end)
-    if say then say(&quot;Finished influencing at &quot;..gmcp.Room.Info.name) end
-	raiseEvent(&quot;mmi finished influencing room&quot;)
+	tempTimer(0, function () mm.echof("Done influencing the whole room.") end)
+    if say then say("Finished influencing at "..gmcp.Room.Info.name) end
+	raiseEvent("mmi finished influencing room")
 end
 
 function mmi.startinfluenceroom()
@@ -979,27 +979,27 @@ function mmi.stopinfluenceroom()
 	mmi.stopinfluencing()
 	mmi.influenceroom = false
 
-	mm.echof(&quot;Stopped influencing everything in the room.&quot;)
-	raiseEvent(&quot;mmi stopped influencing room&quot;)
+	mm.echof("Stopped influencing everything in the room.")
+	raiseEvent("mmi stopped influencing room")
 end</script>
-                    <eventHandlerList>
-                        <string>mmi stopped influencing</string>
-                        <string>mmi finished capture</string>
-                        <string>mmi done influencing</string>
-                        <string>mmi analyzed target</string>
-                    </eventHandlerList>
-                </Script>
-                <Script isActive="yes" isFolder="no">
-                    <name>mmi_updatedb</name>
-                    <packageName></packageName>
-                    <script>function mmi_updatedb()
+					<eventHandlerList>
+						<string>mmi stopped influencing</string>
+						<string>mmi finished capture</string>
+						<string>mmi done influencing</string>
+						<string>mmi analyzed target</string>
+					</eventHandlerList>
+				</Script>
+				<Script isActive="yes" isFolder="no">
+					<name>mmi_updatedb</name>
+					<packageName></packageName>
+					<script>function mmi_updatedb()
 	local r = {}
 
 	for id, t in pairs(mmi.roomnpcs) do
 		if t.influencable then
 			r[#r+1] = {id = id, name = t.shortname, areaname = mmi.currentarea(),
 				undead = (t.undead and 1 or 0), guard = (t.guard and 1 or 0),
-				disposition = (t.disposition and t.disposition or &quot;&quot;),
+				disposition = (t.disposition and t.disposition or ""),
 				longname = t.longname, roomid = mmp.currentroom
 			}
 		end
@@ -1016,35 +1016,35 @@ end</script>
 
 	mmi.updatenonnpc(r)
 end</script>
-                    <eventHandlerList>
-                        <string>mmi finished influencing room</string>
-                        <string>mmi stopped influencing room</string>
-                    </eventHandlerList>
-                </Script>
-                <Script isActive="yes" isFolder="no">
-                    <name>mmi_add_config</name>
-                    <packageName></packageName>
-                    <script>function mmi_add_config()
-  mm.config.setoption(&quot;figurine&quot;, {
-    type = &quot;number&quot;,
+					<eventHandlerList>
+						<string>mmi finished influencing room</string>
+						<string>mmi stopped influencing room</string>
+					</eventHandlerList>
+				</Script>
+				<Script isActive="yes" isFolder="no">
+					<name>mmi_add_config</name>
+					<packageName></packageName>
+					<script>function mmi_add_config()
+  mm.config.setoption("figurine", {
+    type = "number",
     onset = function ()
       if mm.conf.figurine == 0 then
-        mm.echof(&quot;Won't auto-imbue figurines after influencing.&quot;)
+        mm.echof("Won't auto-imbue figurines after influencing.")
       else
-        mm.echof(&quot;Set the figurine # to &quot;..mm.conf.figurine..&quot; - will be imbuing essence into it. To stop imbuying, set it to 0.&quot;)
+        mm.echof("Set the figurine # to "..mm.conf.figurine.." - will be imbuing essence into it. To stop imbuying, set it to 0.")
       end
     end
   })
 end</script>
-                    <eventHandlerList>
-                        <string>m&amp;m system loaded</string>
-                    </eventHandlerList>
-                </Script>
-            </Script>
-        </ScriptGroup>
-    </ScriptPackage>
-    <KeyPackage/>
-    <HelpPackage>
-        <helpURL></helpURL>
-    </HelpPackage>
+					<eventHandlerList>
+						<string>m&amp;m system loaded</string>
+					</eventHandlerList>
+				</Script>
+			</Script>
+		</ScriptGroup>
+	</ScriptPackage>
+	<KeyPackage />
+	<HelpPackage>
+		<helpURL></helpURL>
+	</HelpPackage>
 </MudletPackage>
