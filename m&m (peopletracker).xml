@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE MudletPackage>
 <MudletPackage version="1.001">
-    <TriggerPackage/>
-    <TimerPackage/>
-    <AliasPackage>
-        <AliasGroup isActive="yes" isFolder="yes">
-            <name>m&amp;m People Tracker</name>
-            <script></script>
-            <command></command>
-            <packageName></packageName>
-            <regex></regex>
-            <Alias isActive="yes" isFolder="no">
-                <name>(gotop) Go to person</name>
-                <script>local function goto(whom)
+	<TriggerPackage />
+	<TimerPackage />
+	<AliasPackage>
+		<AliasGroup isActive="yes" isFolder="yes">
+			<name>m&amp;m People Tracker</name>
+			<script></script>
+			<command></command>
+			<packageName></packageName>
+			<regex></regex>
+			<Alias isActive="yes" isFolder="no">
+				<name>(gotop) Go to person</name>
+				<script>local function goto(whom)
   local p = whom:title()
-  if not mmp.pdb[p] then mmp.echo(&quot;Sorry - don't know where &quot;..p..&quot; is.&quot;) return end
+  if not mmp.pdb[p] then mmp.echo("Sorry - don't know where "..p.." is.") return end
 
   local nums = mmp.getnums(mmp.pdb[p], true)
   mmp.gotoRoom(nums[1])
-  mmp.echo(string.format(&quot;Going to %s in %s%s.&quot;, p, mmp.cleanAreaName(mmp.areatabler[getRoomArea(nums[1])]) or &quot;&quot;, (#nums ~= 1 and &quot; (non-unique location though)&quot; or &quot;&quot;)))
+  mmp.echo(string.format("Going to %s in %s%s.", p, mmp.cleanAreaName(mmp.areatabler[getRoomArea(nums[1])]) or "", (#nums ~= 1 and " (non-unique location though)" or "")))
 end
 
 if not matches[2] then
   if not target then
-    mmp.echo(&quot;I don't know what your target is (set the 'target' variable)&quot;) return
+    mmp.echo("I don't know what your target is (set the 'target' variable)") return
   else
     goto(target)
   end
 else
   goto(matches[2])
 end</script>
-                <command></command>
-                <packageName></packageName>
-                <regex>^gotop(?: (\w+))?$</regex>
-            </Alias>
-        </AliasGroup>
-    </AliasPackage>
-    <ActionPackage/>
-    <ScriptPackage/>
-    <KeyPackage/>
-    <HelpPackage>
-        <helpURL></helpURL>
-    </HelpPackage>
+				<command></command>
+				<packageName></packageName>
+				<regex>^gotop(?: (\w+))?$</regex>
+			</Alias>
+		</AliasGroup>
+	</AliasPackage>
+	<ActionPackage />
+	<ScriptPackage />
+	<KeyPackage />
+	<HelpPackage>
+		<helpURL></helpURL>
+	</HelpPackage>
 </MudletPackage>
