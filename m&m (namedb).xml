@@ -1367,13 +1367,14 @@ temp_name_list = {}
 temp_name_list[1] = {
   name = ndb.honorsname, demigod = 0,
   guildenemy = 0, orgenemy = 0, immortal = 0,
-  gender = line:find("%f[%a][mM]ale%f[%A]") and 'male' or 'female',
+--  gender = line:find("%f[%a][mM]ale%f[%A]") or line:find("%f[%a][nN]on%f[%A]-%f[%a][bB]inary[%A]") and 'male' or 'female' or 'non-binary',
+  gender = 'male' or 'female' or 'Non-Binary',
   title = line:match("(.-) %(")
 }
 
 local brackets = line:match("%((.-)%)")
-if brackets:find("%f[%a]God%f[%A]") or brackets:find("%f[%a]Goddess%f[%A]") or brackets:find("%f[%a]Ephemeral%f[%A]") then
-  temp_name_list[1].immortal = 1
+if brackets:find("%f[%a]God%f[%A]") or brackets:find("%f[%a]Goddess%f[%A]") or brackets:find("%f[%a]Ephemeral%f[%A]") or brackets:find("%f[%a]Divine%f[%A]") or brackets:find("%f[%a]Immortal%f[%A]") then
+  temp_name_list[1].immortal = 1 
   temp_name_list[1].gender = ""
 elseif brackets:find("Demigod",1,true) then
   temp_name_list[1].demigod = 1
@@ -1388,7 +1389,7 @@ for i = 1, 10 do -- word wrapping can mess it up, go so back a fair bit in case 
   -- work backwards until the line with the name is located
   if string.find(getCurrentLine(), "%f[%a]"..ndb.honorsname.."%f[%A]") or getCurrentLine():starts("A small shrubbery") then
     -- pick up the race as it is listed
-    local race = getCurrentLine():match("%(male (.-)%)") or getCurrentLine():match("%(female (.-)%)") or ""
+    local race = getCurrentLine():match("%(male (.-)%)") or getCurrentLine():match("%(female (.-)%)") or getCurrentLine():match("%(non-binary (.-)%)") or ""
 
     if ndb.isvalidrace(race) then
       temp_name_list[1].race = race:lower()
@@ -1436,8 +1437,10 @@ if tonumber(matches[2]) &lt; 200 then temp_name_list[1].demigod = 1 end</script>
 							<colorTriggerBgColor>#000000</colorTriggerBgColor>
 							<regexCodeList>
 								<string>^(?:She|He) is ranked (\d+)\w+ in Lusternia\.</string>
+								<string>^They are ranked (\d+)\w+ in Lusternia\.</string>
 							</regexCodeList>
 							<regexCodePropertyList>
+								<integer>1</integer>
 								<integer>1</integer>
 							</regexCodePropertyList>
 						</Trigger>
@@ -1461,8 +1464,14 @@ if tonumber(matches[2]) &lt; 200 then temp_name_list[1].demigod = 1 end</script>
 								<string>She has cut her thread from the Tapestry of the Fates.</string>
 								<string>He is frozen in time and space.</string>
 								<string>She is frozen in time and space.</string>
+								<string>They are frozen in time and space.</string>
+								<string>They have cut their thread from the Tapestry of the Fates.</string>
+								<string>They are unranked in Lusternia.</string>
 							</regexCodeList>
 							<regexCodePropertyList>
+								<integer>3</integer>
+								<integer>3</integer>
+								<integer>3</integer>
 								<integer>3</integer>
 								<integer>3</integer>
 								<integer>3</integer>
@@ -1491,8 +1500,10 @@ end</script>
 							<colorTriggerBgColor>#000000</colorTriggerBgColor>
 							<regexCodeList>
 								<string>^(?:He|She) is a (.+?) in the (.+)?\.</string>
+								<string>^They are a (.+?) in the (.+)?\.</string>
 							</regexCodeList>
 							<regexCodePropertyList>
+								<integer>1</integer>
 								<integer>1</integer>
 							</regexCodePropertyList>
 						</Trigger>
@@ -1513,8 +1524,10 @@ end</script>
 							<colorTriggerBgColor>#000000</colorTriggerBgColor>
 							<regexCodeList>
 								<string>^(?:She|He|It) is considered to be approximately (\d+)% of your might\.$</string>
+								<string>^They are considered to be approximately (\d+)% of your might\.$</string>
 							</regexCodeList>
 							<regexCodePropertyList>
+								<integer>1</integer>
 								<integer>1</integer>
 							</regexCodePropertyList>
 						</Trigger>
@@ -1534,8 +1547,10 @@ end</script>
 							<regexCodeList>
 								<string>He is considered to be approximately equal to your might.</string>
 								<string>She is considered to be approximately equal to your might.</string>
+								<string>They are considered to be approximately equal to your might.</string>
 							</regexCodeList>
 							<regexCodePropertyList>
+								<integer>3</integer>
 								<integer>3</integer>
 								<integer>3</integer>
 							</regexCodePropertyList>
@@ -1555,8 +1570,10 @@ end</script>
 							<colorTriggerBgColor>#000000</colorTriggerBgColor>
 							<regexCodeList>
 								<string>(?:He|She) is an Avatar of (\w+),</string>
+								<string>They are an Avatar of (\w+),</string>
 							</regexCodeList>
 							<regexCodePropertyList>
+								<integer>1</integer>
 								<integer>1</integer>
 							</regexCodePropertyList>
 						</Trigger>
@@ -1575,8 +1592,10 @@ end</script>
 							<colorTriggerBgColor>#000000</colorTriggerBgColor>
 							<regexCodeList>
 								<string>(?:He|She) is an enemy of your (?:commune|city)\.$</string>
+								<string>They are an enemy of your (?:commune|city)\.$</string>
 							</regexCodeList>
 							<regexCodePropertyList>
+								<integer>1</integer>
 								<integer>1</integer>
 							</regexCodePropertyList>
 						</Trigger>
@@ -1596,8 +1615,10 @@ end</script>
 							<regexCodeList>
 								<string>He is an enemy of your guild.</string>
 								<string>She is an enemy of your guild.</string>
+								<string>They are an enemy of your guild.</string>
 							</regexCodeList>
 							<regexCodePropertyList>
+								<integer>3</integer>
 								<integer>3</integer>
 								<integer>3</integer>
 							</regexCodePropertyList>
