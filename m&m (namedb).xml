@@ -115,20 +115,20 @@ if ndb.isdemigod then demigod = ndb.isdemigod(name) end
 
 
 if #name &lt;= 14 and guild ~=""then 
-	moveCursor(#name, getLineNumber())
-	fg("DarkSlateGrey") insertText(string.format([[(%s)]], guild))
+  moveCursor(#name, getLineNumber())
+  fg("DarkSlateGrey") insertText(string.format([[(%s)]], guild))
 
-	resetFormat()
-	-- delete extra spaces that got shifted over now
-	if selectSection(#name+#guild+2, #guild+2) then replace("") end
-	deselect()
-end 	
+  resetFormat()
+  -- delete extra spaces that got shifted over now
+  if selectSection(#name+#guild+2, #guild+2) then replace("") end
+  deselect()
+end 
 
 if demigod then moveCursor(ndb.temp_cwho.rank-4, getLineNumber())
-	fg("DarkSlateGrey") insertText("(h)") temp_demigod = temp_demigod+1
-	resetFormat()
-	if selectSection(ndb.temp_cwho.rank-1, 3) then replace("") end
-	deselect()
+  fg("DarkSlateGrey") insertText("(h)") temp_demigod = temp_demigod+1
+  resetFormat()
+  if selectSection(ndb.temp_cwho.rank-1, 3) then replace("") end
+  deselect()
 end
 
 resetFormat()
@@ -333,12 +333,12 @@ raiseEvent("NameDB got new data")</script>
 						<script>local templist = string.split(multimatches[3][1], ",")
 
 for i,k in pairs(templist) do
-	templist[i] = k:trim()
+  templist[i] = k:trim()
 end
 
 -- last on name on list might have a dot
 if string.sub(templist[#templist], -1, -1) == "." then
-	templist[#templist] = string.sub(templist[#templist], 1, -2)
+  templist[#templist] = string.sub(templist[#templist], 1, -2)
 end
 
 ndb.tempnames = nil
@@ -346,10 +346,10 @@ ndb.tempnames = nil
 local temp_name_list = {}
 
 for i,j in ipairs(templist) do
-	temp_name_list[#temp_name_list + 1] = {
-		name = j,
-		org = ndb.getmyorg()
-	}
+  temp_name_list[#temp_name_list + 1] = {
+    name = j,
+    org = ndb.getmyorg()
+  }
 end
 
 db:merge_unique(ndb.db.people, temp_name_list)
@@ -604,7 +604,7 @@ for i = 1, #data do
   if name:find("(", 1, true) then
     local secondname
     name, secondname = name:match("(%w+)%((%w+)%)")
-	
+
     -- guides are in the format of Name(Name), some non-guides are just (Name)
     if secondname then temp_name_list[#temp_name_list + 1] = {name = secondname} end
 
@@ -793,18 +793,18 @@ bdayTable = bdayTable or {}
 bdayTable[#bdayTable+1] = matches[2]
 
 mm.prompttrigger("namedb capture birtdhdays", function()
-	local temp_name_list = {}
+  local temp_name_list = {}
 
-	for i,j in ipairs(bdayTable) do
-		temp_name_list[#temp_name_list + 1] = {
-			name = j
-		}
-	end
+  for i,j in ipairs(bdayTable) do
+    temp_name_list[#temp_name_list + 1] = {
+      name = j
+    }
+  end
 
-	db:merge_unique(ndb.db.people, temp_name_list)
+  db:merge_unique(ndb.db.people, temp_name_list)
 
-	raiseEvent("NameDB got new data")
-	bdayTable = nil
+  raiseEvent("NameDB got new data")
+  bdayTable = nil
 end)</script>
 						<triggerType>0</triggerType>
 						<conditonLineDelta>0</conditonLineDelta>
@@ -978,9 +978,15 @@ raiseEvent("NameDB got new data")</script>
 						<colorTriggerBgColor>#000000</colorTriggerBgColor>
 						<regexCodeList>
 							<string>You scent at the air, your skilled nose picking up the faint traces of others in the surrounding area.</string>
+							<string>You snort and snuffle at the air, sensing through</string>
+							<string>You twitch a heart-shaped teddy bear nose in several directions, placing aside the sweet smell of your own delightful form to trace the scents of others.</string>
+							<string>You sniff disdainfully at the air with a snobby snoot</string>
 						</regexCodeList>
 						<regexCodePropertyList>
 							<integer>3</integer>
+							<integer>2</integer>
+							<integer>3</integer>
+							<integer>2</integer>
 						</regexCodePropertyList>
 						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>Person</name>
@@ -1050,7 +1056,7 @@ raiseEvent("NameDB got new data")</script>
 						<script>ndb.temp_name_list = {}</script>
 						<triggerType>0</triggerType>
 						<conditonLineDelta>0</conditonLineDelta>
-						<mStayOpen>1000</mStayOpen>
+						<mStayOpen>999</mStayOpen>
 						<mCommand></mCommand>
 						<packageName></packageName>
 						<mFgColor>#ff0000</mFgColor>
@@ -1367,18 +1373,18 @@ temp_name_list = {}
 temp_name_list[1] = {
   name = ndb.honorsname, demigod = 0,
   guildenemy = 0, orgenemy = 0, immortal = 0,
-  gender = line:find("%f[%a][mM]ale%f[%A]") and 'male' or 'female',
+--  gender = line:find("%f[%a][mM]ale%f[%A]") or line:find("%f[%a][nN]on%f[%A]-%f[%a][bB]inary[%A]") and 'male' or 'female' or 'non-binary',
+  gender = 'male' or 'female' or 'non-binary',
   title = line:match("(.-) %(")
 }
 
 local brackets = line:match("%((.-)%)")
-if brackets:find("%f[%a]God%f[%A]") or brackets:find("%f[%a]Goddess%f[%A]") or brackets:find("%f[%a]Ephemeral%f[%A]") then
-  temp_name_list[1].immortal = 1
+if brackets:find("%f[%a]God%f[%A]") or brackets:find("%f[%a]Goddess%f[%A]") or brackets:find("%f[%a]Ephemeral%f[%A]") or brackets:find("%f[%a]Divine%f[%A]") or brackets:find("%f[%a]Immortal%f[%A]") then
+  temp_name_list[1].immortal = 1 
   temp_name_list[1].gender = ""
 elseif brackets:find("Demigod",1,true) then
   temp_name_list[1].demigod = 1
 end
-
 
 ndb.honors_line_count = 0
 
@@ -1388,7 +1394,7 @@ for i = 1, 10 do -- word wrapping can mess it up, go so back a fair bit in case 
   -- work backwards until the line with the name is located
   if string.find(getCurrentLine(), "%f[%a]"..ndb.honorsname.."%f[%A]") or getCurrentLine():starts("A small shrubbery") then
     -- pick up the race as it is listed
-    local race = getCurrentLine():match("%(male (.-)%)") or getCurrentLine():match("%(female (.-)%)") or ""
+    local race = getCurrentLine():match("%(male (.-)%)") or getCurrentLine():match("%(female (.-)%)") or getCurrentLine():match("%(non-binary (.-)%)") or ""
 
     if ndb.isvalidrace(race) then
       temp_name_list[1].race = race:lower()
@@ -1436,8 +1442,10 @@ if tonumber(matches[2]) &lt; 200 then temp_name_list[1].demigod = 1 end</script>
 							<colorTriggerBgColor>#000000</colorTriggerBgColor>
 							<regexCodeList>
 								<string>^(?:She|He) is ranked (\d+)\w+ in Lusternia\.</string>
+								<string>^They are ranked (\d+)\w+ in Lusternia\.</string>
 							</regexCodeList>
 							<regexCodePropertyList>
+								<integer>1</integer>
 								<integer>1</integer>
 							</regexCodePropertyList>
 						</Trigger>
@@ -1461,8 +1469,14 @@ if tonumber(matches[2]) &lt; 200 then temp_name_list[1].demigod = 1 end</script>
 								<string>She has cut her thread from the Tapestry of the Fates.</string>
 								<string>He is frozen in time and space.</string>
 								<string>She is frozen in time and space.</string>
+								<string>They are frozen in time and space.</string>
+								<string>They have cut their thread from the Tapestry of the Fates.</string>
+								<string>They are unranked in Lusternia.</string>
 							</regexCodeList>
 							<regexCodePropertyList>
+								<integer>3</integer>
+								<integer>3</integer>
+								<integer>3</integer>
 								<integer>3</integer>
 								<integer>3</integer>
 								<integer>3</integer>
@@ -1491,8 +1505,10 @@ end</script>
 							<colorTriggerBgColor>#000000</colorTriggerBgColor>
 							<regexCodeList>
 								<string>^(?:He|She) is a (.+?) in the (.+)?\.</string>
+								<string>^They are a (.+?) in the (.+)?\.</string>
 							</regexCodeList>
 							<regexCodePropertyList>
+								<integer>1</integer>
 								<integer>1</integer>
 							</regexCodePropertyList>
 						</Trigger>
@@ -1513,8 +1529,10 @@ end</script>
 							<colorTriggerBgColor>#000000</colorTriggerBgColor>
 							<regexCodeList>
 								<string>^(?:She|He|It) is considered to be approximately (\d+)% of your might\.$</string>
+								<string>^They are considered to be approximately (\d+)% of your might\.$</string>
 							</regexCodeList>
 							<regexCodePropertyList>
+								<integer>1</integer>
 								<integer>1</integer>
 							</regexCodePropertyList>
 						</Trigger>
@@ -1534,8 +1552,10 @@ end</script>
 							<regexCodeList>
 								<string>He is considered to be approximately equal to your might.</string>
 								<string>She is considered to be approximately equal to your might.</string>
+								<string>They are considered to be approximately equal to your might.</string>
 							</regexCodeList>
 							<regexCodePropertyList>
+								<integer>3</integer>
 								<integer>3</integer>
 								<integer>3</integer>
 							</regexCodePropertyList>
@@ -1555,8 +1575,10 @@ end</script>
 							<colorTriggerBgColor>#000000</colorTriggerBgColor>
 							<regexCodeList>
 								<string>(?:He|She) is an Avatar of (\w+),</string>
+								<string>They are an Avatar of (\w+),</string>
 							</regexCodeList>
 							<regexCodePropertyList>
+								<integer>1</integer>
 								<integer>1</integer>
 							</regexCodePropertyList>
 						</Trigger>
@@ -1575,8 +1597,10 @@ end</script>
 							<colorTriggerBgColor>#000000</colorTriggerBgColor>
 							<regexCodeList>
 								<string>(?:He|She) is an enemy of your (?:commune|city)\.$</string>
+								<string>They are an enemy of your (?:commune|city)\.$</string>
 							</regexCodeList>
 							<regexCodePropertyList>
+								<integer>1</integer>
 								<integer>1</integer>
 							</regexCodePropertyList>
 						</Trigger>
@@ -1596,8 +1620,10 @@ end</script>
 							<regexCodeList>
 								<string>He is an enemy of your guild.</string>
 								<string>She is an enemy of your guild.</string>
+								<string>They are an enemy of your guild.</string>
 							</regexCodeList>
 							<regexCodePropertyList>
+								<integer>3</integer>
 								<integer>3</integer>
 								<integer>3</integer>
 							</regexCodePropertyList>
@@ -2079,12 +2105,12 @@ end
 local s = f:read("*a")
 
    local data = loadstring("return "..s)()
-	if not data then
-		mm.echof("Couldn't load data from the ndb-help.lua file :/ maybe it is messed up.")
-		return
-	end
+ if not data then
+  mm.echof("Couldn't load data from the ndb-help.lua file :/ maybe it is messed up.")
+  return
+ end
 
-	ndb.help = data
+ ndb.help = data
 end
 
 local function gettooltip(entry)
@@ -2096,20 +2122,20 @@ local function getdesc(entry)
 end
 
 local function showshort()
-	mm.echof("ndb alias cheatsheet:")
+ mm.echof("ndb alias cheatsheet:")
 
-	for id, entry in pairs(ndb.help) do
-		fg("DarkSlateGrey") echo"  * " setFgColor(unpack(mm.getDefaultColorNums)) echoLink(entry.term, 'ndb.showhelp('..id..')', gettooltip(entry), true) echo"\n"
-	end
+ for id, entry in pairs(ndb.help) do
+  fg("DarkSlateGrey") echo"  * " setFgColor(unpack(mm.getDefaultColorNums)) echoLink(entry.term, 'ndb.showhelp('..id..')', gettooltip(entry), true) echo"\n"
+ end
 end
 
 local function showlong()
-	mm.echof("ndb alias cheatsheet (extended):")
+ mm.echof("ndb alias cheatsheet (extended):")
 
-	for id, entry in pairs(ndb.help) do
-		fg("DarkSlateGrey") echo"  * " setFgColor(unpack(mm.getDefaultColorNums)) echoLink(entry.term, 'ndb.showhelp('..id..')', gettooltip(entry), true) echo"\n"
-		echo"      " echo(getdesc(entry)) echo"\n"  echo"\n"
-	end
+ for id, entry in pairs(ndb.help) do
+  fg("DarkSlateGrey") echo"  * " setFgColor(unpack(mm.getDefaultColorNums)) echoLink(entry.term, 'ndb.showhelp('..id..')', gettooltip(entry), true) echo"\n"
+  echo"      " echo(getdesc(entry)) echo"\n"  echo"\n"
+ end
 end
 
 if matches[2] then showlong() else showshort() end
@@ -2184,13 +2210,13 @@ ndb.valid.orgs = {
   "Magnagora", "New Celest", "Hallifax", "Gaudiguch", "Glomdoring", "Serenwilde"
 }
 ndb.valid.classes = {
-  "aeromancer", "aquamancer", "blacktalon", "cacophonist", "cantor", "celestine", "ebonguard", "geomancer", "harbinger", "hartstone", "illuminati", "researcher", "minstrel", "moondancer", "nekotai", "nihilist", "ninjakari", "paladin", "pyromancer", "sentinel", "serenguard", "shadowdancer", "shofangi", "spiritsinger", "symphonist", "tahtetso", "templar", "ur'guard",
+  "aeromancer", "aquamancer", "blacktalon", "cacophonist", "cantor", "celestine", "ebonguard", "geomancer", "harbinger", "hartstone", "illuminati", "researcher", "minstrel", "moondancer", "nekotai", "nihilist", "ninjakari", "nunchaku", "paladin", "pyromancer", "sentinel", "serenguard", "shadowdancer", "shofangi", "spiritsinger", "symphonist", "tahtetso", "templar", "tessenchi", "ur'guard",
 }
 ndb.valid.guilds = {
   "Listeners", "Sowers", "Wodewoses", "Swarm", "Auguries", "Thornwatch", "Archons", "Ecclesiarchy", "Sanctifiers", "Infernals", "Society", "Heralds", "Goonsquad", "Revelry", "Seekers", "Adherents", "Aerie", "Consortium ",
 }
 ndb.valid.guildsOLD = {
-  "Aeromancers", "Aquamancers", "Blacktalon", "Cacophony", "Cantors", "Celestines", "Ebonguard", "Geomancers", "Harbingers", "Hartstone", "Illuminati", "Institute", "Minstrels", "Moondancers", "Nekotai", "Nihilists", "Ninjakari", "Paladins", "Pyromancers", "Sentinels", "Serenguard", "Shadowdancers", "Shofangi", "Spiritsingers", "Symphonium", "Tahtetso", "Templars", "Ur'Guard",
+  "Aeromancers", "Aquamancers", "Blacktalon", "Cacophony", "Cantors", "Celestines", "Ebonguard", "Geomancers", "Harbingers", "Hartstone", "Illuminati", "Institute", "Minstrels", "Moondancers", "Nekotai", "Nihilists", "Ninjakari", "Nunchaku", "Paladins", "Pyromancers", "Sentinels", "Serenguard", "Shadowdancers", "Shofangi", "Spiritsingers", "Symphonium", "Tahtetso", "Templars", "Tessenchi", "Ur'Guard",
 }
 ndb.valid.races = {
   "human", "dwarf", "elfen", "dracnari", "faeling", "furrikin", "krokani", "aslaran", "loboshigaru", "mugwump", "merian", "orclach", "igasho", "tae'dae", "taurian", "trill", "viscanti", "lucidian", "kephera", "illithoid", "gnome", "fink", "nagasith", "sileni",
@@ -2215,6 +2241,7 @@ ndb.valid.guildtoclassOLD = {
   Nekotai       = "nekotai",
   Nihilists     = "nihilist",
   Ninjakari     = "ninjakari",
+  Nunchaku      = "nunchaku",
   Paladins      = "paladin",
   Pyromancers   = "pyromancer",
   Sentinels     = "sentinel",
@@ -2225,6 +2252,7 @@ ndb.valid.guildtoclassOLD = {
   Symphonium    = "symphonist",
   Tahtetso      = "tahtetso",
   Templars      = "templar",
+  Tessenchi     = "tessenchi",
 }
 
 ndb.valid.classntoclassp = {
@@ -2246,6 +2274,7 @@ ndb.valid.classntoclassp = {
   Nekotai       = "nekotai",
   Nihilists     = "nihilist",
   Ninjakari     = "ninjakari",
+  Nunchaku      = "nunchaku",
   Paladins      = "paladin",
   Pyromancers   = "pyromancer",
   Sentinels     = "sentinel",
@@ -2256,6 +2285,7 @@ ndb.valid.classntoclassp = {
   Symphonium    = "symphonist",
   Tahtetso      = "tahtetso",
   Templars      = "templar",
+  Tessenchi     = "tessenchi",
 }
 
 ndb.valid.orgranks = {
@@ -2528,23 +2558,23 @@ end
 					<name>ndb_honors_next</name>
 					<packageName></packageName>
 					<script>function ndb_honors_next(event, name, type)
-	if mm.conf.paused or not ndb.honorslist then return end
+  if mm.conf.paused or not ndb.honorslist then return end
 
-	local name = next(ndb.honorslist)
-	if not name then
-		if type ~= "manual" then echo'\n' mm.echof("Done checking all new names.") mm.showprompt() end
-		ndb.manualcheck = nil
-		ndb.hidehonorswindow()
-		return
-	end
+  local name = next(ndb.honorslist)
+  if not name then
+    if type ~= "manual" then echo'\n' mm.echof("Done checking all new names.") mm.showprompt() end
+    ndb.manualcheck = nil
+    ndb.hidehonorswindow()
+    return
+  end
 
-	if not mm.conf.autohonors and not ndb.manualcheck then return end
+  if not mm.conf.autohonors and not ndb.manualcheck then return end
 
-	ndb.honors(name, "quiet")
-	ndb.honorslist[name] = nil
-    local left = table.size(ndb.honorslist)
-	--tempTimer(0, function() mm.echof("Checking %s, %s name%s left to check...\n", name, left, (left == 1 and '' or 's')) end)
-	ndb.showhonorswindow(string.format("Checking %s, %s name%s left to check...\n", name, left, (left == 1 and '' or 's')))
+  ndb.honors(name, "quiet")
+  ndb.honorslist[name] = nil
+  local left = table.size(ndb.honorslist)
+  --tempTimer(0, function() mm.echof("Checking %s, %s name%s left to check...\n", name, left, (left == 1 and '' or 's')) end)
+  ndb.showhonorswindow(string.format("Checking %s, %s name%s left to check...\n", name, left, (left == 1 and '' or 's')))
 end</script>
 					<eventHandlerList>
 						<string>NameDB finished honors</string>
@@ -3430,13 +3460,13 @@ end</script>
     ((mm and mm.echof) or echo)("Your version of Mudlet doesn't support downloading files - please upgrade to 2.0+")
   else
     if not lfs.attributes(getMudletHomeDir().."/name downloads") then
-		if lfs and lfs.mkdir then
-         local t,s = lfs.mkdir(getMudletHomeDir().."/name downloads")
-         if not t then ((mm and mm.echof) or echo)("Couldn't make the '"..getMudletHomeDir().."/name downloads/' folder; "..s) return end
-		else
-			((mm and mm.echof) or echo)("Sorry, but you need LuaFileSystem (lfs) installed, or have the '"..getMudletHomeDir().."/name downloads/' folder exist.")
-			return
-		end
+  if lfs and lfs.mkdir then
+    local t,s = lfs.mkdir(getMudletHomeDir().."/name downloads")
+    if not t then ((mm and mm.echof) or echo)("Couldn't make the '"..getMudletHomeDir().."/name downloads/' folder; "..s) return end
+  else
+    ((mm and mm.echof) or echo)("Sorry, but you need LuaFileSystem (lfs) installed, or have the '"..getMudletHomeDir().."/name downloads/' folder exist.")
+    return
+  end
     end
 
     downloadFile(getMudletHomeDir().."/name downloads/"..name, "http://www.ironrealms.com/game/honors/Lusternia/"..name);
@@ -3455,13 +3485,13 @@ function ndb.download2(name, reportback)
     ((mm and mm.echof) or echo)("Your version of Mudlet doesn't support downloading files - please upgrade to 2.0+")
   else
     if not lfs.attributes(getMudletHomeDir().."/name downloads") then
-		if lfs and lfs.mkdir then
+  if lfs and lfs.mkdir then
          local t,s = lfs.mkdir(getMudletHomeDir().."/name downloads")
          if not t then ((mm and mm.echof) or echo)("Couldn't make the '"..getMudletHomeDir().."/name downloads/' folder; "..s) return end
-		else
-			((mm and mm.echof) or echo)("Sorry, but you need LuaFileSystem (lfs) installed, or have the '"..getMudletHomeDir().."/name downloads/' folder exist.")
-			return
-		end
+  else
+    ((mm and mm.echof) or echo)("Sorry, but you need LuaFileSystem (lfs) installed, or have the '"..getMudletHomeDir().."/name downloads/' folder exist.")
+    return
+  end
     end
 
     downloadFile(getMudletHomeDir().."/name downloads/"..name, "http://api.lusternia.com/characters/"..name:lower()..".json");
@@ -3650,26 +3680,26 @@ function ndb.cleartriggers()
 end
 
 function ndb.highlight(who, color, bold, underline, italicize)
-	-- c counts the appearance of the substring of the word in the line, k counts the character position
-	local c, k = 1, 1
-	while k &gt; 0 do
-		k = line:find(who, k)
-		if k == nil then return; end
-		c = c + 1
+  -- c counts the appearance of the substring of the word in the line, k counts the character position
+  local c, k = 1, 1
+  while k &gt; 0 do
+  k = line:find(who, k)
+  if k == nil then return; end
+  c = c + 1
 
-		if k == line:find("%f[%a]"..who.."%f[%A]", k) then
-			if selectString(who, c-1) &gt; -1 then
-				if color     then fg(color) end
-				if bold      then setBold(true) end
-				if underline then setUnderline(true) end
-				if italicize then setItalics(true) end
-				resetFormat()
-			else return end
-		end
+  if k == line:find("%f[%a]"..who.."%f[%A]", k) then
+    if selectString(who, c-1) &gt; -1 then
+      if color     then fg(color) end
+      if bold      then setBold(true) end
+      if underline then setUnderline(true) end
+      if italicize then setItalics(true) end
+      resetFormat()
+    else return end
+  end
 
---		k = k + #who
-		k = k + 1
-	end
+--  k = k + #who
+  k = k + 1
+  end
 end</script>
 				<eventHandlerList />
 				<Script isActive="yes" isFolder="no">
@@ -3928,6 +3958,7 @@ local plural_class = {
   ["nekotai"]      = "nekotai",
   ["nihilist"]     = "nihilists",
   ["ninjakari"]    = "ninjakari",
+  ["nunchaku"]      = "nunchaku",
   ["paladin"]      = "paladins",
   ["pyromancer"]   = "pyromancers",
   ["sentinel"]     = "sentinels",
@@ -3939,6 +3970,7 @@ local plural_class = {
   ["tahtetso"]     = "tahtetso",
   ["templar"]      = "templars",
   ["ur'guard"]     = "ur'guards",
+  ["tessenchi"]    = "tessenchi",
 }
 
 local contains = table.contains
