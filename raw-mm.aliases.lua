@@ -338,7 +338,7 @@ local c4,s4 =
 
   cecho(string.format("    <a_blue>- <a_grey>Assuming <a_cyan>%s%% <a_grey>of stats under blackout/recklessness.\n", tostring(conf.assumestats)))
 
-  cecho(string.format("    <a_blue>- <a_grey>Curing blindness with <a_darkgrey>%s<a_grey> and deafness with <a_darkgrey>%s<a_grey>.\n", conf.blindherb, conf.deafherb))
+  cecho(string.format("    <a_blue>- <a_grey>Curing blindness with <a_darkgrey>dust<a_grey> and deafness with <a_darkgrey>%s<a_grey>.\n", conf.deafherb))
 
   cecho(string.format("    <a_blue>- <a_grey>Won't use mana skills below <a_cyan>%s%%<a_grey> mana.\n", tostring(conf.manause)))
 #if skills.shamanism then
