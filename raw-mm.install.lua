@@ -448,7 +448,7 @@ local installdata = {
       ]]
     },
     no = {
-      pattern = [[^The contortion ability in the Acrobatics skill is unknown to you\.$]],
+      pattern = [[^I know of no skill called "Contort\."$]],
       script = [[
         mm.installclear("contort")
         mm.conf.contort = false
