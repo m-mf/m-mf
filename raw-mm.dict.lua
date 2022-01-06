@@ -14367,13 +14367,13 @@ dict = {
         addaff (dict.afterimage)
       end,
 
-      eatcure = "faeleaf",
+      eatcure = "dust",
       onstart = function ()
-        eat("faeleaf")
+        eat("dust")
       end,
 
       empty = function()
-        empty["eat_faeleaf"]()
+        empty.eat_wafer()
       end
     },
     aff = {

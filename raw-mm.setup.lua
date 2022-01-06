@@ -472,6 +472,7 @@ sk.ignored_defences, sk.ignored_defences_map = {}, {}
 pflags = {}
 
 sk.overhauldata = {
+  blind          = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   epilepsy       = { newbalances = {"lucidity"}, oldbalances = {"herb", "focus"}, replaces = {"trembling"}},
   paranoia       = { newbalances = {"lucidity"}, oldbalances = {"herb", "focus"}, replaces = {"dizziness", "vertigo", "hypochondria"} },
   sensitivity    = { newbalances = {"lucidity"}, oldbalances = {"herb", "salve"}, replaces = {"shyness", "masochism"} },
@@ -505,7 +506,6 @@ sk.overhauldata = {
   anorexia       = { newbalances = {"lucidity"}, oldbalances = {"herb"}, replaces = {"throatlock"}},
   asthma         = { newbalances = {"wafer"}, oldbalances = {"salve"}},
   slickness      = { newbalances = {"steam"}, oldbalances = {"herb"}},
-  blind          = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   trueblind      = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   relapsing      = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   deaf           = { newbalances = {"steam"}, oldbalances = {"herb","wafer"}},
