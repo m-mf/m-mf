@@ -298,7 +298,7 @@ conf.blockcommands = true
 conf.commandechotype = "fancy"
 conf.warningtype = "all"
 conf.blindherb = "faeleaf"
-conf.deafherb = "myrtle"
+conf.deafherb = "faeleaf"
 
 conf.autoreject = "white"
 conf.doubledo = false
