@@ -887,22 +887,6 @@ config_dict = pl.OrderedMap {
     installstart = function () conf.preclot = true end,
     installcheck = function () echof("Should the system do preclotting? Doing so will save you from some bleeding damage, at the cost of more willpower.") end
   }},
-#conf_name = "blindherb"
-  {$(conf_name) = {
-    type = "string",
-    check = function (what)
-      if contains({"faeleaf", "myrtle"}, what:lower()) then return true end
-    end,
-    onset = function ()
-      conf.blindherb = string.lower(conf.blindherb)
-      dict.blind.herb.eatcure = conf.blindherb
-      echof("Okay, will use %s to cure blindness.", conf.blindherb)
-
-    end,
-    installstart = function ()
-      conf.blindherb = nil end,
-    installcheck = function () echof("Which herb do you want to use to cure blindness? Select from faeleaf or myrtle.") end
-  }},
 #conf_name = "deafherb"
   {$(conf_name) = {
     type = "string",
