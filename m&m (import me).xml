@@ -27755,8 +27755,10 @@ end</script>
 						<colorTriggerBgColor>#000000</colorTriggerBgColor>
 						<regexCodeList>
 							<string>You now possess the gift of the sixth sense.</string>
+							<string>You now possess the gift of the sixthsense.</string>
 						</regexCodeList>
 						<regexCodePropertyList>
+							<integer>3</integer>
 							<integer>3</integer>
 						</regexCodePropertyList>
 					</Trigger>
@@ -43490,7 +43492,7 @@ end</script>
 						<integer>1</integer>
 						<integer>1</integer>
 					</regexCodePropertyList>
-					<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>m&amp;m wound overhaul</name>
 						<script></script>
 						<triggerType>0</triggerType>
