@@ -298,7 +298,7 @@ conf.blockcommands = true
 conf.commandechotype = "fancy"
 conf.warningtype = "all"
 conf.blindherb = "faeleaf"
-conf.deafherb = "myrtle"
+conf.deafherb = "faeleaf"
 
 conf.autoreject = "white"
 conf.doubledo = false
@@ -473,6 +473,7 @@ pflags = {}
 
 sk.overhauldata = {
   blind          = { newbalances = {"wafer"}, oldbalances = {"herb"}},
+  deaf           = { newbalances = {"steam"}, oldbalances = {"herb","wafer"}},
   epilepsy       = { newbalances = {"lucidity"}, oldbalances = {"herb", "focus"}, replaces = {"trembling"}},
   paranoia       = { newbalances = {"lucidity"}, oldbalances = {"herb", "focus"}, replaces = {"dizziness", "vertigo", "hypochondria"} },
   sensitivity    = { newbalances = {"lucidity"}, oldbalances = {"herb", "salve"}, replaces = {"shyness", "masochism"} },
@@ -508,7 +509,6 @@ sk.overhauldata = {
   slickness      = { newbalances = {"steam"}, oldbalances = {"herb"}},
   trueblind      = { newbalances = {"wafer"}, oldbalances = {"herb"}},
   relapsing      = { newbalances = {"wafer"}, oldbalances = {"herb"}},
-  deaf           = { newbalances = {"steam"}, oldbalances = {"herb","wafer"}},
   truedeaf          = { newbalances = {"steam"}, oldbalances = {"herb","wafer"}},
   attraction        = { newbalances = {"steam"}, oldbalances = {"herb","wafer"}},
   massivetimewarp   = { newbalances = {"steam"}, oldbalances = {"herb","focus"}},
