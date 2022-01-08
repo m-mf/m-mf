@@ -415,7 +415,7 @@ defs_data = phpTable({
     off = {"You let out a deep breath and release yourself from performing.", "You aren't in performance mode."}
   },
   fire = { type = "general",
-    onr = [[^\w+ closes (?:his|her) eyes for a moment and turns towards you, beseeching the sun to shine\. A shaft of warm, golden light falls over you, soothing your body\.$]],
+    onr = [[^\w+ closes (?:his|her|their) eyes for a moment and turns towards you, beseeching the sun to shine\. A shaft of warm, golden light falls over you, soothing your body\.$]],
     on = {"A feeling of comfortable warmth spreads over you.","You are now protected by the firepotion defence."},
     def = "Your insides are warmed by a fire potion." },
   trueblind = { type = "general" },
@@ -526,7 +526,7 @@ defs_data = phpTable({
     on = "Tiny tremors spread through your body as the world seems to slow down.", "Quicksilver is already coarsing through your bloodstream."},
   planarbond = { type = "general",
     nodef = true,
-    onr = [[^You suddenly feel the mind of \w+ brushing yours, (?:his|her) questing ended as s?he begins to bring you into resonance with the aetherwave of the ship\.$]],
+    onr = [[^You suddenly feel the mind of \w+ brushing yours, (?:his|her|their) questing ended as (?:he|she|they) begins to bring you into resonance with the aetherwave of the ship\.$]],
   },
   aethersight = { type = "general",
     on = {"You are already sensing disruptions in the aether.",
@@ -2278,7 +2278,7 @@ defences.orgdefs = function ()
       on = {"You pause for the briefest of moments and bend time slightly about you, and everything but you slows down slightly."}}
     defs_data.cloudberry = { type = "general",
       def = {"A strange surge is growing inside of you.", "You are prepared to make use of cloudberry tea coursing through your body."},
-      offr = [[^A rush of icy air leaves your pores and surrounds \w+ in a frigid cloud, turning (?:his|her) potions to slush\.$]],
+      offr = [[^A rush of icy air leaves your pores and surrounds \w+ in a frigid cloud, turning (?:his|her|their) potions to slush\.$]],
       tooltip = "Gives an aura to the attacker that'll stun them whenever they try to sip health, mana or bromodes - up to three times"}
   end
 end

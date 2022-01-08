@@ -15607,7 +15607,7 @@ end</script>
 							<colorTriggerFgColor>#000000</colorTriggerFgColor>
 							<colorTriggerBgColor>#000000</colorTriggerBgColor>
 							<regexCodeList>
-								<string>^\w+ suddenly releases (?:his|her) vice-like grip on you\.$</string>
+								<string>^\w+ suddenly releases (?:his|her|their) vice-like grip on you\.$</string>
 							</regexCodeList>
 							<regexCodePropertyList>
 								<integer>1</integer>
@@ -15646,7 +15646,7 @@ end</script>
 								<colorTriggerFgColor>#000000</colorTriggerFgColor>
 								<colorTriggerBgColor>#000000</colorTriggerBgColor>
 								<regexCodeList>
-									<string>^You carefully writhe out of \w+'s grapple, escaping (?:his|her) grasp\.$</string>
+									<string>^You carefully writhe out of \w+'s grapple, escaping (?:his|her|their) grasp\.$</string>
 								</regexCodeList>
 								<regexCodePropertyList>
 									<integer>1</integer>
@@ -15667,8 +15667,8 @@ end</script>
 							<colorTriggerFgColor>#000000</colorTriggerFgColor>
 							<colorTriggerBgColor>#000000</colorTriggerBgColor>
 							<regexCodeList>
-								<string>^\w+ loses control of (?:her|his) grapple on you\.$</string>
-								<string>^\w+ releases (?:his|her) fierce grapple on you\.$</string>
+								<string>^\w+ loses control of (?:her|his|their) grapple on you\.$</string>
+								<string>^\w+ releases (?:his|her|their) fierce grapple on you\.$</string>
 							</regexCodeList>
 							<regexCodePropertyList>
 								<integer>1</integer>
@@ -17337,7 +17337,7 @@ resetFormat()</script>
 							<colorTriggerFgColor>#000000</colorTriggerFgColor>
 							<colorTriggerBgColor>#000000</colorTriggerBgColor>
 							<regexCodeList>
-								<string>^\w+ closes (?:his|her) eyes and draws forth the flickering thread of (?:his|her) lifeforce, allowing the brilliant aura of health and well-being to leave (?:him|her) for \w+\.$</string>
+								<string>^\w+ closes (?:his|her|their) eyes and draws forth the flickering thread of (?:his|her|their) lifeforce, allowing the brilliant aura of health and well-being to leave (?:him|her|their) for \w+\.$</string>
 								<string>^The smouldering thread of your being flares to a roaring intensity as it fills with \w+'s lifeforce, healing you completely\.$</string>
 							</regexCodeList>
 							<regexCodePropertyList>
@@ -17563,7 +17563,7 @@ resetFormat()</script>
 							<colorTriggerFgColor>#000000</colorTriggerFgColor>
 							<colorTriggerBgColor>#000000</colorTriggerBgColor>
 							<regexCodeList>
-								<string>^(?:His|Her) head snapping up suddenly, \w+ throws (?:his|her) arms into the air in a single fluid motion\. A brilliant flash erupts from \w+ as s?he projects (?:his|her) spiritual aura outwards in all directions, blanketing the area with pure aural energy\.$</string>
+								<string>^(?:His|Her|Their) head snapping up suddenly, \w+ throws (?:his|her|their) arms into the air in a single fluid motion\. A brilliant flash erupts from \w+ as (?:he|she|they) project(?:s)? (?:his|her|their) spiritual aura outwards in all directions, blanketing the area with pure aural energy\.$</string>
 								<string>^The spiritual aura of \w+ washes over you in a blinding flash\.$</string>
 							</regexCodeList>
 							<regexCodePropertyList>
@@ -18426,7 +18426,7 @@ selectCurrentLine() setFgColor(0,170,255) resetFormat()</script>
 							<colorTriggerFgColor>#000000</colorTriggerFgColor>
 							<colorTriggerBgColor>#000000</colorTriggerBgColor>
 							<regexCodeList>
-								<string>^\w+ closes (?:his|her) eyes for a moment and turns towards you, beseeching the sun to shine\. A shaft of warm, golden light falls over you, soothing your body\.$</string>
+								<string>^\w+ closes (?:his|her|their) eyes for a moment and turns towards you, beseeching the sun to shine\. A shaft of warm, golden light falls over you, soothing your body\.$</string>
 							</regexCodeList>
 							<regexCodePropertyList>
 								<integer>1</integer>
@@ -26920,7 +26920,7 @@ mm.valid.proper_prone()</script>
 						<colorTriggerFgColor>#000000</colorTriggerFgColor>
 						<colorTriggerBgColor>#000000</colorTriggerBgColor>
 						<regexCodeList>
-							<string>^\w+ spits on a tainted spike then rubs (?:his|her) tongue down its length\. With a vicious sneer s?he thrusts it towards you, causing flecks of tainted mud to spray across your skin\.$</string>
+							<string>^\w+ spits on a tainted spike then rubs (?:his|her|their) tongue down its length\. With a vicious sneer s?he thrusts it towards you, causing flecks of tainted mud to spray across your skin\.$</string>
 						</regexCodeList>
 						<regexCodePropertyList>
 							<integer>1</integer>
@@ -29262,7 +29262,7 @@ mm.valid.simplebleeding()</script>
 						<colorTriggerBgColor>#000000</colorTriggerBgColor>
 						<regexCodeList>
 							<string>You love </string>
-							<string>^You love \w+ far too much to even THINK of hurting (?:her|him)\.$</string>
+							<string>^You love \w+ far too much to even THINK of hurting (?:him|her|them)\.$</string>
 						</regexCodeList>
 						<regexCodePropertyList>
 							<integer>2</integer>
@@ -37155,7 +37155,7 @@ if math.random(1,3) == 1 then mm.adf() end</script>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
 						<string>^\w+ tackles your legs and attempts to carry you off to the \w+\.$</string>
-						<string>^(?:Sh|H)e succeeds and carries you, knocking you to the ground\.$</string>
+						<string>^(?:He|She|They) succeed(?:s) and carries you, knocking you to the ground\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
@@ -37364,7 +37364,7 @@ mm.addwounds("knight", "joust", "chest")</script>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
 						<string>Bearing down on you</string>
-						<string>^Bearing down on you, \w+ lowers (?:his|her) bardiche and angles it across .+?'s neck\. (?:Sh|H)e connects brutally with your .+, sending you flying through the air before gravity exerts its pull and you come tumbling back down, hitting the floor hard\.$</string>
+						<string>^Bearing down on you, \w+ lowers (?:his|her|their) bardiche and angles it across .+?'s neck\. (?:He|She|THey) connect(?:s)? brutally with your .+, sending you flying through the air before gravity exerts its pull and you come tumbling back down, hitting the floor hard\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>2</integer>
@@ -38281,7 +38281,7 @@ end</script>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^\w+ pops something into (?:her|his) mouth, and rolls it around in (?:her|his) cheek\. (?:Sh|H)e cups a fist against (?:her|his) mouth and spits a sickly green beetle at you, which burrows into your flesh\.$</string>
+						<string>^\w+ pops something into (?:her|his|their) mouth, and rolls it around in (?:her|his|their) cheek\. (?:He|She|They) cup(?:s)? a fist against (?:his|her|their) mouth and spits a sickly green beetle at you, which burrows into your flesh\.$</string>
 						<string>A sharp pain starts in your stomach and slowly crawls up your throat.</string>
 					</regexCodeList>
 					<regexCodePropertyList>
@@ -38349,7 +38349,7 @@ mm.valid.simpletreebane()</script>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^\w+ whispers a string of sibilant syllables, and leaves rustle in answer nearby\. (?:Sh|H)e gestures violently at you\.$</string>
+						<string>^\w+ whispers a string of sibilant syllables, and leaves rustle in answer nearby\. (?:He|She|They) gesture(?:s) violently at you\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
@@ -38557,7 +38557,7 @@ end</script>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
 						<string>Mumbling softly to </string>
-						<string>^Mumbling softly to (?:her|him)self, \w+ points a finger at you, and you are gripped by the undulating image of (.+)\.$</string>
+						<string>^Mumbling softly to (?:him|her|them)self, \w+ points a finger at you, and you are gripped by the undulating image of (.+)\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>2</integer>
@@ -40152,7 +40152,7 @@ mm.valid.simpleasthma()</script>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^\w+ smashes a chunk of dark rock at (?:her|his) feet and red and black smoke roils about (?:her|him)\.$</string>
+						<string>^\w+ smashes a chunk of dark rock at (?:his|her|thier) feet and red and black smoke roils about (?:him|her|them)\.$</string>
 						<string>Tendrils of red and black smoke wrap around you, covering your skin in a sticky film.</string>
 					</regexCodeList>
 					<regexCodePropertyList>
@@ -43484,7 +43484,7 @@ end</script>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
 						<string>^\w+ strikes at your</string>
-						<string>^Recovering from (?:his|her) parry,</string>
+						<string>^Recovering from (?:his|her|their) parry,</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
@@ -46611,7 +46611,7 @@ deselect()</script>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
 						<string>Whispering to </string>
-						<string>^Whispering to (?:her|him)self, \w+ points at you and a silver light flashes across your field of vision\.$</string>
+						<string>^Whispering to (?:him|her|them)self, \w+ points at you and a silver light flashes across your field of vision\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>2</integer>
@@ -51379,7 +51379,7 @@ mm.valid.simpleunknownwafer()</script>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^(\w+) softly chants into your ear, and you are magnetically pulled towards (?:her|him)\.</string>
+						<string>^(\w+) softly chants into your ear, and you are magnetically pulled towards (?:him|her|them)\.</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
@@ -51429,7 +51429,7 @@ mm.valid.simpleunknownwafer()</script>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^(\w+) chants and a column of topaz light appears before (?:her|him)\. (?:Sh|H)e points at you and the column of light obediently moves to envelop you, a voice whispering in your mind that you will be judged\.$</string>
+						<string>^(\w+) chants and a column of topaz light appears before (?:him|her|them)\. (?:She|He|They) point(?:s)? at you and the column of light obediently moves to envelop you, a voice whispering in your mind that you will be judged\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
@@ -52997,8 +52997,8 @@ mm.valid.simpledisrupt()</script>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^\w+'s feet transform into golden hooves, and s?he raises one up high and stomps down upon you, knocking the wind out of your lungs\.$</string>
-						<string>^The form of a ghostly stag settles upon \w+\. (?:Sh|H)e raises one golden hoof up high and stomps down upon you, knocking the wind out of your lungs\.$</string>
+						<string>^\w+'s feet transform into golden hooves, and (?:he|she|they) raise(?:s)? one up high and stomps down upon you, knocking the wind out of your lungs\.$</string>
+						<string>^The form of a ghostly stag settles upon \w+\. (?:He|She|They) raise(?:s)? one golden hoof up high and stomps down upon you, knocking the wind out of your lungs\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
@@ -53079,7 +53079,7 @@ mm.valid.simpledisrupt()</script>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^\w+ scoops (?:his|her) hand through the air as though s?he just caught something\. (?:Sh|H)e then appears to fling something at you but you see nothing\. Curiously, your skin begins to itch\.$</string>
+						<string>^\w+ scoops (?:his|her|their) hand through the air as though (?:he|she|they) just caught something\. (?:He|She|They) then appear(?:s)? to fling something at you but you see nothing\. Curiously, your skin begins to itch\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
@@ -53119,7 +53119,7 @@ mm.valid.simpledisrupt()</script>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^\w+ lowers (?:his|her) head and charges you, impaling you on (?:his|her) antlers\.$</string>
+						<string>^\w+ lowers (?:his|her|their) head and charges you, impaling you on (?:his|her|their) antlers\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
@@ -53141,7 +53141,7 @@ mm.valid.simpledisrupt()</script>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^(\w+) lifts (?:his|her) golden antlers high, which begin to glow, and parades before you\. You hypnotically watch the swaying of the antlers\.$</string>
+						<string>^(\w+) lifts (?:his|her|their) golden antlers high, which begin to glow, and parades before you\. You hypnotically watch the swaying of the antlers\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
@@ -53305,7 +53305,7 @@ mm.valid.simpleunknownmental()</script>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^\w+ raises (?:his|her) voice in a hymn to the hosts of Celestia, beseeching Methrenton for aid\. (?:His|Her) song swells, ringing through the air with a preternatural clarity\. In a blaze of holy fire, an avenging angel descends from above, alighting before you and glaring at you in a righteous fury that makes your knees weak and your spirit tremble\.$</string>
+						<string>^\w+ raises (?:his|her|their) voice in a hymn to the hosts of Celestia, beseeching Methrenton for aid\. (?:His|Her|Their) song swells, ringing through the air with a preternatural clarity\. In a blaze of holy fire, an avenging angel descends from above, alighting before you and glaring at you in a righteous fury that makes your knees weak and your spirit tremble\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
@@ -53501,7 +53501,7 @@ mm.valid.proper_prone()</script>
 						<colorTriggerFgColor>#000000</colorTriggerFgColor>
 						<colorTriggerBgColor>#000000</colorTriggerBgColor>
 						<regexCodeList>
-							<string>^\w+ swings (?:his|her) leg high into the air at your (?:head|chest)\.$</string>
+							<string>^\w+ swings (?:his|her|their) leg high into the air at your (?:head|chest)\.$</string>
 						</regexCodeList>
 						<regexCodePropertyList>
 							<integer>1</integer>
@@ -54096,7 +54096,7 @@ mm.valid.simpleunknownany()</script>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^(\w+) stands an Aeon tarot on (?:his|her) palm and blows it at you\.$</string>
+						<string>^(\w+) stands an Aeon tarot on (?:his|her|their) palm and blows it at you\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
@@ -54218,7 +54218,7 @@ mm.valid.simpledizziness()</script>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^(\w+) quickly flings a tarot card at you, and you feel unreasonable lust for (?:her|him)\.$</string>
+						<string>^(\w+) quickly flings a tarot card at you, and you feel unreasonable lust for (?:him|her|them)\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
@@ -55235,7 +55235,7 @@ mm.valid.simplestun()</script>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^\w+ rakes you across the throat with (?:his|her) claws\.$</string>
+						<string>^\w+ rakes you across the throat with (?:his|her|their) claws\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
@@ -55687,7 +55687,7 @@ mm.valid.proper_unknowncrippledarm()</script>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
 						<string>A myriad of beautiful blossoms open up along</string>
-						<string>^A myriad of beautiful blossoms open up along \w+'s branches, filling (?:his|her) eaves with a panoply of colour\. You cannot help but stare at them until you find yourself face-down, eating dirt\.$</string>
+						<string>^A myriad of beautiful blossoms open up along \w+'s branches, filling (?:his|her|their) eaves with a panoply of colour\. You cannot help but stare at them until you find yourself face-down, eating dirt\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>2</integer>
@@ -55890,7 +55890,7 @@ end)</script>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^(\w+) goes rigid and still before a quiver climbs up (?:his|her) behemoth form, causing (?:his|her) roots and branches to quiver as a thrill rushes through (?:him|her)\. Every blossom upon (?:his|her) branches spread their petals wide, releasing their pollen in a multicoloured cloud that twists about (?:him|her), throbbing and churning as it grows in size\.$</string>
+						<string>^(\w+) goes rigid and still before a quiver climbs up (?:his|her|their) behemoth form, causing (?:his|her|their) roots and branches to quiver as a thrill rushes through (?:him|her|them)\. Every blossom upon (?:his|hertheir) branches spread their petals wide, releasing their pollen in a multicoloured cloud that twists about (?:him|her), throbbing and churning as it grows in size\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
