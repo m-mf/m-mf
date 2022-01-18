@@ -1889,15 +1889,12 @@ function valid.steam_still_completelyaurawarped()
     lifevision.add(actions.completelyaurawarped.p, "stillgot")
 end
 
-#for _, item in ipairs{"steam"} do
-function valid.fill$(item)()
-  checkaction(dict.fill$(item).physical)
-  if actions.fill$(item)_physical then
-    lifevision.add(actions.fill$(item)_physical.p)
+function valid.fillsteam()
+  checkaction(dict.fillsteam.physical)
+  if actions.fillsteam_physical then
+    lifevision.add(actions.fillsteam_physical.p)
   end
 end
-
-#end
 
 function valid.alreadyfull()
   local result = checkany(dict.fillsteam.physical)
@@ -3394,7 +3391,7 @@ function valid.empty_pipe()
 end
 
 function valid.empty_light()
-  local r = checkany(dict.lightsteam.physical)
+  local r = checkaction(dict.lightsteam.physical)
 
   if not r then return end
 

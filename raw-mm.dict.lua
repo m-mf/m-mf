@@ -1,4 +1,5 @@
--- m&mf (c) 2010-2022 by Vadim Peretokin
+-- m&mf (c) 2010-2015 by Vadim Peretokin
+-- m&mf (c) 2022 by Vadim Peretokin
 
 -- m&mf is licensed under a
 -- Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
@@ -278,24 +279,21 @@ codepaste.can_refill = function()
   return not ((affs.hemiplegyright and affs.hemiplegyleft) or affs.paralysis)
 end
 
-#for _, item in ipairs{"steam"} do
-codepaste.smoke_$(item)_pipe = function()
-  if pipes.$(item).id == 0 then sk.warn "no$(item)id" end
-  if not (pipes.$(item).lit or pipes.$(item).arty) then
-    sk.forcelight_$(item) = true
+codepaste.smoke_steam_pipe = function()
+  if pipes.steam.id == 0 then sk.warn "nosteamid" end
+  if not (pipes.steam.lit or pipes.steam.arty) then
+    sk.forcelight_steam = true
   end
 
   -- can't smoke non-arty pipes underwater
-  if (gmcp.Room and gmcp.Room.Info and gmcp.Room.Info.environment == "deep ocean") and not pipes.$(item).arty then
+  if (gmcp.Room and gmcp.Room.Info and gmcp.Room.Info.environment == "deep ocean") and not pipes.steam.arty then
     return false
   end
 
-  return (not (pipes.$(item).id == 0) and
-    (pipes.$(item).lit or pipes.$(item).arty) and
-    not (pipes.$(item).puffs == 0))
+  return (not (pipes.steam.id == 0) and
+    (pipes.steam.lit or pipes.steam.arty) and
+    not (pipes.steam.puffs == 0))
 end
-
-#end
 
 codepaste.balanceful_defs_codepaste = function()
   if not (bals.balance and bals.equilibrium and bals.leftarm and bals.rightarm) then return true end
@@ -3473,105 +3471,6 @@ dict = {
       end
     }
   },
---   lightcoltsfoot = {
---     physical = {
---       aspriority = 6,
---       spriority = 6,
---       balanceless_act = true,
---       herb = "coltsfoot",
-
---       isadvisable = function ()
---         -- disabled, handled with lightpipes by the system - but left here in case of manual lighting
---         return false
---       end,
-
---       oncompleted = function ()
---         pipes.coltsfoot.lit = true
---         sk.forcelight_coltsfoot = false
---         lastlit("coltsfoot")
---       end,
-
---       all = function ()
---         for name, pipe in pairs(pipes) do
---           pipe.lit = true
---           sk["forcelight_"..name] = false
---         end
---       end,
-
---       onstart = function ()
---         if conf.gagrelight then
---           send("light " .. pipes.coltsfoot.id, false)
---         else
---           send("light " .. pipes.coltsfoot.id, conf.commandecho) end
---       end
---     }
---   },
---   lightmyrtle = {
---     physical = {
---       aspriority = 5,
---       spriority = 5,
---       balanceless_act = true,
---       herb = "myrtle",
-
---       isadvisable = function ()
---         -- disabled, handled with lightpipes by the system - but left here in case of manual lighting
---         return false
---       end,
-
---       oncompleted = function ()
---         pipes.myrtle.lit = true
---         sk.forcelight_myrtle = false
---         lastlit("myrtle")
---       end,
-
---       all = function ()
---         for name, pipe in pairs(pipes) do
---           pipe.lit = true
---           sk["forcelight_"..name] = false
---         end
---       end,
-
---       onstart = function ()
---         if conf.gagrelight then
---           send("light " .. pipes.myrtle.id, false)
---         else
---           send("light " .. pipes.myrtle.id, conf.commandecho) end
---       end
---     }
---   },
---   lightfaeleaf = {
---     physical = {
---       aspriority = 4,
---       spriority = 4,
---       balanceless_act = true,
---       herb = "faeleaf",
-
---       isadvisable = function ()
---         -- disabled, handled with lightpipes by the system - but left here in case of manual lighting
---         return false
---       end,
-
---       oncompleted = function ()
---         pipes.faeleaf.lit = true
---         sk.forcelight_faeleaf = false
---         lastlit("faeleaf")
---       end,
-
---       all = function ()
---         for name, pipe in pairs(pipes) do
---           pipe.lit = true
---           sk["forcelight_"..name] = false
---         end
---       end,
-
---       onstart = function ()
---         if conf.gagrelight then
---           send("light " .. pipes.faeleaf.id, false)
---         else
---           send("light " .. pipes.faeleaf.id, conf.commandecho) end
---       end
---     }
---   },
   lightsteam = {
     physical = {
       aspriority = 4,
