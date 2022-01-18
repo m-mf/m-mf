@@ -881,7 +881,7 @@ tempTimer(10, [[echo"\n\n" mm.echof("Geomancy Pollute damage incoming in 2s!") e
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^Liquid fire rains down on (\w+)\, broiling (?:her|his|their) flesh\.$</string>
+						<string>^Liquid fire rains down on (\w+)\, broiling (?:|his|her|their) flesh\.$</string>
 						<string>^A searing rain of fire slams into (\w+)\, knocking (?:him|her|them) downward\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
@@ -1385,7 +1385,7 @@ echo"\n"</script>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^(\w+) raises (?:her|his|their) arms and hums deeply the note of the forest\. The air sharpens and ethereal trees rise up from the ground, superimposing a translucent forest that shimmers with vitality\.$</string>
+						<string>^(\w+) raises (?:his|her|their) arms and hums deeply the note of the forest\. The air sharpens and ethereal trees rise up from the ground, superimposing a translucent forest that shimmers with vitality\.$</string>
 						<string>^(\w+) raises (?:his|her|their) arms and hums deeply the note of the forest\. Around you, the wyrd seeps out of the trees and plant life, which start to look greener and healthier than before\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
@@ -1559,7 +1559,7 @@ tempTimer(8, [[echo"\n\n" mm.echof("Wildewood Glinshari damage incoming in 2s!")
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^(\w+) goes rigid and still before a quiver climbs up (?:his|her|their) behemoth form, causing (?:his|her|their) roots and branches to quiver as a thrill rushes through (?:his|her|them)\. Every blossom upon (?:her|his|their) branches spread their petals wide, releasing their pollen in a multicoloured cloud that twists about (?:him|her|them), throbbing and churning as it grows in size\.$</string>
+						<string>^(\w+) goes rigid and still before a quiver climbs up (?:his|her|their) behemoth form, causing (?:his|her|their) roots and branches to quiver as a thrill rushes through (?:his|her|them)\. Every blossom upon (?:his|her|their) branches spread their petals wide, releasing their pollen in a multicoloured cloud that twists about (?:him|her|them), throbbing and churning as it grows in size\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>

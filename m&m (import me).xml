@@ -15667,7 +15667,7 @@ end</script>
 							<colorTriggerFgColor>#000000</colorTriggerFgColor>
 							<colorTriggerBgColor>#000000</colorTriggerBgColor>
 							<regexCodeList>
-								<string>^\w+ loses control of (?:her|his|their) grapple on you\.$</string>
+								<string>^\w+ loses control of (?:his|her|their) grapple on you\.$</string>
 								<string>^\w+ releases (?:his|her|their) fierce grapple on you\.$</string>
 							</regexCodeList>
 							<regexCodePropertyList>
@@ -37366,7 +37366,7 @@ mm.addwounds("knight", "joust", "chest")</script>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
 						<string>Bearing down on you</string>
-						<string>^Bearing down on you, \w+ lowers (?:his|her|their) bardiche and angles it across .+?'s neck\. (?:He|She|THey) connect(?:s)? brutally with your .+, sending you flying through the air before gravity exerts its pull and you come tumbling back down, hitting the floor hard\.$</string>
+						<string>^Bearing down on you, \w+ lowers (?:his|her|their) bardiche and angles it across .+?'s neck\. (?:He|She|They) connect(?:s)? brutally with your .+, sending you flying through the air before gravity exerts its pull and you come tumbling back down, hitting the floor hard\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>2</integer>
@@ -38283,7 +38283,7 @@ end</script>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^\w+ pops something into (?:her|his|their) mouth, and rolls it around in (?:her|his|their) cheek\. (?:He|She|They) cup(?:s)? a fist against (?:his|her|their) mouth and spits a sickly green beetle at you, which burrows into your flesh\.$</string>
+						<string>^\w+ pops something into (?:his|her|their) mouth, and rolls it around in (?:his|her|their) cheek\. (?:He|She|They) cup(?:s)? a fist against (?:his|her|their) mouth and spits a sickly green beetle at you, which burrows into your flesh\.$</string>
 						<string>A sharp pain starts in your stomach and slowly crawls up your throat.</string>
 					</regexCodeList>
 					<regexCodePropertyList>
@@ -55892,7 +55892,7 @@ end)</script>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^(\w+) goes rigid and still before a quiver climbs up (?:his|her|their) behemoth form, causing (?:his|her|their) roots and branches to quiver as a thrill rushes through (?:him|her|them)\. Every blossom upon (?:his|hertheir) branches spread their petals wide, releasing their pollen in a multicoloured cloud that twists about (?:him|her), throbbing and churning as it grows in size\.$</string>
+						<string>^(\w+) goes rigid and still before a quiver climbs up (?:his|her|their) behemoth form, causing (?:his|her|their) roots and branches to quiver as a thrill rushes through (?:him|her|them)\. Every blossom upon (?:his|her|their) branches spread their petals wide, releasing their pollen in a multicoloured cloud that twists about (?:him|her), throbbing and churning as it grows in size\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
