@@ -1,4 +1,4 @@
--- m&mf (c) 2010-2015 by Vadim Peretokin
+-- m&mf (c) 2010-2022 by Vadim Peretokin
 
 -- m&mf is licensed under a
 -- Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
@@ -659,36 +659,6 @@ config_dict = pl.OrderedMap {
       fg(defaultcolour) echo ("Don't eat while checking herb-cured illusions.\n")
     end,
     installstart = function () conf.waitherbai = true end
-  }},
-#conf_name = "myrtleid"
-  {$(conf_name) = {
-    type = "number",
-    min = 0,
-    installstart = function () conf.myrtleid = nil; pipes.myrtle.id = 0 end,
-    installcheck = function () echof("What pipe should we use for myrtle? Answer with the ID, please.") end,
-    onset = function ()
-      pipes.myrtle.id = tonumber(conf.myrtleid)
-      echof("Set the myrtle pipe id to %d.", pipes.myrtle.id) end,
-  }},
-#conf_name = "faeleafid"
-  {$(conf_name) = {
-    type = "number",
-    min = 0,
-    installstart = function () conf.faeleafid = nil; pipes.faeleaf.id = 0 end,
-    installcheck = function () echof("What pipe should we use for faeleaf? Answer with the ID, please.") end,
-    onset = function ()
-      pipes.faeleaf.id = tonumber(conf.faeleafid)
-      echof("Set the faeleaf pipe id to %d.", pipes.faeleaf.id) end,
-  }},
-#conf_name = "coltsfootid"
-  {$(conf_name) = {
-    type = "number",
-    min = 0,
-    installstart = function () conf.coltsfootid = nil; pipes.coltsfoot.id = 0 end,
-    installcheck = function () echof("What pipe should we use for coltsfoot? Answer with the ID, please.") end,
-    onset = function ()
-      pipes.coltsfoot.id = tonumber(conf.coltsfootid)
-      echof("Set the coltsfoot pipe id to %d.", pipes.coltsfoot.id) end,
   }},
 #conf_name = "steamid"
   {$(conf_name) = {
