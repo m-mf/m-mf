@@ -547,9 +547,6 @@ mmconfig options
   sparklemana
     sets the % of mana below which the system will eat sparkle.
 
-  stanceskill
-    sets the maximum available stance skill in Combat that you have.
-
   steamid
   	sets the pipe ID to use for the soothing steam pipe. Normally you wouldn't need to use this, as the system can auto-assign IDs from the *pipelist* command - but if you don't have it, you can use this option.
 

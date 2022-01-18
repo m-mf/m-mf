@@ -612,7 +612,8 @@ install.check_install_step = function()
         printCmdLine("mmconfig "..name.." ")
       end
 
-      return end
+      return
+    end
   end
 
   install.installing_system = false
