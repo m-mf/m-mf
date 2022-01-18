@@ -674,12 +674,8 @@ function install.checkinvgmcp()
     elseif it.name == "a magic tome" then
       config.set("magictome", true, true)
     elseif string.find(it.name, "%f[%a]pipe%f[%A]") then
-      cecho("<yellow>debug gmcp found an item with pipe in the name in install.checkinvgmcp()" )
-      display(it)
       if not (it.icon == "lamp" or it.name == "a smoke wreathed pipe" or it.name == "a shimmering, silver bubble pipe") then
-        echof(f"debug hit pipe set id pipe_assignid in install.checkinvgmcp(), {it.id}")
         local r = pipe_assignid(it.id)
-        cecho("<yellow>"..tostring(r))
         if r then echof("Set the %s pipe id to %d.", r, it.id) end
       end
     end
