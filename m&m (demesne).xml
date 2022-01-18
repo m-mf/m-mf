@@ -78,7 +78,7 @@
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^Thunder roars and a bolt of lightning strikes (\w+)\, knocking (?:her|him) to the ground\.$</string>
+						<string>^Thunder roars and a bolt of lightning strikes (\w+)\, knocking (?him|her|them) to the ground\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
@@ -226,7 +226,7 @@ echo"\n"</script>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^(\w+) sweeps the air with (?:his|her) hand and (?:his|her) eyes glow with a phosphorescent blue\.$</string>
+						<string>^(\w+) sweeps the air with (?:his|her|their) hand and (?:his|her|their) eyes glow with a phosphorescent blue\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
@@ -333,7 +333,7 @@ tempTimer(10, [[echo"\n\n" mm.echof("Aeromancy Cyclone damage incoming in 2s!") 
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^(\w+) is drenched in a violent downpour of rain that leaves (?:his|her) skin raw\.$</string>
+						<string>^(\w+) is drenched in a violent downpour of rain that leaves (?:his|her|their) skin raw\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
@@ -628,7 +628,7 @@ tempTimer(10, [[echo"\n\n" mm.echof("Aquamancy Maelstorm damage incoming in 2s!"
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^(\w+) coughs hoarsely as ugly cankerous sores break out on (?:his|her) skin\, dripping with pus\.$</string>
+						<string>^(\w+) coughs hoarsely as ugly cankerous sores break out on (?:his|her|their) skin\, dripping with pus\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
@@ -674,7 +674,7 @@ echo"\n"</script>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^(\w+) stomps on the ground and (?:his|her) eyes shine with an eerie red glow\.$</string>
+						<string>^(\w+) stomps on the ground and (?:his|her|their) eyes shine with an eerie red glow\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
@@ -881,8 +881,8 @@ tempTimer(10, [[echo"\n\n" mm.echof("Geomancy Pollute damage incoming in 2s!") e
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^Liquid fire rains down on (\w+)\, broiling (?:her|his) flesh\.$</string>
-						<string>^A searing rain of fire slams into (\w+)\, knocking (?:her|him) downward\.$</string>
+						<string>^Liquid fire rains down on (\w+)\, broiling (?:|his|her|their) flesh\.$</string>
+						<string>^A searing rain of fire slams into (\w+)\, knocking (?:him|her|them) downward\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
@@ -1010,8 +1010,8 @@ echo"\n"</script>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^After rubbing (?:his|her) hands together, (\w+) pulls them apart and releases thousands of glowing red sparks that whirl around (?:him|her) in a chaotic dance before flaring into small flames that spread out across the expanse of the location\.$</string>
-						<string>^After rubbing (?:his|her) hands together, (\w+) pulls them apart and releases thousands of glowing red sparks that whirl around (?:him|her) in a chaotic dance before flaring into small flames that spread out across the expanse of the location, burning away the (\w+)\.$</string>
+						<string>^After rubbing (?:his|her|their) hands together, (\w+) pulls them apart and releases thousands of glowing red sparks that whirl around (?:him|her|them) in a chaotic dance before flaring into small flames that spread out across the expanse of the location\.$</string>
+						<string>^After rubbing (?:his|her|their) hands together, (\w+) pulls them apart and releases thousands of glowing red sparks that whirl around (?:him|her|them) in a chaotic dance before flaring into small flames that spread out across the expanse of the location, burning away the (\w+)\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
@@ -1208,7 +1208,7 @@ tempTimer(10, [[echo"\n\n" mm.echof("Pyromancy Inferno damage incoming in 2s!") 
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
 						<string>Hundreds of bloated spiders crawl up</string>
-						<string>^Hundreds of bloated spiders crawl up the legs of (\w+)\, their stings raising red welts on (?:his|her) skin\.$</string>
+						<string>^Hundreds of bloated spiders crawl up the legs of (\w+)\, their stings raising red welts on (?:his|her|their) skin\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>2</integer>
@@ -1274,7 +1274,7 @@ tempTimer(10, [[echo"\n\n" mm.echof("Pyromancy Inferno damage incoming in 2s!") 
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
 						<string>The tiny red mushrooms on the ground release a cloud of yellow spores</string>
-						<string>^The tiny red mushrooms on the ground release a cloud of yellow spores\, which travel up (\w+)'s nose and make (?:his|her) eyes water\.$</string>
+						<string>^The tiny red mushrooms on the ground release a cloud of yellow spores\, which travel up (\w+)'s nose and make (?:his|her|their) eyes water\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>2</integer>
@@ -1318,7 +1318,7 @@ tempTimer(10, [[echo"\n\n" mm.echof("Pyromancy Inferno damage incoming in 2s!") 
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
 						<string>Animated branches from the trees above suddenly reach down and clutch</string>
-						<string>^Animated branches from the trees above suddenly reach down and clutch (\w+) around the waist\, pulling (?:her|him) into their foliage\.$</string>
+						<string>^Animated branches from the trees above suddenly reach down and clutch (\w+) around the waist\, pulling (?him|her|them) into their foliage\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>2</integer>
@@ -1385,8 +1385,8 @@ echo"\n"</script>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^(\w+) raises (?:her|his) arms and hums deeply the note of the forest\. The air sharpens and ethereal trees rise up from the ground, superimposing a translucent forest that shimmers with vitality\.$</string>
-						<string>^(\w+) raises (?:his|her) arms and hums deeply the note of the forest\. Around you, the wyrd seeps out of the trees and plant life, which start to look greener and healthier than before\.$</string>
+						<string>^(\w+) raises (?:his|her|their) arms and hums deeply the note of the forest\. The air sharpens and ethereal trees rise up from the ground, superimposing a translucent forest that shimmers with vitality\.$</string>
+						<string>^(\w+) raises (?:his|her|their) arms and hums deeply the note of the forest\. Around you, the wyrd seeps out of the trees and plant life, which start to look greener and healthier than before\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
@@ -1559,7 +1559,7 @@ tempTimer(8, [[echo"\n\n" mm.echof("Wildewood Glinshari damage incoming in 2s!")
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^(\w+) goes rigid and still before a quiver climbs up (?:her|his) behemoth form, causing (?:her|his) roots and branches to quiver as a thrill rushes through (?:her|him)\. Every blossom upon (?:her|his) branches spread their petals wide, releasing their pollen in a multicoloured cloud that twists about (?:her|him), throbbing and churning as it grows in size\.$</string>
+						<string>^(\w+) goes rigid and still before a quiver climbs up (?:his|her|their) behemoth form, causing (?:his|her|their) roots and branches to quiver as a thrill rushes through (?:his|her|them)\. Every blossom upon (?:his|her|their) branches spread their petals wide, releasing their pollen in a multicoloured cloud that twists about (?:him|her|them), throbbing and churning as it grows in size\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
@@ -1582,7 +1582,7 @@ tempTimer(8, [[echo"\n\n" mm.echof("Aquachemantics Aquoxitism damage incoming in
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^(\w+) exhales a long, slow breath into (?:his|her) mists, willing many of them together\. A swirling mass of mists churns together, expanding outwards in a chilly fog\.$</string>
+						<string>^(\w+) exhales a long, slow breath into (?:his|her|their) mists, willing many of them together\. A swirling mass of mists churns together, expanding outwards in a chilly fog\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
@@ -1604,8 +1604,8 @@ echo"\n"</script>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^(\w+) closes (?:his|her) eyes and bows (?:his|her) head\. There is a small shudder around you, and the (.*) environment melts away, revealing itself as truly (\w+)\.$</string>
-						<string>^Taking a deep breath\, (\w+) closes (?:his|her) eyes and bows (?:his|her) head\. There is a small shudder around you\, and you feel the atmosphere here suddenly lighten\.$</string>
+						<string>^(\w+) closes (?:his|her|their) eyes and bows (?:his|her|their) head\. There is a small shudder around you, and the (.*) environment melts away, revealing itself as truly (\w+)\.$</string>
+						<string>^Taking a deep breath\, (\w+) closes (?:his|her|their) eyes and bows (?:his|her|their) head\. There is a small shudder around you\, and you feel the atmosphere here suddenly lighten\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>

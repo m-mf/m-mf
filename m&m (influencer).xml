@@ -562,7 +562,7 @@ mmi.analysis_says_influenced()</script>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>^The strength of .+'s personality makes (?:her|him) impossible to analyze\.$</string>
+						<string>^The strength of .+'s personality makes (?:him|her|them) impossible to analyze\.$</string>
 						<string>Don't you think it's a bit absurd trying to analyze </string>
 					</regexCodeList>
 					<regexCodePropertyList>
