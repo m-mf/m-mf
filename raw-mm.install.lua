@@ -1,4 +1,5 @@
 -- m&mf (c) 2010-2015 by Vadim Peretokin
+-- m&mf (c) 2022 by Steingrim
 
 -- m&mf is licensed under a
 -- Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
@@ -310,24 +311,6 @@ local installdata = {
               mm.installclear("scrollid")
             ]==])
             killTrigger(mm.scrollidtrig)
-          ]=])
-      ]]
-    }
-  },
-  pipes = {
-    command = "ii pipe",
-    item = true,
-    other = {
-      pattern = [[^You are wielding:$]],
-      script = [[
-        mm.deleteAllP()
-        mm.pipetrig = tempRegexTrigger([=[^"pipe(\d+)" +.+pipe.*]=],
-          [=[
-            tempTimer(0.02, [==[
-              local r = mm.pipe_assignid(]==]..matches[2]..[==[)
-              if r then mm.echof("Set the %s pipe id to %d.", r, ]==]..matches[2]..[==[) end
-            ]==])
-            killTrigger(mm.pipetrig)
           ]=])
       ]]
     }
@@ -674,8 +657,10 @@ function install.checkinvgmcp()
     elseif it.name == "a magic tome" then
       config.set("magictome", true, true)
     elseif string.find(it.name, "%f[%a]pipe%f[%A]") then
-      local r = pipe_assignid(it.id)
-      if r then echof("Set the %s pipe id to %d.", r, it.id) end
+      if not (it.icon == "lamp" or it.name == "a smoke wreathed pipe" or it.name == "a shimmering, silver bubble pipe") then
+        local r = pipe_assignid(it.id)
+        if r then echof("Set the %s pipe id to %d.", r, it.id) end
+      end
     end
   end
 

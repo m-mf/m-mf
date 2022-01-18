@@ -388,9 +388,6 @@ mmconfig options
   clot
     lets the system know it can make use of the clotting skill to stop bleeding when you're above the allowed mana level. The system will make use of chervil otherwise if it can't.
 
-  coltsfootid
-    sets the pipe ID to use for the coltsfoot pipe. Normally you wouldn't need to use this, as the system can auto-assign IDs from the *pipelist* command - but if you don't have it, you can use this option.
-
   commandecho
     with this enabled, the system will echo the commands that it's doing on the main screen.
 
@@ -417,9 +414,6 @@ mmconfig options
 
   eventaffs
     advanced option - this will have the system raise Mudlet events for when you receive or loss an affliction. The event names are *m&m got aff* and *m&m lost aff*, and the name of the affliction is passed as an argument. The events are raised after the *mm.affl* table is adjusted, so it's safe to operate on it in your event handlers.
-
-  faeleafid
-    sets the pipe ID to use for the faeleaf pipe. Normally you wouldn't need to use this, as the system can auto-assign IDs from the *pipelist* command - but if you don't have it, you can use this option.
 
   focus
     Adds/Removes an affliction to the focus table. Afflictions in the table will always be focused.
@@ -471,9 +465,6 @@ mmconfig options
 
   manause
     sets the % below which the system should *not* use mana. ie, setting it to 30% will have the system not use insomnia, focus mind and etc. if you're at 29% of total maximum mana but revert to normal cures.
-
-  myrtleid
-    sets the pipe ID to use for the myrtle pipe. Normally you wouldn't need to use this, as the system can auto-assign IDs from the *pipelist* command - but if you don't have it, you can use this option.
 
   org
     sets the name of the city/commune you're in (this is needed for org-specific defences).

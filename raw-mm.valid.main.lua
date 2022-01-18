@@ -1,4 +1,5 @@
 -- m&mf (c) 2010-2015 by Vadim Peretokin
+-- m&mf (c) 2022 by Steingrim
 
 -- m&mf is licensed under a
 -- Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
@@ -1889,18 +1890,15 @@ function valid.steam_still_completelyaurawarped()
     lifevision.add(actions.completelyaurawarped.p, "stillgot")
 end
 
-#for _, item in ipairs{"faeleaf", "myrtle", "coltsfoot", "steam"} do
-function valid.fill$(item)()
-  checkaction(dict.fill$(item).physical)
-  if actions.fill$(item)_physical then
-    lifevision.add(actions.fill$(item)_physical.p)
+function valid.fillsteam()
+  checkaction(dict.fillsteam.physical)
+  if actions.fillsteam_physical then
+    lifevision.add(actions.fillsteam_physical.p)
   end
 end
 
-#end
-
 function valid.alreadyfull()
-  local result = checkany(dict.fillfaeleaf.physical, dict.fillmyrtle.physical, dict.fillcoltsfoot.physical, dict.fillsteam.physical)
+  local result = checkaction(dict.fillsteam.physical)
 
   if not result then return end
 
@@ -1910,8 +1908,7 @@ end
 function valid.litpipe()
   if conf.gagrelight then deleteLineP() end
 
-  local result = checkany(
-    dict.lightmyrtle.physical, dict.lightfaeleaf.physical, dict.lightcoltsfoot.physical, dict.lightsteam.physical)
+  local result = checkaction(dict.lightsteam.physical)
 
   if not result then return end
   lifevision.add(actions[result.name].p)
@@ -2396,12 +2393,10 @@ end
 signals.removed_from_rift:connect(valid.removed_from_rift)
 
 function valid.no_refill_herb()
-  for _, herb in ipairs{"faeleaf", "myrtle", "coltsfoot", "steam"} do
-    if actions["fill"..herb.."_physical"] then
-      rift.invcontents[herb] = 0
-      killaction(dict["fill"..herb].physical)
+  if actions["fillsteam_physical"] then
+    rift.invcontents[herb] = 0
+    killaction(dict.fillsteam.physical)
     end
-  end
 end
 
 function valid.cureddisrupt()
@@ -3397,7 +3392,7 @@ function valid.empty_pipe()
 end
 
 function valid.empty_light()
-  local r = checkany(dict.lightfaeleaf.physical, dict.lightmyrtle.physical, dict.lightcoltsfoot.physical, dict.lightsteam.physical)
+  local r = checkaction(dict.lightsteam.physical)
 
   if not r then return end
 

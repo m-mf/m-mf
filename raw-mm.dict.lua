@@ -1,4 +1,5 @@
 -- m&mf (c) 2010-2015 by Vadim Peretokin
+-- m&mf (c) 2022 by Steingrim
 
 -- m&mf is licensed under a
 -- Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
@@ -278,24 +279,21 @@ codepaste.can_refill = function()
   return not ((affs.hemiplegyright and affs.hemiplegyleft) or affs.paralysis)
 end
 
-#for _, item in ipairs{"faeleaf", "myrtle", "coltsfoot", "steam"} do
-codepaste.smoke_$(item)_pipe = function()
-  if pipes.$(item).id == 0 then sk.warn "no$(item)id" end
-  if not (pipes.$(item).lit or pipes.$(item).arty) then
-    sk.forcelight_$(item) = true
+codepaste.smoke_steam_pipe = function()
+  if pipes.steam.id == 0 then sk.warn "nosteamid" end
+  if not (pipes.steam.lit or pipes.steam.arty) then
+    sk.forcelight_steam = true
   end
 
   -- can't smoke non-arty pipes underwater
-  if (gmcp.Room and gmcp.Room.Info and gmcp.Room.Info.environment == "deep ocean") and not pipes.$(item).arty then
+  if (gmcp.Room and gmcp.Room.Info and gmcp.Room.Info.environment == "deep ocean") and not pipes.steam.arty then
     return false
   end
 
-  return (not (pipes.$(item).id == 0) and
-    (pipes.$(item).lit or pipes.$(item).arty) and
-    not (pipes.$(item).puffs == 0))
+  return (not (pipes.steam.id == 0) and
+    (pipes.steam.lit or pipes.steam.arty) and
+    not (pipes.steam.puffs == 0))
 end
-
-#end
 
 codepaste.balanceful_defs_codepaste = function()
   if not (bals.balance and bals.equilibrium and bals.leftarm and bals.rightarm) then return true end
@@ -3449,28 +3447,19 @@ dict = {
 
       isadvisable = function ()
         return (
-             (not pipes.coltsfoot.arty and not pipes.coltsfoot.lit and pipes.coltsfoot.puffs > 0 and not (pipes.coltsfoot.id == 0)
-          or (not pipes.myrtle.arty and not pipes.myrtle.lit and pipes.myrtle.puffs > 0 and not (pipes.myrtle.id == 0))
-          or (not pipes.faeleaf.arty and not pipes.faeleaf.lit and pipes.faeleaf.puffs > 0 and not (pipes.faeleaf.id == 0))
-          or (not pipes.steam.arty and not pipes.steam.lit and pipes.steam.puffs > 0 and not (pipes.steam.id == 0))
+            (not pipes.steam.arty and not pipes.steam.lit and pipes.steam.puffs > 0 and not (pipes.steam.id == 0)
           )
-        and (conf.relight or sk.forcelight_coltsfoot or sk.forcelight_faeleaf or sk.forcelight_myrtle or sk.forcelight_steam)
-        and not (doingaction("lightfaeleaf") or doingaction("lightmyrtle") or doingaction("lightcoltsfoot") or doingaction("lightsteam") or doingaction("lightpipes"))) or false
+        and (sk.forcelight_steam)
+        and not (doingaction("lightsteam") or doingaction("lightpipes"))) or false
       end,
 
       oncompleted = function ()
-        pipes.coltsfoot.lit     = true
-        sk.forcelight_coltsfoot = false
-        pipes.myrtle.lit        = true
-        sk.forcelight_myrtle    = false
-        pipes.faeleaf.lit       = true
-        sk.forcelight_faeleaf   = false
         pipes.steam.lit         = true
         sk.forcelight_steam     = false
 
         dict.lightpipes.physical.lastlit = os.time()
 
-        lastlit("coltsfoot")
+        lastlit("steam")
       end,
 
       actions = {"light pipes"},
@@ -3479,105 +3468,6 @@ dict = {
           send("light pipes", false)
         else
           send("light pipes", conf.commandecho) end
-      end
-    }
-  },
-  lightcoltsfoot = {
-    physical = {
-      aspriority = 6,
-      spriority = 6,
-      balanceless_act = true,
-      herb = "coltsfoot",
-
-      isadvisable = function ()
-        -- disabled, handled with lightpipes by the system - but left here in case of manual lighting
-        return false
-      end,
-
-      oncompleted = function ()
-        pipes.coltsfoot.lit = true
-        sk.forcelight_coltsfoot = false
-        lastlit("coltsfoot")
-      end,
-
-      all = function ()
-        for name, pipe in pairs(pipes) do
-          pipe.lit = true
-          sk["forcelight_"..name] = false
-        end
-      end,
-
-      onstart = function ()
-        if conf.gagrelight then
-          send("light " .. pipes.coltsfoot.id, false)
-        else
-          send("light " .. pipes.coltsfoot.id, conf.commandecho) end
-      end
-    }
-  },
-  lightmyrtle = {
-    physical = {
-      aspriority = 5,
-      spriority = 5,
-      balanceless_act = true,
-      herb = "myrtle",
-
-      isadvisable = function ()
-        -- disabled, handled with lightpipes by the system - but left here in case of manual lighting
-        return false
-      end,
-
-      oncompleted = function ()
-        pipes.myrtle.lit = true
-        sk.forcelight_myrtle = false
-        lastlit("myrtle")
-      end,
-
-      all = function ()
-        for name, pipe in pairs(pipes) do
-          pipe.lit = true
-          sk["forcelight_"..name] = false
-        end
-      end,
-
-      onstart = function ()
-        if conf.gagrelight then
-          send("light " .. pipes.myrtle.id, false)
-        else
-          send("light " .. pipes.myrtle.id, conf.commandecho) end
-      end
-    }
-  },
-  lightfaeleaf = {
-    physical = {
-      aspriority = 4,
-      spriority = 4,
-      balanceless_act = true,
-      herb = "faeleaf",
-
-      isadvisable = function ()
-        -- disabled, handled with lightpipes by the system - but left here in case of manual lighting
-        return false
-      end,
-
-      oncompleted = function ()
-        pipes.faeleaf.lit = true
-        sk.forcelight_faeleaf = false
-        lastlit("faeleaf")
-      end,
-
-      all = function ()
-        for name, pipe in pairs(pipes) do
-          pipe.lit = true
-          sk["forcelight_"..name] = false
-        end
-      end,
-
-      onstart = function ()
-        if conf.gagrelight then
-          send("light " .. pipes.faeleaf.id, false)
-        else
-          send("light " .. pipes.faeleaf.id, conf.commandecho) end
       end
     }
   },
@@ -3925,63 +3815,6 @@ dict = {
     },
   },
 #end
-  fillfaeleaf = {
-    physical = {
-      balanceless_act = true,
-      aspriority = 1,
-      spriority = 42,
-
-      isadvisable = function ()
-        return (pipes.faeleaf.puffs <= 0 and not doingaction("fillfaeleaf") and not (pipes.faeleaf.id == 0) and codepaste.can_refill()) or false
-      end,
-
-      oncompleted = function ()
-        pipes.faeleaf.puffs = 10
-      end,
-
-      onstart = function ()
-        fillpipe("faeleaf", pipes.faeleaf.id)
-      end
-    }
-  },
-  fillmyrtle = {
-    physical = {
-      balanceless_act = true,
-      aspriority = 2,
-      spriority = 11,
-
-      isadvisable = function ()
-        return (pipes.myrtle.puffs <= 0 and not doingaction("fillmyrtle") and not (pipes.myrtle.id == 0) and codepaste.can_refill()) or false
-      end,
-
-      oncompleted = function ()
-        pipes.myrtle.puffs = 10
-      end,
-
-      onstart = function ()
-        fillpipe("myrtle", pipes.myrtle.id)
-      end
-    }
-  },
-  fillcoltsfoot = {
-    physical = {
-      balanceless_act = true,
-      aspriority = 3,
-      spriority = 3,
-
-      isadvisable = function ()
-        return (pipes.coltsfoot.puffs <= 0 and not doingaction("fillcoltsfoot") and not (pipes.coltsfoot.id == 0) and codepaste.can_refill()) or false
-      end,
-
-      oncompleted = function ()
-        pipes.coltsfoot.puffs = 10
-      end,
-
-      onstart = function ()
-        fillpipe("coltsfoot", pipes.coltsfoot.id)
-      end
-    }
-  },
   fillsteam = {
     physical = {
       balanceless_act = true,
