@@ -1,4 +1,5 @@
 -- m&mf (c) 2010-2015 by Vadim Peretokin
+-- m&mf (c) 2022 by Steingrim
 
 -- m&mf is licensed under a
 -- Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
@@ -1011,18 +1012,6 @@ end
 
 function sk.makewarnings()
   sk.warnings = {
-    --[[nomyrtleid = {
-      time = 20,
-      msg = "Warning: need to use your <31,31,153>myrtle"..getDefaultColor().." pipe and you don't have one!",
-    },
-    nocoltsfootid = {
-      time = 20,
-      msg = "Warning: need to use your <31,31,153>coltsfoot"..getDefaultColor().." pipe and you don't have one!",
-    },
-    nofaeleafid = {
-      time = 20,
-      msg = "Warning: need to use your <31,31,153>faeleaf"..getDefaultColor().." pipe and you don't have one!",
-    },]]--
     nosteamid = {
       time = 20,
       msg = "Warning: need to use your <31,31,153>steam"..getDefaultColor().." pipe and you don't have one!",

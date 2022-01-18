@@ -1,4 +1,5 @@
 -- m&mf (c) 2010-2015 by Vadim Peretokin
+-- m&mf (c) 2010-2022 by Steingrim
 
 -- m&mf is licensed under a
 -- Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
@@ -9,11 +10,7 @@
 pl.dir.makepath(getMudletHomeDir() .. "/m&m/pipes")
 
 -- set the defaults and overwrite with loaded data if we have any
-#for _, item in ipairs{"faeleaf", "myrtle", "coltsfoot", "steam"} do
-pipes.$(item) = pipes.$(item) or
-  {lit = false, id = 0, arty = false, puffs = 0}
-
-#end
+pipes.steam = pipes.steam or {lit = false, id = 0, arty = false, puffs = 0}
 
 if lfs.attributes(getMudletHomeDir() .. "/m&m/pipes/conf") then
   table.load(getMudletHomeDir() .. "/m&m/pipes/conf", pipes)
@@ -28,9 +25,9 @@ signals.saveconfig:connect(function ()
 end)
 
 -- overwrite whatever we loaded here, so we can add new pipes
-pipes.pnames = {"coltsfoot", "myrtle", "faeleaf", "steam"}
+pipes.pnames = {"steam"}
 
-pipes.expectations = {"coltsfoot", "myrtle", "faeleaf", "steam"}
+pipes.expectations = {"steam"}
 
 pipes.empties = {}
 
@@ -67,12 +64,6 @@ function pipestart()
   pipes.empties = {}
 
   pipes.oldpipes = deepcopy(pipes)
-
-  pipes.coltsfoot = {lit = false, id = 0, arty = false, puffs = 0}
-
-  pipes.faeleaf = {lit = false, id = 0, arty = false, puffs = 0}
-
-  pipes.myrtle = {lit = false, id = 0, arty = false, puffs = 0}
 
   pipes.steam = {lit = false, id = 0, arty = false, puffs = 0}
 end
