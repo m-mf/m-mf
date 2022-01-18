@@ -9,11 +9,7 @@
 pl.dir.makepath(getMudletHomeDir() .. "/m&m/pipes")
 
 -- set the defaults and overwrite with loaded data if we have any
-#for _, item in ipairs{"faeleaf", "myrtle", "coltsfoot", "steam"} do
-pipes.$(item) = pipes.$(item) or
-  {lit = false, id = 0, arty = false, puffs = 0}
-
-#end
+pipes.steam = pipes.steam or {lit = false, id = 0, arty = false, puffs = 0}
 
 if lfs.attributes(getMudletHomeDir() .. "/m&m/pipes/conf") then
   table.load(getMudletHomeDir() .. "/m&m/pipes/conf", pipes)

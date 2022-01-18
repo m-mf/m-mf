@@ -2395,12 +2395,10 @@ end
 signals.removed_from_rift:connect(valid.removed_from_rift)
 
 function valid.no_refill_herb()
-  for _, herb in ipairs{"faeleaf", "myrtle", "coltsfoot", "steam"} do
-    if actions["fill"..herb.."_physical"] then
-      rift.invcontents[herb] = 0
-      killaction(dict["fill"..herb].physical)
+  if actions["fillsteam_physical"] then
+    rift.invcontents[herb] = 0
+    killaction(dict["fillsteam"].physical)
     end
-  end
 end
 
 function valid.cureddisrupt()
