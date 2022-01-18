@@ -1,4 +1,5 @@
--- m&mf (c) 2010-2022 by Vadim Peretokin
+-- m&mf (c) 2010-2015 by Vadim Peretokin
+-- m&mf (c) 2010-2022 by Steingrim
 
 -- m&mf is licensed under a
 -- Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.

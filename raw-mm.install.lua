@@ -1,4 +1,5 @@
--- m&mf (c) 2010-2022 by Vadim Peretokin
+-- m&mf (c) 2010-2015 by Vadim Peretokin
+-- m&mf (c) 2022 by Steingrim
 
 -- m&mf is licensed under a
 -- Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
@@ -314,24 +315,6 @@ local installdata = {
       ]]
     }
   },
---   pipes = {
---     command = "ii pipe",
---     item = true,
---     other = {
---       pattern = [[^You are wielding:$]],
---       script = [[
---         mm.deleteAllP()
---         mm.pipetrig = tempRegexTrigger([=[^"pipe(\d+)" +.+pipe.*]=],
---           [=[
---             tempTimer(0.02, [==[
---               local r = mm.pipe_assignid(]==]..matches[2]..[==[)
---               if r then mm.echof("Set the %s pipe id to %d.", r, ]==]..matches[2]..[==[) end
---             ]==])
---             killTrigger(mm.pipetrig)
---           ]=])
---       ]]
---     }
---   },
   autorecharge = {
     command = "ii energy cube",
     item = true,

@@ -1,4 +1,5 @@
--- m&mf (c) 2010-2022 by Vadim Peretokin
+-- m&mf (c) 2010-2015 by Vadim Peretokin
+-- m&mf (c) 2022 by Steingrim
 
 -- m&mf is licensed under a
 -- Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
@@ -1907,7 +1908,7 @@ end
 function valid.litpipe()
   if conf.gagrelight then deleteLineP() end
 
-  local result = checkany(dict.lightsteam.physical)
+  local result = checkaction(dict.lightsteam.physical)
 
   if not result then return end
   lifevision.add(actions[result.name].p)
@@ -2394,7 +2395,7 @@ signals.removed_from_rift:connect(valid.removed_from_rift)
 function valid.no_refill_herb()
   if actions["fillsteam_physical"] then
     rift.invcontents[herb] = 0
-    killaction(dict["fillsteam"].physical)
+    killaction(dict.fillsteam.physical)
     end
 end
 

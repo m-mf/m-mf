@@ -1,5 +1,5 @@
 -- m&mf (c) 2010-2015 by Vadim Peretokin
--- m&mf (c) 2022 by Vadim Peretokin
+-- m&mf (c) 2022 by Steingrim
 
 -- m&mf is licensed under a
 -- Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
@@ -3815,63 +3815,6 @@ dict = {
     },
   },
 #end
---   fillfaeleaf = {
---     physical = {
---       balanceless_act = true,
---       aspriority = 1,
---       spriority = 42,
-
---       isadvisable = function ()
---         return (pipes.faeleaf.puffs <= 0 and not doingaction("fillfaeleaf") and not (pipes.faeleaf.id == 0) and codepaste.can_refill()) or false
---       end,
-
---       oncompleted = function ()
---         pipes.faeleaf.puffs = 10
---       end,
-
---       onstart = function ()
---         fillpipe("faeleaf", pipes.faeleaf.id)
---       end
---     }
---   },
---   fillmyrtle = {
---     physical = {
---       balanceless_act = true,
---       aspriority = 2,
---       spriority = 11,
-
---       isadvisable = function ()
---         return (pipes.myrtle.puffs <= 0 and not doingaction("fillmyrtle") and not (pipes.myrtle.id == 0) and codepaste.can_refill()) or false
---       end,
-
---       oncompleted = function ()
---         pipes.myrtle.puffs = 10
---       end,
-
---       onstart = function ()
---         fillpipe("myrtle", pipes.myrtle.id)
---       end
---     }
---   },
---   fillcoltsfoot = {
---     physical = {
---       balanceless_act = true,
---       aspriority = 3,
---       spriority = 3,
-
---       isadvisable = function ()
---         return (pipes.coltsfoot.puffs <= 0 and not doingaction("fillcoltsfoot") and not (pipes.coltsfoot.id == 0) and codepaste.can_refill()) or false
---       end,
-
---       oncompleted = function ()
---         pipes.coltsfoot.puffs = 10
---       end,
-
---       onstart = function ()
---         fillpipe("coltsfoot", pipes.coltsfoot.id)
---       end
---     }
---   },
   fillsteam = {
     physical = {
       balanceless_act = true,
