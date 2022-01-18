@@ -1898,7 +1898,7 @@ function valid.fillsteam()
 end
 
 function valid.alreadyfull()
-  local result = checkany(dict.fillsteam.physical)
+  local result = checkaction(dict.fillsteam.physical)
 
   if not result then return end
 
