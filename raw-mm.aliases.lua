@@ -231,66 +231,19 @@ end
 end
 
   function aconfig2()
-  cecho("<a_darkblue>--<purple>(m&mf) <a_grey>Configuration, continued<a_darkblue>" .. string.rep("-", 48) .. "\n")
+  cecho("<a_darkblue>--<purple>(m&mf) <a_grey>Configuration, MMCONFIG2 continued<a_darkblue>" .. string.rep("-", 48) .. "\n")
 
-  cecho("<a_darkcyan>  Pipe IDs:\n")
-  cecho("<a_darkgrey>    Coltsfoot          Faeleaf            Myrtle            Steam\n")
+  local c1,s1 =
+  unpack(pipes.steam.arty and
+      {"<gold>", "Arty"} or
+          (pipes.steam.lit and {"<a_yellow>", "Lit!"} or {"<a_darkgrey>", "Unlit."})
+  )
+ 
+  -- I know this is ugly but the 'f stringformated hated the versions of it I tried. This works and it can be made pretty some other day.'
+  cecho(f("\n<a_darkcyan>  Steam Pipe: <a_grey>ID " ..pipes.steam.id .."   puffs: " ..pipes.steam.puffs .."   lit? " .. c1 ..s1))
+  resetFormat()
 
-  cecho(string.format(
-    "%s    ID %s%-16d"
-  .."%sID %s%-16d"
-  .."%sID %s%-15d"
-  .."%sID %s%d\n",
-    "<a_grey>", "<a_cyan>", pipes.coltsfoot.id,
-    "<a_grey>", "<a_cyan>", pipes.faeleaf.id,
-    "<a_grey>", "<a_cyan>", pipes.myrtle.id,
-    "<a_grey>", "<a_cyan>", pipes.steam.id
-  ))
-
-  cecho(string.format(
-    "%s    Puffs %s%-2d%-11s"
-  .."%sPuffs %s%-2d%-11s"
-  .."%sPuffs %s%-2d%-10s"
-  .."%sPuffs %s%-2d\n",
-    "<a_grey>", "<a_cyan>", pipes.coltsfoot.puffs, " ",
-    "<a_grey>", "<a_cyan>", pipes.faeleaf.puffs, " ",
-    "<a_grey>", "<a_cyan>", pipes.myrtle.puffs, " ",
-    "<a_grey>", "<a_cyan>", pipes.steam.puffs
-  ))
-
-local c1,s1 =
-    unpack(pipes.coltsfoot.arty and
-        {"<gold>", "Arty"} or
-            (pipes.coltsfoot.lit and {"<a_yellow>", "Lit!"} or {"<a_darkgrey>", "Unlit."})
-
-    )
-local c2,s2 =
-    unpack(pipes.faeleaf.arty and
-        {"<gold>", "Arty"} or
-            (pipes.faeleaf.lit and {"<a_yellow>", "Lit!"} or {"<a_darkgrey>", "Unlit."})
-
-    )
-local c3,s3 =
-    unpack(pipes.myrtle.arty and
-        {"<gold>", "Arty"} or
-            (pipes.myrtle.lit and {"<a_yellow>", "Lit!"} or {"<a_darkgrey>", "Unlit."})
-
-    )
-local c4,s4 =
-    unpack(pipes.steam.arty and
-        {"<gold>", "Arty"} or
-            (pipes.steam.lit and {"<a_yellow>", "Lit!"} or {"<a_darkgrey>", "Unlit."})
-
-    )
-
-  cecho(string.format("    %s%-19s%s%-19s%s%-18s%s%s\n\n",
-    c1,s1,
-    c2,s2,
-    c3,s3,
-    c4,s4
-   ))
-
-  cecho("<a_darkcyan>  Advanced options:\n")
+  cecho("\n<a_darkcyan>  Advanced options:\n")
 
   for k,v in config_dict:iter() do
     if not v.g1 and type(v.onshow) == "string" and conf[k] and v.v2 and not v.vconfig2string then
