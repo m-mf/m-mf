@@ -466,8 +466,6 @@ end
   mm.echof("mmf is now ignoring all")
 end
 
-mm_ignore_ext_patch_on()
-
 install.ids = install.ids or {}
 
 -- same name as conf
