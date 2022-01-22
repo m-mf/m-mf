@@ -57339,6 +57339,32 @@ send("domoth status")</script>
 				<packageName></packageName>
 				<regex>^mm ?docs$</regex>
 			</Alias>
+            <Alias isActive="yes" isFolder="no">
+				<name>mm ignoreall steingrim version</name>
+				<script>--steingrim external temp patch version 3.0
+if not matches[2] then
+  mm_ignore_help()
+elseif matches[2]:lower() == "help" then
+  mm_ignore_help()
+elseif matches[2]:lower() == "def" then
+  mm_ignore_defs_ext_patch_on()
+elseif matches[2]:lower() == "misc" then
+  mm_ignore_misc_ext_patch_on()
+elseif matches[2]:lower() == "aff" or matches[2]:lower() == "affs" then
+  mm_ignore_affs_ext_patch_on()
+elseif matches[2]:lower() == "on" or matches[2]:lower() == "all" then
+  mm_ignore_ext_patch_on()
+elseif matches[2]:lower() == "off" then
+  mm.echof("No longer ignoring!")
+  mm.ignore = {}
+else
+  mm_ignore_help()
+end
+</script>
+				<command></command>
+				<packageName></packageName>
+				<regex>(?i)^mm ?ignoreall(?: (help|on|off|def|misc|aff|affs|all))?$</regex>
+			</Alias>
 		</AliasGroup>
 	</AliasPackage>
 	<ActionPackage>
