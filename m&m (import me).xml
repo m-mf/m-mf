@@ -43492,7 +43492,7 @@ end</script>
 						<integer>1</integer>
 						<integer>1</integer>
 					</regexCodePropertyList>
-					<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>m&amp;m wound overhaul</name>
 						<script></script>
 						<triggerType>0</triggerType>
@@ -57339,7 +57339,7 @@ send("domoth status")</script>
 				<packageName></packageName>
 				<regex>^mm ?docs$</regex>
 			</Alias>
-            <Alias isActive="yes" isFolder="no">
+			<Alias isActive="yes" isFolder="no">
 				<name>mm ignoreall steingrim version</name>
 				<script>--steingrim external temp patch version 3.0
 if not matches[2] then

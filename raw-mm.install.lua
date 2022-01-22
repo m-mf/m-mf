@@ -30,7 +30,7 @@ function mm_ignore_defs_ext_patch_on()
   --mm.ignore.quicksilver = false
   --mm.ignore.reflection = false
   mm.echof("mmf is now ignoring defences!")
-  mm.echof("  fire, frost, galvanism, quicksilver")  
+  mm.echof("- defs: fire, frost, galvanism")  
 end
   
 function mm_ignore_affs_ext_patch_on()
@@ -448,13 +448,13 @@ function mm_ignore_help()
   mm.echof("  Ignoring defs means that <b>even</b> if you add them")
   mm.echof("  to a defup/keepup setting they will not fire.")
   mm.echof("  toggle syntax:")
-  mm.echof("  mmignore fire|frost|galvanism|quicksilver|reflection.")
+  mm.echof("  - MMIGNORE FIRE|FROST|GALVANISM.")
   mm.echof("  - this is okay as they'll be added to server-side autocuring.")
   mm.echof("")
-  mm.echof("  *Recomended you mmignore trueblind & mmignore truedeaf.")
+  mm.echof("  *Recomended you MMIGNORE TRUEBLIND & MMIGNORE TRUEDEAF.")
   mm.echof("")
   mm.echof("  SYNTAX:")
-  mm.echof("   mmignoreall or mm ignoreall <on|off|def|affs|all>")
+  mm.echof("  - MMIGNOREALL or MM IGNOREALL <ON|OFF|DEF|AFFS|ALL>")
   mm.echof("")
   mm.echof("******************")
 end
@@ -463,7 +463,7 @@ end
   mm_ignore_misc_ext_patch_on()
   mm_ignore_defs_ext_patch_on()
   mm_ignore_affs_ext_patch_on()
-  mm.echof("mmf is now ignoring all")
+  mm.echof("mmf is now ignoring pretty much everything.")
 end
 
 install.ids = install.ids or {}
@@ -1065,6 +1065,11 @@ install.check_install_step = function()
   echof("All done installing! Congrats.")
   signals.saveconfig:emit()
 
+  mm_ignore_help()
+  mm_ignore_misc_ext_patch_on()
+  sendAll("ac mod slushqueue push fire", "ac mod slushqueue push frost", "ac mod slushqueue push frost", false)
+  echof("Attempting to add fire, frost and galvanism defs to autocuring. This will fail IF you have yet to learn AB DISCIPLINE CURING!\n")
+
   decho(getDefaultColor().."If you'd like, you can also optionally setup the ")
   echoLink("stance / parry", 'mm.sp.setup()', 'stance/parry')
   decho(getDefaultColor().." system and the ")
@@ -1149,6 +1154,3 @@ function install.checkcombat()
 end
 signals.gmcpcharskillslist:connect(install.checkcombat)
 signals.gmcpcharskillslist:block(install.checkcombat)
-
-mm_ignore_misc_ext_patch_on()
-sendAll("ac mod slushqueue push fire", "ac mod slushqueue push frost", "ac mod slushqueue push frost", false)
