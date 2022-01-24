@@ -26083,9 +26083,11 @@ raiseEvent("m&amp;m left module")</script>
 						<colorTriggerBgColor>#000000</colorTriggerBgColor>
 						<regexCodeList>
 							<string>With a long, slow blink, you allow your mind to drift free from the ship, and release your lock on</string>
+							<string>You are not standing in a ship.</string>
 						</regexCodeList>
 						<regexCodePropertyList>
 							<integer>2</integer>
+							<integer>3</integer>
 						</regexCodePropertyList>
 					</Trigger>
 				</TriggerGroup>
