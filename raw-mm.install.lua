@@ -996,8 +996,6 @@ function installstart(fresh)
   install.ids = {}
   local ids = install.ids
 
-  --gmcp implimentation needs work and thought so sticking with the non-gmcp implimentation here for now. 
-  --if not sys.enabledgmcp then
   if ids then
     for skill, skilldata in pairs(installdata) do
       ids[skill] = {}
@@ -1006,19 +1004,10 @@ function installstart(fresh)
       if skilldata.other then ids[skill][#ids[skill]+1] = tempRegexTrigger(skilldata.other.pattern, skilldata.other.script) end
       send(skilldata.command, false)
     end
---   else
---     for skill, skilldata in pairs(installdata) do
---       if skilldata.gmcp then
---         sendGMCP("Char.Skills.Get "..yajl.to_string(skilldata.gmcp))
---         ids[skill] = true
---       end
---     end
 
-    --sendGMCP("Char.Skills.Get "..yajl.to_string{group = "combat"})
     sendGMCP("Char.Items.Inv")
     signals.gmcpcharskillsinfo:unblock(install.checkskillgmcp)
     signals.gmcpcharitemslist:unblock(install.checkinvgmcp)
-    --signals.gmcpcharskillslist:unblock(install.checkcombat)
   end
 
   if sys.enabledgmcp then
