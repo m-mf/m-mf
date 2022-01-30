@@ -230,21 +230,23 @@ end
   echo"\n"
 end
 
-  function aconfig2()
+function aconfig2()
   cecho("<a_darkblue>--<purple>(m&mf) <a_grey>Configuration, MMCONFIG2 continued<a_darkblue>" .. string.rep("-", 48) .. "\n")
 
-  local c1,s1 =
-  unpack(pipes.steam.arty and
+  local function config2_show_pipes_status()
+    local pipes = deepcopy(pipes)
+    local c1,s1 =
+    unpack(pipes.steam.arty and
       {"<gold>", "Arty"} or
           (pipes.steam.lit and {"<a_yellow>", "Lit!"} or {"<a_darkgrey>", "Unlit."})
-  )
- 
-  -- 'f'string format Failure recap 2. This version doesn't work.
-  echo("" ..pipes.steam.id)
-  echo(f("\n Steam Pipe: ID {tostring(pipes.steam.id)}"))
+    )
+  cecho(f("\n<a_darkcyan>  Steam Pipe is: {c1}{s1} <a_grey>ID {pipes.steam.id}   puffs: {pipes.steam.puffs} "))
   resetFormat()
+end
 
-  cecho("\n<a_darkcyan>  Advanced options:\n")
+config2_show_pipes_status()
+
+cecho("\n<a_darkcyan>  Advanced options:\n")
 
   for k,v in config_dict:iter() do
     if not v.g1 and type(v.onshow) == "string" and conf[k] and v.v2 and not v.vconfig2string then
