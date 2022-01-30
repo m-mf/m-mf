@@ -239,8 +239,8 @@ end
           (pipes.steam.lit and {"<a_yellow>", "Lit!"} or {"<a_darkgrey>", "Unlit."})
   )
  
-  -- I know this is ugly but the 'f stringformated hated the versions of it I tried. This works and it can be made pretty some other day.'
-  cecho(f("\n<a_darkcyan>  Steam Pipe: <a_grey>ID " ..pipes.steam.id .."   puffs: " ..pipes.steam.puffs .."   lit? " .. c1 ..s1))
+  -- 'f'string format Failure recap 1. This version doesn't work.
+  echo(f("\n Steam Pipe: ID {pipes.steam.id}"))
   resetFormat()
 
   cecho("\n<a_darkcyan>  Advanced options:\n")
