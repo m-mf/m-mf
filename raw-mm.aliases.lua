@@ -239,8 +239,9 @@ end
           (pipes.steam.lit and {"<a_yellow>", "Lit!"} or {"<a_darkgrey>", "Unlit."})
   )
  
-  -- 'f'string format Failure recap 1. This version doesn't work.
-  echo(f("\n Steam Pipe: ID {pipes.steam.id}"))
+  -- 'f'string format Failure recap 2. This version doesn't work.
+  echo("" ..pipes.steam.id)
+  echo(f("\n Steam Pipe: ID {tostring(pipes.steam.id)}"))
   resetFormat()
 
   cecho("\n<a_darkcyan>  Advanced options:\n")
