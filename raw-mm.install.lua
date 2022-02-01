@@ -504,7 +504,7 @@ local installdata = {
   },
 #if skills.knighthood then
   parry = {
-    command = "ab knighthood shieldparry",
+    command = "ab shieldparry",
     gmcp = {group = "knighthood", name = "shieldparry"},
     yes = {
       pattern = [[^KNIGHTHOOD - SHIELDPARRY$]],
@@ -517,7 +517,7 @@ local installdata = {
       ]]
     },
     no = {
-      pattern = [[^The shieldparry ability in the Knighthood skill is unknown to you\.$]],
+      pattern = [[^I know of no skill called "Shieldparry\."$]],
       script = [[
         mm.installclear("parry")
         mm.conf.parry = false
@@ -529,7 +529,7 @@ local installdata = {
   },
 #else
   parry = {
-    command = "ab combat shieldparry",
+    command = "ab shieldparry",
     gmcp = {group = "combat", name = "shieldparry"},
     yes = {
       pattern = [[^COMBAT - SHIELDPARRY$]],
@@ -542,7 +542,7 @@ local installdata = {
       ]]
     },
     no = {
-      pattern = [[^The shieldparry ability in the Combat skill is unknown to you\.$]],
+      pattern = [[^I know of no skill called "Shieldparry\."$]],
       script = [[
         mm.installclear("parry")
         mm.conf.parry = false
