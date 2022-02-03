@@ -504,7 +504,7 @@ local installdata = {
   },
 #if skills.knighthood then
   parry = {
-    command = "ab knighthood shieldparry",
+    command = "ab shieldparry",
     gmcp = {group = "knighthood", name = "shieldparry"},
     yes = {
       pattern = [[^KNIGHTHOOD - SHIELDPARRY$]],
@@ -517,7 +517,7 @@ local installdata = {
       ]]
     },
     no = {
-      pattern = [[^The shieldparry ability in the Knighthood skill is unknown to you\.$]],
+      pattern = [[^I know of no skill called "Shieldparry\."$]],
       script = [[
         mm.installclear("parry")
         mm.conf.parry = false
@@ -529,7 +529,7 @@ local installdata = {
   },
 #else
   parry = {
-    command = "ab combat shieldparry",
+    command = "ab shieldparry",
     gmcp = {group = "combat", name = "shieldparry"},
     yes = {
       pattern = [[^COMBAT - SHIELDPARRY$]],
@@ -542,7 +542,7 @@ local installdata = {
       ]]
     },
     no = {
-      pattern = [[^The shieldparry ability in the Combat skill is unknown to you\.$]],
+      pattern = [[^I know of no skill called "Shieldparry\."$]],
       script = [[
         mm.installclear("parry")
         mm.conf.parry = false
@@ -559,7 +559,7 @@ local installdata = {
   },
 #if skills.lowmagic then
   green = {
-    command = "ab lowmagic green",
+    command = "ab green",
     gmcp = {group = "lowmagic", name = "green"},
     yes = {
       pattern = [[^LOWMAGIC - GREEN$]],
@@ -572,7 +572,7 @@ local installdata = {
       ]]
     },
     no = {
-      pattern = [[^The green ability in the Lowmagic skill is unknown to you\.$]],
+      pattern = [[^I know of no skill called "Green\."$]],
       script = [[
         mm.installclear("green")
         mm.conf.green = false
@@ -583,7 +583,7 @@ local installdata = {
     }
   },
   summer = {
-    command = "ab lowmagic summer",
+    command = "ab summer",
     gmcp = {group = "lowmagic", name = "summer"},
     yes = {
       pattern = [[^LOWMAGIC - SUMMER$]],
@@ -596,7 +596,7 @@ local installdata = {
       ]]
     },
     no = {
-      pattern = [[^The summer ability in the Lowmagic skill is unknown to you\.$]],
+      pattern = [[^I know of no skill called "Summer\."$]],
       script = [[
         mm.installclear("summer")
         mm.conf.summer = false
@@ -609,7 +609,7 @@ local installdata = {
 #end
 #if skills.highmagic then
   gedulah = {
-    command = "ab highmagic gedulah",
+    command = "ab gedulah",
     gmcp = {group = "highmagic", name = "gedulah"},
     yes = {
       pattern = [[^HIGHMAGIC - GEDULAH$]],
@@ -622,7 +622,7 @@ local installdata = {
       ]]
     },
     no = {
-      pattern = [[^The gedulah ability in the Highmagic skill is unknown to you\.$]],
+      pattern = [[^I know of no skill called "Gedulah\."$]],
       script = [[
         mm.installclear("gedulah")
         mm.conf.gedulah = false
@@ -633,7 +633,7 @@ local installdata = {
     }
   },
   tipheret = {
-    command = "ab highmagic tipheret",
+    command = "ab tipheret",
     gmcp = {group = "highmagic", name = "tipheret"},
     yes = {
       pattern = [[^HIGHMAGIC - TIPHERET$]],
@@ -646,7 +646,7 @@ local installdata = {
       ]]
     },
     no = {
-      pattern = [[^The tipheret ability in the Highmagic skill is unknown to you\.$]],
+      pattern = [[^I know of no skill called "Tipheret\."$]],
       script = [[
         mm.installclear("tipheret")
         mm.conf.tipheret = false
@@ -658,7 +658,7 @@ local installdata = {
   },
 #end
   focusbody = {
-    command = "ab discipline focusbody",
+    command = "ab focusbody",
     gmcp = {group = "discipline", name = "focusbody"},
     yes = {
       pattern = [[^DISCIPLINE - FOCUSBODY$]],
@@ -671,7 +671,7 @@ local installdata = {
       ]]
     },
     no = {
-      pattern = [[^The focusbody ability in the Discipline skill is unknown to you\.$]],
+      pattern = [[^I know of no skill called "Focusbody\."$]],
       script = [[
         mm.installclear("focusbody")
         mm.conf.focusbody = false
@@ -682,7 +682,7 @@ local installdata = {
     }
   },
   focusmind = {
-    command = "ab discipline focusmind",
+    command = "ab focusmind",
     gmcp = {group = "discipline", name = "focusmind"},
     yes = {
       pattern = [[^DISCIPLINE - FOCUSMIND$]],
@@ -695,7 +695,7 @@ local installdata = {
       ]]
     },
     no = {
-      pattern = [[^The focusmind ability in the Discipline skill is unknown to you\.$]],
+      pattern = [[^I know of no skill called "Focusmind\."$]],
       script = [[
         mm.installclear("focusmind")
         mm.conf.focusmind = false
@@ -706,7 +706,7 @@ local installdata = {
     }
   },
   focusspirit = {
-    command = "ab discipline focusspirit",
+    command = "ab focusspirit",
     gmcp = {group = "discipline", name = "focusspirit"},
     yes = {
       pattern = [[^DISCIPLINE - FOCUSSPIRIT$]],
@@ -719,7 +719,7 @@ local installdata = {
       ]]
     },
     no = {
-      pattern = [[^The focusspirit ability in the Discipline skill is unknown to you\.$]],
+      pattern = [[^I know of no skill called "Focusspirit\."$]],
       script = [[
         mm.installclear("focusspirit")
         mm.conf.focusspirit = false
@@ -730,7 +730,7 @@ local installdata = {
     }
   },
   rockclimbing = {
-    command = "ab environment rockclimbing",
+    command = "ab rockclimbing",
     gmcp = {group = "environment", name = "rockclimbing"},
     yes = {
       pattern = [[^ENVIRONMENT - ROCKCLIMBING$]],
@@ -743,7 +743,7 @@ local installdata = {
       ]]
     },
     no = {
-      pattern = [[^The rockclimbing ability in the Environment skill is unknown to you\.$]],
+      pattern = [[^I know of no skill called "Contort\."$]],
       script = [[
         mm.installclear("rockclimbing")
         mm.conf.rockclimbing = false
@@ -794,7 +794,7 @@ local installdata = {
     }
   },
   magictome = {
-    command = "ii bar of golden magictome",
+    command = "ii a magic tome",
     item = true,
     other = {
       pattern = [[^You are wielding:$]],
@@ -828,7 +828,7 @@ local installdata = {
     }
   },
   insomnia = {
-    command = "ab discipline insomnia",
+    command = "ab insomnia",
     gmcp = {group = "discipline", name = "insomnia"},
     yes = {
       pattern = [[^DISCIPLINE - INSOMNIA$]],
@@ -841,7 +841,7 @@ local installdata = {
       ]]
     },
     no = {
-      pattern = [[^The insomnia ability in the Discipline skill is unknown to you\.$]],
+      pattern = [[^I know of no skill called "Insomnia\."$]],
       script = [[
         mm.installclear("insomnia")
         mm.conf.insomnia = false
@@ -852,7 +852,7 @@ local installdata = {
     }
   },
   clot = {
-    command = "ab discipline clotting",
+    command = "ab clotting",
     gmcp = {group = "discipline", name = "clotting"},
     yes = {
       pattern = [[^DISCIPLINE - CLOTTING$]],
@@ -865,7 +865,7 @@ local installdata = {
       ]]
     },
     no = {
-      pattern = [[^The clotting ability in the Discipline skill is unknown to you\.$]],
+      pattern = [[^I know of no skill called "Clotting\."$]],
       script = [[
         mm.installclear("clot")
         mm.conf.clot = false
@@ -877,7 +877,7 @@ local installdata = {
   },
 #if skills.acrobatics then
   contort = {
-    command = "ab acrobatics contortion",
+    command = "ab contortion",
     gmcp = {group = "acrobatics", name = "contortion"},
     yes = {
       pattern = [[^ACROBATICS - CONTORTION$]],
@@ -890,7 +890,31 @@ local installdata = {
       ]]
     },
     no = {
-      pattern = [[^I know of no skill called "Contort\."$]],
+      pattern = [[^I know of no skill called "Contortion\."$]],
+      script = [[
+        mm.installclear("contort")
+        mm.conf.contort = false
+        tempLineTrigger(1, 1, [=[deleteLine()]=])
+        selectString(line, 1) replace ""
+        mm.echof("Don't have contort, so <250,0,0>won't%s be using it whenever possible.", mm.getDefaultColor())
+      ]]
+    }
+  },
+  springup = {
+    command = "ab springup",
+    gmcp = {group = "acrobatics", name = "springup"},
+    yes = {
+      pattern = [[^ACROBATICS - CONTORTION$]],
+      script = [[
+        mm.installclear("contort")
+        mm.conf.contort = true
+        tempLineTrigger(1, 4, [=[deleteLine()]=])
+        selectString(line, 1) replace ""
+        mm.echof("Have contort, so <0,250,0>will%s be using it whenever possible.", mm.getDefaultColor())
+      ]]
+    },
+    no = {
+      pattern = [[^I know of no skill called "Springup\."$]],
       script = [[
         mm.installclear("contort")
         mm.conf.contort = false
@@ -987,7 +1011,7 @@ function installstart(option)
   install.ids = {}
   local ids = install.ids
 
-  if not sys.enabledgmcp then
+  if ids then
     for skill, skilldata in pairs(installdata) do
       ids[skill] = {}
       if skilldata.yes then ids[skill][#ids[skill]+1] = tempRegexTrigger(skilldata.yes.pattern, skilldata.yes.script) end
@@ -995,19 +1019,10 @@ function installstart(option)
       if skilldata.other then ids[skill][#ids[skill]+1] = tempRegexTrigger(skilldata.other.pattern, skilldata.other.script) end
       send(skilldata.command, false)
     end
-  else
-    for skill, skilldata in pairs(installdata) do
-      if skilldata.gmcp then
-        sendGMCP("Char.Skills.Get "..yajl.to_string(skilldata.gmcp))
-        ids[skill] = true
-      end
-    end
 
-    sendGMCP("Char.Skills.Get "..yajl.to_string{group = "combat"})
     sendGMCP("Char.Items.Inv")
     signals.gmcpcharskillsinfo:unblock(install.checkskillgmcp)
     signals.gmcpcharitemslist:unblock(install.checkinvgmcp)
-    signals.gmcpcharskillslist:unblock(install.checkcombat)
   end
 
   if sys.enabledgmcp then
@@ -1019,7 +1034,7 @@ function installstart(option)
 
     signals.gmcpcharskillsinfo:block(install.checkskillgmcp)
     signals.gmcpcharitemslist:block(install.checkinvgmcp)
-    signals.gmcpcharskillslist:block(install.checkcombat)
+    --signals.gmcpcharskillslist:block(install.checkcombat)
 
     install.installing_system = false
 
@@ -1043,7 +1058,7 @@ function installstart(option)
   end
   pipes.coltsfoot.id, pipes.faeleaf.id, pipes.myrtle.id, pipes.steam.id = 0,0,0,0
 
-  if sys.enabledgmcp then
+  if gmcp.Char.Status.city then
     local city = gmcp.Char.Status.city:match("^(%w+)")
     if city then config.set("org", city, true) end
   end
@@ -1142,7 +1157,6 @@ function install.checkinvgmcp()
       end
     end
   end
-
 
   installclear("scrollid")
   installclear("autorecharge")
