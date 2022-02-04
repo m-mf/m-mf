@@ -963,13 +963,34 @@ function installclear(what)
   end)
 end
 
-function installstart(fresh)
-  if fresh and not sk.installwarning then
+function installstart(option)
+  if option == "start" then
+
+  elseif option == "fresh" and not sk.installwarning then
     echof("Are you really sure you want to wipe everything (all remove all non-default defence modes, clear basic+combat defup/keepup to blank, remove all configuration options)? If yes, do mminstall fresh again.")
     if selectString("really", 1) ~= -1 then setUnderline(true) resetFormat() end
     sk.installwarning = true
     return
-  elseif fresh and sk.installwarning then
+  elseif option == "help" then
+    mm.echof("-------------------------")
+    mm.echof("Welcome to m&mf install")
+    mm.echof("-------------------------")
+    mm.echof("")
+    cecho("        Currently we suggest you use the default installation option <dodger_blue>mminstall start")
+    mm.echof("")
+    cecho("        Options: <dodger_blue>mminstall [start|fresh]<white>\n")
+    cecho("          <dodger_blue>mminstall start<white> - Default installation.\n")
+    echo("              After installation, you can tweak the system with the following:\n")
+    cecho("                <orchid>mmconfig \n")
+    cecho("                <orchid>mmconfig2 \n")
+    cecho("                <orchid>mmshow \n")
+    mm.echof("")
+    cecho("          <dodger_blue>mminstall fresh<white> - more of a hard reset.\n")
+    echo("          Note: ''mminstall fresh' will attempt to remove existing m-mf settings for a fresh start. This will fail if elevated privs are required to work. Should this fail. Quit Mudlet, then navigate to the profile folder/directory, and delete the 'm-mf' folder within your Mudlet profile.)\n")
+    mm.echof("")
+    mm.echof("-------------------------")
+    return
+  elseif option == "fresh" and sk.installwarning then
     local s, m = os.remove(getMudletHomeDir() .. "/m&m")
     if not s then echof("Couldn't remove m&mf folder because of: %s", m) end
 

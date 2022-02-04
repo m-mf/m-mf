@@ -43494,7 +43494,7 @@ end</script>
 						<integer>1</integer>
 						<integer>1</integer>
 					</regexCodePropertyList>
-					<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>m&amp;m wound overhaul</name>
 						<script></script>
 						<triggerType>0</triggerType>
@@ -56867,10 +56867,28 @@ end</script>
 			</Alias>
 			<Alias isActive="yes" isFolder="no">
 				<name>Start installation</name>
-				<script>mm.installstart(matches[2])</script>
+				<script>
+                local para = "help"
+
+                  if matches[2] then
+                    para = string.lower(matches[2])
+                  end
+
+                  if para == "help" then
+                    mm.installstart("help")
+                  elseif para == "start" then
+                    mm.installstart("default")
+                  elseif para == "fresh" then
+                    mm.installstart("fresh")
+                  else
+                    mm.installstart("help")
+                    mm.echof("")
+                    mm.echof("I do not understand what you mean by: MMINSTALL " ..string.upper(para) .." please try again.")  
+                  end
+                </script>
 				<command></command>
 				<packageName></packageName>
-				<regex>^mm ?install( fresh)?$</regex>
+				<regex>^mm(?: )?install(?: (\w+))?$</regex>
 			</Alias>
 			<Alias isActive="yes" isFolder="no">
 				<name>Stance/parry configuration</name>
